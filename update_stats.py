@@ -1,87 +1,127 @@
+import json
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
-import json
 
-current_date = (datetime.utcnow() + timedelta(hours=8)).strftime("%Y-%m-%d")
-scrape_url = "https://2030.tw/5g_taiwan/"
-headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
-
-web_scraped_metrics = {}
-try:
-    web_res = requests.get(scrape_url, headers=headers, timeout=10)
-    if web_res.status_code == 200:
-        soup = BeautifulSoup(web_res.text, 'html.parser')
-        article = soup.find(class_="entry-content") or soup.find("article")
-        if article:
-            for row in article.find_all("tr"):
-                cells = [c.get_text(strip=True) for c in row.find_all(["td", "th"])]
-                if len(cells) >= 3:
-                    label = cells[0].upper()
-                    metric_key = None
-                    if "打擊率" in label or "AVG" in label: metric_key = "avg"
-                    elif "進攻" in label or "OPS" in label: metric_key = "ops"
-                    elif "上壘" in label or "OBP" in label: metric_key = "obp"
-                    elif "長打" in label or "SLG" in label: metric_key = "slg"
-                    elif "全壘打" in label or "HR" in label: metric_key = "hr"
-                    elif "打點" in label or "RBI" in label: metric_key = "rbi"
-                    elif "得分" in label or label == "R": metric_key = "r"
-                    elif "防禦率" in label or "ERA" in label: metric_key = "era"
-                    elif "WHIP" in label: metric_key = "whip"
-                    elif "三振" in label or "SO" in label: metric_key = "so"
-                    if metric_key:
-                        web_scraped_metrics[metric_key] = (cells[1], cells[2])
-except Exception as e:
-    print(f"網頁跳過: {e}")
-
-api_url = f"https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&date={current_date}&hydrate=team(stats(type=season))"
-formatted_matches = []
-
-try:
-    api_res = requests.get(api_url, timeout=15).json()
-    games = api_res.get("dates", [{}])[0].get("games", [])
-    for index, game in enumerate(games):
-        away_data = game["teams"]["away"]
-        home_data = game["teams"]["home"]
+def parse_mlb_time(time_str):
+    """
+    將 RotoWire 的美東時間字串（例如 "1:05 PM" 或 "7:10 PM"）
+    轉換為當天（或隔天）的台灣時間字串
+    """
+    try:
+        # 移除可能的多餘空格
+        time_str = time_str.strip()
+        if not time_str:
+            return "時間未定"
+            
+        # 取得今天的美東日期基準
+        # RotoWire 顯示的是當天賽事，先抓目前美東大約時間
+        est_now = datetime.utcnow() - timedelta(hours=4) 
         
-        try:
-            utc_dt = datetime.strptime(game["gameDate"], "%Y-%m-%dT%H:%M:%SZ")
-            display_time = (utc_dt + timedelta(hours=8)).strftime("%m/%d %H:%M")
-        except:
-            display_time = "進行中"
+        # 解析網頁上的時間 (例如 1:05 PM)
+        parsed_time = datetime.strptime(time_str, "%I:%M %p")
+        
+        # 組合出完整的美東比賽時間物件
+        est_game_datetime = est_now.replace(
+            hour=parsed_time.hour, 
+            minute=parsed_time.minute, 
+            second=0, 
+            microsecond=0
+        )
+        
+        # 美東時間 (EST/EDT) 轉台灣時間 (UTC+8) 
+        # 這裡以夏令時間差距 12 小時為主（若冬令時間為 13 小時，因 MLB 賽季皆在夏令，+12即可）
+        tw_game_datetime = est_game_datetime + timedelta(hours=12)
+        
+        # 格式化輸出：2026-06-03 (三) 07:10
+        weekdays = ["一", "二", "三", "四", "五", "六", "日"]
+        weekday_str = weekdays[tw_game_datetime.weekday()]
+        
+        return tw_game_datetime.strftime(f"%Y-%m-%d ({weekday_str}) %H:%M")
+    except Exception as e:
+        return time_str  # 失敗則回傳原始字串
 
-        def extract_team_stats(team_node, side_index):
-            stats_dict = {"avg": ".000", "ops": ".000", "obp": ".000", "slg": ".000", "hr": "0", "rbi": "0", "r": "0", "era": "0.00", "whip": "0.00", "so": "0"}
-            if "stats" in team_node:
-                for sg in team_node["stats"]:
-                    if sg.get("type", {}).get("displayName") == "season":
-                        splits = sg.get("splits", [])
-                        if splits:
-                            s = splits[0].get("stat", {})
-                            stats_dict.update({
-                                "avg": f"{s.get('avg', 0):.3f}" if isinstance(s.get('avg'), (int,float)) else ".000",
-                                "ops": f"{s.get('ops', 0):.3f}" if isinstance(s.get('ops'), (int,float)) else ".000",
-                                "obp": f"{s.get('obp', 0):.3f}" if isinstance(s.get('obp'), (int,float)) else ".000",
-                                "slg": f"{s.get('slg', 0):.3f}" if isinstance(s.get('slg'), (int,float)) else ".000",
-                                "hr": str(s.get("homeRuns", 0)), "rbi": str(s.get("rbi", 0)), "r": str(s.get("runs", 0)),
-                                "era": f"{s.get('era', 0.00):.2f}" if isinstance(s.get('era'), (int,float)) else "0.00",
-                                "whip": f"{s.get('whip', 0.00):.2f}" if isinstance(s.get('whip'), (int,float)) else "0.00",
-                                "so": str(s.get("strikeOuts", 0))
-                            })
-            for k in stats_dict.keys():
-                if k in web_scraped_metrics:
-                    stats_dict[k] = web_scraped_metrics[k][side_index]
-            return stats_dict
+def get_mlb_games():
+    url = "https://www.rotowire.com/baseball/odds.php"
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+        'Referer': 'https://www.google.com/'
+    }
+    
+    try:
+        response = requests.get(url, headers=headers)
+        if response.status_code != 200:
+            print(f"無法存取網站，HTTP 狀態碼: {response.status_code}")
+            return []
+            
+        soup = BeautifulSoup(response.text, 'html.parser')
+        games_list = []
+        game_cards = soup.select('.odds-box') 
+        
+        for card in game_cards:
+            try:
+                away_row = card.select_one('.line-top')
+                home_row = card.select_one('.line-bottom')
+                if not away_row or not home_row:
+                    continue
+                
+                # 抓取比賽時間字串 (例如 "1:05 PM")
+                time_el = card.select_one('.odds-meta__time')
+                raw_time = time_el.text.strip() if time_el else ""
+                tw_time_str = parse_mlb_time(raw_time)
+                
+                # 隊名
+                away_team = away_row.select_one('.odds-team a').text.strip() if away_row.select_one('.odds-team a') else "Unknown"
+                home_team = home_row.select_one('.odds-team a').text.strip() if home_row.select_one('.odds-team a') else "Unknown"
+                
+                # 客隊投手
+                away_pitcher_element = away_row.select_one('.odds-pitcher')
+                away_pitcher_name, away_era, away_whip = "TBD", "N/A", "N/A"
+                if away_pitcher_element and away_pitcher_element.select_one('a'):
+                    away_pitcher_name = away_pitcher_element.select_one('a').text.strip()
+                    stats_text = away_pitcher_element.text.replace(away_pitcher_name, "").strip().strip('()')
+                    if ',' in stats_text:
+                        away_era, away_whip = [s.strip() for s in stats_text.split(',')]
 
-        formatted_matches.append({
-            "id": game.get("gamePk", index),
-            "time": display_time,
-            "status": game["status"]["detailedState"],
-            "awayTeam": {"name": away_data["team"].get("teamName", "客隊"), "code": away_data["team"].get("fileCode", "mlb").upper(), "stats": extract_team_stats(away_data["team"], 0)},
-            "homeTeam": {"name": home_data["team"].get("teamName", "主隊"), "code": home_data["team"].get("fileCode", "mlb").upper(), "stats": extract_team_stats(home_data["team"], 1)}
-        })
-except Exception as e:
-    print(f"API 錯誤: {e}")
+                # 主隊投手
+                home_pitcher_element = home_row.select_one('.odds-pitcher')
+                home_pitcher_name, home_era, home_whip = "TBD", "N/A", "N/A"
+                if home_pitcher_element and home_pitcher_element.select_one('a'):
+                    home_pitcher_name = home_pitcher_element.select_one('a').text.strip()
+                    stats_text = home_pitcher_element.text.replace(home_pitcher_name, "").strip().strip('()')
+                    if ',' in stats_text:
+                        home_era, home_whip = [s.strip() for s in stats_text.split(',')]
 
-with open("data.json", "w", encoding="utf-8") as f:
-    json.dump({"target_date": current_date, "matches": formatted_matches}, f, ensure_ascii=False, indent=2)
+                games_list.append({
+                    "game_time": tw_time_str,  # 已經轉成台灣時間的字串
+                    "away_team": away_team,
+                    "home_team": home_team,
+                    "away_pitcher": {"name": away_pitcher_name, "era": away_era, "whip": away_whip},
+                    "home_pitcher": {"name": home_pitcher_name, "era": home_era, "whip": home_whip}
+                })
+            except Exception:
+                continue 
+                
+        return games_list
+    except Exception as e:
+        print(f"爬蟲發生錯誤: {e}")
+        return []
+
+def main():
+    # 台灣時間（UTC+8）
+    tw_time = datetime.utcnow() + timedelta(hours=8)
+    
+    data = {
+        "last_updated": tw_time.strftime('%Y-%m-%d %H:%M'),
+        "games": get_mlb_games()
+    }
+    
+    with open('data.json', 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+        
+    print(f"成功抓取 {len(data['games'])} 場比賽，時間已全面轉換為台灣時區(UTC+8)！")
+
+if __name__ == "__main__":
+    main()

@@ -3,119 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sportscast Realtime Analytics</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>body { background-color: #f1f5f9; font-family: -apple-system, sans-serif; }</style>
+    <title>MLB 今日賽事看板 (UTC+8)</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #212529;
+            margin: 0;
+            padding: 30px 15px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #0b2240; /* 棒球經典深藍 */
+            text-align: center;
+            margin-bottom: 5px;
+            font-size: 2.2rem;
+        }
+        .update-time {
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+        .game-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th {
+            background-color: #0b2240;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 16px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+        }
+        td {
+            padding: 16px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+            vertical-align: middle;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #f1f3f5;
+        }
+        .time-badge {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+            border: 1px solid #c8e6c9;
+        }
+        .team-name {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: #111;
+        }
+        .vs {
+            font-style: italic;
+            color: #adb5bd;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .pitcher-box {
+            text-align: center;
+        }
+        .pitcher-name {
+            font-weight: 600;
+            color: #0d6efd;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .badge-era { background: #e3f2fd; color: #0d47a1; margin-right: 4px; }
+        .badge-whip { background: #fff3e0; color: #e65100; }
+        
+        #no-data {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+    </style>
 </head>
 <body>
-<div id="app" class="max-w-4xl mx-auto p-3 sm:p-6">
-    <div v-if="loading" class="text-center py-20 text-slate-500 text-sm">
-        <i class="fa-solid fa-circle-notch fa-spin text-blue-600 text-lg mb-2"></i> 正在讀取雲端最新賽事數據...
-    </div>
-    
-    <div v-else>
-        <div v-if="currentPage === 'home'">
-            <header class="mb-5 flex justify-between items-center bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
-                <div>
-                    <h1 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-                        <i class="fa-solid fa-baseball text-blue-600"></i> 數據觀測面板
-                    </h1>
-                    <p class="text-xs text-slate-400 mt-0.5">數據基準日：{{ targetDate }} (由 GitHub Actions 雲端自動更新)</p>
-                </div>
-            </header>
-            
-            <div class="space-y-3">
-                <div v-for="match in matches" :key="match.id" @click="goToDetail(match)" class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm hover:border-blue-500 hover:shadow-md cursor-pointer transition-all flex items-center justify-between group">
-                    <div class="w-1/4">
-                        <div class="text-xs font-bold text-slate-700">{{ match.time }}</div>
-                        <div class="text-[10px] bg-slate-100 text-slate-600 font-bold px-1.5 py-0.5 rounded mt-1 inline-block">{{ match.status }}</div>
-                    </div>
-                    <div class="w-2/4 flex items-center justify-center gap-4">
-                        <div class="flex items-center gap-2 justify-end w-5/12 text-right">
-                            <span class="text-[10px] bg-slate-100 px-1 py-0.2 rounded text-slate-500 font-mono font-bold">{{ match.awayTeam.code }}</span>
-                            <span class="font-bold text-slate-800 text-sm block truncate">{{ match.awayTeam.name }}</span>
-                        </div>
-                        <span class="text-xs font-black text-slate-300">VS</span>
-                        <div class="flex items-center gap-2 justify-start w-5/12 text-left">
-                            <span class="font-bold text-slate-800 text-sm block truncate">{{ match.homeTeam.name }}</span>
-                            <span class="text-[10px] bg-slate-100 px-1 py-0.2 rounded text-slate-500 font-mono font-bold">{{ match.homeTeam.code }}</span>
-                        </div>
-                    </div>
-                    <div class="w-1/4 flex items-center justify-end">
-                        <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:text-blue-600"></i>
-                    </div>
-                </div>
-                <div v-if="matches.length === 0" class="text-center py-10 text-slate-400 text-xs bg-white rounded-xl border border-slate-200 shadow-sm">
-                     今日暫無比賽數據
-                </div>
-            </div>
-        </div>
 
-        <div v-if="currentPage === 'detail' && selectedMatch">
-            <button @click="currentPage = 'home'" class="mb-4 text-xs font-bold text-slate-600 bg-white px-3 py-2 rounded-xl border border-slate-200 shadow-sm hover:bg-slate-50">
-                <i class="fa-solid fa-arrow-left"></i> 返回列表
-            </button>
-            <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
-                <table class="w-full text-xs text-center border-collapse">
-                    <thead>
-                        <tr class="bg-slate-50 text-slate-500 font-bold border-b border-slate-200">
-                            <th class="py-2.5 text-left pl-3">指標項目</th>
-                            <th class="py-2">{{ selectedMatch.awayTeam.name }} (客)</th>
-                            <th class="py-2">{{ selectedMatch.homeTeam.name }} (主)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-100">
-                        <tr v-for="row in teamSpecs" :key="row.key">
-                            <td class="py-3 text-left pl-3 font-semibold text-slate-500">{{ row.label }}</td>
-                            <td class="py-3 font-mono font-bold text-sm">{{ selectedMatch.awayTeam.stats[row.key] }}</td>
-                            <td class="py-3 font-mono font-bold text-sm">{{ selectedMatch.homeTeam.stats[row.key] }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+<div class="container">
+    <h1>⚾ MLB 今日賽事與先發情報</h1>
+    <div class="update-time" id="update-time">最後更新時間：載入中...</div>
+
+    <table class="game-table" id="main-table">
+        <thead>
+            <tr>
+                <th style="width: 20%;">台灣開賽時間 (UTC+8)</th>
+                <th style="width: 20%;">客隊 (Away)</th>
+                <th style="width: 5%;"></th>
+                <th style="width: 20%;">主隊 (Home)</th>
+                <th style="width: 175%;">客隊先發</th>
+                <th style="width: 175%;">主隊先發</th>
+            </tr>
+        </thead>
+        <tbody id="games-tbody">
+            </tbody>
+    </table>
+    
+    <div id="no-data" style="display: none;">目前沒有比賽資料，請確認資料是否正確生成。</div>
 </div>
 
 <script>
-    const { createApp, ref, onMounted } = Vue;
-    createApp({
-        setup() {
-            const currentPage = ref('home'); 
-            const selectedMatch = ref(null);
-            const matches = ref([]); 
-            const targetDate = ref(''); 
-            const loading = ref(true);
-            const teamSpecs = ref([
-                { label: '打擊率 (AVG)', key: 'avg' }, { label: '進攻指數 (OPS)', key: 'ops' },
-                { label: '上壘率 (OBP)', key: 'obp' }, { label: '長打率 (SLG)', key: 'slg' },
-                { label: '全壘打 (HR)', key: 'hr' }, { label: '打點 (RBI)', key: 'rbi' },
-                { label: '得分 (R)', key: 'r' }, { label: '投手防禦率 (ERA)', key: 'era' },
-                { label: '每局被上壘 (WHIP)', key: 'whip' }, { label: '三振數 (SO)', key: 'so' }
-            ]);
+    fetch('data.json')
+        .then(response => {
+            if (!response.ok) throw new Error('無法讀取數據');
+            return response.json();
+        })
+        .then(data => {
+            document.getElementById('update-time').innerText = `系統最後同步：${data.last_updated} (台灣時間)`;
             
-            onMounted(async () => {
-                try {
-                    // 讀取同目錄下由 Python 產出的 data.json
-                    const res = await fetch('data.json'); 
-                    const json = await res.json();
-                    matches.value = json.matches; 
-                    targetDate.value = json.target_date;
-                } catch (e) { 
-                    console.error("雲端數據尚未生成", e); 
-                } finally { 
-                    loading.value = false; 
-                }
+            const tbody = document.getElementById('games-tbody');
+            const games = data.games;
+            
+            if (!games || games.length === 0) {
+                document.getElementById('main-table').style.display = 'none';
+                document.getElementById('no-data').style.display = 'block';
+                return;
+            }
+            
+            games.forEach(game => {
+                const row = document.createElement('tr');
+                
+                row.innerHTML = `
+                    <td><span class="time-badge">${game.game_time}</span></td>
+                    <td class="team-name">${game.away_team}</td>
+                    <td class="vs">@</td>
+                    <td class="team-name">${game.home_team}</td>
+                    <td>
+                        <div class="pitcher-box">
+                            <div class="pitcher-name">${game.away_pitcher.name}</div>
+                            <div>
+                                <span class="badge badge-era">ERA ${game.away_pitcher.era}</span>
+                                <span class="badge badge-whip">WHIP ${game.away_pitcher.whip}</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="pitcher-box">
+                            <div class="pitcher-name">${game.home_pitcher.name}</div>
+                            <div>
+                                <span class="badge badge-era">ERA ${game.home_pitcher.era}</span>
+                                <span class="badge badge-whip">WHIP ${game.home_pitcher.whip}</span>
+                            </div>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
             });
-            
-            return { 
-                currentPage, matches, selectedMatch, teamSpecs, targetDate, loading, 
-                goToDetail: (m) => { selectedMatch.value = m; currentPage.value = 'detail'; } 
-            };
-        }
-    }).mount('#app');
+        })
+        .catch(error => {
+            console.error(error);
+            document.getElementById('update-time').innerText = '錯誤：未能讀取到 data.json。請確認已執行爬蟲腳本。';
+            document.getElementById('main-table').style.display = 'none';
+            document.getElementById('no-data').style.display = 'block';
+        });
 </script>
+
 </body>
 </html>
