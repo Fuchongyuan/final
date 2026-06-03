@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLB 今日賽事看板 (UTC+8)</title>
+    <title>MLB 今日賽事情報看板 (UTC+8)</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f0f2f5;
+            background-color: #f4f6f9;
             color: #212529;
             margin: 0;
             padding: 30px 15px;
@@ -17,10 +17,11 @@
             margin: 0 auto;
         }
         h1 {
-            color: #0b2240; /* 棒球經典深藍 */
+            color: #0b2240;
             text-align: center;
             margin-bottom: 5px;
             font-size: 2.2rem;
+            letter-spacing: 1px;
         }
         .update-time {
             text-align: center;
@@ -28,13 +29,17 @@
             font-size: 0.95rem;
             margin-bottom: 25px;
         }
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            background: #ffffff;
+        }
         .game-table {
             width: 100%;
             border-collapse: collapse;
-            background: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            border-radius: 10px;
-            overflow: hidden;
+            white-space: nowrap;
         }
         th {
             background-color: #0b2240;
@@ -62,7 +67,7 @@
         .time-badge {
             background-color: #e8f5e9;
             color: #2e7d32;
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             font-weight: 600;
             font-size: 0.9rem;
@@ -115,28 +120,31 @@
     <h1>⚾ MLB 今日賽事與先發情報</h1>
     <div class="update-time" id="update-time">最後更新時間：載入中...</div>
 
-    <table class="game-table" id="main-table">
-        <thead>
-            <tr>
-                <th style="width: 20%;">台灣開賽時間 (UTC+8)</th>
-                <th style="width: 20%;">客隊 (Away)</th>
-                <th style="width: 5%;"></th>
-                <th style="width: 20%;">主隊 (Home)</th>
-                <th style="width: 175%;">客隊先發</th>
-                <th style="width: 175%;">主隊先發</th>
-            </tr>
-        </thead>
-        <tbody id="games-tbody">
-            </tbody>
-    </table>
+    <div class="table-responsive" id="table-container">
+        <table class="game-table">
+            <thead>
+                <tr>
+                    <th style="width: 20%;">台灣開賽時間 (UTC+8)</th>
+                    <th style="width: 20%;">客隊 (Away)</th>
+                    <th style="width: 5%;"></th>
+                    <th style="width: 20%;">主隊 (Home)</th>
+                    <th style="width: 17.5%;">客隊先發</th>
+                    <th style="width: 17.5%;">主隊先發</th>
+                </tr>
+            </thead>
+            <tbody id="games-tbody">
+                </tbody>
+        </table>
+    </div>
     
-    <div id="no-data" style="display: none;">目前沒有比賽資料，請確認資料是否正確生成。</div>
+    <div id="no-data" style="display: none;">目前沒有比賽資料，請確認雲端爬蟲是否成功生成數據。</div>
 </div>
 
 <script>
+    // 讀取同目錄下的租用資料 data.json
     fetch('data.json')
         .then(response => {
-            if (!response.ok) throw new Error('無法讀取數據');
+            if (!response.ok) throw new Error('無法讀取數據檔案 (data.json)');
             return response.json();
         })
         .then(data => {
@@ -146,7 +154,7 @@
             const games = data.games;
             
             if (!games || games.length === 0) {
-                document.getElementById('main-table').style.display = 'none';
+                document.getElementById('table-container').style.display = 'none';
                 document.getElementById('no-data').style.display = 'block';
                 return;
             }
@@ -183,8 +191,8 @@
         })
         .catch(error => {
             console.error(error);
-            document.getElementById('update-time').innerText = '錯誤：未能讀取到 data.json。請確認已執行爬蟲腳本。';
-            document.getElementById('main-table').style.display = 'none';
+            document.getElementById('update-time').innerText = '錯誤：未能成功載入賽事數據，請稍後重試。';
+            document.getElementById('table-container').style.display = 'none';
             document.getElementById('no-data').style.display = 'block';
         });
 </script>
