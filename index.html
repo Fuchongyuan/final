@@ -34,9 +34,23 @@
         tr:nth-child(even) { background-color: #f8f9fa; }
         
         .time-badge { background-color: #e8f5e9; color: #2e7d32; padding: 6px 14px; border-radius: 20px; font-weight: 600; }
+        .status-txt { font-size: 0.8rem; color: #757575; margin-top: 4px; display: block; }
         .team-container { display: flex; flex-direction: column; align-items: center; }
         .team-name { font-weight: 700; font-size: 1.05rem; color: #111; }
         .team-record { font-size: 0.8rem; color: #6c757d; margin-top: 2px; background: #e9ecef; padding: 1px 6px; border-radius: 4px; }
+        
+        /* 🎯 比分與狀態顯示樣式 */
+        .score-box { font-size: 1.3rem; font-weight: bold; padding: 0 10px; min-width: 60px; display: inline-block; }
+        .score-live { color: #e67e22; animation: blink 1.5s infinite; }
+        .score-final { color: #2c3e50; }
+        .vs-text { color: #adb5bd; }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
         .pitcher-name { font-weight: 600; color: #0d6efd; font-size: 0.95rem; }
         #no-data { text-align: center; padding: 40px; color: #6c757d; background: #fff; border-radius: 10px; display: none; }
     </style>
@@ -51,7 +65,7 @@
         <table class="game-table">
             <thead>
                 <tr>
-                    <th>時間</th><th>客隊</th><th></th><th>主隊</th><th>客隊先發</th><th>主隊先發</th>
+                    <th>時間 / 狀態</th><th>客隊</th><th>比分</th><th>主隊</th><th>客隊先發</th><th>主隊先發</th>
                 </tr>
             </thead>
             <tbody id="games-tbody"></tbody>
@@ -81,32 +95,58 @@
 
     function renderDateMenu() {
         const menuContainer = document.getElementById('date-menu-container');
+        menuContainer.innerHTML = ''; // 清空避免重複渲染
+        
         Object.keys(globalWeeklyData).sort().forEach((dateStr, index) => {
             const btn = document.createElement('div');
             btn.className = `date-btn ${index === 0 ? 'active' : ''}`;
-            btn.onclick = () => { document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); displayGames(dateStr); };
+            btn.onclick = () => { 
+                document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('active')); 
+                btn.classList.add('active'); 
+                displayGames(dateStr); 
+            };
             btn.innerHTML = `<div class="main-txt">${globalWeeklyData[dateStr].day_label}</div><div class="sub-txt">${globalWeeklyData[dateStr].weekday_label}</div>`;
             menuContainer.appendChild(btn);
         });
-        displayGames(Object.keys(globalWeeklyData).sort()[0]);
+        
+        if (Object.keys(globalWeeklyData).length > 0) {
+            displayGames(Object.keys(globalWeeklyData).sort()[0]);
+        }
     }
 
     function displayGames(dateStr) {
         const tbody = document.getElementById('games-tbody');
         tbody.innerHTML = '';
         const games = globalWeeklyData[dateStr]?.games || [];
-        if (games.length === 0) { document.getElementById('table-container').style.display = 'none'; document.getElementById('no-data').style.display = 'block'; return; }
+        
+        if (games.length === 0) { 
+            document.getElementById('table-container').style.display = 'none'; 
+            document.getElementById('no-data').style.display = 'block'; 
+            return; 
+        }
         
         document.getElementById('table-container').style.display = 'block';
         document.getElementById('no-data').style.display = 'none';
 
         games.forEach(game => {
             const row = document.createElement('tr');
+            
+            // 🎯 根據比賽狀態動態渲染比分欄位
+            let scoreDisplay = `<span class="vs-text">@</span>`;
+            if (game.is_live_or_final === "Live") {
+                scoreDisplay = `<span class="score-box score-live">${game.away_runs} : ${game.home_runs}</span>`;
+            } else if (game.is_live_or_final === "Final") {
+                scoreDisplay = `<span class="score-box score-final">${game.away_runs} : ${game.home_runs}</span>`;
+            }
+
             row.innerHTML = `
-                <td><span class="time-badge">${game.game_time}</span></td>
-                <td><div class="team-container"><img src="${teamLogoMap[game.away_team]}" class="team-logo"><span class="team-name">${game.away_team}</span><span class="team-record">${game.away_record}</span></div></td>
-                <td style="color:#adb5bd; font-weight:bold;">@</td>
-                <td><div class="team-container"><img src="${teamLogoMap[game.home_team]}" class="team-logo"><span class="team-name">${game.home_team}</span><span class="team-record">${game.home_record}</span></div></td>
+                <td>
+                    <span class="time-badge">${game.game_time}</span>
+                    <span class="status-txt">${game.game_status}</span>
+                </td>
+                <td><div class="team-container"><img src="${teamLogoMap[game.away_team] || ''}" class="team-logo"><span class="team-name">${game.away_team}</span><span class="team-record">${game.away_record}</span></div></td>
+                <td>${scoreDisplay}</td>
+                <td><div class="team-container"><img src="${teamLogoMap[game.home_team] || ''}" class="team-logo"><span class="team-name">${game.home_team}</span><span class="team-record">${game.home_record}</span></div></td>
                 <td><div class="pitcher-name">${game.away_pitcher.name}</div></td>
                 <td><div class="pitcher-name">${game.home_pitcher.name}</div></td>
             `;
