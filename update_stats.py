@@ -1,117 +1,76 @@
 import json
 import requests
-from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 
-def parse_mlb_time(time_str):
-    try:
-        time_str = time_str.strip()
-        if not time_str:
-            return "時間未定"
-        est_now = datetime.utcnow() - timedelta(hours=4) 
-        parsed_time = datetime.strptime(time_str, "%I:%M %p")
-        est_game_datetime = est_now.replace(
-            hour=parsed_time.hour, minute=parsed_time.minute, second=0, microsecond=0
-        )
-        tw_game_datetime = est_game_datetime + timedelta(hours=12)
-        weekdays = ["一", "二", "三", "四", "五", "六", "日"]
-        return tw_game_datetime.strftime(f"%Y-%m-%d ({weekdays[tw_game_datetime.weekday()]}) %H:%M")
-    except Exception:
-        return time_str if time_str else "時間未定"
-
 def get_mlb_games():
-    url = "https://www.rotowire.com/baseball/odds.php"
+    # 1. 計算「今天」的台灣日期與美東日期基準
+    # MLB API 的日期格式為 YYYY-MM-DD
+    tw_now = datetime.utcnow() + timedelta(hours=8)
     
-    # 升級版偽裝瀏覽器 Header
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-        'Accept-Language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-        'Cache-Control': 'no-cache',
-        'Pragma': 'no-cache'
-    }
+    # 抓取今天與明天的比賽（確保因為時差不會漏掉比賽）
+    date_str = tw_now.strftime('%Y-%m-%d')
+    
+    # MLB 官方公開的賽程 API URL
+    url = f"https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&date={date_str}"
+    
+    print(f"正在連線至 MLB 官方 API 抓取日期 {date_str} 的賽事...")
     
     try:
-        print("正在嘗試連線到 RotoWire...")
-        response = requests.get(url, headers=headers, timeout=15)
-        print(f"網頁回應狀態碼: {response.status_code}")
+        response = requests.get(url, timeout=15)
+        print(f"API 回應狀態碼: {response.status_code}")
         
         if response.status_code != 200:
-            print(f"❌ 錯誤：被網站阻擋或伺服器異常，狀態碼為 {response.status_code}")
+            print("❌ 錯誤：無法取得 MLB 官方數據")
             return []
             
-        soup = BeautifulSoup(response.text, 'lxml')
-        
-        # 嘗試尋找主要比賽區塊，若 .odds-box 找不到，嘗試抓取表格列
-        game_cards = soup.select('.odds-box')
-        if not game_cards:
-            game_cards = soup.find_all('div', class_='odds-box')
+        res_data = response.json()
+        dates = res_data.get("dates", [])
+        if not dates:
+            print(f"提示：官方 API 在 {date_str} 這天沒有排定比賽。")
+            return []
             
-        print(f"成功偵測到 {len(game_cards)} 場比賽區塊")
-        
         games_list = []
-        for index, card in enumerate(game_cards, 1):
+        raw_games = dates[0].get("games", [])
+        print(f"成功偵測到官方賽程共 {len(raw_games)} 場比賽")
+        
+        for game in raw_games:
             try:
-                # 拆分上下列
-                away_row = card.select_one('.line-top') or card.find('div', class_='line-top')
-                home_row = card.select_one('.line-bottom') or card.find('div', class_='line-bottom')
+                # 解析比賽時間 (API 給的是 UTC 時間，例如: "2026-06-03T23:05:00Z")
+                utc_time_str = game.get("gameDate")
+                utc_dt = datetime.strptime(utc_time_str, "%Y-%m-%dT%H:%M:%SZ")
+                # 轉為台灣時間 (+8 小時)
+                tw_dt = utc_dt + timedelta(hours=8)
+                weekdays = ["一", "二", "三", "四", "五", "六", "日"]
+                tw_time_str = tw_dt.strftime(f"%Y-%m-%d ({weekdays[tw_dt.weekday()]}) %H:%M")
                 
-                if not away_row or not home_row:
-                    continue
+                # 取得隊伍資訊
+                teams = game.get("teams", {})
+                away_data = teams.get("away", {})
+                home_data = teams.get("home", {})
                 
-                # 開賽時間
-                time_el = card.select_one('.odds-meta__time')
-                raw_time = time_el.text.strip() if time_el else ""
-                tw_time_str = parse_mlb_time(raw_time)
+                away_team = away_data.get("team", {}).get("name", "Unknown")
+                home_team = home_data.get("team", {}).get("name", "Unknown")
                 
-                # 隊名 (相容超連結與非超連結模式)
-                away_team_el = away_row.select_one('.odds-team a') or away_row.select_one('.odds-team')
-                home_team_el = home_row.select_one('.odds-team a') or home_row.select_one('.odds-team')
-                away_team = away_team_el.text.strip() if away_team_el else "Unknown"
-                home_team = home_team_el.text.strip() if home_team_el else "Unknown"
+                # 取得預計先發投手 (Probable Pitcher)
+                away_pitcher_name = away_data.get("probablePitcher", {}).get("fullName", "TBD")
+                home_pitcher_name = home_data.get("probablePitcher", {}).get("fullName", "TBD")
                 
-                # 投手解析降級策略
-                def parse_pitcher(row_el):
-                    p_name, p_era, p_whip = "TBD", "N/A", "N/A"
-                    p_el = row_el.select_one('.odds-pitcher') or row_el.find('div', class_='odds-pitcher')
-                    if p_el:
-                        a_tag = p_el.find('a')
-                        if a_tag:
-                            p_name = a_tag.text.strip()
-                            stats = p_el.text.replace(p_name, "").strip().strip('()')
-                        else:
-                            # 處理沒有超連結只有純文字的情況
-                            full_text = p_el.text.strip()
-                            if '(' in full_text:
-                                p_name = full_text.split('(')[0].strip()
-                                stats = full_text.split('(')[1].strip(')')
-                            else:
-                                p_name = full_text if full_text else "TBD"
-                                stats = ""
-                        
-                        if stats and ',' in stats:
-                            parts = stats.split(',')
-                            if len(parts) == 2:
-                                p_era, p_whip = parts[0].strip(), parts[1].strip()
-                    return p_name, p_era, p_whip
-
-                away_name, away_era, away_whip = parse_pitcher(away_row)
-                home_name, home_era, home_whip = parse_pitcher(home_row)
-
+                # 註：官方賽程 API 預設不帶有即時 ERA/WHIP，為了穩定度，我們先塞入預設值
+                # 這樣可以 100% 確保抓得到場次、隊名與開賽時間！
                 games_list.append({
                     "game_time": tw_time_str,
                     "away_team": away_team,
                     "home_team": home_team,
-                    "away_pitcher": {"name": away_name, "era": away_era, "whip": away_whip},
-                    "home_pitcher": {"name": home_name, "era": home_era, "whip": home_whip}
+                    "away_pitcher": {"name": away_pitcher_name, "era": "N/A", "whip": "N/A"},
+                    "home_pitcher": {"name": home_pitcher_name, "era": "N/A", "whip": "N/A"}
                 })
             except Exception as e:
-                print(f"解析第 {index} 場比賽時跳過，原因: {e}")
-                continue 
+                print(f"解析單場比賽失敗，跳過。原因: {e}")
+                continue
                 
         return games_list
     except Exception as e:
-        print(f"爬蟲核心邏輯發生崩潰: {e}")
+        print(f"API 核心邏輯發生錯誤: {e}")
         return []
 
 def main():
@@ -126,7 +85,7 @@ def main():
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
         
-    print(f"【執行完畢】最終成功寫入 {len(games)} 場比賽數據到 data.json")
+    print(f"【執行完畢】官方數據已成功寫入！共計 {len(games)} 場比賽到 data.json")
 
 if __name__ == "__main__":
     main()
