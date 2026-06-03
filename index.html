@@ -12,232 +12,101 @@
             margin: 0;
             padding: 30px 15px;
         }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        h1 {
-            color: #0b2240;
-            text-align: center;
-            margin-bottom: 5px;
-            font-size: 2.2rem;
-        }
-        .update-time {
-            text-align: center;
-            color: #6c757d;
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        h1 { color: #0b2240; text-align: center; margin-bottom: 5px; font-size: 2.2rem; }
+        .update-time { text-align: center; color: #6c757d; font-size: 0.95rem; margin-bottom: 25px; }
         
         /* 📅 日期橫條選單 */
-        .date-menu {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            overflow-x: auto;
-            padding: 10px 5px;
-            margin-bottom: 25px;
-        }
-        .date-btn {
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            min-width: 80px;
-            padding: 12px 8px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-        }
-        .date-btn .main-txt {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 4px;
-        }
-        .date-btn .sub-txt {
-            font-size: 0.85rem;
-            color: #757575;
-        }
-        .date-btn.active {
-            background-color: #d35400;
-            border-color: #d35400;
-        }
-        .date-btn.active .main-txt, .date-btn.active .sub-txt {
-            color: #ffffff;
-        }
+        .date-menu { display: flex; gap: 12px; justify-content: center; overflow-x: auto; padding: 10px 5px; margin-bottom: 25px; }
+        .date-btn { background: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; min-width: 80px; padding: 12px 8px; text-align: center; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
+        .date-btn .main-txt { font-size: 1.2rem; font-weight: 700; color: #333; margin-bottom: 4px; }
+        .date-btn .sub-txt { font-size: 0.85rem; color: #757575; }
+        .date-btn.active { background-color: #d35400; border-color: #d35400; }
+        .date-btn.active .main-txt, .date-btn.active .sub-txt { color: #ffffff; }
 
-        .table-responsive {
-            width: 100%;
-            overflow-x: auto;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            border-radius: 10px;
-            background: #ffffff;
-        }
-        .game-table {
-            width: 100%;
-            border-collapse: collapse;
-            white-space: nowrap;
-        }
-        th {
-            background-color: #0b2240;
-            color: #ffffff;
-            font-weight: 600;
-            padding: 16px;
-        }
-        td {
-            padding: 16px;
-            text-align: center;
-            border-bottom: 1px solid #e9ecef;
-            vertical-align: middle;
-        }
-        tr:last-child td { border-bottom: none; }
+        /* 隊徽樣式 */
+        .team-logo { width: 35px; height: 35px; margin-bottom: 5px; }
+
+        .table-responsive { width: 100%; overflow-x: auto; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); border-radius: 10px; background: #ffffff; }
+        .game-table { width: 100%; border-collapse: collapse; white-space: nowrap; }
+        th { background-color: #0b2240; color: #ffffff; font-weight: 600; padding: 16px; }
+        td { padding: 16px; text-align: center; border-bottom: 1px solid #e9ecef; vertical-align: middle; }
         tr:nth-child(even) { background-color: #f8f9fa; }
         
-        .time-badge {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-weight: 600;
-        }
-        .team-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .team-name { 
-            font-weight: 700; 
-            font-size: 1.1rem; 
-            color: #111;
-        }
-        /* ⚡ 戰績小標籤樣式 */
-        .team-record {
-            font-size: 0.85rem;
-            color: #6c757d;
-            margin-top: 4px;
-            background-color: #e9ecef;
-            padding: 2px 8px;
-            border-radius: 4px;
-        }
-        .pitcher-name { 
-            font-weight: 600; 
-            color: #0d6efd; 
-            font-size: 1rem;
-        }
-        
-        #no-data {
-            text-align: center;
-            padding: 40px;
-            color: #6c757d;
-            background: #fff;
-            border-radius: 10px;
-            display: none;
-        }
+        .time-badge { background-color: #e8f5e9; color: #2e7d32; padding: 6px 14px; border-radius: 20px; font-weight: 600; }
+        .team-container { display: flex; flex-direction: column; align-items: center; }
+        .team-name { font-weight: 700; font-size: 1.05rem; color: #111; }
+        .team-record { font-size: 0.8rem; color: #6c757d; margin-top: 2px; background: #e9ecef; padding: 1px 6px; border-radius: 4px; }
+        .pitcher-name { font-weight: 600; color: #0d6efd; font-size: 0.95rem; }
+        #no-data { text-align: center; padding: 40px; color: #6c757d; background: #fff; border-radius: 10px; display: none; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>⚾ MLB 一週賽事情報看板</h1>
-    <div class="update-time" id="update-time">最後同步：載入中...</div>
-
+    <div class="update-time" id="update-time">系統最後同步：載入中...</div>
     <div class="date-menu" id="date-menu-container"></div>
-
     <div class="table-responsive" id="table-container">
         <table class="game-table">
             <thead>
                 <tr>
-                    <th style="width: 15%;">開賽時間</th>
-                    <th style="width: 25%;">客隊 (Away)</th>
-                    <th style="width: 5%;"></th>
-                    <th style="width: 25%;">主隊 (Home)</th>
-                    <th style="width: 15%;">客隊先發</th>
-                    <th style="width: 15%;">主隊先發</th>
+                    <th>時間</th><th>客隊</th><th></th><th>主隊</th><th>客隊先發</th><th>主隊先發</th>
                 </tr>
             </thead>
             <tbody id="games-tbody"></tbody>
         </table>
     </div>
-    
     <div id="no-data">本日無排定賽事，球員移動休兵中！</div>
 </div>
 
 <script>
     let globalWeeklyData = {};
 
-    fetch('data.json')
-        .then(res => res.json())
-        .then(data => {
-            document.getElementById('update-time').innerText = `系統最後同步：${data.last_updated} (台灣時間)`;
-            globalWeeklyData = data.weekly_data;
-            renderDateMenu();
-        })
-        .catch(err => {
-            document.getElementById('update-time').innerText = '數據載入失敗，請確認雲端爬蟲。';
-        });
+    // 30支球隊隊徽對照表
+    const teamLogoMap = {
+        "Baltimore Orioles": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/bal.png", "Boston Red Sox": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/bos.png", "New York Yankees": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/nyy.png", "Tampa Bay Rays": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tb.png", "Toronto Blue Jays": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tor.png",
+        "Chicago White Sox": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cws.png", "Cleveland Guardians": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cle.png", "Detroit Tigers": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/det.png", "Kansas City Royals": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/kc.png", "Minnesota Twins": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/min.png",
+        "Houston Astros": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/hou.png", "Los Angeles Angels": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/laa.png", "Oakland Athletics": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/oak.png", "Seattle Mariners": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sea.png", "Texas Rangers": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tex.png",
+        "Atlanta Braves": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/atl.png", "Miami Marlins": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/mia.png", "New York Mets": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/nym.png", "Philadelphia Phillies": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/phi.png", "Washington Nationals": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/wsh.png",
+        "Chicago Cubs": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/chc.png", "Cincinnati Reds": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cin.png", "Milwaukee Brewers": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/mil.png", "Pittsburgh Pirates": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/pit.png", "St. Louis Cardinals": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/stl.png",
+        "Arizona Diamondbacks": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/ari.png", "Colorado Rockies": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/col.png", "Los Angeles Dodgers": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/lad.png", "San Diego Padres": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sd.png", "San Francisco Giants": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sf.png"
+    };
+
+    fetch('data.json').then(res => res.json()).then(data => {
+        document.getElementById('update-time').innerText = `系統最後同步：${data.last_updated} (台灣時間)`;
+        globalWeeklyData = data.weekly_data;
+        renderDateMenu();
+    });
 
     function renderDateMenu() {
         const menuContainer = document.getElementById('date-menu-container');
-        menuContainer.innerHTML = '';
-        const dates = Object.keys(globalWeeklyData).sort();
-        
-        dates.forEach((dateStr, index) => {
-            const dayInfo = globalWeeklyData[dateStr];
+        Object.keys(globalWeeklyData).sort().forEach((dateStr, index) => {
             const btn = document.createElement('div');
             btn.className = `date-btn ${index === 0 ? 'active' : ''}`;
-            btn.onclick = () => switchDate(dateStr, btn);
-            
-            btn.innerHTML = `
-                <div class="main-txt">${dayInfo.day_label}</div>
-                <div class="sub-txt">${dayInfo.weekday_label}</div>
-            `;
+            btn.onclick = () => { document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); displayGames(dateStr); };
+            btn.innerHTML = `<div class="main-txt">${globalWeeklyData[dateStr].day_label}</div><div class="sub-txt">${globalWeeklyData[dateStr].weekday_label}</div>`;
             menuContainer.appendChild(btn);
         });
-
-        if(dates.length > 0) {
-            displayGames(dates[0]);
-        }
-    }
-
-    function switchDate(dateStr, element) {
-        document.querySelectorAll('.date-btn').forEach(btn => btn.classList.remove('active'));
-        element.classList.add('active');
-        displayGames(dateStr);
+        displayGames(Object.keys(globalWeeklyData).sort()[0]);
     }
 
     function displayGames(dateStr) {
         const tbody = document.getElementById('games-tbody');
         tbody.innerHTML = '';
-        
-        const dayData = globalWeeklyData[dateStr];
-        if (!dayData || !dayData.games || dayData.games.length === 0) {
-            document.getElementById('table-container').style.display = 'none';
-            document.getElementById('no-data').style.display = 'block';
-            return;
-        }
+        const games = globalWeeklyData[dateStr]?.games || [];
+        if (games.length === 0) { document.getElementById('table-container').style.display = 'none'; document.getElementById('no-data').style.display = 'block'; return; }
         
         document.getElementById('table-container').style.display = 'block';
         document.getElementById('no-data').style.display = 'none';
 
-        dayData.games.forEach(game => {
+        games.forEach(game => {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td><span class="time-badge">${game.game_time}</span></td>
-                <td>
-                    <div class="team-container">
-                        <span class="team-name">${game.away_team}</span>
-                        <span class="team-record">${game.away_record}</span>
-                    </div>
-                </td>
+                <td><div class="team-container"><img src="${teamLogoMap[game.away_team]}" class="team-logo"><span class="team-name">${game.away_team}</span><span class="team-record">${game.away_record}</span></div></td>
                 <td style="color:#adb5bd; font-weight:bold;">@</td>
-                <td>
-                    <div class="team-container">
-                        <span class="team-name">${game.home_team}</span>
-                        <span class="team-record">${game.home_record}</span>
-                    </div>
-                </td>
+                <td><div class="team-container"><img src="${teamLogoMap[game.home_team]}" class="team-logo"><span class="team-name">${game.home_team}</span><span class="team-record">${game.home_record}</span></div></td>
                 <td><div class="pitcher-name">${game.away_pitcher.name}</div></td>
                 <td><div class="pitcher-name">${game.home_pitcher.name}</div></td>
             `;
@@ -245,6 +114,5 @@
         });
     }
 </script>
-
 </body>
 </html>
