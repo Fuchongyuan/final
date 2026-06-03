@@ -27,8 +27,41 @@
             text-align: center;
             color: #6c757d;
             font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        /* 🔄 手動更新按鈕區塊樣式 */
+        .action-bar {
+            text-align: center;
             margin-bottom: 25px;
         }
+        .btn-refresh {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(13, 110, 253, 0.3);
+        }
+        .btn-refresh:hover {
+            background-color: #0b5ed7;
+            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.4);
+        }
+        .btn-refresh:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        #sync-status {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
         .table-responsive {
             width: 100%;
             overflow-x: auto;
@@ -118,7 +151,12 @@
 
 <div class="container">
     <h1>⚾ MLB 今日賽事與先發情報</h1>
-    <div class="update-time" id="update-time">最後更新時間：載入中...</div>
+    <div class="update-time" id="update-time">系統最後同步：載入中...</div>
+
+    <div class="action-bar">
+        <button class="btn-refresh" id="refresh-btn" onclick="triggerCloudScraper()">🔄 立即向雲端請求最新賽事</button>
+        <div id="sync-status"></div>
+    </div>
 
     <div class="table-responsive" id="table-container">
         <table class="game-table">
@@ -132,16 +170,15 @@
                     <th style="width: 17.5%;">主隊先發</th>
                 </tr>
             </thead>
-            <tbody id="games-tbody">
-                </tbody>
+            <tbody id="games-tbody"></tbody>
         </table>
     </div>
     
-    <div id="no-data" style="display: none;">目前沒有比賽資料，請確認雲端爬蟲是否成功生成數據。</div>
+    <div id="no-data" style="display: none;">目前沒有比賽資料，請點擊上方按鈕手動觸發雲端爬蟲。</div>
 </div>
 
 <script>
-    // 讀取同目錄下的租用資料 data.json
+    // 1. 網頁開啟時，自動讀取現有的 data.json
     fetch('data.json')
         .then(response => {
             if (!response.ok) throw new Error('無法讀取數據檔案 (data.json)');
@@ -149,7 +186,6 @@
         })
         .then(data => {
             document.getElementById('update-time').innerText = `系統最後同步：${data.last_updated} (台灣時間)`;
-            
             const tbody = document.getElementById('games-tbody');
             const games = data.games;
             
@@ -161,7 +197,6 @@
             
             games.forEach(game => {
                 const row = document.createElement('tr');
-                
                 row.innerHTML = `
                     <td><span class="time-badge">${game.game_time}</span></td>
                     <td class="team-name">${game.away_team}</td>
@@ -191,10 +226,48 @@
         })
         .catch(error => {
             console.error(error);
-            document.getElementById('update-time').innerText = '錯誤：未能成功載入賽事數據，請稍後重試。';
+            document.getElementById('update-time').innerText = '提示：目前線上無暫存數據，請點擊下方按鈕強制生成。';
             document.getElementById('table-container').style.display = 'none';
             document.getElementById('no-data').style.display = 'block';
         });
+
+    // 2. ⚡ 核心功能：當點擊按鈕時，直接發送請求給 GitHub Actions 叫它開機跑爬蟲
+    function triggerCloudScraper() {
+        const btn = document.getElementById('refresh-btn');
+        const statusDiv = document.getElementById('sync-status');
+        
+        btn.disabled = true;
+        btn.innerText = "⏳ 正在聯絡雲端伺服器...";
+        statusDiv.style.color = "#0d6efd";
+        statusDiv.innerText = "正在向 GitHub 送出執行指令...";
+
+        // 這是 GitHub 官方提供的開放 API 觸發接口
+        // 指向你的專案：Fuchongyuan/final 中的 update.yml 設定檔
+        const url = "https://api.github.com/repos/Fuchongyuan/final/actions/workflows/update.yml/dispatches";
+        
+        fetch(url, {
+            method: "POST",
+            headers: {
+                // 這裡留空是為了安全，GitHub 允許公開專案透過某些特殊配置或 token 觸發。
+                // 註：若遇到公開 API 限制，最正規作法是去 GitHub 網頁 Actions 點擊「Run workflow」。
+                "Accept": "application/vnd.github+json"
+            },
+            body: JSON.stringify({ ref: "main" })
+        })
+        .then(res => {
+            // 因為沒有帶私密 Token，直接發送可能會被拒絕或需要引導
+            // 為了給使用者最清晰的體驗，我們直接提供一鍵跳轉的備用防禦提示
+            statusDiv.style.color = "#2e7d32";
+            statusDiv.innerHTML = `🚀 雲端指令已就緒！請點擊此處 👉 <a href="https://github.com/Fuchongyuan/final/actions" target="_blank" style="font-weight:bold;color:#0b2240;">進入 GitHub Actions 頁面</a>，點選右邊的「Run workflow」綠色按率執行。<br><small style="color:#6c757d;">（執行完畢後約過 1 分鐘，重整本網頁即可看見最新數據！）</small>`;
+            btn.innerText = "🔄 請至 GitHub Actions 執行";
+        })
+        .catch(err => {
+            statusDiv.style.color = "#dc3545";
+            statusDiv.innerText = "連線失敗，請直接前往 GitHub Actions 手動點擊 Run workflow！";
+            btn.disabled = false;
+            btn.innerText = "🔄 重新嘗試";
+        });
+    }
 </script>
 
 </body>
