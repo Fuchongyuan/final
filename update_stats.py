@@ -15,8 +15,9 @@ def get_mlb_weeks_games():
         day_label = "今天" if i == 0 else ("明天" if i == 1 else target_date.strftime('%m/%d'))
         weekday_label = weekdays[target_date.weekday()]
         
-        url = f"https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&date={date_str}"
-        print(f"正在抓取 {date_str} ({weekday_label}) 的賽事與戰績...")
+        # ⚡ 關鍵修改：加上 &hydrate=team,probablePitcher 參數，強制 MLB 官方釋出戰績與先發投手欄位
+        url = f"https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&date={date_str}&hydrate=team,probablePitcher"
+        print(f"正在深度抓取 {date_str} ({weekday_label}) 的完整賽事、戰績與先發...")
         
         games_list = []
         try:
@@ -43,13 +44,13 @@ def get_mlb_weeks_games():
                             away_team = away_data.get("team", {}).get("name", "Unknown")
                             home_team = home_data.get("team", {}).get("name", "Unknown")
                             
-                            # ⚡ 新增：抓取球隊目前的勝敗戰績
+                            # 抓取解鎖後的球隊即時勝敗戰績
                             away_wins = away_data.get("leagueRecord", {}).get("wins", 0)
                             away_losses = away_data.get("leagueRecord", {}).get("losses", 0)
                             home_wins = home_data.get("leagueRecord", {}).get("wins", 0)
                             home_losses = home_data.get("leagueRecord", {}).get("losses", 0)
                             
-                            # 抓取預計先發投手
+                            # 抓取解鎖後的真實預計先發投手姓名
                             away_pitcher = away_data.get("probablePitcher", {}).get("fullName", "TBD")
                             home_pitcher = home_data.get("probablePitcher", {}).get("fullName", "TBD")
                             
@@ -87,7 +88,7 @@ def main():
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
         
-    print(f"【執行完畢】已成功抓取一週賽事與戰績，寫入 data.json！")
+    print(f"【深度抓取完畢】已成功解鎖一週賽事詳細數據！")
 
 if __name__ == "__main__":
     main()
