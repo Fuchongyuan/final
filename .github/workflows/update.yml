@@ -1,34 +1,40 @@
-name: Auto Update Data
+name: MLB Data Scraper
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # 每 6 小時雲端自動跑一次爬蟲
-  workflow_dispatch:      # 允許在網頁上手動點擊按鈕觸發
-
-permissions:
-  contents: write         # 關鍵：賦予機器人寫入 data.json 的權限
+    # 每 3 小時自動執行一次爬蟲
+    - cron: '0 */3 * * *'
+  workflow_dispatch: # 允許你隨時上 GitHub 網站手動點擊更新
 
 jobs:
-  scrape_and_commit:
+  scrape-and-update:
     runs-on: ubuntu-latest
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
+    steps:
+    - name: 檢出程式碼
+      uses: actions/checkout@v3
+
+    - name: 設定 Python 環境
+      uses: actions/setup-python@v4
       with:
         python-version: '3.10'
 
-    - name: Install Dependencies
-      run: pip install requests beautifulsoup4
+    - name: 安裝必要套件
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests beautifulsoup4
 
-    - name: Run Data Engine
+    - name: 執行 MLB 爬蟲
+      # 這裡完全對應你的檔案名稱 update_stats.py
       run: python update_stats.py
 
-    - name: Commit and Push if changed
+    - name: 檢查檔案變更並提交回 GitHub
       run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add data.json
-        git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 雲端自動更新賽事數據" && git push)
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        
+        # 強制讓雲端機器人把產生的 data.json 抓起來準備上傳
+        git add -f data.json
+        
+        # 檢查是否有抓到新資料，有的話就自動更新
+        git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 自動更新 MLB 賽事數據" && git push)
