@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLB 今日賽事情報看板 (UTC+8)</title>
+    <title>MLB 一週賽事與先發情報看板</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -21,45 +21,51 @@
             text-align: center;
             margin-bottom: 5px;
             font-size: 2.2rem;
-            letter-spacing: 1px;
         }
         .update-time {
             text-align: center;
             color: #6c757d;
             font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-        
-        /* 🔄 手動更新按鈕區塊樣式 */
-        .action-bar {
-            text-align: center;
             margin-bottom: 25px;
         }
-        .btn-refresh {
-            background-color: #0d6efd;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 5px;
+        
+        /* 📅 日期橫條選單樣式 (完美複製你截圖的卡片感) */
+        .date-menu {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            overflow-x: auto;
+            padding: 10px 5px;
+            margin-bottom: 25px;
+        }
+        .date-btn {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            min-width: 80px;
+            padding: 12px 8px;
+            text-align: center;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 6px rgba(13, 110, 253, 0.3);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
         }
-        .btn-refresh:hover {
-            background-color: #0b5ed7;
-            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.4);
+        .date-btn .main-txt {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 4px;
         }
-        .btn-refresh:disabled {
-            background-color: #6c757d;
-            cursor: not-allowed;
-            box-shadow: none;
+        .date-btn .sub-txt {
+            font-size: 0.85rem;
+            color: #757575;
         }
-        #sync-status {
-            margin-top: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
+        /* 點選啟動後的橘紅色高亮狀態 */
+        .date-btn.active {
+            background-color: #d35400;
+            border-color: #d35400;
+        }
+        .date-btn.active .main-txt, .date-btn.active .sub-txt {
+            color: #ffffff;
         }
 
         .table-responsive {
@@ -79,8 +85,6 @@
             color: #ffffff;
             font-weight: 600;
             padding: 16px;
-            font-size: 0.95rem;
-            text-transform: uppercase;
         }
         td {
             padding: 16px;
@@ -88,54 +92,18 @@
             border-bottom: 1px solid #e9ecef;
             vertical-align: middle;
         }
-        tr:last-child td {
-            border-bottom: none;
-        }
-        tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-        tr:hover {
-            background-color: #f1f3f5;
-        }
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        
         .time-badge {
             background-color: #e8f5e9;
             color: #2e7d32;
             padding: 6px 14px;
             border-radius: 20px;
             font-weight: 600;
-            font-size: 0.9rem;
-            display: inline-block;
-            border: 1px solid #c8e6c9;
         }
-        .team-name {
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: #111;
-        }
-        .vs {
-            font-style: italic;
-            color: #adb5bd;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        .pitcher-box {
-            text-align: center;
-        }
-        .pitcher-name {
-            font-weight: 600;
-            color: #0d6efd;
-            margin-bottom: 6px;
-            font-size: 1rem;
-        }
-        .badge {
-            display: inline-block;
-            padding: 3px 8px;
-            font-size: 0.8rem;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-        .badge-era { background: #e3f2fd; color: #0d47a1; margin-right: 4px; }
-        .badge-whip { background: #fff3e0; color: #e65100; }
+        .team-name { font-weight: 700; font-size: 1.1rem; }
+        .pitcher-name { font-weight: 600; color: #0d6efd; }
         
         #no-data {
             text-align: center;
@@ -143,129 +111,112 @@
             color: #6c757d;
             background: #fff;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            display: none;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>⚾ MLB 今日賽事與先發情報</h1>
-    <div class="update-time" id="update-time">系統最後同步：載入中...</div>
+    <h1>⚾ MLB 一週賽事情報看板</h1>
+    <div class="update-time" id="update-time">最後同步：載入中...</div>
 
-    <div class="action-bar">
-        <button class="btn-refresh" id="refresh-btn" onclick="triggerCloudScraper()">🔄 立即向雲端請求最新賽事</button>
-        <div id="sync-status"></div>
-    </div>
+    <div class="date-menu" id="date-menu-container"></div>
 
     <div class="table-responsive" id="table-container">
         <table class="game-table">
             <thead>
                 <tr>
-                    <th style="width: 20%;">台灣開賽時間 (UTC+8)</th>
-                    <th style="width: 20%;">客隊 (Away)</th>
+                    <th style="width: 15%;">開賽時間</th>
+                    <th style="width: 25%;">客隊 (Away)</th>
                     <th style="width: 5%;"></th>
-                    <th style="width: 20%;">主隊 (Home)</th>
-                    <th style="width: 17.5%;">客隊先發</th>
-                    <th style="width: 17.5%;">主隊先發</th>
+                    <th style="width: 25%;">主隊 (Home)</th>
+                    <th style="width: 15%;">客隊預計先發</th>
+                    <th style="width: 15%;">主隊預計先發</th>
                 </tr>
             </thead>
             <tbody id="games-tbody"></tbody>
         </table>
     </div>
     
-    <div id="no-data" style="display: none;">目前沒有比賽資料，請點擊上方按鈕手動觸發雲端爬蟲。</div>
+    <div id="no-data">本日無排定賽事，球員移動休兵中！</div>
 </div>
 
 <script>
-    // 1. 網頁開啟時，自動讀取現有的 data.json
+    let globalWeeklyData = {};
+
+    // 載入多日 JSON
     fetch('data.json')
-        .then(response => {
-            if (!response.ok) throw new Error('無法讀取數據檔案 (data.json)');
-            return response.json();
-        })
+        .then(res => res.json())
         .then(data => {
             document.getElementById('update-time').innerText = `系統最後同步：${data.last_updated} (台灣時間)`;
-            const tbody = document.getElementById('games-tbody');
-            const games = data.games;
+            globalWeeklyData = data.weekly_data;
             
-            if (!games || games.length === 0) {
-                document.getElementById('table-container').style.display = 'none';
-                document.getElementById('no-data').style.display = 'block';
-                return;
-            }
-            
-            games.forEach(game => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td><span class="time-badge">${game.game_time}</span></td>
-                    <td class="team-name">${game.away_team}</td>
-                    <td class="vs">@</td>
-                    <td class="team-name">${game.home_team}</td>
-                    <td>
-                        <div class="pitcher-box">
-                            <div class="pitcher-name">${game.away_pitcher.name}</div>
-                            <div>
-                                <span class="badge badge-era">ERA ${game.away_pitcher.era}</span>
-                                <span class="badge badge-whip">WHIP ${game.away_pitcher.whip}</span>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="pitcher-box">
-                            <div class="pitcher-name">${game.home_pitcher.name}</div>
-                            <div>
-                                <span class="badge badge-era">ERA ${game.home_pitcher.era}</span>
-                                <span class="badge badge-whip">WHIP ${game.home_pitcher.whip}</span>
-                            </div>
-                        </div>
-                    </td>
-                `;
-                tbody.appendChild(row);
-            });
-        })
-        .catch(error => {
-            console.error(error);
-            document.getElementById('update-time').innerText = '提示：目前線上無暫存數據，請點擊下方按鈕強制生成。';
-            document.getElementById('table-container').style.display = 'none';
-            document.getElementById('no-data').style.display = 'block';
-        });
-
-    // 2. ⚡ 核心功能：當點擊按鈕時，直接發送請求給 GitHub Actions 叫它開機跑爬蟲
-    function triggerCloudScraper() {
-        const btn = document.getElementById('refresh-btn');
-        const statusDiv = document.getElementById('sync-status');
-        
-        btn.disabled = true;
-        btn.innerText = "⏳ 正在聯絡雲端伺服器...";
-        statusDiv.style.color = "#0d6efd";
-        statusDiv.innerText = "正在向 GitHub 送出執行指令...";
-
-        // 這是 GitHub 官方提供的開放 API 觸發接口
-        // 指向你的專案：Fuchongyuan/final 中的 update.yml 設定檔
-        const url = "https://api.github.com/repos/Fuchongyuan/final/actions/workflows/update.yml/dispatches";
-        
-        fetch(url, {
-            method: "POST",
-            headers: {
-                // 這裡留空是為了安全，GitHub 允許公開專案透過某些特殊配置或 token 觸發。
-                // 註：若遇到公開 API 限制，最正規作法是去 GitHub 網頁 Actions 點擊「Run workflow」。
-                "Accept": "application/vnd.github+json"
-            },
-            body: JSON.stringify({ ref: "main" })
-        })
-        .then(res => {
-            // 因為沒有帶私密 Token，直接發送可能會被拒絕或需要引導
-            // 為了給使用者最清晰的體驗，我們直接提供一鍵跳轉的備用防禦提示
-            statusDiv.style.color = "#2e7d32";
-            statusDiv.innerHTML = `🚀 雲端指令已就緒！請點擊此處 👉 <a href="https://github.com/Fuchongyuan/final/actions" target="_blank" style="font-weight:bold;color:#0b2240;">進入 GitHub Actions 頁面</a>，點選右邊的「Run workflow」綠色按率執行。<br><small style="color:#6c757d;">（執行完畢後約過 1 分鐘，重整本網頁即可看見最新數據！）</small>`;
-            btn.innerText = "🔄 請至 GitHub Actions 執行";
+            renderDateMenu();
         })
         .catch(err => {
-            statusDiv.style.color = "#dc3545";
-            statusDiv.innerText = "連線失敗，請直接前往 GitHub Actions 手動點擊 Run workflow！";
-            btn.disabled = false;
-            btn.innerText = "🔄 重新嘗試";
+            document.getElementById('update-time').innerText = '數據載入失敗，請確認雲端爬蟲。';
+        });
+
+    // 建立日期按鈕選單
+    function renderDateMenu() {
+        const menuContainer = document.getElementById('date-menu-container');
+        menuContainer.innerHTML = '';
+        
+        const dates = Object.keys(globalWeeklyData).sort();
+        
+        dates.forEach((dateStr, index) => {
+            const dayInfo = globalWeeklyData[dateStr];
+            const btn = document.createElement('div');
+            btn.className = `date-btn ${index === 0 ? 'active' : ''}`;
+            btn.onclick = () => switchDate(dateStr, btn);
+            
+            btn.innerHTML = `
+                <div class="main-txt">${dayInfo.day_label}</div>
+                <div class="sub-txt">${dayInfo.weekday_label}</div>
+            `;
+            menuContainer.appendChild(btn);
+        });
+
+        // 預設載入第一天（今天）的賽事
+        if(dates.length > 0) {
+            displayGames(dates[0]);
+        }
+    }
+
+    // 切換日期按鈕動作
+    function switchDate(dateStr, element) {
+        document.querySelectorAll('.date-btn').forEach(btn => btn.classList.remove('active'));
+        element.classList.add('active');
+        displayGames(dateStr);
+    }
+
+    // 渲染當天賽事表格
+    function displayGames(dateStr) {
+        const tbody = document.getElementById('games-tbody');
+        tbody.innerHTML = '';
+        
+        const dayData = globalWeeklyData[dateStr];
+        if (!dayData || !dayData.games || dayData.games.length === 0) {
+            document.getElementById('table-container').style.display = 'none';
+            document.getElementById('no-data').style.display = 'block';
+            return;
+        }
+        
+        document.getElementById('table-container').style.display = 'block';
+        document.getElementById('no-data').style.display = 'none';
+
+        dayData.games.forEach(game => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><span class="time-badge">${game.game_time}</span></td>
+                <td class="team-name">${game.away_team}</td>
+                <td style="color:#adb5bd; font-weight:bold;">@</td>
+                <td class="team-name">${game.home_team}</td>
+                <td><div class="pitcher-name">${game.away_pitcher.name}</div></td>
+                <td><div class="pitcher-name">${game.home_pitcher.name}</div></td>
+            `;
+            tbody.appendChild(row);
         });
     }
 </script>
