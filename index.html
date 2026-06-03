@@ -29,7 +29,7 @@
             margin-bottom: 25px;
         }
         
-        /* 📅 日期橫條選單樣式 (完美複製你截圖的卡片感) */
+        /* 📅 日期橫條選單 */
         .date-menu {
             display: flex;
             gap: 12px;
@@ -59,7 +59,6 @@
             font-size: 0.85rem;
             color: #757575;
         }
-        /* 點選啟動後的橘紅色高亮狀態 */
         .date-btn.active {
             background-color: #d35400;
             border-color: #d35400;
@@ -102,8 +101,31 @@
             border-radius: 20px;
             font-weight: 600;
         }
-        .team-name { font-weight: 700; font-size: 1.1rem; }
-        .pitcher-name { font-weight: 600; color: #0d6efd; }
+        .team-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .team-name { 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            color: #111;
+        }
+        /* ⚡ 戰績小標籤樣式 */
+        .team-record {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-top: 4px;
+            background-color: #e9ecef;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .pitcher-name { 
+            font-weight: 600; 
+            color: #0d6efd; 
+            font-size: 1rem;
+        }
         
         #no-data {
             text-align: center;
@@ -131,8 +153,8 @@
                     <th style="width: 25%;">客隊 (Away)</th>
                     <th style="width: 5%;"></th>
                     <th style="width: 25%;">主隊 (Home)</th>
-                    <th style="width: 15%;">客隊預計先發</th>
-                    <th style="width: 15%;">主隊預計先發</th>
+                    <th style="width: 15%;">客隊先發</th>
+                    <th style="width: 15%;">主隊先發</th>
                 </tr>
             </thead>
             <tbody id="games-tbody"></tbody>
@@ -145,24 +167,20 @@
 <script>
     let globalWeeklyData = {};
 
-    // 載入多日 JSON
     fetch('data.json')
         .then(res => res.json())
         .then(data => {
             document.getElementById('update-time').innerText = `系統最後同步：${data.last_updated} (台灣時間)`;
             globalWeeklyData = data.weekly_data;
-            
             renderDateMenu();
         })
         .catch(err => {
             document.getElementById('update-time').innerText = '數據載入失敗，請確認雲端爬蟲。';
         });
 
-    // 建立日期按鈕選單
     function renderDateMenu() {
         const menuContainer = document.getElementById('date-menu-container');
         menuContainer.innerHTML = '';
-        
         const dates = Object.keys(globalWeeklyData).sort();
         
         dates.forEach((dateStr, index) => {
@@ -178,20 +196,17 @@
             menuContainer.appendChild(btn);
         });
 
-        // 預設載入第一天（今天）的賽事
         if(dates.length > 0) {
             displayGames(dates[0]);
         }
     }
 
-    // 切換日期按鈕動作
     function switchDate(dateStr, element) {
         document.querySelectorAll('.date-btn').forEach(btn => btn.classList.remove('active'));
         element.classList.add('active');
         displayGames(dateStr);
     }
 
-    // 渲染當天賽事表格
     function displayGames(dateStr) {
         const tbody = document.getElementById('games-tbody');
         tbody.innerHTML = '';
@@ -210,9 +225,19 @@
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td><span class="time-badge">${game.game_time}</span></td>
-                <td class="team-name">${game.away_team}</td>
+                <td>
+                    <div class="team-container">
+                        <span class="team-name">${game.away_team}</span>
+                        <span class="team-record">${game.away_record}</span>
+                    </div>
+                </td>
                 <td style="color:#adb5bd; font-weight:bold;">@</td>
-                <td class="team-name">${game.home_team}</td>
+                <td>
+                    <div class="team-container">
+                        <span class="team-name">${game.home_team}</span>
+                        <span class="team-record">${game.home_record}</span>
+                    </div>
+                </td>
                 <td><div class="pitcher-name">${game.away_pitcher.name}</div></td>
                 <td><div class="pitcher-name">${game.home_pitcher.name}</div></td>
             `;

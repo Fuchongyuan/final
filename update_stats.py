@@ -3,24 +3,20 @@ import requests
 from datetime import datetime, timedelta
 
 def get_mlb_weeks_games():
-    # 取得台灣當前時間
     tw_now = datetime.utcnow() + timedelta(hours=8)
-    
-    # 建立一個可以用日期當 Key 的字典 (例如: {"2026-06-03": [...], "2026-06-04": [...]})
     all_days_data = {}
     
-    # 迴圈連續抓取 7 天（從今天開始往後推 6 天）
+    # 迴圈連續抓取 7 天
     for i in range(7):
         target_date = tw_now + timedelta(days=i)
         date_str = target_date.strftime('%Y-%m-%d')
         
-        # 產生星期幾的標籤 (例如: 週三)
         weekdays = ["週一", "週二", "週三", "週四", "週五", "週六", "週日"]
         day_label = "今天" if i == 0 else ("明天" if i == 1 else target_date.strftime('%m/%d'))
         weekday_label = weekdays[target_date.weekday()]
         
         url = f"https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&date={date_str}"
-        print(f"正在抓取 {date_str} ({weekday_label}) 的賽事...")
+        print(f"正在抓取 {date_str} ({weekday_label}) 的賽事與戰績...")
         
         games_list = []
         try:
@@ -37,28 +33,40 @@ def get_mlb_weeks_games():
                             utc_time_str = game.get("gameDate")
                             utc_dt = datetime.strptime(utc_time_str, "%Y-%m-%dT%H:%M:%SZ")
                             tw_dt = utc_dt + timedelta(hours=8)
-                            tw_time_str = tw_dt.strftime("%H:%M") # 網頁上只需要顯示幾點幾分
+                            tw_time_str = tw_dt.strftime("%H:%M")
                             
                             teams = game.get("teams", {})
-                            away_team = teams.get("away", {}).get("team", {}).get("name", "Unknown")
-                            home_team = teams.get("home", {}).get("team", {}).get("name", "Unknown")
+                            away_data = teams.get("away", {})
+                            home_data = teams.get("home", {})
                             
-                            away_pitcher = teams.get("away", {}).get("probablePitcher", {}).get("fullName", "TBD")
-                            home_pitcher = teams.get("home", {}).get("probablePitcher", {}).get("fullName", "TBD")
+                            # 抓取隊名
+                            away_team = away_data.get("team", {}).get("name", "Unknown")
+                            home_team = home_data.get("team", {}).get("name", "Unknown")
+                            
+                            # ⚡ 新增：抓取球隊目前的勝敗戰績
+                            away_wins = away_data.get("leagueRecord", {}).get("wins", 0)
+                            away_losses = away_data.get("leagueRecord", {}).get("losses", 0)
+                            home_wins = home_data.get("leagueRecord", {}).get("wins", 0)
+                            home_losses = home_data.get("leagueRecord", {}).get("losses", 0)
+                            
+                            # 抓取預計先發投手
+                            away_pitcher = away_data.get("probablePitcher", {}).get("fullName", "TBD")
+                            home_pitcher = home_data.get("probablePitcher", {}).get("fullName", "TBD")
                             
                             games_list.append({
                                 "game_time": tw_time_str,
                                 "away_team": away_team,
+                                "away_record": f"{away_wins}-{away_losses}",
                                 "home_team": home_team,
-                                "away_pitcher": {"name": away_pitcher, "era": "N/A", "whip": "N/A"},
-                                "home_pitcher": {"name": home_pitcher, "era": "N/A", "whip": "N/A"}
+                                "home_record": f"{home_wins}-{home_losses}",
+                                "away_pitcher": {"name": away_pitcher},
+                                "home_pitcher": {"name": home_pitcher}
                             })
                         except Exception:
                             continue
         except Exception as e:
             print(f"抓取 {date_str} 失敗: {e}")
             
-        # 即使當天沒比賽，也留個空陣列，方便前端畫出按鈕
         all_days_data[date_str] = {
             "day_label": day_label,
             "weekday_label": weekday_label,
@@ -79,7 +87,7 @@ def main():
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
         
-    print("【執行完畢】已成功抓取未來一週賽事並分類寫入 data.json！")
+    print(f"【執行完畢】已成功抓取一週賽事與戰績，寫入 data.json！")
 
 if __name__ == "__main__":
     main()
