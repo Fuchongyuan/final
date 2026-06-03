@@ -8,7 +8,8 @@ def get_mlb_games():
     tw_now = datetime.utcnow() + timedelta(hours=8)
     
     # 抓取今天與明天的比賽（確保因為時差不會漏掉比賽）
-    date_str = tw_now.strftime('%Y-%m-%d')
+    # 強制抓明天，看看 API 到底有沒有動
+    date_str = (tw_now + timedelta(days=1)).strftime('%Y-%m-%d')
     
     # MLB 官方公開的賽程 API URL
     url = f"https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&date={date_str}"
