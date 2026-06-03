@@ -3,6 +3,10 @@ import requests
 from datetime import datetime, timedelta
 
 def get_mlb_weeks_games():
+    """
+    抓取未來 7 天的 MLB 賽程，包含戰績與先發投手資訊
+    """
+    # 以 UTC 時間為基準計算日期
     tw_now = datetime.utcnow() + timedelta(hours=8)
     all_days_data = {}
     
@@ -15,7 +19,7 @@ def get_mlb_weeks_games():
         day_label = "今天" if i == 0 else ("明天" if i == 1 else target_date.strftime('%m/%d'))
         weekday_label = weekdays[target_date.weekday()]
         
-        # ⚡ 關鍵修改：加上 &hydrate=team,probablePitcher 參數，強制 MLB 官方釋出戰績與先發投手欄位
+        # 使用 hydrate 參數強制 API 回傳球隊戰績與先發投手資訊
         url = f"https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&date={date_str}&hydrate=team,probablePitcher"
         print(f"正在深度抓取 {date_str} ({weekday_label}) 的完整賽事、戰績與先發...")
         
@@ -30,7 +34,7 @@ def get_mlb_weeks_games():
                     raw_games = dates[0].get("games", [])
                     for game in raw_games:
                         try:
-                            # 解析時間並轉為台灣時間
+                            # 時間轉換：UTC 轉 台灣時間
                             utc_time_str = game.get("gameDate")
                             utc_dt = datetime.strptime(utc_time_str, "%Y-%m-%dT%H:%M:%SZ")
                             tw_dt = utc_dt + timedelta(hours=8)
@@ -44,13 +48,13 @@ def get_mlb_weeks_games():
                             away_team = away_data.get("team", {}).get("name", "Unknown")
                             home_team = home_data.get("team", {}).get("name", "Unknown")
                             
-                            # 抓取解鎖後的球隊即時勝敗戰績
+                            # 抓取戰績
                             away_wins = away_data.get("leagueRecord", {}).get("wins", 0)
                             away_losses = away_data.get("leagueRecord", {}).get("losses", 0)
                             home_wins = home_data.get("leagueRecord", {}).get("wins", 0)
                             home_losses = home_data.get("leagueRecord", {}).get("losses", 0)
                             
-                            # 抓取解鎖後的真實預計先發投手姓名
+                            # 抓取先發投手
                             away_pitcher = away_data.get("probablePitcher", {}).get("fullName", "TBD")
                             home_pitcher = home_data.get("probablePitcher", {}).get("fullName", "TBD")
                             
@@ -85,10 +89,11 @@ def main():
         "weekly_data": weekly_games
     }
     
+    # 寫入 json 檔案
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
         
-    print(f"【深度抓取完畢】已成功解鎖一週賽事詳細數據！")
+    print(f"【深度抓取完畢】已成功解鎖一週賽事詳細數據並存入 data.json！")
 
 if __name__ == "__main__":
     main()
