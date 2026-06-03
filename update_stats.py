@@ -4,79 +4,51 @@ from datetime import datetime, timedelta
 
 def get_mlb_weeks_games():
     """
-    抓取未來 7 天的 MLB 賽程，包含戰績與先發投手資訊
+    修正版：由比賽時間決定日期，確保 +8 時區正確歸類
     """
-    # 以 UTC 時間為基準計算日期
-    tw_now = datetime.utcnow() + timedelta(hours=8)
+    # 抓取範圍拉寬一點，確保涵蓋到跨日賽程
+    start_date = (datetime.utcnow() - timedelta(days=1)).strftime("%Y-%m-%d")
+    end_date = (datetime.utcnow() + timedelta(days=8)).strftime("%Y-%m-%d")
+    
+    # 抓取 API
+    url = f"https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&startDate={start_date}&endDate={end_date}&hydrate=team,probablePitcher"
+    
     all_days_data = {}
     
-    # 迴圈連續抓取 7 天
-    for i in range(7):
-        target_date = tw_now + timedelta(days=i)
-        date_str = target_date.strftime('%Y-%m-%d')
-        
-        weekdays = ["週一", "週二", "週三", "週四", "週五", "週六", "週日"]
-        day_label = "今天" if i == 0 else ("明天" if i == 1 else target_date.strftime('%m/%d'))
-        weekday_label = weekdays[target_date.weekday()]
-        
-        # 使用 hydrate 參數強制 API 回傳球隊戰績與先發投手資訊
-        url = f"https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&date={date_str}&hydrate=team,probablePitcher"
-        print(f"正在深度抓取 {date_str} ({weekday_label}) 的完整賽事、戰績與先發...")
-        
-        games_list = []
-        try:
-            response = requests.get(url, timeout=15)
-            if response.status_code == 200:
-                res_data = response.json()
-                dates = res_data.get("dates", [])
-                
-                if dates:
-                    raw_games = dates[0].get("games", [])
-                    for game in raw_games:
-                        try:
-                            # 時間轉換：UTC 轉 台灣時間
-                            utc_time_str = game.get("gameDate")
-                            utc_dt = datetime.strptime(utc_time_str, "%Y-%m-%dT%H:%M:%SZ")
-                            tw_dt = utc_dt + timedelta(hours=8)
-                            tw_time_str = tw_dt.strftime("%H:%M")
-                            
-                            teams = game.get("teams", {})
-                            away_data = teams.get("away", {})
-                            home_data = teams.get("home", {})
-                            
-                            # 抓取隊名
-                            away_team = away_data.get("team", {}).get("name", "Unknown")
-                            home_team = home_data.get("team", {}).get("name", "Unknown")
-                            
-                            # 抓取戰績
-                            away_wins = away_data.get("leagueRecord", {}).get("wins", 0)
-                            away_losses = away_data.get("leagueRecord", {}).get("losses", 0)
-                            home_wins = home_data.get("leagueRecord", {}).get("wins", 0)
-                            home_losses = home_data.get("leagueRecord", {}).get("losses", 0)
-                            
-                            # 抓取先發投手
-                            away_pitcher = away_data.get("probablePitcher", {}).get("fullName", "TBD")
-                            home_pitcher = home_data.get("probablePitcher", {}).get("fullName", "TBD")
-                            
-                            games_list.append({
-                                "game_time": tw_time_str,
-                                "away_team": away_team,
-                                "away_record": f"{away_wins}-{away_losses}",
-                                "home_team": home_team,
-                                "home_record": f"{home_wins}-{home_losses}",
-                                "away_pitcher": {"name": away_pitcher},
-                                "home_pitcher": {"name": home_pitcher}
-                            })
-                        except Exception:
-                            continue
-        except Exception as e:
-            print(f"抓取 {date_str} 失敗: {e}")
-            
-        all_days_data[date_str] = {
-            "day_label": day_label,
-            "weekday_label": weekday_label,
-            "games": games_list
-        }
+    try:
+        response = requests.get(url, timeout=15)
+        if response.status_code == 200:
+            res_data = response.json()
+            # 遍歷 API 給的所有日期節點
+            for date_node in res_data.get("dates", []):
+                for game in date_node.get("games", []):
+                    # 1. 解析 UTC 時間並轉為台灣時間 (+8)
+                    utc_dt = datetime.strptime(game.get("gameDate"), "%Y-%m-%dT%H:%M:%SZ")
+                    tw_dt = utc_dt + timedelta(hours=8)
+                    
+                    # 2. 【關鍵修正】：以台灣時間作為 Key
+                    tw_date_key = tw_dt.strftime("%Y-%m-%d")
+                    
+                    # 如果這天還沒建立過，先初始化
+                    if tw_date_key not in all_days_data:
+                        all_days_data[tw_date_key] = {
+                            "day_label": tw_dt.strftime("%m/%d"),
+                            "weekday_label": ["週一", "週二", "週三", "週四", "週五", "週六", "週日"][tw_dt.weekday()],
+                            "games": []
+                        }
+                    
+                    # 3. 填入比賽資訊
+                    all_days_data[tw_date_key]["games"].append({
+                        "game_time": tw_dt.strftime("%H:%M"),
+                        "away_team": game["teams"]["away"]["team"]["name"],
+                        "home_team": game["teams"]["home"]["team"]["name"],
+                        "away_record": f"{game['teams']['away']['leagueRecord']['wins']}-{game['teams']['away']['leagueRecord']['losses']}",
+                        "home_record": f"{game['teams']['home']['leagueRecord']['wins']}-{game['teams']['home']['leagueRecord']['losses']}",
+                        "away_pitcher": {"name": game["teams"]["away"].get("probablePitcher", {}).get("fullName", "TBD")},
+                        "home_pitcher": {"name": game["teams"]["home"].get("probablePitcher", {}).get("fullName", "TBD")}
+                    })
+    except Exception as e:
+        print(f"抓取失敗: {e}")
             
     return all_days_data
 
