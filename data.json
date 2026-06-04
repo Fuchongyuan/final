@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-06-05 01:40",
+    "last_updated": "2026-06-05 03:57",
     "weekly_data": {
         "2026-06-05": {
             "day_label": "06/05",
@@ -210,8 +210,8 @@
                     "game_time": "01:05",
                     "away_team": "San Diego Padres",
                     "home_team": "Philadelphia Phillies",
-                    "away_record": "32-28",
-                    "home_record": "32-29",
+                    "away_record": "32-29",
+                    "home_record": "33-29",
                     "away_pitcher": {
                         "name": "Lucas Giolito"
                     },
@@ -265,7 +265,7 @@
                     "away_record": "29-33",
                     "home_record": "42-20",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Mason Fluharty"
                     },
                     "home_pitcher": {
                         "name": "Chris Sale"
@@ -360,7 +360,7 @@
                     "away_team": "Chicago White Sox",
                     "home_team": "Philadelphia Phillies",
                     "away_record": "33-29",
-                    "home_record": "32-29",
+                    "home_record": "33-29",
                     "away_pitcher": {
                         "name": "Anthony Kay"
                     },
@@ -404,7 +404,7 @@
                         "name": "Drew Rasmussen"
                     },
                     "home_pitcher": {
-                        "name": "Tyler Phillips"
+                        "name": "Ryan Gusto"
                     }
                 },
                 {
@@ -414,10 +414,10 @@
                     "away_record": "33-29",
                     "home_record": "42-20",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Mitch Keller"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Martín Pérez"
                     }
                 },
                 {
@@ -503,7 +503,7 @@
                     "away_team": "New York Mets",
                     "home_team": "San Diego Padres",
                     "away_record": "27-35",
-                    "home_record": "32-28",
+                    "home_record": "32-29",
                     "away_pitcher": {
                         "name": "Christian Scott"
                     },
@@ -600,7 +600,7 @@
                     "away_team": "Chicago White Sox",
                     "home_team": "Philadelphia Phillies",
                     "away_record": "33-29",
-                    "home_record": "32-29",
+                    "home_record": "33-29",
                     "away_pitcher": {
                         "name": "Sean Burke"
                     },
@@ -641,10 +641,10 @@
                     "away_record": "33-29",
                     "home_record": "42-20",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Braxton Ashcraft"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Spencer Strider"
                     }
                 },
                 {
@@ -717,7 +717,7 @@
                     "away_team": "New York Mets",
                     "home_team": "San Diego Padres",
                     "away_record": "27-35",
-                    "home_record": "32-28",
+                    "home_record": "32-29",
                     "away_pitcher": {
                         "name": "Nolan McLean"
                     },
@@ -738,10 +738,10 @@
                     "away_record": "33-29",
                     "home_record": "42-20",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Bubba Chandler"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Bryce Elder"
                     }
                 },
                 {
@@ -749,7 +749,7 @@
                     "away_team": "Chicago White Sox",
                     "home_team": "Philadelphia Phillies",
                     "away_record": "33-29",
-                    "home_record": "32-29",
+                    "home_record": "33-29",
                     "away_pitcher": {
                         "name": "David Sandlin"
                     },
@@ -806,7 +806,7 @@
                         "name": "Griffin Jax"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Sandy Alcantara"
                     }
                 },
                 {
@@ -905,7 +905,7 @@
                     "away_team": "New York Mets",
                     "home_team": "San Diego Padres",
                     "away_record": "27-35",
-                    "home_record": "32-28",
+                    "home_record": "32-29",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -975,7 +975,7 @@
                     "game_time": "07:07",
                     "away_team": "Philadelphia Phillies",
                     "home_team": "Toronto Blue Jays",
-                    "away_record": "32-29",
+                    "away_record": "33-29",
                     "home_record": "29-33",
                     "away_pitcher": {
                         "name": "TBD"
@@ -1002,7 +1002,7 @@
                     "away_team": "Cincinnati Reds",
                     "home_team": "San Diego Padres",
                     "away_record": "31-30",
-                    "home_record": "32-28",
+                    "home_record": "32-29",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1124,7 +1124,7 @@
                     "game_time": "07:07",
                     "away_team": "Philadelphia Phillies",
                     "home_team": "Toronto Blue Jays",
-                    "away_record": "32-29",
+                    "away_record": "33-29",
                     "home_record": "29-33",
                     "away_pitcher": {
                         "name": "TBD"
@@ -1203,7 +1203,7 @@
                     "away_team": "Cincinnati Reds",
                     "home_team": "San Diego Padres",
                     "away_record": "31-30",
-                    "home_record": "32-28",
+                    "home_record": "32-29",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1287,7 +1287,7 @@
                     "away_team": "Cincinnati Reds",
                     "home_team": "San Diego Padres",
                     "away_record": "31-30",
-                    "home_record": "32-28",
+                    "home_record": "32-29",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1351,7 +1351,7 @@
                     "game_time": "07:07",
                     "away_team": "Philadelphia Phillies",
                     "home_team": "Toronto Blue Jays",
-                    "away_record": "32-29",
+                    "away_record": "33-29",
                     "home_record": "29-33",
                     "away_pitcher": {
                         "name": "TBD"
@@ -1584,7 +1584,7 @@
                     "game_time": "07:05",
                     "away_team": "San Diego Padres",
                     "home_team": "Baltimore Orioles",
-                    "away_record": "32-28",
+                    "away_record": "32-29",
                     "home_record": "29-33",
                     "away_pitcher": {
                         "name": "TBD"
@@ -1675,7 +1675,7 @@
                     "game_time": "07:40",
                     "away_team": "Philadelphia Phillies",
                     "home_team": "Milwaukee Brewers",
-                    "away_record": "32-29",
+                    "away_record": "33-29",
                     "home_record": "37-22",
                     "away_pitcher": {
                         "name": "TBD"
