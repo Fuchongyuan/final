@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-06-08 10:57",
+    "last_updated": "2026-06-08 16:10",
     "weekly_data": {
         "2026-06-09": {
             "day_label": "06/09",
@@ -191,8 +191,8 @@
                     "game_time": "08:30",
                     "away_team": "San Francisco Giants",
                     "home_team": "Chicago Cubs",
-                    "away_record": "26-39",
-                    "home_record": "34-31",
+                    "away_record": "27-39",
+                    "home_record": "34-32",
                     "away_pitcher": {
                         "name": "Trevor McDonald"
                     },
@@ -289,7 +289,7 @@
                     "away_team": "Washington Nationals",
                     "home_team": "San Francisco Giants",
                     "away_record": "33-33",
-                    "home_record": "26-39",
+                    "home_record": "27-39",
                     "away_pitcher": {
                         "name": "Miles Mikolas"
                     },
@@ -450,7 +450,7 @@
                     "game_time": "08:40",
                     "away_team": "Chicago Cubs",
                     "home_team": "Colorado Rockies",
-                    "away_record": "34-31",
+                    "away_record": "34-32",
                     "home_record": "24-42",
                     "away_pitcher": {
                         "name": "Colin Rea"
@@ -490,7 +490,7 @@
                     "away_team": "Washington Nationals",
                     "home_team": "San Francisco Giants",
                     "away_record": "33-33",
-                    "home_record": "26-39",
+                    "home_record": "27-39",
                     "away_pitcher": {
                         "name": "Andrew Alvarez"
                     },
@@ -548,7 +548,7 @@
                     "away_team": "Washington Nationals",
                     "home_team": "San Francisco Giants",
                     "away_record": "33-33",
-                    "home_record": "26-39",
+                    "home_record": "27-39",
                     "away_pitcher": {
                         "name": "Foster Griffin"
                     },
@@ -677,7 +677,7 @@
                     "game_time": "08:40",
                     "away_team": "Chicago Cubs",
                     "home_team": "Colorado Rockies",
-                    "away_record": "34-31",
+                    "away_record": "34-32",
                     "home_record": "24-42",
                     "away_pitcher": {
                         "name": "Shota Imanaga"
@@ -774,7 +774,7 @@
                     "game_time": "03:10",
                     "away_team": "Chicago Cubs",
                     "home_team": "Colorado Rockies",
-                    "away_record": "34-31",
+                    "away_record": "34-32",
                     "home_record": "24-42",
                     "away_pitcher": {
                         "name": "Edward Cabrera"
@@ -1014,8 +1014,8 @@
                     "game_time": "10:15",
                     "away_team": "Chicago Cubs",
                     "home_team": "San Francisco Giants",
-                    "away_record": "34-31",
-                    "home_record": "26-39",
+                    "away_record": "34-32",
+                    "home_record": "27-39",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1202,8 +1202,8 @@
                     "game_time": "10:05",
                     "away_team": "Chicago Cubs",
                     "home_team": "San Francisco Giants",
-                    "away_record": "34-31",
-                    "home_record": "26-39",
+                    "away_record": "34-32",
+                    "home_record": "27-39",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1390,8 +1390,8 @@
                     "game_time": "03:10",
                     "away_team": "Chicago Cubs",
                     "home_team": "San Francisco Giants",
-                    "away_record": "34-31",
-                    "home_record": "26-39",
+                    "away_record": "34-32",
+                    "home_record": "27-39",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1488,7 +1488,7 @@
                     "away_team": "Colorado Rockies",
                     "home_team": "Chicago Cubs",
                     "away_record": "24-42",
-                    "home_record": "34-31",
+                    "home_record": "34-32",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1636,7 +1636,7 @@
                     "game_time": "07:15",
                     "away_team": "San Francisco Giants",
                     "home_team": "Atlanta Braves",
-                    "away_record": "26-39",
+                    "away_record": "27-39",
                     "home_record": "45-21",
                     "away_pitcher": {
                         "name": "TBD"
@@ -1676,7 +1676,7 @@
                     "away_team": "Colorado Rockies",
                     "home_team": "Chicago Cubs",
                     "away_record": "24-42",
-                    "home_record": "34-31",
+                    "home_record": "34-32",
                     "away_pitcher": {
                         "name": "TBD"
                     },
