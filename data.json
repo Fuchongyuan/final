@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-06-11 04:21",
+    "last_updated": "2026-06-11 06:49",
     "weekly_data": {
         "2026-06-11": {
             "day_label": "06/11",
@@ -249,8 +249,8 @@
                     "game_time": "04:10",
                     "away_team": "Cincinnati Reds",
                     "home_team": "San Diego Padres",
-                    "away_record": "32-34",
-                    "home_record": "34-32",
+                    "away_record": "32-35",
+                    "home_record": "35-32",
                     "away_pitcher": {
                         "name": "Brady Singer"
                     },
@@ -537,7 +537,7 @@
                     "away_record": "36-32",
                     "home_record": "35-33",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Bryce Miller"
                     },
                     "home_pitcher": {
                         "name": "Zack Littell"
@@ -547,7 +547,7 @@
                     "game_time": "07:05",
                     "away_team": "San Diego Padres",
                     "home_team": "Baltimore Orioles",
-                    "away_record": "34-32",
+                    "away_record": "35-32",
                     "home_record": "31-37",
                     "away_pitcher": {
                         "name": "Griffin Canning"
@@ -587,7 +587,7 @@
                     "away_team": "Arizona Diamondbacks",
                     "home_team": "Cincinnati Reds",
                     "away_record": "34-32",
-                    "home_record": "32-34",
+                    "home_record": "32-35",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -605,7 +605,7 @@
                         "name": "TBD"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Nolan McLean"
                     }
                 },
                 {
@@ -748,7 +748,7 @@
                     "game_time": "04:05",
                     "away_team": "San Diego Padres",
                     "home_team": "Baltimore Orioles",
-                    "away_record": "34-32",
+                    "away_record": "35-32",
                     "home_record": "31-37",
                     "away_pitcher": {
                         "name": "Randy Vásquez"
@@ -764,7 +764,7 @@
                     "away_record": "36-32",
                     "home_record": "35-33",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Luis Castillo"
                     },
                     "home_pitcher": {
                         "name": "Cade Cavalli"
@@ -788,7 +788,7 @@
                     "away_team": "Arizona Diamondbacks",
                     "home_team": "Cincinnati Reds",
                     "away_record": "34-32",
-                    "home_record": "32-34",
+                    "home_record": "32-35",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -936,7 +936,7 @@
                     "game_time": "01:35",
                     "away_team": "San Diego Padres",
                     "home_team": "Baltimore Orioles",
-                    "away_record": "34-32",
+                    "away_record": "35-32",
                     "home_record": "31-37",
                     "away_pitcher": {
                         "name": "Walker Buehler"
@@ -952,7 +952,7 @@
                     "away_record": "36-32",
                     "home_record": "35-33",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Emerson Hancock"
                     },
                     "home_pitcher": {
                         "name": "Miles Mikolas"
@@ -976,7 +976,7 @@
                     "away_team": "Arizona Diamondbacks",
                     "home_team": "Cincinnati Reds",
                     "away_record": "34-32",
-                    "home_record": "32-34",
+                    "home_record": "32-35",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1007,7 +1007,7 @@
                         "name": "TBD"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Freddy Peralta"
                     }
                 },
                 {
@@ -1151,7 +1151,7 @@
                     "away_team": "New York Mets",
                     "home_team": "Cincinnati Reds",
                     "away_record": "29-37",
-                    "home_record": "32-34",
+                    "home_record": "32-35",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1163,7 +1163,7 @@
                     "game_time": "07:45",
                     "away_team": "San Diego Padres",
                     "home_team": "St. Louis Cardinals",
-                    "away_record": "34-32",
+                    "away_record": "35-32",
                     "home_record": "36-28",
                     "away_pitcher": {
                         "name": "TBD"
@@ -1313,7 +1313,7 @@
                     "away_team": "New York Mets",
                     "home_team": "Cincinnati Reds",
                     "away_record": "29-37",
-                    "home_record": "32-34",
+                    "home_record": "32-35",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1351,7 +1351,7 @@
                     "game_time": "07:45",
                     "away_team": "San Diego Padres",
                     "home_team": "St. Louis Cardinals",
-                    "away_record": "34-32",
+                    "away_record": "35-32",
                     "home_record": "36-28",
                     "away_pitcher": {
                         "name": "TBD"
@@ -1462,7 +1462,7 @@
                     "away_team": "New York Mets",
                     "home_team": "Cincinnati Reds",
                     "away_record": "29-37",
-                    "home_record": "32-34",
+                    "home_record": "32-35",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1513,7 +1513,7 @@
                     "game_time": "02:15",
                     "away_team": "San Diego Padres",
                     "home_team": "St. Louis Cardinals",
-                    "away_record": "34-32",
+                    "away_record": "35-32",
                     "home_record": "36-28",
                     "away_pitcher": {
                         "name": "TBD"
