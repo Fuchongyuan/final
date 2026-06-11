@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-06-11 20:38",
+    "last_updated": "2026-06-12 02:09",
     "weekly_data": {
         "2026-06-12": {
             "day_label": "06/12",
@@ -323,10 +323,10 @@
                     "away_record": "33-35",
                     "home_record": "35-33",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Sandy Alcantara"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Braxton Ashcraft"
                     }
                 },
                 {
@@ -362,7 +362,7 @@
                     "away_record": "28-40",
                     "home_record": "37-33",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Jack Flaherty"
                     },
                     "home_pitcher": {
                         "name": "Tanner Bibee"
@@ -375,7 +375,7 @@
                     "away_record": "33-34",
                     "home_record": "27-39",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Jack Leiter"
                     },
                     "home_pitcher": {
                         "name": "Sonny Gray"
@@ -388,7 +388,7 @@
                     "away_record": "34-33",
                     "home_record": "32-35",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Eduardo Rodriguez"
                     },
                     "home_pitcher": {
                         "name": "Nick Lodolo"
@@ -456,7 +456,7 @@
                         "name": "Tatsuya Imai"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Luinder Avila"
                     }
                 },
                 {
@@ -469,7 +469,7 @@
                         "name": "Kyle Leahy"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Joe Ryan"
                     }
                 },
                 {
@@ -508,7 +508,7 @@
                         "name": "TBD"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Landen Roupp"
                     }
                 }
             ]
@@ -527,7 +527,7 @@
                         "name": "Matthew Liberatore"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Connor Prielipp"
                     }
                 },
                 {
@@ -579,7 +579,7 @@
                         "name": "TBD"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Bubba Chandler"
                     }
                 },
                 {
@@ -589,7 +589,7 @@
                     "away_record": "34-33",
                     "home_record": "32-35",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Michael Soroka"
                     },
                     "home_pitcher": {
                         "name": "Rhett Lowder"
@@ -602,7 +602,7 @@
                     "away_record": "28-40",
                     "home_record": "37-33",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Tarik Skubal"
                     },
                     "home_pitcher": {
                         "name": "Joey Cantillo"
@@ -615,7 +615,7 @@
                     "away_record": "33-34",
                     "home_record": "27-39",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Jacob deGrom"
                     },
                     "home_pitcher": {
                         "name": "Ranger Suarez"
@@ -657,7 +657,7 @@
                         "name": "Mike Burrows"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Noah Cameron"
                     }
                 },
                 {
@@ -680,7 +680,7 @@
                     "away_record": "26-42",
                     "home_record": "33-35",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Kyle Freeland"
                     },
                     "home_pitcher": {
                         "name": "Jeffrey Springs"
@@ -693,10 +693,10 @@
                     "away_record": "34-34",
                     "home_record": "28-41",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Ben Brown"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Trevor McDonald"
                     }
                 },
                 {
@@ -725,10 +725,10 @@
                     "away_record": "33-35",
                     "home_record": "35-33",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Max Meyer"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Paul Skenes"
                     }
                 },
                 {
@@ -777,7 +777,7 @@
                     "away_record": "34-33",
                     "home_record": "32-35",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Zac Gallen"
                     },
                     "home_pitcher": {
                         "name": "Andrew Abbott"
@@ -819,7 +819,7 @@
                         "name": "Spencer Arrighetti"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Stephen Kolek"
                     }
                 },
                 {
@@ -832,7 +832,7 @@
                         "name": "Michael McGreevy"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Taj Bradley"
                     }
                 },
                 {
@@ -868,7 +868,7 @@
                     "away_record": "26-42",
                     "home_record": "33-35",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Tomoyuki Sugano"
                     },
                     "home_pitcher": {
                         "name": "J.T. Ginn"
@@ -881,10 +881,10 @@
                     "away_record": "34-34",
                     "home_record": "28-41",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Colin Rea"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Logan Webb"
                     }
                 },
                 {
@@ -907,7 +907,7 @@
                     "away_record": "33-34",
                     "home_record": "27-39",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Nathan Eovaldi"
                     },
                     "home_pitcher": {
                         "name": "Connelly Early"
@@ -968,7 +968,7 @@
                         "name": "TBD"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Dustin May"
                     }
                 },
                 {
@@ -1004,7 +1004,7 @@
                     "away_record": "28-40",
                     "home_record": "31-39",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Troy Melton"
                     },
                     "home_pitcher": {
                         "name": "TBD"
