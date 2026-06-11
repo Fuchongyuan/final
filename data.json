@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-06-11 10:58",
+    "last_updated": "2026-06-11 16:06",
     "weekly_data": {
         "2026-06-12": {
             "day_label": "06/12",
@@ -87,8 +87,8 @@
                     "game_time": "06:40",
                     "away_team": "Minnesota Twins",
                     "home_team": "Detroit Tigers",
-                    "away_record": "30-38",
-                    "home_record": "28-39",
+                    "away_record": "31-38",
+                    "home_record": "28-40",
                     "away_pitcher": {
                         "name": "Mike Paredes"
                     },
@@ -139,8 +139,8 @@
                     "game_time": "07:40",
                     "away_team": "Texas Rangers",
                     "home_team": "Kansas City Royals",
-                    "away_record": "32-34",
-                    "home_record": "28-39",
+                    "away_record": "33-34",
+                    "home_record": "28-40",
                     "away_pitcher": {
                         "name": "MacKenzie Gore"
                     },
@@ -165,8 +165,8 @@
                     "game_time": "08:40",
                     "away_team": "Chicago Cubs",
                     "home_team": "Colorado Rockies",
-                    "away_record": "34-33",
-                    "home_record": "25-42",
+                    "away_record": "34-34",
+                    "home_record": "26-42",
                     "away_pitcher": {
                         "name": "Shota Imanaga"
                     },
@@ -178,8 +178,8 @@
                     "game_time": "09:05",
                     "away_team": "Milwaukee Brewers",
                     "home_team": "Athletics",
-                    "away_record": "41-24",
-                    "home_record": "32-35",
+                    "away_record": "41-25",
+                    "home_record": "33-35",
                     "away_pitcher": {
                         "name": "Brandon Sproat"
                     },
@@ -191,8 +191,8 @@
                     "game_time": "09:38",
                     "away_team": "Houston Astros",
                     "home_team": "Los Angeles Angels",
-                    "away_record": "31-38",
-                    "home_record": "26-42",
+                    "away_record": "31-39",
+                    "home_record": "27-42",
                     "away_pitcher": {
                         "name": "Peter Lambert"
                     },
@@ -223,8 +223,8 @@
                     "game_time": "01:10",
                     "away_team": "Minnesota Twins",
                     "home_team": "Detroit Tigers",
-                    "away_record": "30-38",
-                    "home_record": "28-39",
+                    "away_record": "31-38",
+                    "home_record": "28-40",
                     "away_pitcher": {
                         "name": "Zebby Matthews"
                     },
@@ -249,8 +249,8 @@
                     "game_time": "02:10",
                     "away_team": "Texas Rangers",
                     "home_team": "Kansas City Royals",
-                    "away_record": "32-34",
-                    "home_record": "28-39",
+                    "away_record": "33-34",
+                    "home_record": "28-40",
                     "away_pitcher": {
                         "name": "Kumar Rocker"
                     },
@@ -262,8 +262,8 @@
                     "game_time": "03:10",
                     "away_team": "Chicago Cubs",
                     "home_team": "Colorado Rockies",
-                    "away_record": "34-33",
-                    "home_record": "25-42",
+                    "away_record": "34-34",
+                    "home_record": "26-42",
                     "away_pitcher": {
                         "name": "Edward Cabrera"
                     },
@@ -359,7 +359,7 @@
                     "game_time": "07:10",
                     "away_team": "Detroit Tigers",
                     "home_team": "Cleveland Guardians",
-                    "away_record": "28-39",
+                    "away_record": "28-40",
                     "home_record": "37-33",
                     "away_pitcher": {
                         "name": "TBD"
@@ -372,7 +372,7 @@
                     "game_time": "07:10",
                     "away_team": "Texas Rangers",
                     "home_team": "Boston Red Sox",
-                    "away_record": "32-34",
+                    "away_record": "33-34",
                     "home_record": "27-39",
                     "away_pitcher": {
                         "name": "TBD"
@@ -438,7 +438,7 @@
                     "away_team": "Philadelphia Phillies",
                     "home_team": "Milwaukee Brewers",
                     "away_record": "37-31",
-                    "home_record": "41-24",
+                    "home_record": "41-25",
                     "away_pitcher": {
                         "name": "Andrew Painter"
                     },
@@ -450,10 +450,10 @@
                     "game_time": "08:10",
                     "away_team": "Houston Astros",
                     "home_team": "Kansas City Royals",
-                    "away_record": "31-38",
-                    "home_record": "28-39",
+                    "away_record": "31-39",
+                    "home_record": "28-40",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Tatsuya Imai"
                     },
                     "home_pitcher": {
                         "name": "TBD"
@@ -464,7 +464,7 @@
                     "away_team": "St. Louis Cardinals",
                     "home_team": "Minnesota Twins",
                     "away_record": "37-28",
-                    "home_record": "30-38",
+                    "home_record": "31-38",
                     "away_pitcher": {
                         "name": "Kyle Leahy"
                     },
@@ -477,20 +477,20 @@
                     "away_team": "Tampa Bay Rays",
                     "home_team": "Los Angeles Angels",
                     "away_record": "40-25",
-                    "home_record": "26-42",
+                    "home_record": "27-42",
                     "away_pitcher": {
                         "name": "Shane McClanahan"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Sam Aldegheri"
                     }
                 },
                 {
                     "game_time": "10:05",
                     "away_team": "Colorado Rockies",
                     "home_team": "Athletics",
-                    "away_record": "25-42",
-                    "home_record": "32-35",
+                    "away_record": "26-42",
+                    "home_record": "33-35",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -502,7 +502,7 @@
                     "game_time": "10:15",
                     "away_team": "Chicago Cubs",
                     "home_team": "San Francisco Giants",
-                    "away_record": "34-33",
+                    "away_record": "34-34",
                     "home_record": "28-41",
                     "away_pitcher": {
                         "name": "TBD"
@@ -522,7 +522,7 @@
                     "away_team": "St. Louis Cardinals",
                     "home_team": "Minnesota Twins",
                     "away_record": "37-28",
-                    "home_record": "30-38",
+                    "home_record": "31-38",
                     "away_pitcher": {
                         "name": "Matthew Liberatore"
                     },
@@ -599,7 +599,7 @@
                     "game_time": "04:10",
                     "away_team": "Detroit Tigers",
                     "home_team": "Cleveland Guardians",
-                    "away_record": "28-39",
+                    "away_record": "28-40",
                     "home_record": "37-33",
                     "away_pitcher": {
                         "name": "TBD"
@@ -612,7 +612,7 @@
                     "game_time": "04:10",
                     "away_team": "Texas Rangers",
                     "home_team": "Boston Red Sox",
-                    "away_record": "32-34",
+                    "away_record": "33-34",
                     "home_record": "27-39",
                     "away_pitcher": {
                         "name": "TBD"
@@ -651,10 +651,10 @@
                     "game_time": "07:10",
                     "away_team": "Houston Astros",
                     "home_team": "Kansas City Royals",
-                    "away_record": "31-38",
-                    "home_record": "28-39",
+                    "away_record": "31-39",
+                    "home_record": "28-40",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Mike Burrows"
                     },
                     "home_pitcher": {
                         "name": "TBD"
@@ -665,7 +665,7 @@
                     "away_team": "Philadelphia Phillies",
                     "home_team": "Milwaukee Brewers",
                     "away_record": "37-31",
-                    "home_record": "41-24",
+                    "home_record": "41-25",
                     "away_pitcher": {
                         "name": "Aaron Nola"
                     },
@@ -677,8 +677,8 @@
                     "game_time": "10:05",
                     "away_team": "Colorado Rockies",
                     "home_team": "Athletics",
-                    "away_record": "25-42",
-                    "home_record": "32-35",
+                    "away_record": "26-42",
+                    "home_record": "33-35",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -690,7 +690,7 @@
                     "game_time": "10:05",
                     "away_team": "Chicago Cubs",
                     "home_team": "San Francisco Giants",
-                    "away_record": "34-33",
+                    "away_record": "34-34",
                     "home_record": "28-41",
                     "away_pitcher": {
                         "name": "TBD"
@@ -704,7 +704,7 @@
                     "away_team": "Tampa Bay Rays",
                     "home_team": "Los Angeles Angels",
                     "away_record": "40-25",
-                    "home_record": "26-42",
+                    "home_record": "27-42",
                     "away_pitcher": {
                         "name": "Griffin Jax"
                     },
@@ -787,7 +787,7 @@
                     "game_time": "01:40",
                     "away_team": "Detroit Tigers",
                     "home_team": "Cleveland Guardians",
-                    "away_record": "28-39",
+                    "away_record": "28-40",
                     "home_record": "37-33",
                     "away_pitcher": {
                         "name": "TBD"
@@ -813,10 +813,10 @@
                     "game_time": "02:10",
                     "away_team": "Houston Astros",
                     "home_team": "Kansas City Royals",
-                    "away_record": "31-38",
-                    "home_record": "28-39",
+                    "away_record": "31-39",
+                    "home_record": "28-40",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Spencer Arrighetti"
                     },
                     "home_pitcher": {
                         "name": "TBD"
@@ -827,7 +827,7 @@
                     "away_team": "St. Louis Cardinals",
                     "home_team": "Minnesota Twins",
                     "away_record": "37-28",
-                    "home_record": "30-38",
+                    "home_record": "31-38",
                     "away_pitcher": {
                         "name": "Michael McGreevy"
                     },
@@ -853,7 +853,7 @@
                     "away_team": "Philadelphia Phillies",
                     "home_team": "Milwaukee Brewers",
                     "away_record": "37-31",
-                    "home_record": "41-24",
+                    "home_record": "41-25",
                     "away_pitcher": {
                         "name": "Cristopher Sánchez"
                     },
@@ -865,8 +865,8 @@
                     "game_time": "03:05",
                     "away_team": "Colorado Rockies",
                     "home_team": "Athletics",
-                    "away_record": "25-42",
-                    "home_record": "32-35",
+                    "away_record": "26-42",
+                    "home_record": "33-35",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -878,7 +878,7 @@
                     "game_time": "03:10",
                     "away_team": "Chicago Cubs",
                     "home_team": "San Francisco Giants",
-                    "away_record": "34-33",
+                    "away_record": "34-34",
                     "home_record": "28-41",
                     "away_pitcher": {
                         "name": "TBD"
@@ -892,7 +892,7 @@
                     "away_team": "Tampa Bay Rays",
                     "home_team": "Los Angeles Angels",
                     "away_record": "40-25",
-                    "home_record": "26-42",
+                    "home_record": "27-42",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -904,7 +904,7 @@
                     "game_time": "07:20",
                     "away_team": "Texas Rangers",
                     "home_team": "Boston Red Sox",
-                    "away_record": "32-34",
+                    "away_record": "33-34",
                     "home_record": "27-39",
                     "away_pitcher": {
                         "name": "TBD"
@@ -936,7 +936,7 @@
                     "game_time": "06:45",
                     "away_team": "Kansas City Royals",
                     "home_team": "Washington Nationals",
-                    "away_record": "28-39",
+                    "away_record": "28-40",
                     "home_record": "35-34",
                     "away_pitcher": {
                         "name": "TBD"
@@ -975,8 +975,8 @@
                     "game_time": "08:05",
                     "away_team": "Colorado Rockies",
                     "home_team": "Chicago Cubs",
-                    "away_record": "25-42",
-                    "home_record": "34-33",
+                    "away_record": "26-42",
+                    "home_record": "34-34",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -988,8 +988,8 @@
                     "game_time": "08:05",
                     "away_team": "Minnesota Twins",
                     "home_team": "Texas Rangers",
-                    "away_record": "30-38",
-                    "home_record": "32-34",
+                    "away_record": "31-38",
+                    "home_record": "33-34",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1001,8 +1001,8 @@
                     "game_time": "08:10",
                     "away_team": "Detroit Tigers",
                     "home_team": "Houston Astros",
-                    "away_record": "28-39",
-                    "home_record": "31-38",
+                    "away_record": "28-40",
+                    "home_record": "31-39",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1014,7 +1014,7 @@
                     "game_time": "09:40",
                     "away_team": "Los Angeles Angels",
                     "home_team": "Arizona Diamondbacks",
-                    "away_record": "26-42",
+                    "away_record": "27-42",
                     "home_record": "34-33",
                     "away_pitcher": {
                         "name": "TBD"
@@ -1028,7 +1028,7 @@
                     "away_team": "Pittsburgh Pirates",
                     "home_team": "Athletics",
                     "away_record": "35-33",
-                    "home_record": "32-35",
+                    "home_record": "33-35",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1072,7 +1072,7 @@
                     "game_time": "06:45",
                     "away_team": "Kansas City Royals",
                     "home_team": "Washington Nationals",
-                    "away_record": "28-39",
+                    "away_record": "28-40",
                     "home_record": "35-34",
                     "away_pitcher": {
                         "name": "TBD"
@@ -1138,7 +1138,7 @@
                     "away_team": "Cleveland Guardians",
                     "home_team": "Milwaukee Brewers",
                     "away_record": "37-33",
-                    "home_record": "41-24",
+                    "home_record": "41-25",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1163,8 +1163,8 @@
                     "game_time": "08:05",
                     "away_team": "Colorado Rockies",
                     "home_team": "Chicago Cubs",
-                    "away_record": "25-42",
-                    "home_record": "34-33",
+                    "away_record": "26-42",
+                    "home_record": "34-34",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1176,8 +1176,8 @@
                     "game_time": "08:05",
                     "away_team": "Minnesota Twins",
                     "home_team": "Texas Rangers",
-                    "away_record": "30-38",
-                    "home_record": "32-34",
+                    "away_record": "31-38",
+                    "home_record": "33-34",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1189,8 +1189,8 @@
                     "game_time": "08:10",
                     "away_team": "Detroit Tigers",
                     "home_team": "Houston Astros",
-                    "away_record": "28-39",
-                    "home_record": "31-38",
+                    "away_record": "28-40",
+                    "home_record": "31-39",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1202,7 +1202,7 @@
                     "game_time": "09:40",
                     "away_team": "Los Angeles Angels",
                     "home_team": "Arizona Diamondbacks",
-                    "away_record": "26-42",
+                    "away_record": "27-42",
                     "home_record": "34-33",
                     "away_pitcher": {
                         "name": "TBD"
@@ -1216,7 +1216,7 @@
                     "away_team": "Pittsburgh Pirates",
                     "home_team": "Athletics",
                     "away_record": "35-33",
-                    "home_record": "32-35",
+                    "home_record": "33-35",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1273,7 +1273,7 @@
                     "game_time": "01:05",
                     "away_team": "Kansas City Royals",
                     "home_team": "Washington Nationals",
-                    "away_record": "28-39",
+                    "away_record": "28-40",
                     "home_record": "35-34",
                     "away_pitcher": {
                         "name": "TBD"
@@ -1299,8 +1299,8 @@
                     "game_time": "02:10",
                     "away_team": "Detroit Tigers",
                     "home_team": "Houston Astros",
-                    "away_record": "28-39",
-                    "home_record": "31-38",
+                    "away_record": "28-40",
+                    "home_record": "31-39",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1338,7 +1338,7 @@
                     "game_time": "03:40",
                     "away_team": "Los Angeles Angels",
                     "home_team": "Arizona Diamondbacks",
-                    "away_record": "26-42",
+                    "away_record": "27-42",
                     "home_record": "34-33",
                     "away_pitcher": {
                         "name": "TBD"
@@ -1391,7 +1391,7 @@
                     "away_team": "Cleveland Guardians",
                     "home_team": "Milwaukee Brewers",
                     "away_record": "37-33",
-                    "home_record": "41-24",
+                    "home_record": "41-25",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1403,8 +1403,8 @@
                     "game_time": "08:05",
                     "away_team": "Colorado Rockies",
                     "home_team": "Chicago Cubs",
-                    "away_record": "25-42",
-                    "home_record": "34-33",
+                    "away_record": "26-42",
+                    "home_record": "34-34",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1417,7 +1417,7 @@
                     "away_team": "Pittsburgh Pirates",
                     "home_team": "Athletics",
                     "away_record": "35-33",
-                    "home_record": "32-35",
+                    "home_record": "33-35",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1462,7 +1462,7 @@
                     "away_team": "Cleveland Guardians",
                     "home_team": "Milwaukee Brewers",
                     "away_record": "37-33",
-                    "home_record": "41-24",
+                    "home_record": "41-25",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1474,8 +1474,8 @@
                     "game_time": "02:35",
                     "away_team": "Minnesota Twins",
                     "home_team": "Texas Rangers",
-                    "away_record": "30-38",
-                    "home_record": "32-34",
+                    "away_record": "31-38",
+                    "home_record": "33-34",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1540,7 +1540,7 @@
                     "away_team": "St. Louis Cardinals",
                     "home_team": "Kansas City Royals",
                     "away_record": "37-28",
-                    "home_record": "28-39",
+                    "home_record": "28-40",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1552,8 +1552,8 @@
                     "game_time": "09:40",
                     "away_team": "Los Angeles Angels",
                     "home_team": "Athletics",
-                    "away_record": "26-42",
-                    "home_record": "32-35",
+                    "away_record": "27-42",
+                    "home_record": "33-35",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1572,7 +1572,7 @@
                     "away_team": "Toronto Blue Jays",
                     "home_team": "Chicago Cubs",
                     "away_record": "33-36",
-                    "home_record": "34-33",
+                    "home_record": "34-34",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1585,7 +1585,7 @@
                     "away_team": "Chicago White Sox",
                     "home_team": "Detroit Tigers",
                     "away_record": "36-31",
-                    "home_record": "28-39",
+                    "home_record": "28-40",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1636,7 +1636,7 @@
                     "game_time": "07:15",
                     "away_team": "Milwaukee Brewers",
                     "home_team": "Atlanta Braves",
-                    "away_record": "41-24",
+                    "away_record": "41-25",
                     "home_record": "45-23",
                     "away_pitcher": {
                         "name": "TBD"
@@ -1650,7 +1650,7 @@
                     "away_team": "San Diego Padres",
                     "home_team": "Texas Rangers",
                     "away_record": "35-32",
-                    "home_record": "32-34",
+                    "home_record": "33-34",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1663,7 +1663,7 @@
                     "away_team": "Cleveland Guardians",
                     "home_team": "Houston Astros",
                     "away_record": "37-33",
-                    "home_record": "31-38",
+                    "home_record": "31-39",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1676,7 +1676,7 @@
                     "away_team": "St. Louis Cardinals",
                     "home_team": "Kansas City Royals",
                     "away_record": "37-28",
-                    "home_record": "28-39",
+                    "home_record": "28-40",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1689,7 +1689,7 @@
                     "away_team": "Pittsburgh Pirates",
                     "home_team": "Colorado Rockies",
                     "away_record": "35-33",
-                    "home_record": "25-42",
+                    "home_record": "26-42",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1701,8 +1701,8 @@
                     "game_time": "09:40",
                     "away_team": "Los Angeles Angels",
                     "home_team": "Athletics",
-                    "away_record": "26-42",
-                    "home_record": "32-35",
+                    "away_record": "27-42",
+                    "home_record": "33-35",
                     "away_pitcher": {
                         "name": "TBD"
                     },
@@ -1714,7 +1714,7 @@
                     "game_time": "09:45",
                     "away_team": "Minnesota Twins",
                     "home_team": "Arizona Diamondbacks",
-                    "away_record": "30-38",
+                    "away_record": "31-38",
                     "home_record": "34-33",
                     "away_pitcher": {
                         "name": "TBD"
