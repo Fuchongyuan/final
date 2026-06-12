@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-06-13 04:01",
+    "last_updated": "2026-06-13 06:20",
     "weekly_data": {
         "2026-06-13": {
             "day_label": "06/13",
@@ -239,7 +239,7 @@
                     "away_record": "37-31",
                     "home_record": "41-25",
                     "away_pitcher": {
-                        "name": "Andrew Painter"
+                        "name": "Tanner Banks"
                     },
                     "home_pitcher": {
                         "name": "Jacob Misiorowski"
@@ -339,7 +339,7 @@
                         "name": "Cam Schlittler"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Kevin Gausman"
                     }
                 },
                 {
@@ -566,7 +566,7 @@
                         "name": "Will Warren"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Patrick Corbin"
                     }
                 },
                 {
@@ -592,7 +592,7 @@
                         "name": "TBD"
                     },
                     "home_pitcher": {
-                        "name": "TBD"
+                        "name": "Gavin Williams"
                     }
                 },
                 {
@@ -913,7 +913,7 @@
                     "away_record": "30-38",
                     "home_record": "32-35",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Christian Scott"
                     },
                     "home_pitcher": {
                         "name": "Brady Singer"
@@ -939,7 +939,7 @@
                     "away_record": "37-33",
                     "home_record": "41-25",
                     "away_pitcher": {
-                        "name": "TBD"
+                        "name": "Slade Cecconi"
                     },
                     "home_pitcher": {
                         "name": "TBD"
