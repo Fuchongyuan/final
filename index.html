@@ -38,7 +38,7 @@
         .date-btn.active { background-color: #d35400; border-color: #d35400; }
         .date-btn.active .main-txt, .date-btn.active .sub-txt { color: #ffffff; }
 
-        /* 🗂️ 核心排版：一橫排固定放 2 個獨立對戰組合卡片 */
+        /* 🗂️ 核心排版 */
         .game-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -56,7 +56,6 @@
             flex-direction: column;
         }
 
-        /* 卡片上方：隊徽、名稱、即時比分與時間 */
         .card-header {
             padding: 15px 20px;
             display: flex;
@@ -69,18 +68,16 @@
         .vs-label { color: #adb5bd; font-size: 0.85rem; font-weight: normal; margin: 0 4px; }
         .card-time { font-size: 0.8rem; color: #868e96; background: #f1f3f5; padding: 2px 6px; border-radius: 4px; }
 
-        /* 卡片中央：先發投手基本資料與本季數據簡述 */
         .card-body { padding: 15px 20px; flex: 1; }
         .pitcher-info { font-size: 0.9rem; margin-bottom: 6px; color: #495057; }
         .pitcher-info span { font-weight: 600; color: #0d6efd; }
-        .pitcher-stats { font-size: 0.8rem; color: #6c757d; margin-left: 5px; font-weight: normal; }
         
         .game-status-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
         .status-badge { background-color: #e8f5e9; color: #2e7d32; padding: 3px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; }
         .live-score { font-size: 1.2rem; font-weight: 800; color: #e67e22; animation: blink 1.5s infinite; }
         .final-score { font-size: 1.2rem; font-weight: 800; color: #2c3e50; }
 
-        /* 🔍 獨立點擊展開區塊 */
+        /* 🔍 展開區塊 */
         .details-wrapper { border-top: 1px solid #f1f3f5; background-color: #fafbfc; }
         .details-wrapper summary {
             display: flex;
@@ -93,13 +90,13 @@
             list-style: none;
             font-weight: 600;
             user-select: none;
-            }
+        }
         .details-wrapper summary::-webkit-details-marker { display: none; }
         .details-wrapper summary::after { content: ' ▼'; font-size: 0.7rem; margin-left: 4px; }
         .details-wrapper[open] summary::after { content: ' ▲'; }
         .details-wrapper summary:hover { background-color: #f1f3f5; color: #333; }
 
-        /* 📊 多維度數據放置槽面版 */
+        /* 📊 多維度數據面板 */
         .details-content {
             padding: 15px 20px;
             background-color: #ffffff;
@@ -111,15 +108,14 @@
             border-radius: 6px;
             margin-bottom: 8px;
             font-size: 0.85rem;
-            border-left: 3px solid #d35400; /* 預設為橘色 */
+            border-left: 3px solid #d35400;
         }
-        .data-box.team-stats { border-left-color: #34495e; } /* 團隊數據：深藍 */
-        .data-box.bet { border-left-color: #27ae60; }        /* 盤口推薦：綠色 */
-        .data-box.injury { border-left-color: #c0392b; }     /* 傷兵戰力：紅色 */
+        .data-box.team-stats { border-left-color: #34495e; }
+        .data-box.bet { border-left-color: #27ae60; }
+        .data-box.injury { border-left-color: #c0392b; }
         .data-box:last-child { margin-bottom: 0; }
         .data-box-title { font-weight: 700; color: #2c3e50; margin-bottom: 4px; }
         
-        /* 內部數據表格微調 */
         .stat-sub-table { width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 0.8rem; }
         .stat-sub-table th, .stat-sub-table td { padding: 4px 6px; text-align: left; }
         .stat-sub-table th { color: #7f8c8d; font-weight: 600; border-bottom: 1px solid #e2e8f0; }
@@ -183,30 +179,28 @@
         "Arizona Diamondbacks": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/ari.png", "Colorado Rockies": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/col.png", "Los Angeles Dodgers": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/lad.png", "San Diego Padres": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sd.png", "San Francisco Giants": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sf.png"
     };
 
-   fetch('data.json')
+    fetch('data.json')
         .then(res => {
-            if (!res.ok) throw new Error("找不到數據檔案或伺服器回應錯誤");
+            if (!res.ok) throw new Error("找不到 data.json 檔案，請確認爬蟲是否執行或使用本地伺服器開啟。");
             return res.json();
         })
         .then(data => {
             document.getElementById('update-time').innerText = `系統最後同步：${data.last_updated || '未知時間'} (台灣時間)`;
             globalWeeklyData = data.weekly_data || {};
             
-            // 防呆：如果根本沒有任何日期數據
             if (Object.keys(globalWeeklyData).length === 0) {
                 document.getElementById('games-grid-container').style.display = 'none'; 
                 document.getElementById('no-data').style.display = 'block';
-                document.getElementById('no-data').innerText = "目前無賽程數據，請確認爬蟲是否正確抓取！";
+                document.getElementById('no-data').innerText = "目前無一週賽程數據！";
                 return;
             }
-            
             renderDateMenu();
         })
         .catch(err => {
             console.error(err);
-            document.getElementById('update-time').innerText = `錯誤：無法載入數據 (${err.message})`;
+            document.getElementById('update-time').innerText = `系統連線異常`;
             document.getElementById('no-data').style.display = 'block';
-            document.getElementById('no-data').innerText = "資料載入失敗！請確保使用本地伺服器（如 http.server）開啟網頁。";
+            document.getElementById('no-data').innerText = "資料載入失敗！請確保使用伺服器環境（如 http.server 或 Live Server）開啟本網頁。";
         });
 
     function renderDateMenu() {
@@ -214,6 +208,7 @@
         menuContainer.innerHTML = ''; 
         
         Object.keys(globalWeeklyData).sort().forEach((dateStr, index) => {
+            const dayData = globalWeeklyData[dateStr];
             const btn = document.createElement('div');
             btn.className = `date-btn ${index === 0 ? 'active' : ''}`;
             btn.onclick = () => { 
@@ -221,7 +216,7 @@
                 btn.classList.add('active'); 
                 displayGames(dateStr); 
             };
-            btn.innerHTML = `<div class="main-txt">${globalWeeklyData[dateStr].day_label}</div><div class="sub-txt">${globalWeeklyData[dateStr].weekday_label}</div>`;
+            btn.innerHTML = `<div class="main-txt">${dayData.day_label || dateStr}</div><div class="sub-txt">${dayData.weekday_label || ''}</div>`;
             menuContainer.appendChild(btn);
         });
         
@@ -248,42 +243,53 @@
             const card = document.createElement('div');
             card.className = 'game-card';
             
+            // 💡 比分防呆與相容性（如果 Python 沒抓到比分，顯示為空值或 0）
             let scoreDisplay = `<span class="vs-label">@</span>`;
             if (game.is_live_or_final === "Live") {
-                scoreDisplay = `<span class="live-score">${game.away_runs} : ${game.home_runs}</span>`;
+                scoreDisplay = `<span class="live-score">${game.away_runs ?? 0} : ${game.home_runs ?? 0}</span>`;
             } else if (game.is_live_or_final === "Final") {
-                scoreDisplay = `<span class="final-score">${game.away_runs} : ${game.home_runs}</span>`;
+                scoreDisplay = `<span class="final-score">${game.away_runs ?? 0} : ${game.home_runs ?? 0}</span>`;
             }
 
-            const awayStats = game.away_pitcher.stats || "暫無本季數據";
-            const homeStats = game.home_pitcher.stats || "暫無本季數據";
+            // 💡 投手與歷史記錄防呆：採用 Optional Chaining `?.` 機制，抓不到也不會壞掉
+            const awayPitcherName = game.away_pitcher?.name || "未定 (TBD)";
+            const homePitcherName = game.home_pitcher?.name || "未定 (TBD)";
+            const awayPitcherStats = game.away_pitcher?.stats || "-";
+            const homePitcherStats = game.home_pitcher?.stats || "-";
             
-            // 擷取球隊簡稱 (最後一個單字，如 Dodgers, Yankees)
-            const awayShortName = game.away_team.split(' ').pop();
-            const homeShortName = game.home_team.split(' ').pop();
+            const awayRecord = game.away_record || "-";
+            const homeRecord = game.home_record || "-";
 
-            // 讀取從 Python 新增的豐富團隊數據資訊
+            const awayShortName = (game.away_team || "客隊").split(' ').pop();
+            const homeShortName = (game.home_team || "主隊").split(' ').pop();
+
+            // 💡 團隊進階數據防呆（如果舊爬蟲沒這個欄位，給予預設 {} 空物件）
             const aStats = game.away_stats || {};
             const hStats = game.home_stats || {};
+
+            // 💡 自訂分析文字槽位防呆
+            const trendData = game.analysis?.trend || "暫無戰績走向趨勢資料。";
+            const betTipData = game.analysis?.bet_tip || "暫無今日推薦盤口資料。";
+            const injuryData = game.analysis?.injuries || "暫無即時陣容更動報告。";
 
             card.innerHTML = `
                 <div class="card-header">
                     <div class="teams-headline">
-                        <img src="${teamLogoMap[game.away_team] || ''}" class="card-logo">
+                        <img src="${teamLogoMap[game.away_team] || ''}" class="card-logo" onerror="this.style.display='none'">
                         <span>${awayShortName}</span>
                         ${scoreDisplay}
                         <span>${homeShortName}</span>
-                        <img src="${teamLogoMap[game.home_team] || ''}" class="card-logo">
+                        <img src="${teamLogoMap[game.home_team] || ''}" class="card-logo" onerror="this.style.display='none'">
                     </div>
-                    <div class="card-time">${game.game_time}</div>
+                    <div class="card-time">${game.game_time || '--:--'}</div>
                 </div>
 
                 <div class="card-body">
-                    <div class="pitcher-info">客隊先發：<span>${game.away_pitcher.name}</span></div>
-                    <div class="pitcher-info">主隊先發：<span>${game.home_pitcher.name}</span></div>
+                    <div class="pitcher-info">客隊先發：<span>${awayPitcherName}</span></div>
+                    <div class="pitcher-info">主隊先發：<span>${homePitcherName}</span></div>
                     <div class="game-status-bar">
-                        <span class="status-badge">${game.game_status}</span>
-                        <span style="font-size:0.75rem; color:#868e96;">戰績：${game.away_record} (${aStats.streak || '-'}) / ${game.home_record} (${hStats.streak || '-'})</span>
+                        <span class="status-badge">${game.game_status || '未開始'}</span>
+                        <span style="font-size:0.75rem; color:#868e96;">戰績：${awayRecord} ${aStats.streak ? `(${aStats.streak})` : ''} / ${homeRecord} ${hStats.streak ? `(${hStats.streak})` : ''}</span>
                     </div>
                 </div>
 
@@ -301,29 +307,29 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td><b>目前戰績</b></td><td>${game.away_record}</td><td>${game.home_record}</td></tr>
+                                    <tr><td><b>目前戰績</b></td><td>${awayRecord}</td><td>${homeRecord}</td></tr>
                                     <tr><td><b>勝率</b></td><td>${aStats.win_percentage || '-'}</td><td>${hStats.win_percentage || '-'}</td></tr>
-                                    <tr><td><b>分區排名</b></td><td>第 ${aStats.division_rank || '-'} 名</td><td>第 ${hStats.division_rank || '-'} 名</td></tr>
+                                    <tr><td><b>分區排名</b></td><td>${aStats.division_rank ? `第 ${aStats.division_rank} 名` : '-'}</td><td>${hStats.division_rank ? `第 ${hStats.division_rank} 名` : '-'}</td></tr>
                                     <tr><td><b>勝差</b></td><td>${aStats.games_back || '-'}</td><td>${hStats.games_back || '-'}</td></tr>
                                     <tr><td><b>近期狀態</b></td><td>${aStats.streak || '-'}</td><td>${hStats.streak || '-'}</td></tr>
-                                    <tr><td><b>🔥 賽季總得分</b></td><td>${aStats.season_runs_scored || '-'} 分</td><td>${hStats.season_runs_scored || '-'} 分</td></tr>
-                                    <tr><td><b>🛡️ 賽季總失分</b></td><td>${aStats.season_runs_allowed || '-'} 分</td><td>${hStats.season_runs_allowed || '-'} 分</td></tr>
+                                    <tr><td><b>🔥 賽季總得分</b></td><td>${aStats.season_runs_scored ? `${aStats.season_runs_scored} 分` : '-'}</td><td>${hStats.season_runs_scored ? `${hStats.season_runs_scored} 分` : '-'}</td></tr>
+                                    <tr><td><b>🛡️ 賽季總失分</b></td><td>${aStats.season_runs_allowed ? `${aStats.season_runs_allowed} 分` : '-'}</td><td>${hStats.season_runs_allowed ? `${hStats.season_runs_allowed} 分` : '-'}</td></tr>
                                 </tbody>
                             </table>
                         </div>
                         
                         <div class="data-box">
-                            <div class="data-box-title">🧢 先發投手對決</div>
-                            • <b>${game.away_pitcher.name}</b>: ${awayStats}<br>
-                            • <b>${game.home_pitcher.name}</b>: ${homeStats}
+                            <div class="data-box-title">🧢 先發投手詳細數據</div>
+                            • <b>${awayPitcherName}</b>: ${awayPitcherStats}<br>
+                            • <b>${homePitcherName}</b>: ${homePitcherStats}
                         </div>
                         <div class="data-box bet">
                             <div class="data-box-title">🎯 賽事盤口與智慧推薦</div>
-                            預測推薦槽位已就緒。近期狀態：客隊 ${aStats.streak || '-'} ｜ 主隊 ${hStats.streak || '-'}。
+                            ${betTipData}
                         </div>
                         <div class="data-box injury">
-                            <div class="data-box-title">🚑 即時傷兵與陣容調動</div>
-                            本場對戰防守失分對比：${awayShortName} (${aStats.season_runs_allowed || '-'}) vs ${homeShortName} (${hStats.season_runs_allowed || '-'})。
+                            <div class="data-box-title">🚑 即時傷兵與戰力報告</div>
+                            ${injuryData}
                         </div>
                     </div>
                 </details>
