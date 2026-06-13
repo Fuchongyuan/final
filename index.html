@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLB 數據自動化儀表板 - 官方核心 V4</title>
+    <title>MLB 數據自動化儀表板 - 官方核心 V5</title>
     <style>
         :root {
             --bg-primary: #f5f7fb;
@@ -14,6 +14,7 @@
             --mlb-red: #bf0d3e;
             --accent-orange: #f97316;
             --success-green: #10b981;
+            --live-pulse: #ef4444;
             --border-color: #e2e8f0;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,10 +41,19 @@
 
         .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
         .card { background-color: var(--card-bg); border-radius: 14px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px rgba(0,0,0,0.01); overflow: hidden; display: flex; flex-direction: column; }
+        
+        /* 進行中 Live 特效卡片 */
+        .card.live-border { border: 2px solid var(--live-pulse); box-shadow: 0 4px 12px rgba(239, 68, 68, 0.08); }
+
         .card-header { padding: 15px 20px; background-color: #f8fafc; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
         .status-badge { font-size: 0.75rem; font-weight: 700; padding: 4px 8px; border-radius: 6px; }
         .status-final { background-color: #fee2e2; color: var(--mlb-red); }
         .status-upcoming { background-color: #e0f2fe; color: #0369a1; }
+        
+        /* 進行中綠色閃爍效果 */
+        .status-live { background-color: #d1fae5; color: var(--success-green); animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
+
         .game-time { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
 
         .card-body { padding: 20px; flex-grow: 1; }
@@ -53,6 +63,7 @@
         .team-logo { width: 32px; height: 32px; object-fit: contain; }
         .team-name { font-size: 1.1rem; font-weight: 700; color: var(--text-main); }
         .team-score { font-size: 1.5rem; font-weight: 800; color: #0f172a; }
+        .card.live-border .team-score { color: var(--live-pulse); }
 
         .card-footer { border-top: 1px solid var(--border-color); background-color: #f8fafc; }
         .details-wrapper summary { padding: 12px; text-align: center; color: var(--text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; list-style: none; user-select: none; }
@@ -78,7 +89,7 @@
 
     <header>
         <h1>⚾ MLB 全聯盟數據情報面板</h1>
-        <div class="subtitle">接下來一週賽程預報 & 投手決策修正版</div>
+        <div class="subtitle">即時戰況動態追蹤 & 三向狀態分流面板</div>
         <div class="update-tag" id="sync-time">系統狀態：同步中...</div>
     </header>
 
@@ -149,7 +160,7 @@
         })
         .catch(err => {
             console.error(err);
-            document.getElementById('sync-time').innerText = `狀態：同步中...`;
+            document.getElementById('sync-time').innerText = `狀態：資料庫重新同步中...`;
             document.getElementById('no-data-msg').style.display = 'block';
         });
 
@@ -182,12 +193,23 @@
 
         games.forEach(game => {
             const card = document.createElement('div');
-            card.className = 'card';
             
-            const isFinal = game.status === 'Final';
-            const statusClass = isFinal ? 'status-final' : 'status-upcoming';
-            const statusLabel = isFinal ? '已結束' : '未開始';
-            const pitcherTitle = isFinal ? '🏆 賽事投球決策結果' : '🧢 預計先發投手 (Probables)';
+            // 根據三向狀態給予對應的標籤樣式
+            let statusClass = 'status-upcoming';
+            let statusLabel = '未開始';
+            if (game.status === 'Final') {
+                statusClass = 'status-final';
+                statusLabel = '已結束';
+                card.className = 'card';
+            } else if (game.status === 'Live') {
+                statusClass = 'status-live';
+                statusLabel = '🔴 進行中';
+                card.className = 'card live-border'; // 進行中亮起紅邊框
+            } else {
+                card.className = 'card';
+            }
+            
+            const pitcherTitle = game.status === 'Final' ? '🏆 賽事投球決策結果' : (game.status === 'Live' ? '🔥 即時場上投球狀態' : '🧢 預計先發投手 (Probables)');
             
             card.innerHTML = `
                 <div class="card-header">
