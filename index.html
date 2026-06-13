@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLB 數據自動化儀表板 - PyBaseball 核心</title>
+    <title>MLB 數據自動化儀表板 - 官方Stats核心</title>
     <style>
         :root {
             --bg-primary: #f5f7fb;
@@ -16,24 +16,14 @@
             --success-green: #10b981;
             --border-color: #e2e8f0;
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-main);
-            padding: 40px 15px;
-        }
-
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background-color: var(--bg-primary); color: var(--text-main); padding: 40px 15px; }
         .container { max-width: 1200px; margin: 0 auto; position: relative; }
-
         header { text-align: center; margin-bottom: 35px; }
         h1 { color: var(--mlb-blue); font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; }
         .subtitle { color: var(--text-muted); font-size: 1rem; }
         .update-tag { display: inline-block; background-color: #e2e8f0; color: var(--mlb-blue); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-top: 10px; }
 
-        /* 右上角切換頁面按鈕 */
         .nav-tabs { position: absolute; top: 0; right: 0; display: flex; gap: 8px; }
         .nav-btn-page { padding: 8px 16px; font-size: 0.9rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
         .btn-board { background-color: var(--mlb-blue); color: white; }
@@ -44,33 +34,29 @@
         .page-content.active { display: block; }
         .map-iframe { width: 100%; height: 750px; border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); background: white; margin-top: 20px; }
 
-        /* 日期橫條選單 */
-        .date-tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 30px; overflow-x: auto; padding: 5px; }
-        .date-btn { padding: 10px 20px; font-size: 0.95rem; font-weight: 600; border: 1px solid var(--border-color); background-color: var(--card-bg); color: var(--text-main); border-radius: 8px; cursor: pointer; transition: all 0.2s; }
+        .date-tabs { display: flex; justify-content: flex-start; gap: 10px; margin-bottom: 30px; overflow-x: auto; padding: 10px 5px; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+        .date-btn { padding: 8px 16px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border-color); background-color: var(--card-bg); color: var(--text-main); border-radius: 20px; cursor: pointer; transition: all 0.15s; flex-shrink: 0; }
         .date-btn.active { background-color: var(--accent-orange); color: white; border-color: var(--accent-orange); }
 
-        /* 賽事網格 */
-        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 24px; }
-        .card { background-color: var(--card-bg); border-radius: 14px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px rgba(0,0,0,0.02); overflow: hidden; display: flex; flex-direction: column; }
-        
+        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+        .card { background-color: var(--card-bg); border-radius: 14px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px rgba(0,0,0,0.01); overflow: hidden; display: flex; flex-direction: column; }
         .card-header { padding: 15px 20px; background-color: #f8fafc; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
         .status-badge { font-size: 0.75rem; font-weight: 700; padding: 4px 8px; border-radius: 6px; }
         .status-final { background-color: #fee2e2; color: var(--mlb-red); }
         .status-upcoming { background-color: #e0f2fe; color: #0369a1; }
-        .game-time { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+        .game-time { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
 
         .card-body { padding: 20px; flex-grow: 1; }
         .team-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
         .team-row:last-of-type { margin-bottom: 0; }
         .team-info { display: flex; align-items: center; gap: 12px; }
-        .team-logo { width: 30px; height: 30px; object-fit: contain; }
-        .team-name { font-size: 1.05rem; font-weight: 700; color: var(--text-main); }
-        .team-score { font-size: 1.4rem; font-weight: 800; color: #0f172a; }
+        .team-logo { width: 32px; height: 32px; object-fit: contain; }
+        .team-name { font-size: 1.1rem; font-weight: 700; color: var(--text-main); }
+        .team-score { font-size: 1.5rem; font-weight: 800; color: #0f172a; }
 
         .card-footer { border-top: 1px solid var(--border-color); background-color: #f8fafc; }
         .details-wrapper summary { padding: 12px; text-align: center; color: var(--text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; list-style: none; user-select: none; }
         .details-content { padding: 16px 20px; border-top: 1px solid var(--border-color); background-color: var(--card-bg); }
-
         .stat-section { margin-bottom: 12px; }
         .stat-section:last-child { margin-bottom: 0; }
         .stat-title { font-size: 0.8rem; font-weight: 700; color: var(--mlb-blue); text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.05em; }
@@ -92,13 +78,13 @@
 
     <header>
         <h1>⚾ MLB 全聯盟數據情報面板</h1>
-        <div class="subtitle">基於 PyBaseball 雲端高強度容錯架構</div>
-        <div class="update-tag" id="sync-time">系統最後同步：載入中...</div>
+        <div class="subtitle">基於 官方 Stats API 核心全自動容錯架構</div>
+        <div class="update-tag" id="sync-time">系統狀態：同步中...</div>
     </header>
 
     <div id="page-board" class="page-content active">
         <div class="date-tabs" id="date-tabs-container"></div>
-        <div id="no-data-msg">本日無排定賽事數據。</div>
+        <div id="no-data-msg">選定日期無排定賽事數據。</div>
         <div class="dashboard-grid" id="game-grid"></div>
     </div>
 
@@ -132,7 +118,6 @@
         document.getElementById('page-map').classList.remove('active');
         document.getElementById('tab-board').classList.add('inactive');
         document.getElementById('tab-map').classList.add('inactive');
-
         if (pageName === 'board') {
             document.getElementById('page-board').classList.add('active');
             document.getElementById('tab-board').classList.remove('inactive');
@@ -142,36 +127,45 @@
         }
     }
 
+    // 取得今天的當地日期字串 (YYYY-MM-DD)
+    const localTodayStr = new Date().toISOString().split('T')[0];
+
     fetch('data.json')
         .then(res => {
             if(!res.ok) throw new Error("找不到數據檔案");
             return res.json();
         })
         .then(data => {
-            document.getElementById('sync-time').innerText = `系統最後同步：${data.meta?.last_updated || '未知時間'} (台灣時間)`;
+            document.getElementById('sync-time').innerText = `最後雲端同步：${data.meta?.last_updated || '剛剛'} (台灣時間)`;
             dataset = data.dates || {};
             const dateKeys = Object.keys(dataset).sort();
             if(dateKeys.length === 0) {
                 document.getElementById('no-data-msg').style.display = 'block';
                 return;
             }
-            renderTabs(dateKeys);
-            renderGames(dateKeys[0]);
+            
+            // 尋找跟今天最接近的日期作為預設高亮選單
+            let defaultDate = dateKeys.includes(localTodayStr) ? localTodayStr : dateKeys[Math.floor(dateKeys.length / 2)];
+            
+            renderTabs(dateKeys, defaultDate);
+            renderGames(defaultDate);
         })
         .catch(err => {
             console.error(err);
-            document.getElementById('sync-time').innerText = `系統狀態：連線中斷或尚未生成資料`;
+            document.getElementById('sync-time').innerText = `狀態：同步佇列中...`;
             document.getElementById('no-data-msg').style.display = 'block';
-            document.getElementById('no-data-msg').innerText = "無法載入 data.json，請確認雲端 Actions 是否已成功執行第一次抓取！";
+            document.getElementById('no-data-msg').innerText = "雲端檔案初始化中，請至 GitHub Actions 點擊「Run workflow」開始第一次串接！";
         });
 
-    function renderTabs(dates) {
+    function renderTabs(dates, activeDate) {
         const container = document.getElementById('date-tabs-container');
         container.innerHTML = '';
-        dates.forEach((d, idx) => {
+        dates.forEach(d => {
             const btn = document.createElement('button');
-            btn.className = `date-btn ${idx === 0 ? 'active' : ''}`;
-            btn.innerText = d;
+            btn.className = `date-btn ${d === activeDate ? 'active' : ''}`;
+            
+            // 標記是否為今日
+            btn.innerText = (d === localTodayStr) ? `今天 (${d.substring(5)})` : d.substring(5);
             btn.onclick = () => {
                 document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
@@ -179,6 +173,12 @@
             };
             container.appendChild(btn);
         });
+        
+        // 自動滾動選單使當前高亮日期可見
+        setTimeout(() => {
+            const activeBtn = container.querySelector('.date-btn.active');
+            if(activeBtn) activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }, 300);
     }
 
     function renderGames(dateStr) {
@@ -222,17 +222,17 @@
                 </div>
                 <div class="card-footer">
                     <details>
-                        <summary>📊 展開 PyBaseball 進階情報面板</summary>
+                        <summary>📊 展開進階情報與賽季指標</summary>
                         <div class="details-content">
                             <div class="stat-section">
                                 <div class="stat-title">🧢 預計先發投手 (Probables)</div>
-                                <div class="stat-row"><span class="stat-label">客隊先發</span><span class="stat-values">${game.pitchers?.away || '-'}</span></div>
-                                <div class="stat-row"><span class="stat-label">主隊先發</span><span class="stat-values">${game.pitchers?.home || '-'}</span></div>
+                                <div class="stat-row"><span class="stat-label">客隊先發</span><span class="stat-values">${game.pitchers?.away || '未定 (TBD)'}</span></div>
+                                <div class="stat-row"><span class="stat-label">主隊先發</span><span class="stat-values">${game.pitchers?.home || '未定 (TBD)'}</span></div>
                             </div>
                             <div class="stat-section">
-                                <div class="stat-title">📈 全聯盟賽季防禦率對比 (Team ERA)</div>
-                                <div class="stat-row"><span class="stat-label">客隊賽季團隊防禦率</span><span class="stat-values">${game.metrics?.a_era || '-'}</span></div>
-                                <div class="stat-row"><span class="stat-label">主隊賽季團隊防禦率</span><span class="stat-values">${game.metrics?.h_era || '-'}</span></div>
+                                <div class="stat-title">📈 賽季團隊防禦率對比 (Team ERA)</div>
+                                <div class="stat-row"><span class="stat-label">客隊賽季防禦率</span><span class="stat-values">${game.metrics?.a_era || '-'}</span></div>
+                                <div class="stat-row"><span class="stat-label">主隊賽季防禦率</span><span class="stat-values">${game.metrics?.h_era || '-'}</span></div>
                             </div>
                         </div>
                     </details>
