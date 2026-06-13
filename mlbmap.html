@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLB 30球隊朝聖指南 - 超精簡矮版</title>
+    <style>
+        /* 1. 基礎設定 */
+        :root {
+            --al-red: #CC0001;
+            --nl-blue: #002D62;
+            --bg-light: #f0f2f5;
+        }
+
+        body {
+            font-family: 'Segoe UI', "Microsoft JhengHei", sans-serif;
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 { color: var(--nl-blue); margin-bottom: 5px; }
+        .desc { color: #666; margin-bottom: 25px; font-size: 0.95rem; }
+
+        /* 2. 地圖容器 (900x540) */
+        .map-wrapper {
+            position: relative;
+            width: 900px;
+            height: 540px;
+            background-color: #fff;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 4px solid #fff;
+        }
+
+        .map-image {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .hotspot-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        /* 地圖互動點 */
+        .hotspot-group { cursor: pointer; }
+        .hotspot-circle {
+            fill: rgba(255, 255, 255, 0.001);
+            stroke: transparent;
+            transition: all 0.2s ease;
+        }
+
+        .al-group:hover .hotspot-circle { fill: rgba(204, 0, 1, 0.2); stroke: rgba(204, 0, 1, 0.6); stroke-width: 2px; }
+        .nl-group:hover .hotspot-circle { fill: rgba(0, 45, 98, 0.2); stroke: rgba(0, 45, 98, 0.6); stroke-width: 2px; }
+
+        .hotspot-text {
+            font-size: 13px; font-weight: bold; fill: #fff; text-anchor: middle;
+            opacity: 0; transition: 0.2s; pointer-events: none;
+        }
+        .hotspot-bg {
+            opacity: 0; transition: 0.2s; pointer-events: none; rx: 4; ry: 4;
+        }
+        .al-group .hotspot-bg { fill: rgba(204, 0, 1, 0.9); }
+        .nl-group .hotspot-bg { fill: rgba(0, 45, 98, 0.9); }
+
+        .hotspot-group:hover .hotspot-bg, .hotspot-group:hover .hotspot-text { opacity: 1; }
+
+        /* ==================== 核心修改：固定大小與滾動條設定 ==================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            display: flex; justify-content: center; align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.15s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: white;
+            width: 85%;
+            max-width: 480px;       
+            height: 480px;          /* 固定整體卡片高度 */
+            border-radius: 8px;
+            position: relative;
+            transform: translateY(10px);
+            transition: transform 0.15s ease;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-overlay.active .modal-card { transform: translateY(0); }
+
+        /* 超小右上角關閉按鈕 */
+        .close-btn {
+            position: absolute; top: 8px; right: 8px;
+            width: 24px; height: 24px; background: rgba(0,0,0,0.4);
+            color: #fff; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center;
+            font-size: 16px; cursor: pointer; z-index: 100;
+        }
+        .close-btn:hover { background: rgba(0,0,0,0.6); }
+
+        /* 照片高度壓低做成 Banner 樣式 */
+        .modal-img-wrapper {
+            width: 100%;
+            height: 180px;          
+            background-color: #eee;
+            border-bottom: 3px solid var(--nl-blue);
+            flex-shrink: 0;         
+        }
+        .modal-img {
+            width: 100%; height: 100%; object-fit: cover; display: none;
+        }
+
+        /* 文字介紹區加大並啟用滑動 */
+        .modal-body { 
+            padding: 16px 20px; 
+            flex-grow: 1;           
+            overflow-y: auto;       
+        }
+        
+        /* 標籤與抬頭緊湊化 */
+        .header-inline {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .league-tag {
+            padding: 2px 6px; border-radius: 3px;
+            color: #fff; font-size: 10px; font-weight: bold;
+        }
+        .tag-al { background: var(--al-red); }
+        .tag-nl { background: var(--nl-blue); }
+
+        .modal-title { font-size: 19px; font-weight: bold; margin: 0; color: #111; display: inline-block; }
+        .modal-subtitle { color: #777; font-size: 12px; margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+
+        /* 資料格排版 */
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .data-row { 
+            display: flex; 
+            align-items: center;
+            font-size: 13px; 
+            line-height: 1.3;
+        }
+        
+        /* 球場特色描述區域 */
+        .data-row.full-width {
+            grid-column: span 2;
+            margin-top: 6px;
+            padding-top: 8px;
+            border-top: 1px dashed #ddd;
+            flex-direction: column; 
+            align-items: flex-start;
+            gap: 4px;
+        }
+
+        .label { font-weight: bold; color: #777; flex-shrink: 0; }
+        .data-row:not(.full-width) .label { width: 58px; } 
+        
+        .value { color: #333; }
+        .data-row.full-width .value {
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: #222;
+        }
+        
+        .food-badge { background: #fff3cd; color: #856404; padding: 1px 5px; border-radius: 3px; font-weight: bold; font-size: 11px; }
+    </style>
+</head>
+<body>
+
+    <h1>⚾ MLB 全美球場互動地圖 ⚾</h1>
+    <p class="desc">點擊地圖上的標誌查看詳細資訊，圖片存放於 images/ 資料夾。</p>
+
+   <div class="map-wrapper">
+    <img src="images/mlb_map_base.webp" class="map-image" alt="MLB Map">
+
+    <svg class="hotspot-overlay" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+        
+        <g class="hotspot-group al-group" onclick="openStadium('nyy')">
+            <circle class="hotspot-circle" cx="857" cy="175" r="20"></circle>
+            <rect class="hotspot-bg" x="812" y="126" width="90" height="24"></rect>
+            <text class="hotspot-text" x="857" y="142">紐約洋基</text>
+        </g>
+        <g class="hotspot-group al-group" onclick="openStadium('bos')">
+            <circle class="hotspot-circle" cx="900" cy="100" r="20"></circle>
+            <rect class="hotspot-bg" x="855" y="51" width="90" height="24"></rect>
+            <text class="hotspot-text" x="900" y="67">波士頓紅襪</text>
+        </g>
+        <g class="hotspot-group al-group" onclick="openStadium('tor')">
+            <circle class="hotspot-circle" cx="825" cy="159" r="22"></circle>
+            <rect class="hotspot-bg" x="780" y="110" width="90" height="24"></rect>
+            <text class="hotspot-text" x="825" y="126">多倫多藍鳥</text>
+        </g>
+        <g class="hotspot-group al-group" onclick="openStadium('bal')">
+            <circle class="hotspot-circle" cx="849" cy="240" r="22"></circle>
+            <rect class="hotspot-bg" x="794" y="191" width="110" height="24"></rect>
+            <text class="hotspot-text" x="849" y="207">巴爾的摩金鶯</text>
+        </g>
+        <g class="hotspot-group al-group" onclick="openStadium('tb')">
+            <circle class="hotspot-circle" cx="770" cy="473" r="24"></circle>
+            <rect class="hotspot-bg" x="725" y="424" width="90" height="24"></rect>
+            <text class="hotspot-text" x="770" y="440">坦帕灣光芒</text>
+        </g>
+
+        <g class="hotspot-group al-group" onclick="openStadium('min')">
+            <circle class="hotspot-circle" cx="530" cy="127" r="24"></circle>
+            <rect class="hotspot-bg" x="480" y="78" width="100" height="24"></rect>
+            <text class="hotspot-text" x="530" y="94">明尼蘇達雙城</text>
+        </g>
+        <g class="hotspot-group al-group" onclick="openStadium('cle')">
+            <circle class="hotspot-circle" cx="770" cy="219" r="22"></circle>
+            <rect class="hotspot-bg" x="704" y="170" width="110" height="24"></rect>
+            <text class="hotspot-text" x="759" y="186">克里夫蘭守護者</text>
+        </g>
+        <g class="hotspot-group al-group" onclick="openStadium('det')">
+            <circle class="hotspot-circle" cx="724" cy="178" r="22"></circle>
+            <rect class="hotspot-bg" x="679" y="129" width="90" height="24"></rect>
+            <text class="hotspot-text" x="724" y="145">底特律老虎</text>
+        </g>
+        <g class="hotspot-group al-group" onclick="openStadium('cws')">
+            <circle class="hotspot-circle" cx="671" cy="229" r="20"></circle>
+            <rect class="hotspot-bg" x="626" y="180" width="90" height="24"></rect>
+            <text class="hotspot-text" x="671" y="196">芝加哥白襪</text>
+        </g>
+        <g class="hotspot-group al-group" onclick="openStadium('kc')">
+            <circle class="hotspot-circle" cx="532" cy="285" r="24"></circle>
+            <rect class="hotspot-bg" x="482" y="236" width="100" height="24"></rect>
+            <text class="hotspot-text" x="532" y="252">堪薩斯市皇家</text>
+        </g>
+
+        <g class="hotspot-group al-group" onclick="openStadium('sea')">
+            <circle class="hotspot-circle" cx="189" cy="89" r="24"></circle>
+            <rect class="hotspot-bg" x="144" y="40" width="90" height="24"></rect>
+            <text class="hotspot-text" x="189" y="56">西雅圖水手</text>
+        </g>
+        <g class="hotspot-group al-group" onclick="openStadium('oak')">
+            <circle class="hotspot-circle" cx="130" cy="190" r="22"></circle>
+            <rect class="hotspot-bg" x="85" y="141" width="90" height="24"></rect>
+            <text class="hotspot-text" x="130" y="157">奧克蘭運動家</text>
+        </g>
+        <g class="hotspot-group al-group" onclick="openStadium('hou')">
+            <circle class="hotspot-circle" cx="535" cy="480" r="24"></circle>
+            <rect class="hotspot-bg" x="485" y="431" width="100" height="24"></rect>
+            <text class="hotspot-text" x="535" y="447">休士頓太空人</text>
+        </g>
+        <g class="hotspot-group al-group" onclick="openStadium('tex')">
+            <circle class="hotspot-circle" cx="469" cy="397" r="24"></circle>
+            <rect class="hotspot-bg" x="424" y="348" width="90" height="24"></rect>
+            <text class="hotspot-text" x="469" y="364">德州遊騎兵</text>
+        </g>
+        <g class="hotspot-group al-group" onclick="openStadium('laa')">
+            <circle class="hotspot-circle" cx="187" cy="334" r="22"></circle>
+            <rect class="hotspot-bg" x="142" y="285" width="90" height="24"></rect>
+            <text class="hotspot-text" x="187" y="301">洛杉磯天使</text>
+        </g>
+
+        <g class="hotspot-group nl-group" onclick="openStadium('nym')">
+            <circle class="hotspot-circle" cx="900" cy="190" r="20"></circle>
+            <rect class="hotspot-bg" x="800" y="141" width="90" height="24"></rect>
+            <text class="hotspot-text" x="845" y="157">紐約大都會</text>
+        </g>
+        <g class="hotspot-group nl-group" onclick="openStadium('phi')">
+            <circle class="hotspot-circle" cx="860" cy="215" r="22"></circle>
+            <rect class="hotspot-bg" x="785" y="166" width="90" height="24"></rect>
+            <text class="hotspot-text" x="830" y="182">費城費城人</text>
+        </g>
+        <g class="hotspot-group nl-group" onclick="openStadium('wsh')">
+            <circle class="hotspot-circle" cx="830" cy="290" r="22"></circle>
+            <rect class="hotspot-bg" x="765" y="206" width="100" height="24"></rect>
+            <text class="hotspot-text" x="815" y="222">華盛頓國民</text>
+        </g>
+        <g class="hotspot-group nl-group" onclick="openStadium('atl')">
+            <circle class="hotspot-circle" cx="720" cy="390" r="24"></circle>
+            <rect class="hotspot-bg" x="675" y="341" width="90" height="24"></rect>
+            <text class="hotspot-text" x="720" y="357">亞特蘭大勇士</text>
+        </g>
+        <g class="hotspot-group nl-group" onclick="openStadium('mia')">
+            <circle class="hotspot-circle" cx="845" cy="550" r="24"></circle>
+            <rect class="hotspot-bg" x="750" y="481" width="90" height="24"></rect>
+            <text class="hotspot-text" x="795" y="497">邁阿密馬林魚</text>
+        </g>
+
+        <g class="hotspot-group nl-group" onclick="openStadium('chc')">
+            <circle class="hotspot-circle" cx="660" cy="215" r="22"></circle>
+            <rect class="hotspot-bg" x="615" y="166" width="90" height="24"></rect>
+            <text class="hotspot-text" x="660" y="182">芝加哥小熊</text>
+        </g>
+        <g class="hotspot-group nl-group" onclick="openStadium('mil')">
+            <circle class="hotspot-circle" cx="650" cy="180" r="22"></circle>
+            <rect class="hotspot-bg" x="600" y="131" width="100" height="24"></rect>
+            <text class="hotspot-text" x="650" y="147">密爾瓦基釀酒人</text>
+        </g>
+        <g class="hotspot-group nl-group" onclick="openStadium('stl')">
+            <circle class="hotspot-circle" cx="637" cy="304" r="24"></circle>
+            <rect class="hotspot-bg" x="592" y="255" width="90" height="24"></rect>
+            <text class="hotspot-text" x="637" y="271">聖路易紅雀</text>
+        </g>
+        <g class="hotspot-group nl-group" onclick="openStadium('cin')">
+            <circle class="hotspot-circle" cx="724" cy="275" r="22"></circle>
+            <rect class="hotspot-bg" x="674" y="226" width="100" height="24"></rect>
+            <text class="hotspot-text" x="724" y="242">辛辛那提紅人</text>
+        </g>
+        <g class="hotspot-group nl-group" onclick="openStadium('pit')">
+            <circle class="hotspot-circle" cx="800" cy="230" r="22"></circle>
+            <rect class="hotspot-bg" x="740" y="181" width="90" height="24"></rect>
+            <text class="hotspot-text" x="780" y="197">匹茲堡海盜</text>
+        </g>
+
+        <g class="hotspot-group nl-group" onclick="openStadium('lad')">
+            <circle class="hotspot-circle" cx="153" cy="294" r="24"></circle>
+            <rect class="hotspot-bg" x="103" y="245" width="100" height="24"></rect>
+            <text class="hotspot-text" x="153" y="261">洛杉磯道奇</text>
+        </g>
+        <g class="hotspot-group nl-group" onclick="openStadium('sf')">
+            <circle class="hotspot-circle" cx="79" cy="207" r="24"></circle>
+            <rect class="hotspot-bg" x="34" y="158" width="90" height="24"></rect>
+            <text class="hotspot-text" x="79" y="174">舊金山巨人</text>
+        </g>
+        <g class="hotspot-group nl-group" onclick="openStadium('sd')">
+            <circle class="hotspot-circle" cx="160" cy="360" r="22"></circle>
+            <rect class="hotspot-bg" x="95" y="311" width="90" height="24"></rect>
+            <text class="hotspot-text" x="140" y="327">聖地牙哥教士</text>
+        </g>
+        <g class="hotspot-group nl-group" onclick="openStadium('ari')">
+            <circle class="hotspot-circle" cx="260" cy="340" r="24"></circle>
+            <rect class="hotspot-bg" x="205" y="291" width="110" height="24"></rect>
+            <text class="hotspot-text" x="260" y="307">亞利桑那響尾蛇</text>
+        </g>
+        <g class="hotspot-group nl-group" onclick="openStadium('col')">
+            <circle class="hotspot-circle" cx="400" cy="240" r="24"></circle>
+            <rect class="hotspot-bg" x="350" y="191" width="100" height="24"></rect>
+            <text class="hotspot-text" x="400" y="207">科羅拉多洛磯</text>
+        </g>
+
+    </svg>
+</div>
+
+    <div class="modal-overlay" id="modalOverlay" onclick="closeStadium()">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeStadium()">×</span>
+            <div class="modal-img-wrapper" id="modalImgLine">
+                <img id="stadiumImg" class="modal-img" src="" alt="球場照片">
+            </div>
+            <div class="modal-body">
+                <div class="header-inline">
+                    <h2 id="zhName" class="modal-title">球場中文名</h2>
+                    <div id="leagueTag" class="league-tag">聯盟分區</div>
+                </div>
+                <div id="enName" class="modal-subtitle">English Name</div>
+                
+                <div class="data-grid">
+                    <div class="data-row"><div class="label">代表球隊</div><div class="value" id="teamName">球隊</div></div>
+                    <div class="data-row"><div class="label">創立年份</div><div class="value" id="buildTime">年份</div></div>
+                    <div class="data-row"><div class="label">草皮類型</div><div class="value" id="turfType">草地</div></div>
+                    <div class="data-row"><div class="label">招牌美食</div><div class="value"><span class="food-badge" id="foodName">美食</span></div></div>
+                    
+                    <!-- ➔ 新增：球隊吉祥物與退休背號欄位 -->
+                    <div class="data-row"><div class="label">吉祥物</div><div class="value" id="mascotName">無</div></div>
+                    <div class="data-row"><div class="label">退休背號</div><div class="value" id="retiredNumbers">無</div></div>
+                    
+                    <div class="data-row full-width"><div class="label">球場特色</div><div class="value" id="featureText">特色</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ➔ 在資料源（stadiumData）中補齊「mascot」與「retired」欄位資訊
+        const stadiumData = {
+          // === 美國聯盟東區 (AL East) ===
+            nyy: { tag: "al", league: "美聯東區", zh: "洋基體育場", en: "Yankee Stadium", team: "紐約洋基", turf: "天然草地", time: "2009年", food: "巨型桶裝炸雞薯條", mascot: "無", retired: "1, 2, 3, 4, 5, 7, 8, 9, 10, 15, 16, 20, 21, 23, 37, 42, 44, 46, 49, 51", feature: "紐約洋基是美國職棒著名的豪門球隊，歷史上共奪得 27 次世界大賽冠軍，居全大聯盟之冠，其條紋球衣在全球辨識度極高。主場洋基體育場承襲老球場的古典外觀，右外野短圍牆設計對左打者有利，場內販售巨大的桶裝炸雞薯條，外野觀眾席在開賽時會發起齊聲高喊球員名字的點名儀式。歷史上這裡培養出許多傳奇，包括全壘打王貝比魯斯，以及生涯擊出 3465 支安打、在季後賽屢創關鍵防守美技的隊長基特。目前球隊的核心則是現任隊長賈吉（Aaron Judge），他的特色是擁有長打力量，曾在 2022 年創下單季 62 支全壘打的美聯歷史紀錄，與陣中球員共同組成強力打線。", img: "nyy" },
+            bos: { tag: "al", league: "美聯東區", zh: "芬威球場", en: "Fenway Park", team: "波士頓紅襪", turf: "天然草地", time: "1912年", food: "芬威熱狗", mascot: "Wally the Green Monster", retired: "1, 4, 6, 8, 9, 14, 26, 27, 34, 42, 45", feature: "波士頓紅襪是紐約洋基歷史上的死敵，球隊以傳統的紅色球襪為名。主場芬威球場是大聯盟現存最古老的棒球場，左外野擁有一面高達 11.3 公尺、被稱為綠色怪物的巨大高牆，是棒球界著名的球場地標，每當球賽來到第八局，全場球迷都會齊聲合唱經典歌曲 Sweet Caroline。歷史上球隊著名的巨星包括生涯打擊率高達 3 成 44 的打擊之神泰德威廉斯，以及在 2004 年帶領球隊打破長達 86 年貝比魯斯魔咒、三度奪下世界大賽冠軍的強打者老爹歐提茲（David Ortiz），他的特色是擅長在比賽後半段擊出再見安打，生涯共轟出 541 支全壘打。目前球隊的基石則是重砲三壘手迪佛斯（Rafael Devers），他具備純長打力量與關鍵安打能力，是球隊發動攻勢的核心主力。", img: "bos" },
+            tor: { tag: "al", league: "美聯東區", zh: "羅傑斯中心", en: "Rogers Centre", team: "多倫多藍鳥", turf: "人工草皮", time: "1989年", food: "肉汁乳酪薯條", mascot: "Ace", retired: "32 (及大聯盟全體42)", feature: "多倫多藍鳥是目前大聯盟唯一的加拿大球隊，主場羅傑斯中心是世界首座開合式巨蛋球場，場內也販售加拿大在地美食肉汁乳酪薯條。歷史上球隊最著名的巨星是名人堂強打者包提斯塔（Jose Bautista），他的特色是爆發力強、全壘打慶祝甩棒動作聞名，曾在 2010 年創下單季 54 支全壘打的隊史紀錄。目前球隊的核心則是小葛雷諾（Vladimir Guerrero Jr.），他的特色是揮棒爆發力極強、能將球擊得又快又遠，曾在 2021 年單季轟出 48 支全壘打，拿下大聯盟全壘打王，是隊上的主力打者。", img: "tor" },
+            bal: { tag: "al", league: "美聯東區", zh: "金鶯公園", en: "Oriole Park", team: "巴爾的摩金鶯", turf: "天然草地", time: "1992年", food: "蟹肉餅三明治", mascot: "The Oriole Bird", retired: "4, 5, 8, 20, 22, 33", feature: "巴爾不摩金鶯以當地的馬里蘭州州鳥為名，主場金鶯公園是現代棒球場復古建築的先驅，右外野外的百年紅磚倉庫極具特色，場內盛產蟹肉餅三明治。歷史上球隊最著名的代表人物是鐵人小瑞普肯（Cal Ripken Jr.），他的特色是守備穩定、出賽率極高，曾創下連續出賽 2632 場比賽的歷史紀錄，至今無人能破。目前球隊的核心則是年輕捕手拉奇曼（Adley Rutschman），他的特色是左右開弓、打擊與配球防守能力均衡，曾創下大聯盟初登場第一年就帶領球隊勝率大幅提升的罕見紀錄，是新生代領袖。", img: "bal" },
+            tb:  { tag: "al", league: "美聯東區", zh: "純品康納球場", en: "Tropicana Field", team: "坦帕灣光芒", turf: "人工草皮", time: "1990年", food: "古巴三明治", mascot: "Raymond, DJ Kitty", retired: "12, 66", feature: "坦帕灣光芒是一支以低薪資開銷、高效率數據分析聞名的球隊，主場純品康納球場是目前大聯盟唯一全封閉式的純穹頂球場，場內提供佛羅里達在地特色的古巴三明治。歷史上球隊著名的球星是朗哥利亞（Evan Longoria），他的特色是三壘防守反應快、擅長關鍵一擊，曾在 2011 年例行賽最後一戰擊出再見全壘打幫助球隊晉級季後賽。目前球隊的看板是狄亞茲（Yandy Diaz），他的特色是選球能力好、極少被三振，曾在 2023 年繳出 3 成 30 打擊率的紀錄，奪下美聯打擊王。", img: "tb" },
+
+            // === 美國聯盟中區 (AL Central) ===
+            min: { tag: "al", league: "美聯中區", zh: "標靶球場", en: "Target Field", team: "明尼蘇達雙城", turf: "天然草地", time: "2010年", food: "大野米湯", mascot: "T.C. Bear", retired: "3, 6, 7, 10, 14, 28, 29, 34", feature: "明尼蘇達雙城代表明尼阿波利斯與聖保羅兩座孿生城市，主場標靶球場露天設計，中外野設有巨大的雙子標誌，每當主隊擊出全壘打時標誌便會搖手亮燈，場內販售當地傳統的大野米湯。歷史上球隊最著名的傳奇是帕基特（Kirby Puckett），他的特色是身材矮胖但打擊率高、外野接球範圍廣，生涯打擊率高達 3 成 18，曾帶領球隊奪下兩座冠軍。目前球隊的核心是巴克斯頓（Byron Buxton），他的特色是跑步速度極快、外野防守範圍極大，曾創下連續 5 年防守分數全聯盟居前的紀錄，是攻守俱佳的野手。", img: "min" },
+            cle: { tag: "al", league: "美聯中區", zh: "進步球場", en: "Progressive Field", team: "克里夫蘭守護者", turf: "天然草地", time: "1994年", food: "烤腸", mascot: "Slider", retired: "3, 5, 14, 18, 19, 21, 25, 455", feature: "克里夫蘭守護者是一支強調戰術與團隊防守的球隊，主場進步球場左外野擁有獨特的牙刷照明燈塔外觀，場內烤腸是著名小吃。歷史上球隊最具代表性的球星是托米（Jim Thome），他的特色是力量巨大、全壘打多，生涯共轟出 612 支全壘打，是名人堂級的重砲手。目前球隊的核心是拉米瑞茲（Jose Ramirez），他的特色是打擊死角少、擅長盜壘，曾在 2023 年達成生涯多次 30 轟與 30 盜壘的紀錄，是全隊的核心進攻發動機。", img: "cle" },
+            det: { tag: "al", league: "美聯中區", zh: "聯信球場", en: "Comerica Park", team: "底特律老虎", turf: "天然草地", time: "2000年", food: "底特律風披薩", mascot: "Paws", retired: "2, 3, 5, 6, 11, 16, 23, 47", feature: "底特律老虎是傳統美聯球隊，主場聯信球場中外野計分板上方有兩隻巨大的發光老虎雕像，主隊擊出全壘打時老虎眼睛會發亮，場內提供底特律風味方型披薩。歷史上球隊著名的傳奇球星是卡布瑞拉（Miguel Cabrera），他的特色是打擊技巧全面、力量大，曾在 2012 年創下奪得打擊率、全壘打、打點三冠王的歷史紀錄，生涯累積超過 3000 支安打與 500 支全壘打。目前球隊的主力是年輕左投斯庫伯（Tarik Skubal），他的特色是球速快、變速球犀利，曾在 2024 年以單季 18 勝、228 次三振、防禦率 2.39 的成績奪得美聯投手三冠王與賽揚獎。", img: "det" },
+            cws: { tag: "al", league: "美聯中區", zh: "保證率球場", en: "Guaranteed Rate Field", team: "芝加哥白襪", turf: "天然草地", time: "1991年", food: "經典熱狗", mascot: "Southpaw", retired: "2, 3, 4, 9, 11, 14, 16, 19, 35, 56", feature: "芝加哥白襪是芝加哥當地的傳統球隊，主場保證率球場外野設有著名的噴水記分板，在主隊擊出全壘打時會發放煙火，場內販售經典熱狗。歷史上球隊最具代表性的重砲手是湯瑪斯（Frank Thomas），他的特色是身材高大但選球精準、長打力強，生涯打擊率達 3 成 01 並轟出 521 支全壘打，曾連續兩年獲得最有價值球員獎。目前球隊的核心包括火球投手克羅（Garrett Crochet），他的特色是左投且球速超過 100 英哩，擅長單場投出大量三振。", img: "cws" },
+            kc:  { tag: "al", league: "美聯中區", zh: "考夫曼體育場", en: "Kauffman Stadium", team: "堪薩斯市皇家", turf: "天然草地", time: "1973年", food: "道地 BBQ", mascot: "Sluggerrr", retired: "5, 10, 20", feature: "堪薩斯市皇家以速度與戰術見長，主場考夫曼體育場外野擁有世界聞名的巨大景觀噴泉，在比賽中會隨著戰況有不同的噴泉表演，場內以在地道地 BBQ 燒烤聞名。歷史上球隊的象徵人物是布萊特（George Brett），他的特色是打擊極為刁鑽、安打率高，生涯累積 3154 支安打，是歷史上唯一在三個不同年代都拿過打擊王的球員。目前球隊的核心是當家游擊手小威特（Bobby Witt Jr.），他的特色是奔跑速度快、長打產量高，曾在 2024 年球季繳出單季 32 轟、31 次盜壘成功以及美聯最高的 3 成 32 打擊率，創下大聯盟史上首位游擊手連續兩年達成 30 轟 30 盜的紀錄。", img: "kc" },
+
+            // === 美國聯盟西區 (AL West) ===
+            sea: { tag: "al", league: "美聯西區", zh: "T-Mobile 球場", en: "T-Mobile Park", team: "西雅圖水手", turf: "天然草地", time: "1999年", food: "炸蟋蟀", mascot: "Mariner Moose", retired: "11, 24", feature: "西雅圖是一座港口城市，所以球隊以「水手」為名，並用代表海洋的「海軍藍」與代表森林的「西北綠」作為球衣顏色。他們地處美國最西北角，因為距離其他球隊較遠，每次客場比賽都需要搭乘長途飛機。由於西雅圖經常下雨，主場球場設計了伸縮屋頂，這個屋頂只遮蓋上方、四周保持通風，即使下雨關閉也不會悶熱，依然能吹到自然風。這座球場也以食物聞名，除了傳統熱狗，還販售當地的海鮮、煙燻鮭魚、大蒜薯條以及炸蟋蟀。歷史上，這裡培養出許多知名球星。像是亞洲球員鈴木一朗，他的特色是安打率極高、跑壘速度快、外野防守非常穩定，他曾在 2004 年創下單季 262 支安打的紀錄，至今仍是大聯盟歷史上無人能破的世界紀錄；還有 90 年代的代表人物小葛瑞菲，他擅長擊出高遠的全壘打，且經常在外野做出飛撲接球的防守美技，他曾創下連續 8 場比賽都擊出全壘打的驚人紀錄，生涯總共轟出 630 支全壘打。至於目前球隊的核心，則是年輕球星 J-Rod（Julio Rodríguez），他兼具擊出全壘打的力量與快速盜壘的能力，他在生涯前 4 個球季就達成了大聯盟歷史上從未有人做到的成就：連續 4 年都繳出至少「20 轟、20 盜壘」的成績。搭配目前球隊陣中球速快、三振率高的先發投手群，讓水手隊成為一支以防守與投手戰力為主的球隊。", img: "sea" },
+            oak: { tag: "al", league: "美聯西區", zh: "薩特健康球場", en: "Sutter Health Park", team: "運動家", turf: "天然草地", time: "2000年", food: "酪梨塔可餅", mascot: "Stomper", retired: "9, 24, 27, 34, 43", feature: "運動家是一支歷史悠久但近年面臨搬遷的球隊，現以位於沙加緬度的薩特健康球場為暫時主場，場內販售具加州風味的酪梨塔可餅。歷史上球隊最知名的球星是盜帥韓德森（Rickey Henderson），他的特色是選球能力好、速度極快，生涯共創下 1406 次盜壘成功與 2295 次得分，兩項紀錄至今皆是全大聯盟歷史第一。目前球隊在重建期中培養出的新星是米勒（Mason Miller），他的特色是擔任後援投手能投出高達 104 英哩的快速球，並創下連續三振多名打者的紀錄。", img: "oak" },
+            hou: { tag: "al", league: "美聯西區", zh: "大金球場", en: "Daikin Park", team: "休士頓太空人", turf: "天然草地", time: "2000年", food: "煙燻牛胸肉", mascot: "Orbit", retired: "5, 7, 24, 25, 32, 33, 34, 40, 49", feature: "休士頓太空人是近年美聯西區的強權，主場大金球場為開合式屋頂球場，左外野高牆上方設有一條鐵軌，每當主隊擊出全壘打，橘子小火車就會在鐵軌上行駛，場內主打德州煙燻牛胸肉。歷史上球隊的象徵是巴格威爾（Jeff Bagwell），他的特色是蹲低打擊姿勢、兼具力量與選球，生涯轟出 449 支全壘打，曾獲得最有價值球員獎。目前球隊的核心是二壘手奧圖維（Jose Altuve），他的特色是身材矮小但擊球率極高、速度快，生涯累積超過 2000 支安打，曾三度拿下美聯打擊王，是球隊多次奪冠的功臣。", img: "hou" },
+            tex: { tag: "al", league: "美聯西區", zh: "全球人壽球場", en: "Globe Life Field", team: "德州遊騎兵", turf: "人工草皮", time: "2020年", food: "24 吋大熱狗", mascot: "Rangers Captain", retired: "10, 26, 29, 34", feature: "德州遊騎兵是 2023 年的世界大賽冠軍，主場全球人壽球場是剛啟用不久的高科技全空調開合巨蛋，解決了德州夏天的炎熱問題，場內販售巨大的 24 吋大熱狗。歷史上球隊最著名的王牌投手是萊延（Nolan Ryan），他的特色是球速極快、三振率高，生涯共投出 5714 次三振與 7 場無安打比賽，兩項紀錄皆是大聯盟歷史第一。目前球隊的打擊核心是席格（Corey Seager），他的特色是心理素質好、在季後賽常有關鍵長打，他曾創下在兩支不同球隊都奪得世界大賽最有價值球員獎的罕見紀錄。", img: "tex" },
+            laa: { tag: "al", league: "美聯西區", zh: "天使球場", en: "Angel Stadium", team: "洛杉磯天使", turf: "天然草地", time: "1966年", food: "頭盔玉米片", mascot: "Rally Monkey", retired: "11, 26, 29, 30, 50", feature: "洛杉磯天使地處加州安那罕，主場天使球場外野擁有著名的噴泉假山造景，主隊擊出全壘打時會噴水與施放煙火，場內販售放在棒球帽頭盔裡的玉米片。歷史上球隊最具代表性的球星是楚奧特（Mike Trout），他的特色是長打力強、選球精準且防守優異，生涯曾三度奪得美聯最有價值球員獎，打擊數據長年維持全聯盟頂尖。目前球隊則以年輕游擊手尼托（Zach Neto）為核心，他的特色是防守範圍廣、具備一定的中長打能力，是球隊極力培養的新生代核心。", img: "laa" },
+
+            // === 國家聯盟東區 (NL East) ===
+            atl: { tag: "nl", league: "國聯東區", zh: "Truist 球場", en: "Truist Park", team: "亞特蘭大勇士", turf: "天然草地", time: "2017年", food: "南方炸雞鬆餅", mascot: "Blooper", retired: "3, 6, 10, 21, 29, 31, 35, 41, 44", feature: "亞特蘭大勇士是美國南方深具代表性的傳統勁旅。主場 Truist 球場周邊建有大型複合式娛樂商圈，場內主打美國南方風味的炸雞鬆餅。歷史上球隊著名的全壘打王是漢克阿倫（Hank Aaron），他的特色是揮棒極為穩定、長打產量驚人，生涯共轟出 755 支全壘打。目前球隊的核心是外野手阿庫尼亞（Ronald Acuna Jr.），他的特色是力量與速度兼具，曾在 2023 年創下大聯盟歷史上首位單季 40 轟與 70 次盜壘成功的驚人紀錄，奪得國聯最有價值球員獎。", img: "atl" },
+            phi: { tag: "nl", league: "國聯東區", zh: "市民銀行球場", en: "Citizens Bank Park", team: "費城費城人", turf: "天然草地", time: "2004年", food: "費城起司牛肉堡", mascot: "Phillie Phanatic", retired: "1, 14, 15, 20, 32, 36, 42", feature: "費城費城人以主場球迷極具狂熱與激情聞名。主場市民銀行球場在右外野設有巨大的霓虹自由鐘，每當主隊球員擊出全壘打時，自由鐘便會左右搖擺並發出鐘聲，場內必吃在地名產費城起司牛肉堡。歷史上球隊最知名的傳奇是三壘手舒密特（Mike Schmidt），他的特色是防守極佳且長打能力強，生涯共獲得 10 次金手套獎並轟出 548 支全壘打。目前球隊的領袖是哈波（Bryce Harper），他的特色是充滿打球激情、關鍵時刻打擊能力強，生涯曾兩度奪得最有價值球員獎，是球隊的進攻核心。", img: "phi" },
+            nym: { tag: "nl", league: "國聯東區", zh: "花旗球場", en: "Citi Field", team: "紐約大都會", turf: "天然草地", time: "2009年", food: "經典漢堡薯條", mascot: "Mr. Met", retired: "14, 16, 18, 24, 31, 37, 41", feature: "紐約大都會是紐約市的另一支代表球隊。主場花旗球場中外野設有一個巨大的神奇大蘋果，每當主隊球員擊出全壘打時，大蘋果就會從計分板後方緩緩升起，場內販售紐約知名的客製化漢堡。歷史上球隊最著名的王牌投手是席佛（Tom Seaver），他的特色是球速快、控球精準，生涯累積 311 勝與 3640 次三振，帶領球隊奪得隊史首座冠軍。目前球隊的頭號強打者是阿隆索（Pete Alonso），他的特色是力量極大，曾在 2019 年新人球季就創下單季 53 支全壘打的大聯盟新人歷史紀錄，奪得全壘打王。", img: "nym" },
+            mia: { tag: "nl", league: "國聯東區", zh: "貸款得寶球場", en: "loanDepot park", team: "邁阿密馬林魚", turf: "人工草皮", time: "2012年", food: "古巴肉餅三明治", mascot: "Billy the Marlin", retired: "16 (及大聯盟全體42)", feature: "邁阿密馬林魚地處充滿熱帶風情的佛羅里達。主場貸款得寶球場是一座配有全天候空調的開合式巨蛋球場，場內販售融合在地古巴移民風味的肉餅三明治。歷史上球隊最著名的打擊巨星是卡布瑞拉（Miguel Cabrera，生涯前期），他在 2003 年以新人身份就幫助球隊奪得世界大賽冠軍。目前球隊正處於重建階段，陣中年輕外野手桑契斯（Jesus Sanchez）是極力培養的重點，他的特色是具備優異的外野傳球臂力與長打力量。", img: "mia" },
+            wsh: { tag: "nl", league: "國聯東區", zh: "國民球場", en: "Nationals Park", team: "華盛頓國民", turf: "天然草地", time: "2008年", food: "半煙燻熱狗", mascot: "Screech", retired: "11, 42", feature: "華盛頓國民是美國首都的代表球隊，主場國民球場在每場比賽的五局中場，都會舉行由歷任美國總統大頭娃娃人偶進行的總統大賽跑步娛樂活動，場內盛行傳統半煙燻香腸熱狗。歷史上球隊奪下 2019 年世界大賽冠軍的功臣是王牌投手史崔斯伯格（Stephen Strasburg），他的特色是三振率高、季後賽表現極其穩定，曾奪得世界大賽最有價值球員獎。目前球隊的核心是年輕外野手伍德（James Wood），他擁有兩公尺的身高，特色是揮棒爆發力強、擊球速度快，是重建期的看板新星。", img: "wsh" },
+
+            // === 國家聯盟中區 (NL Central) ===
+            cin: { tag: "nl", league: "國聯中區", zh: "大美國球場", en: "Great American Ball Park", team: "辛辛那提紅人", turf: "天然草地", time: "2003年", food: "辣醬麵", mascot: "Gapper, Rosie Red...", retired: "1, 5, 10, 11, 13, 18, 20, 24, 32, 53", feature: "辛辛那提紅人是大聯盟歷史最古老的球隊，主場大美國球場緊鄰俄亥俄河，右外野設有兩座全壘打噴火煙囪，主隊擊出全壘打時會噴火慶祝，場內主打道地辣醬麵。歷史上球隊著名的安打王是羅斯（Pete Rose），他的特色是擊球率高、撲壘拼勁足，生涯共擊出 4256 支安打，至今仍是大聯盟歷史安打紀錄保持人。目前球隊的核心是年輕新星克魯茲（Elly De La Cruz），他的特色是擁有身高 196 公分卻具備全聯盟最快的短跑速度與強大長打力量，曾在 2024 年創下單季 60 次以上盜壘成功與 20 轟的紀錄，防守傳球球速也常打破游擊手歷史紀錄。", img: "cin" },
+            stl: { tag: "nl", league: "國聯中區", zh: "布希體育場", en: "Busch Stadium", team: "聖路易紅雀", turf: "天然草地", time: "2006年", food: "炸餃子", mascot: "Fredbird", retired: "1, 2, 6, 9, 10, 14, 17, 20, 23, 42, 45, 85", feature: "聖路易紅雀是國家聯盟奪冠次數最多的傳統豪門，共獲得 11 次世界大賽冠軍。主場布希體育場外野視野正對聖路易知名地標大拱門，場內特色食物是當地的聖路易炸餃子。歷史上球隊代表球星是普荷斯（Albert Pujols），他的特色是擊球點精準、全壘打產量多，生涯累積高達 703 支全壘打，為大聯盟歷史第四人。目前球隊的核心是明星三壘手阿瑞納多（Nolan Arenado），他的特色是三壘防守極佳、擅長攔截強襲球，曾創下生涯前 10 個球季都連續獲得三壘金手套獎的歷史紀錄。", img: "stl" },
+            chc: { tag: "nl", league: "國聯中區", zh: "里格利球場", en: "Wrigley Field", team: "芝加哥小熊", turf: "天然草地", time: "1914年", food: "芝加哥風格熱狗", mascot: "Clark", retired: "14, 23, 26, 31, 42", feature: "芝加哥小熊是大聯盟歷史第二悠久的球隊，主場里格利球場外野全壘打牆上種滿了標誌性的常春藤植物，每當球球飛入草叢中便會形成特殊規則，球場周邊公寓樓頂也設有觀賽看台，場內販售不加番茄醬的道地芝加哥熱狗。歷史上球隊的巨星是全壘打王班克斯（Ernie Banks），他的特色是游擊手防守穩定且具備長打力，生涯共轟出 512 支全壘打。目前球隊的攻守核心是鈴木誠也（Seiya Suzuki），他的特色是選球精準、打擊中長打產量穩定，是陣中的主力外野手。", img: "chc" },
+            mil: { tag: "nl", league: "國聯中區", zh: "美國家庭球場", en: "American Family Field", team: "密爾瓦基釀酒人", turf: "天然草地", time: "2001年", food: "起司香腸", mascot: "Bernie Brewer", retired: "4, 19, 34, 42, 44", feature: "密爾瓦基釀酒人以當地的啤酒釀造工業為名，主場美國家庭球場是一座巨大的扇形伸縮屋頂巨蛋，每當主隊擊出全壘打，吉祥物便會從外野的巨型溜滑梯滑下慶祝，場內主打威斯康辛起司香腸。歷史上球隊最著名的傳奇是尤利特（Robin Yount），他的特色是內外野皆能防守且安打產量高，生涯累積 3142 支安打。目前球隊的核心是年輕外野手喬里奧（Jackson Chourio），他的特色是奔跑速度快、打擊爆發力好，在 2024 年以 20 歲的年紀創下大聯盟史上最年輕達成單季 20 轟與 20 盜壘的歷史紀錄。", img: "mil" },
+            pit: { tag: "nl", league: "國聯中區", zh: "PNC 球場", en: "PNC Park", team: "匹茲堡海盜", turf: "天然草地", time: "2001年", food: "三明治薯條堡", mascot: "Pirate Parrot", retired: "1, 4, 8, 9, 11, 21, 33, 40", feature: "匹茲堡海盜是一支歷史悠久的傳統球隊，主場 PNC 球場座落於河畔，外野視野正對著名的羅伯托克萊門特黃色吊橋與匹茲堡市區天際線，被公認為全美風景最美麗的球場，場內特色是將薯條直接夾進去的三明治。歷史上球隊的象徵是克萊門特（Roberto Clemente），他的特色是外野防守傳球臂力強、安打率高，生涯累積 3000 支安打，也是大聯盟首位拉丁美洲裔名人堂球星。目前球隊的焦點是王牌年輕投手斯基納（Paul Skenes），他的特色是高大且能持續投出超過 100 英哩的快速球，並在 2024 年新人球季就創下單季防禦率僅 1.96 的優異紀錄，奪得國聯新人王。", img: "pit" },
+
+            // === 國家聯盟西區 (NL West) ===
+            lad: { tag: "nl", league: "國聯西區", zh: "道奇體育場", en: "Dodger Stadium", team: "洛杉磯道奇", turf: "天然草地", time: "1962年", food: "道地熱狗", mascot: "無 (歷史傳統)", retired: "1, 2, 4, 14, 19, 20, 24, 32, 34, 39, 53", feature: "洛杉磯道奇是大聯盟市場規模最大的頂級豪門之一。主場道奇體育場是大聯盟現存第三老球場，坐落於山丘上，夕陽與夜景觀賞效果好，場內最暢銷的是道奇熱狗，且球隊因歷史傳統至今不啟用吉祥物。歷史上球隊傳奇包括傳奇左投柯法斯（Sandy Koufax），以及打破種族藩籬的第一位黑人球員羅賓森（Jackie Robinson）。目前球隊的核心是巨星大谷翔平（Shohei Ohtani），他的特色是兼具頂級全壘打力量與極快的跑壘速度，他在 2024 年球季創下大聯盟歷史上首位單季「54 支全壘打、59 次盜壘成功」的歷史紀錄，並幫助球隊奪得世界大賽冠軍。", img: "lad" },
+            sf:  { tag: "nl", league: "國聯西區", zh: "甲骨文球場", en: "Oracle Park", team: "舊金山巨人", turf: "天然草地", time: "2000年", food: "大蒜薯條", mascot: "Lou Seal", retired: "3, 4, 11, 20, 22, 24, 25, 27, 30, 36, 44", feature: "舊金山巨人是國聯的傳統勁旅，主場甲骨文球場右外野緊鄰麥考維海灣（McCovey Cove），每當有全壘打球飛出球場掉進海裡，球迷就會划皮艇在海面上搶球，場內以香氣濃郁的大蒜薯條聞名。歷史上球隊最著名的超級重砲手是邦茲（Barry Bonds），他的特色是選球精準、揮棒速度極快，他曾在 2001 年創下單季 73 支全壘打的紀錄，且生涯累積 762 支全壘打，兩項紀錄皆是大聯盟歷史第一。目前球隊正以年輕捕手貝利（Patrick Bailey）為防守核心，他的特色是接球與阻殺盜壘的防守反應時間極短，是陣中的防守中樞。", img: "sf" },
+            sd:  { tag: "nl", league: "國聯西區", zh: "沛可球場", en: "Petco Park", team: "聖地牙哥教士", turf: "天然草地", time: "2004年", food: "加州塔可餅", mascot: "The San Diego Chicken", retired: "6, 19, 31, 35, 42", feature: "聖地牙哥教士主場沛可球場地處市中心，將一座百年歷史的金屬紅磚老倉庫完美融入左外野邊線構造中，成為獨特的球場地標，場內販售著名的在地加州風味塔可餅。歷史上球隊最著名的安打大師是關（Tony Gwynn），他的特色是擊球技巧極高、極難被三振，生涯累積 3141 支安打，並曾八度奪得國聯打擊王。目前球隊的核心是明星外野手塔蒂斯（Fernando Tatis Jr.），他的特色是防守飛撲範圍廣、傳球臂力強且具備長打火力，曾創下多次單季 30 轟以上的優異紀錄。", img: "sd" },
+            ari: { tag: "nl", league: "國聯西區", zh: "大通球場", en: "Chase Field", team: "亞利桑那響尾蛇", turf: "人工草皮", time: "1998年", food: "大熱狗吉拿棒", mascot: "D. Baxter the Bobcat", retired: "20, 42, 51", feature: "亞利桑那響尾蛇主場大通球場位於炎熱的沙漠鳳凰城，是一座配有高科技全空調的開合式巨蛋球場，其最著名的是右外野外牆旁設有一個供球迷一邊玩水一邊看球的露天游泳池，場內主打特色甜點大熱狗吉拿棒。歷史上球隊最具代表性的王牌投手是強森（Randy Johnson），他的特色是身高兩公尺且左投球速極快、三振率高，曾在 2001 年帶領球隊夺冠並創下生涯 4875 次三振的歷史紀錄。目前球隊的核心是外野手卡洛爾（Corbin Carroll），他的特色是具備全聯盟頂尖的跑壘速度與穩定的安打輸出，曾在 2023 年創下單季 25 轟與 54 次盜壘的紀錄，奪得國聯新人王。", img: "ari" },
+            col: { tag: "nl", league: "國聯西區", zh: "庫爾斯球場", en: "Coors Field", team: "科羅拉多洛磯", turf: "天然草地", time: "1995年", food: "炸牛睪丸", mascot: "Dinger", retired: "17, 33, 42", feature: "科羅拉多洛磯主場庫爾斯球場座落於高海拔的丹佛丹佛丹佛高地，由於空氣稀薄、阻力小，棒球極容易飛得又高又遠，因此被稱為打者天堂，場內販售獵奇的在地小吃炸牛睪丸。歷史上球隊的看板強打者是海爾頓（Todd Helton），他的特色是選球好、擊球率高且長打產量穩定，生涯累積 369 支全壘打與 2519 支安打，成功入選名人堂。目前球隊正處於重建階段，陣中的中外野手多亞爾（Ezequiel Tovar）是防守的核心，他的特色是游擊防守移位快、傳球穩定度高。", img: "col" }
+         };
+
+        function openStadium(id) {
+            const data = stadiumData[id];
+            if (!data) return;
+
+            // 載入基本文字
+            document.getElementById('zhName').innerText = data.zh;
+            document.getElementById('enName').innerText = data.en;
+            document.getElementById('teamName').innerText = data.team;
+            document.getElementById('turfType').innerText = data.turf;
+            document.getElementById('buildTime').innerText = data.time;
+            document.getElementById('foodName').innerText = data.food;
+            document.getElementById('featureText').innerText = data.feature;
+            
+            // ➔ 新增：將吉祥物與退休背號動態寫入 DOM
+            document.getElementById('mascotName').innerText = data.mascot || '無';
+            document.getElementById('retiredNumbers').innerText = data.retired || '無';
+
+            // 設定聯盟 Tag
+            const tag = document.getElementById('leagueTag');
+            const imgLine = document.getElementById('modalImgLine');
+            tag.innerText = data.league;
+            
+            if (data.tag === 'al') {
+                tag.className = "league-tag tag-al";
+                imgLine.style.borderBottomColor = "var(--al-red)";
+            } else {
+                tag.className = "league-tag tag-nl";
+                imgLine.style.borderBottomColor = "var(--nl-blue)";
+            }
+
+            // 圖片格式相容性處理
+            const imgElement = document.getElementById('stadiumImg');
+            tryLoadImage(imgElement, data.img);
+
+            // 打開時重設捲動軸到最上方
+            document.querySelector('.modal-body').scrollTop = 0;
+
+            document.getElementById('modalOverlay').classList.add('active');
+        }
+
+        function closeStadium() {
+            document.getElementById('modalOverlay').classList.remove('active');
+        }
+
+        function tryLoadImage(imgElement, baseName) {
+            const formats = ['.jpg', '.png', '.webp', '.jpeg', '.JPG', '.PNG'];
+            let index = 0;
+
+            imgElement.onerror = function() {
+                index++;
+                if (index < formats.length) {
+                    imgElement.src = 'images/' + baseName + formats[index];
+                } else {
+                    imgElement.style.display = 'none';
+                    imgElement.onerror = null; 
+                }
+            };
+
+            imgElement.style.display = 'block';
+            imgElement.src = 'images/' + baseName + formats[0];
+        }
+    </script>
+</body>
+</html>
