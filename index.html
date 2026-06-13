@@ -44,14 +44,12 @@
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
         .game-time { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
 
-        /* 🟢 賽前樣式 */
         .matchup-header-teams { display: flex; justify-content: space-around; align-items: center; padding: 20px; }
         .team-box-display { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 35%; }
         .team-logo-large { width: 48px; height: 48px; object-fit: contain; }
         .team-name-large { font-size: 1.2rem; font-weight: 800; color: var(--mlb-blue); }
         .vs-text { font-size: 1.1rem; font-weight: 800; color: var(--text-muted); font-style: italic; }
 
-        /* 🔴 賽中/賽後 R-H-E 看板 */
         .card-body-table { padding: 16px 20px; }
         .score-table { width: 100%; border-collapse: collapse; }
         .score-table th { text-align: center; color: var(--text-muted); font-size: 0.75rem; font-weight: 700; padding-bottom: 6px; }
@@ -62,7 +60,6 @@
         .score-cell { font-size: 1.3rem !important; font-weight: 800 !important; color: #0f172a; width: 40px; }
         .stat-cell { color: var(--text-muted); font-weight: 500; width: 30px; font-size: 0.85rem !important; }
 
-        /* 🧢 雙規投手對決組合區（兩個都要有） */
         .pitcher-dual-container { padding: 15px 20px; background: #f8fafc; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 12px; }
         .pitcher-block-row { border-left: 3px solid var(--mlb-blue); padding-left: 8px; }
         .pitcher-block-row.live-pitcher { border-left: 3px solid var(--accent-orange); }
@@ -74,7 +71,6 @@
         .p-stats { font-size: 0.8rem; font-weight: 700; color: var(--mlb-blue); }
         .live-pitcher .p-stats { color: var(--accent-orange); }
 
-        /* 📋 下拉打線名單 */
         .lineup-toggle-summary { padding: 12px; text-align: center; color: var(--mlb-blue); font-size: 0.82rem; font-weight: 800; cursor: pointer; list-style: none; background: #f1f5f9; user-select: none; border-bottom: 1px solid var(--border-color); }
         .lineup-box-content { padding: 15px; display: flex; flex-direction: column; gap: 18px; background: white; }
         .lineup-title { font-size: 0.82rem; font-weight: 800; color: #1e293b; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
@@ -95,7 +91,7 @@
 <div class="container">
     <header>
         <h1>⚾ Sportscast Sigma 核心數據面板</h1>
-        <div class="subtitle">完美雙主軸：同時整合「賽前預計先發」與「即時場上投球」，先發九棒三圍打線 100% 智慧保底顯示</div>
+        <div class="subtitle">同時整合「賽前預計先發」與「即時場上投球」，先發九棒三圍打線 100% 智慧保底顯示</div>
         <div class="update-tag" id="sync-time">正在連線大聯盟官方 API 數據庫...</div>
     </header>
 
@@ -225,7 +221,6 @@
                 card.className = 'card';
             }
 
-            // 分流看板：未開始畫 VS 圖；已開賽或結束畫 R-H-E
             if (game.status === 'Upcoming') {
                 mainBodyHTML = `
                     <div class="matchup-header-teams">
@@ -277,7 +272,6 @@
                 `;
             }
 
-            // 雙投手包件：預計先發 + 場上即時
             const pAwayProb = game.pitchers?.probable_away || {};
             const pHomeProb = game.pitchers?.probable_home || {};
             const pAwayCurr = game.pitchers?.current_away || {};
@@ -292,6 +286,7 @@
                 ${mainBodyHTML}
 
                 <div class="pitcher-dual-container">
+                    <!-- 1. 預計先發投手 (賽前數據) -->
                     <div class="pitcher-block-row">
                         <div class="pitcher-section-title">🧢 Probable Pitchers (預計先發賽前)</div>
                         <div class="pitcher-grid-row">
@@ -308,6 +303,7 @@
                         </div>
                     </div>
 
+                    <!-- 2. 目前場上投手 / 賽後決策 (單場即時) -->
                     <div class="pitcher-block-row live-pitcher">
                         <div class="pitcher-section-title">⚡ Live / Decision Pitcher (場上與單場表現)</div>
                         <div class="pitcher-grid-row">

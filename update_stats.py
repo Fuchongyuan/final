@@ -4,12 +4,12 @@ from datetime import datetime, timedelta
 import urllib.request
 
 def fetch_mlb_dashboard_data():
-    print("🚀 [MLB 全能完全體 V9] 啟動『預計先發+場上投手雙全』與『打線智慧兜底機制』...")
+    print("🚀 [MLB 全能完全體 V10] 啟動『預計先發+場上投手雙全』與『打線智慧兜底機制』...")
 
     result_data = {
         "meta": {
             "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "engine": "mlb-official-api-v9-lineup-fallback"
+            "engine": "mlb-official-api-v10-lineup-fallback"
         },
         "dates": {}
     }
@@ -35,7 +35,7 @@ def fetch_mlb_dashboard_data():
         result_data["dates"][target_date] = []
 
         try:
-            # 深度 hydration 注入所有線路數據與 live 數據
+            # 深度 hydration 注入所有打線數據與 live 數據
             url = f"https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&date={target_date}&hydrate=decisions,linescore,liveData,probablePitcher"
             req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
             
@@ -147,7 +147,7 @@ def fetch_mlb_dashboard_data():
                     if len(batting_order) >= 9:
                         target_list = batting_order
                     else:
-                        # 兜底：抓出所有打者並依據賽季打席(atBats)或打擊率排序，挑選前9棒
+                        # 兜底：抓出所有打者並依據賽季打席(atBats)排序，挑選前9棒
                         all_players = []
                         for p_id, p_obj in players_dict.items():
                             if p_obj.get("position", {}).get("code") != "1": # 排除投手
@@ -155,10 +155,11 @@ def fetch_mlb_dashboard_data():
                                 ab = s_batting.get("atBats", 0)
                                 all_players.append((ab, p_id, p_obj))
                         all_players.sort(key=lambda x: x[0], reverse=True)
-                        target_list = [x[1] for x in全球員[:9]] if all_players else []
+                        # [🎯 這裡已修正] 將原本錯誤的中文名稱改回正確的變數 all_players
+                        target_list = [x[1] for x in all_players[:9]] if all_players else []
 
                     for p_key in target_list:
-                        if not p_key.startswith("ID"): p_key = f"ID{p_key}"
+                        if not str(p_key).startswith("ID"): p_key = f"ID{p_key}"
                         if p_key in players_dict:
                             p_obj = players_dict[p_key]
                             s_batting = p_obj.get("seasonStats", {}).get("batting", {})
