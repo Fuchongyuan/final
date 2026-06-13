@@ -41,7 +41,7 @@
         /* 🗂️ 核心設定：一橫排固定放 2 個對戰組合卡片 */
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 這裡控制一橫排出現兩個卡片 */
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
 
@@ -73,6 +73,7 @@
         .card-body { padding: 15px 20px; flex: 1; }
         .pitcher-info { font-size: 0.9rem; margin-bottom: 6px; color: #495057; }
         .pitcher-info span { font-weight: 600; color: #0d6efd; }
+        .pitcher-stats { font-size: 0.8rem; color: #6c757d; margin-left: 5px; font-weight: normal; }
         
         .game-status-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
         .status-badge { background-color: #e8f5e9; color: #2e7d32; padding: 3px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; }
@@ -113,12 +114,11 @@
             border-left: 3px solid #d35400;
         }
         .data-box:last-child { margin-bottom: 0; }
-        .data-box-title { font-weight: 700; color: #2c3e50; margin-bottom: 2px; }
+        .data-box-title { font-weight: 700; color: #2c3e50; margin-bottom: 4px; }
 
         #no-data { text-align: center; padding: 40px; color: #6c757d; background: #fff; border-radius: 10px; display: none; }
         @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
 
-        /* 📱 平板及手機版自適應：改回單欄瀑布流避免太擠 */
         @media (max-width: 850px) {
             .game-grid { grid-template-columns: 1fr; }
             .nav-tabs { position: static; justify-content: center; margin-bottom: 15px; }
@@ -139,9 +139,7 @@
 
     <div id="page-board" class="page-content active">
         <div class="date-menu" id="date-menu-container"></div>
-        
         <div class="game-grid" id="games-grid-container"></div>
-        
         <div id="no-data">本日無排定賽事，球員移動休兵中！</div>
     </div>
 
@@ -204,7 +202,6 @@
         }
     }
 
-    // 🔄 渲染賽事卡片（一個組合一容器，並排顯示）
     function displayGames(dateStr) {
         const gridContainer = document.getElementById('games-grid-container');
         gridContainer.innerHTML = '';
@@ -223,13 +220,15 @@
             const card = document.createElement('div');
             card.className = 'game-card';
             
-            // 比分與未開打處理
             let scoreDisplay = `<span class="vs-label">@</span>`;
             if (game.is_live_or_final === "Live") {
                 scoreDisplay = `<span class="live-score">${game.away_runs} : ${game.home_runs}</span>`;
             } else if (game.is_live_or_final === "Final") {
                 scoreDisplay = `<span class="final-score">${game.away_runs} : ${game.home_runs}</span>`;
             }
+
+            const awayStats = game.away_pitcher.stats || "暫無本季數據";
+            const homeStats = game.home_pitcher.stats || "暫無本季數據";
 
             card.innerHTML = `
                 <div class="card-header">
@@ -244,8 +243,8 @@
                 </div>
 
                 <div class="card-body">
-                    <div class="pitcher-info">客隊先發：<span>${game.away_pitcher.name}</span></div>
-                    <div class="pitcher-info">主隊先發：<span>${game.home_pitcher.name}</span></div>
+                    <div class="pitcher-info">客隊先發：<span>${game.away_pitcher.name}</span> <span class="pitcher-stats">(${awayStats})</span></div>
+                    <div class="pitcher-info">主隊先發：<span>${game.home_pitcher.name}</span> <span class="pitcher-stats">(${homeStats})</span></div>
                     <div class="game-status-bar">
                         <span class="status-badge">${game.game_status}</span>
                         <span style="font-size:0.75rem; color:#868e96;">戰績：${game.away_record} / ${game.home_record}</span>
@@ -256,8 +255,9 @@
                     <summary>展開分析 + 球隊數據</summary>
                     <div class="details-content">
                         <div class="data-box">
-                            <div class="data-box-title">📊 大數據預測模型</div>
-                            依據大數據模型搭配先發投手數據與歷史戰績分析，預測本場對決之優勢走向。
+                            <div class="data-box-title">📊 先發投手本賽季數據對比</div>
+                            • <b>${game.away_pitcher.name}</b>: ${awayStats}<br>
+                            • <b>${game.home_pitcher.name}</b>: ${homeStats}
                         </div>
                         <div class="data-box">
                             <div class="data-box-title">🎯 讓分與全場大小推薦</div>
