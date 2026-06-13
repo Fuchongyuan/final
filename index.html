@@ -12,10 +12,56 @@
             margin: 0;
             padding: 30px 15px;
         }
-        .container { max-width: 1100px; margin: 0 auto; }
+        /* 讓 container 變成相對定位，方便右上角按鈕對齊 */
+        .container { max-width: 1100px; margin: 0 auto; position: relative; }
         h1 { color: #0b2240; text-align: center; margin-bottom: 5px; font-size: 2.2rem; }
         .update-time { text-align: center; color: #6c757d; font-size: 0.95rem; margin-bottom: 25px; }
         
+        /* 🔘 效果 1：縮小並靠邊的切換鈕 */
+        .nav-tabs {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            gap: 6px;
+        }
+        .nav-btn {
+            padding: 6px 14px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        /* 看板分頁按鈕樣式 (藍色) */
+        .btn-board { background-color: #007bff; color: white; }
+        .btn-board:hover { background-color: #0056b3; }
+        /* 地圖分頁按鈕樣式 (綠色) */
+        .btn-map { background-color: #28a745; color: white; }
+        .btn-map:hover { background-color: #218838; }
+        /* 未選中狀態 (灰色) */
+        .nav-btn.inactive {
+            background-color: #e0e0e0;
+            color: #6c757d;
+            box-shadow: none;
+        }
+
+        /* 📦 頁面區塊切換控制 */
+        .page-content { display: none; }
+        .page-content.active { display: block; }
+
+        /* 🗺️ 地圖內嵌框架樣式 */
+        .map-iframe {
+            width: 100%;
+            height: 752px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            background: #ffffff;
+        }
+
         /* 📅 日期橫條選單 */
         .date-menu { display: flex; gap: 12px; justify-content: center; overflow-x: auto; padding: 10px 5px; margin-bottom: 25px; }
         .date-btn { background: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; min-width: 80px; padding: 12px 8px; text-align: center; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
@@ -53,29 +99,67 @@
 
         .pitcher-name { font-weight: 600; color: #0d6efd; font-size: 0.95rem; }
         #no-data { text-align: center; padding: 40px; color: #6c757d; background: #fff; border-radius: 10px; display: none; }
+
+        /* 📱 行動裝置微調：避免按鈕與標題重疊 */
+        @media (max-width: 768px) {
+            .nav-tabs {
+                position: static;
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+            h1 { margin-top: 10px; }
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <div class="nav-tabs">
+        <button id="tab-board" class="nav-btn btn-board" onclick="switchPage('board')">看板</button>
+        <button id="tab-map" class="nav-btn btn-map inactive" onclick="switchPage('map')">地圖</button>
+    </div>
+
     <h1>⚾ MLB 一週賽事情報看板</h1>
     <div class="update-time" id="update-time">系統最後同步：載入中...</div>
-    <div class="date-menu" id="date-menu-container"></div>
-    <div class="table-responsive" id="table-container">
-        <table class="game-table">
-            <thead>
-                <tr>
-                    <th>時間 / 狀態</th><th>客隊</th><th>比分</th><th>主隊</th><th>客隊先發</th><th>主隊先發</th>
-                </tr>
-            </thead>
-            <tbody id="games-tbody"></tbody>
-        </table>
+
+    <div id="page-board" class="page-content active">
+        <div class="date-menu" id="date-menu-container"></div>
+        <div class="table-responsive" id="table-container">
+            <table class="game-table">
+                <thead>
+                    <tr>
+                        <th>時間 / 狀態</th><th>客隊</th><th>比分</th><th>主隊</th><th>客隊先發</th><th>主隊先發</th>
+                    </tr>
+                </thead>
+                <tbody id="games-tbody"></tbody>
+            </table>
+        </div>
+        <div id="no-data">本日無排定賽事，球員移動休兵中！</div>
     </div>
-    <div id="no-data">本日無排定賽事，球員移動休兵中！</div>
+
+    <div id="page-map" class="page-content">
+        <iframe src="mlbmap.html" class="map-iframe"></iframe>
+    </div>
 </div>
 
 <script>
     let globalWeeklyData = {};
+
+    // 🔄 同分頁切換邏輯
+    function switchPage(pageName) {
+        document.getElementById('page-board').classList.remove('active');
+        document.getElementById('page-map').classList.remove('active');
+        document.getElementById('tab-board').classList.add('inactive');
+        document.getElementById('tab-map').classList.add('inactive');
+
+        if (pageName === 'board') {
+            document.getElementById('page-board').classList.add('active');
+            document.getElementById('tab-board').classList.remove('inactive');
+        } else if (pageName === 'map') {
+            document.getElementById('page-map').classList.add('active');
+            document.getElementById('tab-map').classList.remove('inactive');
+        }
+    }
 
     // 30支球隊隊徽對照表
     const teamLogoMap = {
@@ -95,7 +179,7 @@
 
     function renderDateMenu() {
         const menuContainer = document.getElementById('date-menu-container');
-        menuContainer.innerHTML = ''; // 清空避免重複渲染
+        menuContainer.innerHTML = ''; 
         
         Object.keys(globalWeeklyData).sort().forEach((dateStr, index) => {
             const btn = document.createElement('div');
@@ -131,7 +215,6 @@
         games.forEach(game => {
             const row = document.createElement('tr');
             
-            // 🎯 根據比賽狀態動態渲染比分欄位
             let scoreDisplay = `<span class="vs-text">@</span>`;
             if (game.is_live_or_final === "Live") {
                 scoreDisplay = `<span class="score-box score-live">${game.away_runs} : ${game.home_runs}</span>`;
