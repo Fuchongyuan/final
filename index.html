@@ -3,148 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLB 全聯盟一週賽事與數據情報看板</title>
+    <title>MLB 數據自動化儀表板 - PyBaseball 核心</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f6f9;
-            color: #212529;
-            margin: 0;
-            padding: 30px 15px;
+        :root {
+            --bg-primary: #f5f7fb;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --mlb-blue: #041e42;
+            --mlb-red: #bf0d3e;
+            --accent-orange: #f97316;
+            --success-green: #10b981;
+            --border-color: #e2e8f0;
         }
-        .container { max-width: 1200px; margin: 0 auto; position: relative; }
-        h1 { color: #0b2240; text-align: center; margin-bottom: 5px; font-size: 2.2rem; }
-        .update-time { text-align: center; color: #6c757d; font-size: 0.95rem; margin-bottom: 25px; }
-        
-        /* 🔘 右上角功能切換鈕 */
-        .nav-tabs { position: absolute; top: 0; right: 0; display: flex; gap: 6px; }
-        .nav-btn { padding: 6px 14px; font-size: 0.85rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        .btn-board { background-color: #007bff; color: white; }
-        .btn-board:hover { background-color: #0056b3; }
-        .btn-map { background-color: #28a745; color: white; }
-        .btn-map:hover { background-color: #218838; }
-        .nav-btn.inactive { background-color: #e0e0e0; color: #6c757d; box-shadow: none; }
 
-        /* 📦 頁面區塊切換控制 */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            padding: 40px 15px;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; position: relative; }
+
+        header { text-align: center; margin-bottom: 35px; }
+        h1 { color: var(--mlb-blue); font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; }
+        .subtitle { color: var(--text-muted); font-size: 1rem; }
+        .update-tag { display: inline-block; background-color: #e2e8f0; color: var(--mlb-blue); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-top: 10px; }
+
+        /* 右上角切換頁面按鈕 */
+        .nav-tabs { position: absolute; top: 0; right: 0; display: flex; gap: 8px; }
+        .nav-btn-page { padding: 8px 16px; font-size: 0.9rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+        .btn-board { background-color: var(--mlb-blue); color: white; }
+        .btn-map { background-color: var(--success-green); color: white; }
+        .nav-btn-page.inactive { background-color: #e2e8f0; color: var(--text-muted); }
+
         .page-content { display: none; }
         .page-content.active { display: block; }
-        .map-iframe { width: 100%; height: 752px; border: none; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); background: #ffffff; }
+        .map-iframe { width: 100%; height: 750px; border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); background: white; margin-top: 20px; }
 
-        /* 📅 日期橫條選單 */
-        .date-menu { display: flex; gap: 12px; justify-content: center; overflow-x: auto; padding: 10px 5px; margin-bottom: 25px; }
-        .date-btn { background: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; min-width: 80px; padding: 12px 8px; text-align: center; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
-        .date-btn .main-txt { font-size: 1.2rem; font-weight: 700; color: #333; margin-bottom: 4px; }
-        .date-btn .sub-txt { font-size: 0.85rem; color: #757575; }
-        .date-btn.active { background-color: #d35400; border-color: #d35400; }
-        .date-btn.active .main-txt, .date-btn.active .sub-txt { color: #ffffff; }
+        /* 日期橫條選單 */
+        .date-tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 30px; overflow-x: auto; padding: 5px; }
+        .date-btn { padding: 10px 20px; font-size: 0.95rem; font-weight: 600; border: 1px solid var(--border-color); background-color: var(--card-bg); color: var(--text-main); border-radius: 8px; cursor: pointer; transition: all 0.2s; }
+        .date-btn.active { background-color: var(--accent-orange); color: white; border-color: var(--accent-orange); }
 
-        /* 🗂️ 核心排版 */
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        /* 🎴 獨立對戰組合卡片 */
-        .game-card {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border: 1px solid #e9ecef;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-header {
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #f1f3f5;
-        }
-        .teams-headline { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.1rem; }
-        .card-logo { width: 26px; height: 26px; object-fit: contain; }
-        .vs-label { color: #adb5bd; font-size: 0.85rem; font-weight: normal; margin: 0 4px; }
-        .card-time { font-size: 0.8rem; color: #868e96; background: #f1f3f5; padding: 2px 6px; border-radius: 4px; }
-
-        .card-body { padding: 15px 20px; flex: 1; }
-        .pitcher-info { font-size: 0.9rem; margin-bottom: 6px; color: #495057; }
-        .pitcher-info span { font-weight: 600; color: #0d6efd; }
+        /* 賽事網格 */
+        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 24px; }
+        .card { background-color: var(--card-bg); border-radius: 14px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px rgba(0,0,0,0.02); overflow: hidden; display: flex; flex-direction: column; }
         
-        .game-status-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
-        .status-badge { background-color: #e8f5e9; color: #2e7d32; padding: 3px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; }
-        .live-score { font-size: 1.2rem; font-weight: 800; color: #e67e22; animation: blink 1.5s infinite; }
-        .final-score { font-size: 1.2rem; font-weight: 800; color: #2c3e50; }
+        .card-header { padding: 15px 20px; background-color: #f8fafc; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+        .status-badge { font-size: 0.75rem; font-weight: 700; padding: 4px 8px; border-radius: 6px; }
+        .status-final { background-color: #fee2e2; color: var(--mlb-red); }
+        .status-upcoming { background-color: #e0f2fe; color: #0369a1; }
+        .game-time { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
 
-        /* 🔍 展開區塊 */
-        .details-wrapper { border-top: 1px solid #f1f3f5; background-color: #fafbfc; }
-        .details-wrapper summary {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 11px;
-            color: #6c757d;
-            font-size: 0.85rem;
-            cursor: pointer;
-            list-style: none;
-            font-weight: 600;
-            user-select: none;
-        }
-        .details-wrapper summary::-webkit-details-marker { display: none; }
-        .details-wrapper summary::after { content: ' ▼'; font-size: 0.7rem; margin-left: 4px; }
-        .details-wrapper[open] summary::after { content: ' ▲'; }
-        .details-wrapper summary:hover { background-color: #f1f3f5; color: #333; }
+        .card-body { padding: 20px; flex-grow: 1; }
+        .team-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+        .team-row:last-of-type { margin-bottom: 0; }
+        .team-info { display: flex; align-items: center; gap: 12px; }
+        .team-logo { width: 30px; height: 30px; object-fit: contain; }
+        .team-name { font-size: 1.05rem; font-weight: 700; color: var(--text-main); }
+        .team-score { font-size: 1.4rem; font-weight: 800; color: #0f172a; }
 
-        /* 📊 多維度數據面板 */
-        .details-content {
-            padding: 15px 20px;
-            background-color: #ffffff;
-            border-top: 1px solid #f1f3f5;
-        }
-        .data-box {
-            background: #f8f9fa;
-            padding: 10px 12px;
-            border-radius: 6px;
-            margin-bottom: 8px;
-            font-size: 0.85rem;
-            border-left: 3px solid #d35400;
-        }
-        .data-box.team-stats { border-left-color: #34495e; }
-        .data-box.bet { border-left-color: #27ae60; }
-        .data-box.injury { border-left-color: #c0392b; }
-        .data-box:last-child { margin-bottom: 0; }
-        .data-box-title { font-weight: 700; color: #2c3e50; margin-bottom: 4px; }
-        
-        .stat-sub-table { width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 0.8rem; }
-        .stat-sub-table th, .stat-sub-table td { padding: 4px 6px; text-align: left; }
-        .stat-sub-table th { color: #7f8c8d; font-weight: 600; border-bottom: 1px solid #e2e8f0; }
+        .card-footer { border-top: 1px solid var(--border-color); background-color: #f8fafc; }
+        .details-wrapper summary { padding: 12px; text-align: center; color: var(--text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; list-style: none; user-select: none; }
+        .details-content { padding: 16px 20px; border-top: 1px solid var(--border-color); background-color: var(--card-bg); }
 
-        #no-data { text-align: center; padding: 40px; color: #6c757d; background: #fff; border-radius: 10px; display: none; }
-        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+        .stat-section { margin-bottom: 12px; }
+        .stat-section:last-child { margin-bottom: 0; }
+        .stat-title { font-size: 0.8rem; font-weight: 700; color: var(--mlb-blue); text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.05em; }
+        .stat-row { display: flex; justify-content: space-between; font-size: 0.85rem; padding: 4px 0; border-bottom: 1px dashed #f1f5f9; }
+        .stat-label { color: var(--text-muted); }
+        .stat-values { font-weight: 600; }
 
-        @media (max-width: 850px) {
-            .game-grid { grid-template-columns: 1fr; }
-            .nav-tabs { position: static; justify-content: center; margin-bottom: 15px; }
-            h1 { margin-top: 10px; }
-        }
+        #no-data-msg { text-align: center; padding: 50px; background-color: var(--card-bg); border-radius: 12px; color: var(--text-muted); display: none; border: 1px solid var(--border-color); }
+        @media (max-width: 850px) { .nav-tabs { position: static; justify-content: center; margin-bottom: 15px; } h1 { margin-top: 10px; } }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="nav-tabs">
-        <button id="tab-board" class="nav-btn btn-board" onclick="switchPage('board')">看板</button>
-        <button id="tab-map" class="nav-btn btn-map inactive" onclick="switchPage('map')">地圖</button>
+        <button id="tab-board" class="nav-btn-page btn-board" onclick="switchPage('board')">看板</button>
+        <button id="tab-map" class="nav-btn-page btn-map inactive" onclick="switchPage('map')">地圖</button>
     </div>
 
-    <h1>⚾ MLB 全聯盟賽事情報看板</h1>
-    <div class="update-time" id="update-time">系統最後同步：載入中...</div>
+    <header>
+        <h1>⚾ MLB 全聯盟數據情報面板</h1>
+        <div class="subtitle">基於 PyBaseball 雲端高強度容錯架構</div>
+        <div class="update-tag" id="sync-time">系統最後同步：載入中...</div>
+    </header>
 
     <div id="page-board" class="page-content active">
-        <div class="date-menu" id="date-menu-container"></div>
-        <div class="game-grid" id="games-grid-container"></div>
-        <div id="no-data">本日無排定賽事，球員移動休兵中！</div>
+        <div class="date-tabs" id="date-tabs-container"></div>
+        <div id="no-data-msg">本日無排定賽事數據。</div>
+        <div class="dashboard-grid" id="game-grid"></div>
     </div>
 
     <div id="page-map" class="page-content">
@@ -153,7 +108,24 @@
 </div>
 
 <script>
-    let globalWeeklyData = {};
+    let dataset = {};
+    const teamLogoMap = {
+        "AZ": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/ari.png", "ATL": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/atl.png",
+        "BAL": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/bal.png", "BOS": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/bos.png",
+        "CHC": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/chc.png", "CWS": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cws.png",
+        "CIN": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cin.png", "CLE": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cle.png",
+        "COL": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/col.png", "DET": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/det.png",
+        "HOU": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/hou.png", "KC": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/kc.png",
+        "LAA": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/laa.png", "LAD": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/lad.png",
+        "MIA": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/mia.png", "MIL": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/mil.png",
+        "MIN": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/min.png", "NYM": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/nym.png",
+        "NYY": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/nyy.png", "OAK": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/oak.png",
+        "PHI": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/phi.png", "PIT": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/pit.png",
+        "SD": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sd.png", "SF": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sf.png",
+        "SEA": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sea.png", "STL": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/stl.png",
+        "TB": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tb.png", "TEX": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tex.png",
+        "TOR": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tor.png", "WSH": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/wsh.png"
+    };
 
     function switchPage(pageName) {
         document.getElementById('page-board').classList.remove('active');
@@ -170,171 +142,103 @@
         }
     }
 
-    const teamLogoMap = {
-        "Baltimore Orioles": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/bal.png", "Boston Red Sox": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/bos.png", "New York Yankees": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/nyy.png", "Tampa Bay Rays": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tb.png", "Toronto Blue Jays": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tor.png",
-        "Chicago White Sox": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cws.png", "Cleveland Guardians": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cle.png", "Detroit Tigers": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/det.png", "Kansas City Royals": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/kc.png", "Minnesota Twins": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/min.png",
-        "Houston Astros": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/hou.png", "Los Angeles Angels": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/laa.png", "Oakland Athletics": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/oak.png", "Seattle Mariners": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sea.png", "Texas Rangers": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tex.png",
-        "Atlanta Braves": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/atl.png", "Miami Marlins": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/mia.png", "New York Mets": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/nym.png", "Philadelphia Phillies": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/phi.png", "Washington Nationals": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/wsh.png",
-        "Chicago Cubs": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/chc.png", "Cincinnati Reds": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cin.png", "Milwaukee Brewers": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/mil.png", "Pittsburgh Pirates": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/pit.png", "St. Louis Cardinals": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/stl.png",
-        "Arizona Diamondbacks": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/ari.png", "Colorado Rockies": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/col.png", "Los Angeles Dodgers": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/lad.png", "San Diego Padres": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sd.png", "San Francisco Giants": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sf.png"
-    };
-
     fetch('data.json')
         .then(res => {
-            if (!res.ok) throw new Error("找不到 data.json 檔案，請確認爬蟲是否執行或使用本地伺服器開啟。");
+            if(!res.ok) throw new Error("找不到數據檔案");
             return res.json();
         })
         .then(data => {
-            document.getElementById('update-time').innerText = `系統最後同步：${data.last_updated || '未知時間'} (台灣時間)`;
-            globalWeeklyData = data.weekly_data || {};
-            
-            if (Object.keys(globalWeeklyData).length === 0) {
-                document.getElementById('games-grid-container').style.display = 'none'; 
-                document.getElementById('no-data').style.display = 'block';
-                document.getElementById('no-data').innerText = "目前無一週賽程數據！";
+            document.getElementById('sync-time').innerText = `系統最後同步：${data.meta?.last_updated || '未知時間'} (台灣時間)`;
+            dataset = data.dates || {};
+            const dateKeys = Object.keys(dataset).sort();
+            if(dateKeys.length === 0) {
+                document.getElementById('no-data-msg').style.display = 'block';
                 return;
             }
-            renderDateMenu();
+            renderTabs(dateKeys);
+            renderGames(dateKeys[0]);
         })
         .catch(err => {
             console.error(err);
-            document.getElementById('update-time').innerText = `系統連線異常`;
-            document.getElementById('no-data').style.display = 'block';
-            document.getElementById('no-data').innerText = "資料載入失敗！請確保使用伺服器環境（如 http.server 或 Live Server）開啟本網頁。";
+            document.getElementById('sync-time').innerText = `系統狀態：連線中斷或尚未生成資料`;
+            document.getElementById('no-data-msg').style.display = 'block';
+            document.getElementById('no-data-msg').innerText = "無法載入 data.json，請確認雲端 Actions 是否已成功執行第一次抓取！";
         });
 
-    function renderDateMenu() {
-        const menuContainer = document.getElementById('date-menu-container');
-        menuContainer.innerHTML = ''; 
-        
-        Object.keys(globalWeeklyData).sort().forEach((dateStr, index) => {
-            const dayData = globalWeeklyData[dateStr];
-            const btn = document.createElement('div');
-            btn.className = `date-btn ${index === 0 ? 'active' : ''}`;
-            btn.onclick = () => { 
-                document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('active')); 
-                btn.classList.add('active'); 
-                displayGames(dateStr); 
+    function renderTabs(dates) {
+        const container = document.getElementById('date-tabs-container');
+        container.innerHTML = '';
+        dates.forEach((d, idx) => {
+            const btn = document.createElement('button');
+            btn.className = `date-btn ${idx === 0 ? 'active' : ''}`;
+            btn.innerText = d;
+            btn.onclick = () => {
+                document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderGames(d);
             };
-            btn.innerHTML = `<div class="main-txt">${dayData.day_label || dateStr}</div><div class="sub-txt">${dayData.weekday_label || ''}</div>`;
-            menuContainer.appendChild(btn);
+            container.appendChild(btn);
         });
-        
-        if (Object.keys(globalWeeklyData).length > 0) {
-            displayGames(Object.keys(globalWeeklyData).sort()[0]);
-        }
     }
 
-    function displayGames(dateStr) {
-        const gridContainer = document.getElementById('games-grid-container');
-        gridContainer.innerHTML = '';
-        const games = globalWeeklyData[dateStr]?.games || [];
+    function renderGames(dateStr) {
+        const grid = document.getElementById('game-grid');
+        grid.innerHTML = '';
+        const games = dataset[dateStr] || [];
         
-        if (games.length === 0) { 
-            gridContainer.style.display = 'none'; 
-            document.getElementById('no-data').style.display = 'block'; 
-            return; 
+        if(games.length === 0) {
+            document.getElementById('no-data-msg').style.display = 'block';
+            return;
         }
-        
-        gridContainer.style.display = 'grid';
-        document.getElementById('no-data').style.display = 'none';
+        document.getElementById('no-data-msg').style.display = 'none';
 
         games.forEach(game => {
             const card = document.createElement('div');
-            card.className = 'game-card';
+            card.className = 'card';
             
-            // 💡 比分防呆與相容性（如果 Python 沒抓到比分，顯示為空值或 0）
-            let scoreDisplay = `<span class="vs-label">@</span>`;
-            if (game.is_live_or_final === "Live") {
-                scoreDisplay = `<span class="live-score">${game.away_runs ?? 0} : ${game.home_runs ?? 0}</span>`;
-            } else if (game.is_live_or_final === "Final") {
-                scoreDisplay = `<span class="final-score">${game.away_runs ?? 0} : ${game.home_runs ?? 0}</span>`;
-            }
-
-            // 💡 投手與歷史記錄防呆：採用 Optional Chaining `?.` 機制，抓不到也不會壞掉
-            const awayPitcherName = game.away_pitcher?.name || "未定 (TBD)";
-            const homePitcherName = game.home_pitcher?.name || "未定 (TBD)";
-            const awayPitcherStats = game.away_pitcher?.stats || "-";
-            const homePitcherStats = game.home_pitcher?.stats || "-";
+            const statusClass = game.status === 'Final' ? 'status-final' : 'status-upcoming';
+            const statusLabel = game.status === 'Final' ? '已結束' : '未開始';
             
-            const awayRecord = game.away_record || "-";
-            const homeRecord = game.home_record || "-";
-
-            const awayShortName = (game.away_team || "客隊").split(' ').pop();
-            const homeShortName = (game.home_team || "主隊").split(' ').pop();
-
-            // 💡 團隊進階數據防呆（如果舊爬蟲沒這個欄位，給予預設 {} 空物件）
-            const aStats = game.away_stats || {};
-            const hStats = game.home_stats || {};
-
-            // 💡 自訂分析文字槽位防呆
-            const trendData = game.analysis?.trend || "暫無戰績走向趨勢資料。";
-            const betTipData = game.analysis?.bet_tip || "暫無今日推薦盤口資料。";
-            const injuryData = game.analysis?.injuries || "暫無即時陣容更動報告。";
-
             card.innerHTML = `
                 <div class="card-header">
-                    <div class="teams-headline">
-                        <img src="${teamLogoMap[game.away_team] || ''}" class="card-logo" onerror="this.style.display='none'">
-                        <span>${awayShortName}</span>
-                        ${scoreDisplay}
-                        <span>${homeShortName}</span>
-                        <img src="${teamLogoMap[game.home_team] || ''}" class="card-logo" onerror="this.style.display='none'">
-                    </div>
-                    <div class="card-time">${game.game_time || '--:--'}</div>
+                    <span class="status-badge ${statusClass}">${statusLabel}</span>
+                    <span class="game-time">${game.time || '--:--'}</span>
                 </div>
-
                 <div class="card-body">
-                    <div class="pitcher-info">客隊先發：<span>${awayPitcherName}</span></div>
-                    <div class="pitcher-info">主隊先發：<span>${homePitcherName}</span></div>
-                    <div class="game-status-bar">
-                        <span class="status-badge">${game.game_status || '未開始'}</span>
-                        <span style="font-size:0.75rem; color:#868e96;">戰績：${awayRecord} ${aStats.streak ? `(${aStats.streak})` : ''} / ${homeRecord} ${hStats.streak ? `(${hStats.streak})` : ''}</span>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <img src="${teamLogoMap[game.away_team] || ''}" class="team-logo" onerror="this.style.visibility='hidden'">
+                            <span class="team-name">${game.away_team}</span>
+                        </div>
+                        <div class="team-score">${game.away_score ?? '-'}</div>
+                    </div>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <img src="${teamLogoMap[game.home_team] || ''}" class="team-logo" onerror="this.style.visibility='hidden'">
+                            <span class="team-name">${game.home_team}</span>
+                        </div>
+                        <div class="team-score">${game.home_score ?? '-'}</div>
                     </div>
                 </div>
-
-                <details class="details-wrapper">
-                    <summary>展開分析 + 多維度數據面板</summary>
-                    <div class="details-content">
-                        <div class="data-box team-stats">
-                            <div class="data-box-title">📊 兩隊賽季進階戰績對比</div>
-                            <table class="stat-sub-table">
-                                <thead>
-                                    <tr>
-                                        <th>項目</th>
-                                        <th>客隊 (${awayShortName})</th>
-                                        <th>主隊 (${homeShortName})</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td><b>目前戰績</b></td><td>${awayRecord}</td><td>${homeRecord}</td></tr>
-                                    <tr><td><b>勝率</b></td><td>${aStats.win_percentage || '-'}</td><td>${hStats.win_percentage || '-'}</td></tr>
-                                    <tr><td><b>分區排名</b></td><td>${aStats.division_rank ? `第 ${aStats.division_rank} 名` : '-'}</td><td>${hStats.division_rank ? `第 ${hStats.division_rank} 名` : '-'}</td></tr>
-                                    <tr><td><b>勝差</b></td><td>${aStats.games_back || '-'}</td><td>${hStats.games_back || '-'}</td></tr>
-                                    <tr><td><b>近期狀態</b></td><td>${aStats.streak || '-'}</td><td>${hStats.streak || '-'}</td></tr>
-                                    <tr><td><b>🔥 賽季總得分</b></td><td>${aStats.season_runs_scored ? `${aStats.season_runs_scored} 分` : '-'}</td><td>${hStats.season_runs_scored ? `${hStats.season_runs_scored} 分` : '-'}</td></tr>
-                                    <tr><td><b>🛡️ 賽季總失分</b></td><td>${aStats.season_runs_allowed ? `${aStats.season_runs_allowed} 分` : '-'}</td><td>${hStats.season_runs_allowed ? `${hStats.season_runs_allowed} 分` : '-'}</td></tr>
-                                </tbody>
-                            </table>
+                <div class="card-footer">
+                    <details>
+                        <summary>📊 展開 PyBaseball 進階情報面板</summary>
+                        <div class="details-content">
+                            <div class="stat-section">
+                                <div class="stat-title">🧢 預計先發投手 (Probables)</div>
+                                <div class="stat-row"><span class="stat-label">客隊先發</span><span class="stat-values">${game.pitchers?.away || '-'}</span></div>
+                                <div class="stat-row"><span class="stat-label">主隊先發</span><span class="stat-values">${game.pitchers?.home || '-'}</span></div>
+                            </div>
+                            <div class="stat-section">
+                                <div class="stat-title">📈 全聯盟賽季防禦率對比 (Team ERA)</div>
+                                <div class="stat-row"><span class="stat-label">客隊賽季團隊防禦率</span><span class="stat-values">${game.metrics?.a_era || '-'}</span></div>
+                                <div class="stat-row"><span class="stat-label">主隊賽季團隊防禦率</span><span class="stat-values">${game.metrics?.h_era || '-'}</span></div>
+                            </div>
                         </div>
-                        
-                        <div class="data-box">
-                            <div class="data-box-title">🧢 先發投手詳細數據</div>
-                            • <b>${awayPitcherName}</b>: ${awayPitcherStats}<br>
-                            • <b>${homePitcherName}</b>: ${homePitcherStats}
-                        </div>
-                        <div class="data-box bet">
-                            <div class="data-box-title">🎯 賽事盤口與智慧推薦</div>
-                            ${betTipData}
-                        </div>
-                        <div class="data-box injury">
-                            <div class="data-box-title">🚑 即時傷兵與戰力報告</div>
-                            ${injuryData}
-                        </div>
-                    </div>
-                </details>
+                    </details>
+                </div>
             `;
-            gridContainer.appendChild(card);
+            grid.appendChild(card);
         });
     }
 </script>
