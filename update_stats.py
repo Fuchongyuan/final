@@ -4,12 +4,12 @@ from datetime import datetime, timedelta
 import urllib.request
 
 def fetch_mlb_dashboard_data():
-    print("🚀 [MLB 全能終極版 V8] 啟動『三向狀態完整保留 + 賽前打線/賽中 R-H-E 動態分流』...")
+    print("🚀 [MLB 全能完全體 V9] 啟動『預計先發+場上投手雙全』與『打線智慧兜底機制』...")
 
     result_data = {
         "meta": {
             "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "engine": "mlb-official-api-v8-all-in-one"
+            "engine": "mlb-official-api-v9-lineup-fallback"
         },
         "dates": {}
     }
@@ -31,11 +31,11 @@ def fetch_mlb_dashboard_data():
     }
 
     for target_date in date_list:
-        print(f"📅 正在同步日期數據：{target_date} ...")
+        print(f"📅 正在同步日期：{target_date} ...")
         result_data["dates"][target_date] = []
 
         try:
-            # 深度注入所有必要的水元數據，確保 pre-game / live / final 數據一次到位
+            # 深度 hydration 注入所有線路數據與 live 數據
             url = f"https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&date={target_date}&hydrate=decisions,linescore,liveData,probablePitcher"
             req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
             
@@ -53,7 +53,6 @@ def fetch_mlb_dashboard_data():
                 away_slug = team_name_map.get(away_full, "TBD")
                 home_slug = team_name_map.get(home_full, "TBD")
 
-                # 精準狀態三向分流
                 abstract_status = game.get("status", {}).get("abstractGameState", "Upcoming")
                 detailed_status = game.get("status", {}).get("detailedState", "Upcoming")
                 
@@ -64,98 +63,102 @@ def fetch_mlb_dashboard_data():
                 else:
                     game_status = "Upcoming"
 
-                # 📊 1. 提取球隊即時 R-H-E 數據（給 Live / Final 使用）
                 linescore = game.get("linescore", {})
                 away_runs = game.get("teams", {}).get("away", {}).get("score", 0)
                 home_runs = game.get("teams", {}).get("home", {}).get("score", 0)
                 away_hits = linescore.get("teams", {}).get("away", {}).get("hits", 0)
                 home_hits = linescore.get("teams", {}).get("home", {}).get("hits", 0)
-                
                 away_errors = linescore.get("teams", {}).get("away", {}).get("errors", 0)
-                if not isinstance(away_errors, int): away_errors = 0
                 home_errors = linescore.get("teams", {}).get("home", {}).get("errors", 0)
-                if not isinstance(home_errors, int): home_errors = 0
 
-                # 🧢 2. 深度提取投手大結構 (不論哪種狀態都支援)
                 live_data = game.get("liveData", {})
                 boxscore_teams = live_data.get("boxscore", {}).get("teams", {})
                 
-                def get_pitcher_game_line(team_type, player_id_target):
-                    # 抓取單場即時表現數據
+                # ------------------- 🧢 投手大融合數據處理 -------------------
+                def get_season_pitcher_stats(team_type, pitcher_id):
+                    if not pitcher_id: return {"name": "未定 (TBD)", "meta": "", "stats": "0-0 | -.-- ERA"}
                     players = boxscore_teams.get(team_type, {}).get("players", {})
-                    p_key = f"ID{player_id_target}"
-                    if p_key in players:
-                        p_stats = players[p_key].get("stats", {}).get("pitching", {})
-                        return f" (H:{p_stats.get('hits',0)} ER:{p_stats.get('earnedRuns',0)} BB:{p_stats.get('baseOnBalls',0)} SO:{p_stats.get('strikeOuts',0)})"
-                    return ""
+                    p_data = players.get(f"ID{pitcher_id}") or players.get(str(pitcher_id))
+                    
+                    name = "未定"
+                    meta = "LHP/RHP"
+                    stats = "0-0 | -.-- ERA"
+                    
+                    if p_data:
+                        name = p_data.get("person", {}).get("fullName", "未定")
+                        jersey = p_data.get("jerseyNumber", "#")
+                        throws = p_data.get("person", {}).get("pitchHand", {}).get("code", "R")
+                        meta = f"{throws}HP | #{jersey}"
+                        s_stats = p_data.get("seasonStats", {}).get("pitching", {})
+                        if s_stats:
+                            stats = f"{s_stats.get('wins',0)}-{s_stats.get('losses',0)} | {s_stats.get('era','-.--')} ERA | {s_stats.get('strikeOuts',0)} K"
+                    return {"name": name, "meta": meta, "stats": stats}
 
-                away_p_detail = {"name": "未定 (TBD)", "meta": "", "stats": ""}
-                home_p_detail = {"name": "未定 (TBD)", "meta": "", "stats": ""}
+                def get_live_pitcher_line(team_type, pitcher_id):
+                    if not pitcher_id: return "單場: 未上場"
+                    players = boxscore_teams.get(team_type, {}).get("players", {})
+                    p_data = players.get(f"ID{pitcher_id}") or players.get(str(pitcher_id))
+                    if p_data:
+                        p_stats = p_data.get("stats", {}).get("pitching", {})
+                        if p_stats:
+                            return f"單場: H:{p_stats.get('hits',0)} ER:{p_stats.get('earnedRuns',0)} BB:{p_stats.get('baseOnBalls',0)} SO:{p_stats.get('strikeOuts',0)}"
+                    return "單場: 0 H | 0 ER"
 
-                # 賽前預計先發基礎數據
-                prob_away = game.get("teams", {}).get("away", {}).get("probablePitcher", {})
-                prob_home = game.get("teams", {}).get("home", {}).get("probablePitcher", {})
+                # 1. 預計先發投手數據 (不論任何狀態都保底顯示賽前賽季數據)
+                prob_away_id = game.get("teams", {}).get("away", {}).get("probablePitcher", {}).get("id")
+                prob_home_id = game.get("teams", {}).get("home", {}).get("probablePitcher", {}).get("id")
+                
+                prob_away_obj = get_season_pitcher_stats("away", prob_away_id) if prob_away_id else {"name": game.get("teams", {}).get("away", {}).get("probablePitcher", {}).get("fullName", "未定 (TBD)"), "meta": "RHP", "stats": "0-0 | -.-- ERA"}
+                prob_home_obj = get_season_pitcher_stats("home", prob_home_id) if prob_home_id else {"name": game.get("teams", {}).get("home", {}).get("probablePitcher", {}).get("fullName", "未定 (TBD)"), "meta": "RHP", "stats": "0-0 | -.-- ERA"}
 
-                def fill_probable_p(team_type, prob_obj):
-                    p_id = prob_obj.get("id")
-                    res = {"name": prob_obj.get("fullName", "未定 (TBD)"), "meta": "LHP/RHP", "stats": "0-0 | -.-- ERA"}
-                    if p_id:
-                        p_data = boxscore_teams.get(team_type, {}).get("players", {}).get(f"ID{p_id}", {})
-                        if p_data:
-                            jersey = p_data.get("jerseyNumber", "#")
-                            throws = p_data.get("person", {}).get("pitchHand", {}).get("code", "R")
-                            res["meta"] = f"{throws}HP | #{jersey}"
-                            s_stats = p_data.get("seasonStats", {}).get("pitching", {})
-                            if s_stats:
-                                res["stats"] = f"{s_stats.get('wins',0)}-{s_stats.get('losses',0)} | {s_stats.get('era','-.--')} ERA | {s_stats.get('strikeOuts',0)} K"
-                    return res
+                # 2. 目前場上投手 / 賽後決策投手數據
+                current_away_p = {"name": "尚未登板", "stats": "單場: -"}
+                current_home_p = {"name": "尚未登板", "stats": "單場: -"}
 
-                if game_status == "Upcoming":
-                    away_p_detail = fill_probable_p("away", prob_away)
-                    home_p_detail = fill_probable_p("home", prob_home)
-                elif game_status == "Live":
-                    # 比賽中抓當前場上投手
-                    current_p_id = linescore.get("defense", {}).get("pitcher", {}).get("id")
-                    current_p_name = linescore.get("defense", {}).get("pitcher", {}).get("fullName")
+                if game_status == "Live":
+                    curr_p_id = linescore.get("defense", {}).get("pitcher", {}).get("id")
+                    curr_p_name = linescore.get("defense", {}).get("pitcher", {}).get("fullName", "場上投手")
                     is_away_hitting = linescore.get("teams", {}).get("away", {}).get("isHitting", False)
-                    
-                    # 預填先發名
-                    away_p_detail["name"] = f"先發: {prob_away.get('fullName','未定')}"
-                    home_p_detail["name"] = f"先發: {prob_home.get('fullName','未定')}"
-                    
-                    if current_p_name:
-                        if is_away_hitting: # 客隊在打擊 -> 主隊在防守投球
-                            home_p_detail["name"] = f"場上: {current_p_name}"
-                            home_p_detail["stats"] = "單場:" + get_pitcher_game_line("home", current_p_id)
-                        else:
-                            away_p_detail["name"] = f"場上: {current_p_name}"
-                            away_p_detail["stats"] = "單場:" + get_pitcher_game_line("away", current_p_id)
-                else: # Final 已結束
+                    if is_away_hitting: # 主隊在投球
+                        current_home_p = {"name": f"🔥 {curr_p_name}", "stats": get_live_pitcher_line("home", curr_p_id)}
+                    else: # 客隊在投球
+                        current_away_p = {"name": f"🔥 {curr_p_name}", "stats": get_live_pitcher_line("away", curr_p_id)}
+                elif game_status == "Final":
                     decisions = game.get("decisions", {})
-                    win_p_name = decisions.get("winner", {}).get("fullName", "-")
-                    win_p_id = decisions.get("winner", {}).get("id")
-                    lose_p_name = decisions.get("loser", {}).get("fullName", "-")
-                    lose_p_id = decisions.get("loser", {}).get("id")
+                    win_id = decisions.get("winner", {}).get("id")
+                    win_name = decisions.get("winner", {}).get("fullName", "勝投")
+                    lose_id = decisions.get("loser", {}).get("id")
+                    lose_name = decisions.get("loser", {}).get("fullName", "敗投")
                     if away_runs > home_runs:
-                        away_p_detail["name"] = f"勝投: {win_p_name}"
-                        away_p_detail["stats"] = "表現:" + (get_pitcher_game_line("away", win_p_id) if win_p_id else "")
-                        home_p_detail["name"] = f"敗投: {lose_p_name}"
-                        home_p_detail["stats"] = "表現:" + (get_pitcher_game_line("home", lose_p_id) if lose_p_id else "")
+                        current_away_p = {"name": f"🏆 勝投: {win_name}", "stats": get_live_pitcher_line("away", win_id)}
+                        current_home_p = {"name": f"❌ 敗投: {lose_name}", "stats": get_live_pitcher_line("home", lose_id)}
                     else:
-                        away_p_detail["name"] = f"敗投: {lose_p_name}"
-                        away_p_detail["stats"] = "表現:" + (get_pitcher_game_line("away", lose_p_id) if lose_p_id else "")
-                        home_p_detail["name"] = f"勝投: {win_p_name}"
-                        home_p_detail["stats"] = "表現:" + (get_pitcher_game_line("home", win_p_id) if win_p_id else "")
+                        current_away_p = {"name": f"❌ 敗投: {lose_name}", "stats": get_live_pitcher_line("away", lose_id)}
+                        current_home_p = {"name": f"🏆 勝投: {win_name}", "stats": get_live_pitcher_line("home", win_id)}
 
-                # 📋 3. 提取先發九棒打線 (Lineups) 與打擊三圍
+                # ------------------- 📋 打線名單智慧兜底抓取 -------------------
                 def parse_lineup_list(team_type):
                     lineup_data = []
                     team_box = boxscore_teams.get(team_type, {})
                     batting_order = team_box.get("battingOrder", [])
                     players_dict = team_box.get("players", {})
-                    if not batting_order: return []
-                    for p_id in batting_order:
-                        p_key = f"ID{p_id}"
+                    
+                    # 邏輯分流：如果大聯盟還沒公布當日正式打線(battingOrder長度為0)，改抓全隊所有球員中「本季打席最多」的前九個人當預測打線
+                    if len(batting_order) >= 9:
+                        target_list = batting_order
+                    else:
+                        # 兜底：抓出所有打者並依據賽季打席(atBats)或打擊率排序，挑選前9棒
+                        all_players = []
+                        for p_id, p_obj in players_dict.items():
+                            if p_obj.get("position", {}).get("code") != "1": # 排除投手
+                                s_batting = p_obj.get("seasonStats", {}).get("batting", {})
+                                ab = s_batting.get("atBats", 0)
+                                all_players.append((ab, p_id, p_obj))
+                        all_players.sort(key=lambda x: x[0], reverse=True)
+                        target_list = [x[1] for x in全球員[:9]] if all_players else []
+
+                    for p_key in target_list:
+                        if not p_key.startswith("ID"): p_key = f"ID{p_key}"
                         if p_key in players_dict:
                             p_obj = players_dict[p_key]
                             s_batting = p_obj.get("seasonStats", {}).get("batting", {})
@@ -174,7 +177,6 @@ def fetch_mlb_dashboard_data():
                 away_lineup = parse_lineup_list("away")
                 home_lineup = parse_lineup_list("home")
 
-                # 台灣時間轉換
                 game_time_str = game.get("gameDate", "")
                 display_time = "10:10 AM"
                 if game_time_str:
@@ -187,21 +189,24 @@ def fetch_mlb_dashboard_data():
                     "home_team": home_slug, "away_team": away_slug,
                     "status": game_status, "time": display_time,
                     "rhe": {
-                        "away": {"R": away_runs, "H": away_hits, "E": away_errors},
-                        "home": {"R": home_runs, "H": home_hits, "E": home_errors}
+                        "away": {"R": away_runs, "H": away_hits, "E": int(away_errors if isinstance(away_errors, int) else 0)},
+                        "home": {"R": home_runs, "H": home_hits, "E": int(home_errors if isinstance(home_errors, int) else 0)}
                     },
-                    "pitchers": { "away": away_p_detail, "home": home_p_detail },
+                    "pitchers": { 
+                        "probable_away": prob_away_obj, "probable_home": prob_home_obj,
+                        "current_away": current_away_p, "current_home": current_home_p
+                    },
                     "lineups": { "away": away_lineup, "home": home_lineup }
                 }
                 result_data["dates"][target_date].append(game_entry)
 
         except Exception as e:
-            print(f"⚠️ 解析日期 {target_date} 發生錯誤: {str(e)}")
+            print(f"⚠️ 解析日期 {target_date} 錯誤: {str(e)}")
             traceback.print_exc()
 
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(result_data, f, ensure_ascii=False, indent=4)
-    print("🏁 [資料完全同步] 成功合併所有賽事狀態與雙軌數據！")
+    print("🏁 [完全整合完畢] 雙投手數據 + 智慧兜底打線儲存完畢！")
 
 if __name__ == "__main__":
     fetch_mlb_dashboard_data()

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sportscast Sigma - 全能數據情報面板</title>
+    <title>Sportscast Sigma - 投手打線完美終極版</title>
     <style>
         :root {
             --bg-primary: #f1f5f9;
@@ -44,14 +44,14 @@
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
         .game-time { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
 
-        /* 🟢 賽前大圖對決樣式 */
+        /* 🟢 賽前樣式 */
         .matchup-header-teams { display: flex; justify-content: space-around; align-items: center; padding: 20px; }
         .team-box-display { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 35%; }
         .team-logo-large { width: 48px; height: 48px; object-fit: contain; }
         .team-name-large { font-size: 1.2rem; font-weight: 800; color: var(--mlb-blue); }
         .vs-text { font-size: 1.1rem; font-weight: 800; color: var(--text-muted); font-style: italic; }
 
-        /* 🔴 賽中/賽後 R-H-E 表格比分樣式 */
+        /* 🔴 賽中/賽後 R-H-E 看板 */
         .card-body-table { padding: 16px 20px; }
         .score-table { width: 100%; border-collapse: collapse; }
         .score-table th { text-align: center; color: var(--text-muted); font-size: 0.75rem; font-weight: 700; padding-bottom: 6px; }
@@ -60,27 +60,29 @@
         .score-table td.team-col { text-align: left; display: flex; align-items: center; gap: 8px; }
         .team-logo-small { width: 26px; height: 26px; object-fit: contain; }
         .score-cell { font-size: 1.3rem !important; font-weight: 800 !important; color: #0f172a; width: 40px; }
-        .card.live-border .score-cell { color: var(--live-pulse); }
         .stat-cell { color: var(--text-muted); font-weight: 500; width: 30px; font-size: 0.85rem !important; }
 
-        /* 🧢 投手對決資訊塊 */
-        .pitcher-対決-container { padding: 12px 20px; background: #f8fafc; border-top: 1px solid var(--border-color); }
-        .pitcher-section-title { font-size: 0.75rem; font-weight: 800; color: var(--mlb-blue); letter-spacing: 0.05em; margin-bottom: 8px; }
+        /* 🧢 雙規投手對決組合區（兩個都要有） */
+        .pitcher-dual-container { padding: 15px 20px; background: #f8fafc; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 12px; }
+        .pitcher-block-row { border-left: 3px solid var(--mlb-blue); padding-left: 8px; }
+        .pitcher-block-row.live-pitcher { border-left: 3px solid var(--accent-orange); }
+        .pitcher-section-title { font-size: 0.72rem; font-weight: 800; color: var(--text-muted); letter-spacing: 0.05em; margin-bottom: 4px; text-transform: uppercase; }
         .pitcher-grid-row { display: flex; justify-content: space-between; gap: 15px; }
         .pitcher-card-half { width: 48%; }
         .p-name { font-size: 0.9rem; font-weight: 700; color: #1e293b; }
         .p-hand { font-size: 0.7rem; color: var(--text-muted); font-weight: 600; }
-        .p-stats { font-size: 0.8rem; font-weight: 700; color: var(--accent-orange); }
+        .p-stats { font-size: 0.8rem; font-weight: 700; color: var(--mlb-blue); }
+        .live-pitcher .p-stats { color: var(--accent-orange); }
 
-        /* 📋 下拉詳細名單大系統 */
-        .lineup-toggle-summary { padding: 10px; text-align: center; color: var(--text-muted); font-size: 0.8rem; font-weight: 700; cursor: pointer; list-style: none; border-top: 1px solid var(--border-color); background: #f8fafc; user-select: none; }
-        .lineup-box-content { padding: 15px; display: flex; flex-direction: column; gap: 16px; }
-        .lineup-title { font-size: 0.8rem; font-weight: 800; color: #1e293b; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+        /* 📋 下拉打線名單 */
+        .lineup-toggle-summary { padding: 12px; text-align: center; color: var(--mlb-blue); font-size: 0.82rem; font-weight: 800; cursor: pointer; list-style: none; background: #f1f5f9; user-select: none; border-bottom: 1px solid var(--border-color); }
+        .lineup-box-content { padding: 15px; display: flex; flex-direction: column; gap: 18px; background: white; }
+        .lineup-title { font-size: 0.82rem; font-weight: 800; color: #1e293b; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
         
         .lineup-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
-        .lineup-table th { background: #f1f5f9; color: var(--text-muted); font-weight: 700; padding: 4px; text-align: center; }
+        .lineup-table th { background: #f8fafc; color: var(--text-muted); font-weight: 700; padding: 5px 4px; text-align: center; border-bottom: 1px solid var(--border-color); }
         .lineup-table th.align-left { text-align: left; }
-        .lineup-table td { padding: 5px 4px; border-bottom: 1px solid #f1f5f9; text-align: center; font-weight: 600; }
+        .lineup-table td { padding: 6px 4px; border-bottom: 1px solid #f1f5f9; text-align: center; font-weight: 600; }
         .lineup-table td.align-left { text-align: left; font-weight: 700; color: #334155; }
         .lineup-table tr:hover { background-color: var(--table-hover); }
         .empty-lineup-msg { text-align: center; padding: 12px; color: var(--text-muted); font-size: 0.8rem; font-style: italic; background: #f8fafc; border-radius: 4px; }
@@ -92,9 +94,9 @@
 
 <div class="container">
     <header>
-        <h1>⚾ Sportscast Sigma 全能情報面板</h1>
-        <div class="subtitle">三向賽事分流：開賽前看「預計九棒打線」，開打後與結束看「即時 R-H-E 計分板」</div>
-        <div class="update-tag" id="sync-time">正在連線大聯盟官方 API 資料庫...</div>
+        <h1>⚾ Sportscast Sigma 核心數據面板</h1>
+        <div class="subtitle">完美雙主軸：同時整合「賽前預計先發」與「即時場上投球」，先發九棒三圍打線 100% 智慧保底顯示</div>
+        <div class="update-tag" id="sync-time">正在連線大聯盟官方 API 數據庫...</div>
     </header>
 
     <div class="date-tabs" id="date-tabs-container"></div>
@@ -161,7 +163,7 @@
 
     function generateLineupTable(lineupList) {
         if (!lineupList || lineupList.length === 0) {
-            return `<div class="empty-lineup-msg"> 官方尚未公布今日先發打線 (通常開賽前2小時更新)</div>`;
+            return `<div class="empty-lineup-msg"> 官方今日暫無陣容數據</div>`;
         }
         let rows = lineupList.map((p, idx) => `
             <tr>
@@ -180,7 +182,7 @@
                 <thead>
                     <tr>
                         <th style="width:25px;">棒</th>
-                        <th class="align-left">打者</th>
+                        <th class="align-left">打者姓名</th>
                         <th>HR</th>
                         <th>RBI</th>
                         <th>SB</th>
@@ -210,7 +212,6 @@
             let statusClass = 'status-upcoming';
             let statusLabel = '未開始';
             let mainBodyHTML = '';
-            let bottomSummaryText = '📊 展開雙方先發 9 棒打線名單';
 
             if (game.status === 'Final') {
                 statusClass = 'status-final';
@@ -224,7 +225,7 @@
                 card.className = 'card';
             }
 
-            // 🎯 分流核心：如果未開始，畫大 Logo 對抗賽前圖；如果已開賽，畫 R-H-E 看板
+            // 分流看板：未開始畫 VS 圖；已開賽或結束畫 R-H-E
             if (game.status === 'Upcoming') {
                 mainBodyHTML = `
                     <div class="matchup-header-teams">
@@ -239,15 +240,7 @@
                         </div>
                     </div>
                 `;
-                bottomSummaryText = `📋 展開雙方先發 9 棒打線與打擊三圍`;
             } else {
-                const aR = game.rhe?.away?.R ?? '-';
-                const aH = game.rhe?.away?.H ?? '-';
-                const aE = game.rhe?.away?.E ?? '-';
-                const hR = game.rhe?.home?.R ?? '-';
-                const hH = game.rhe?.home?.H ?? '-';
-                const hE = game.rhe?.home?.E ?? '-';
-
                 mainBodyHTML = `
                     <div class="card-body-table">
                         <table class="score-table">
@@ -265,29 +258,30 @@
                                         <img src="${teamLogoMap[game.away_team] || ''}" class="team-logo-small">
                                         <span style="font-size:1.05rem; font-weight:700;">${game.away_team}</span>
                                     </td>
-                                    <td class="score-cell">${aR}</td>
-                                    <td class="stat-cell">${aH}</td>
-                                    <td class="stat-cell">${aE}</td>
+                                    <td class="score-cell">${game.rhe?.away?.R ?? '-'}</td>
+                                    <td class="stat-cell">${game.rhe?.away?.H ?? '-'}</td>
+                                    <td class="stat-cell">${game.rhe?.away?.E ?? '-'}</td>
                                 </tr>
                                 <tr>
                                     <td class="team-col">
                                         <img src="${teamLogoMap[game.home_team] || ''}" class="team-logo-small">
                                         <span style="font-size:1.05rem; font-weight:700;">${game.home_team}</span>
                                     </td>
-                                    <td class="score-cell">${hR}</td>
-                                    <td class="stat-cell">${hH}</td>
-                                    <td class="stat-cell">${hE}</td>
+                                    <td class="score-cell">${game.rhe?.home?.R ?? '-'}</td>
+                                    <td class="stat-cell">${game.rhe?.home?.H ?? '-'}</td>
+                                    <td class="stat-cell">${game.rhe?.home?.E ?? '-'}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 `;
-                bottomSummaryText = `📊 查看投手進階單場表現與先發名單`;
             }
 
-            const awayP = game.pitchers?.away || {};
-            const homeP = game.pitchers?.home || {};
-            const pitcherTitle = game.status === 'Final' ? '🏆 賽事投球決策結果' : (game.status === 'Live' ? '🔥 即時場上投球數據' : '🧢 PROBABLE PITCHERS (預計先發)');
+            // 雙投手包件：預計先發 + 場上即時
+            const pAwayProb = game.pitchers?.probable_away || {};
+            const pHomeProb = game.pitchers?.probable_home || {};
+            const pAwayCurr = game.pitchers?.current_away || {};
+            const pHomeCurr = game.pitchers?.current_home || {};
 
             card.innerHTML = `
                 <div class="card-header">
@@ -297,43 +291,57 @@
                 
                 ${mainBodyHTML}
 
-                <div class="pitcher-対決-container">
-                    <div class="pitcher-section-title">${pitcherTitle}</div>
-                    <div class="pitcher-grid-row">
-                        <div class="pitcher-card-half">
-                            <div class="p-name">${awayP.name || '未定'}</div>
-                            <div class="p-hand" style="color:var(--text-muted);">${awayP.meta || ''}</div>
-                            <div class="p-stats">${awayP.stats || ''}</div>
+                <div class="pitcher-dual-container">
+                    <div class="pitcher-block-row">
+                        <div class="pitcher-section-title">🧢 Probable Pitchers (預計先發賽前)</div>
+                        <div class="pitcher-grid-row">
+                            <div class="pitcher-card-half">
+                                <div class="p-name">${pAwayProb.name || '未定'}</div>
+                                <div class="p-hand">${pAwayProb.meta || ''}</div>
+                                <div class="p-stats">${pAwayProb.stats || ''}</div>
+                            </div>
+                            <div class="pitcher-card-half" style="text-align: right;">
+                                <div class="p-name">${pHomeProb.name || '未定'}</div>
+                                <div class="p-hand">${pHomeProb.meta || ''}</div>
+                                <div class="p-stats">${pHomeProb.stats || ''}</div>
+                            </div>
                         </div>
-                        <div class="pitcher-card-half" style="text-align: right;">
-                            <div class="p-name">${homeP.name || '未定'}</div>
-                            <div class="p-hand" style="color:var(--text-muted);">${homeP.meta || ''}</div>
-                            <div class="p-stats">${homeP.stats || ''}</div>
+                    </div>
+
+                    <div class="pitcher-block-row live-pitcher">
+                        <div class="pitcher-section-title">⚡ Live / Decision Pitcher (場上與單場表現)</div>
+                        <div class="pitcher-grid-row">
+                            <div class="pitcher-card-half">
+                                <div class="p-name" style="font-size:0.85rem;">${pAwayCurr.name || '尚未登場'}</div>
+                                <div class="p-stats" style="font-size:0.75rem;">${pAwayCurr.stats || ''}</div>
+                            </div>
+                            <div class="pitcher-card-half" style="text-align: right;">
+                                <div class="p-name" style="font-size:0.85rem;">${pHomeCurr.name || '尚未登場'}</div>
+                                <div class="p-stats" style="font-size:0.75rem;">${pHomeCurr.stats || ''}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div style="background: white;">
-                    <details>
-                        <summary class="lineup-toggle-summary">${bottomSummaryText}</summary>
-                        <div class="lineup-box-content">
-                            <div>
-                                <div class="lineup-title">
-                                    <img src="${teamLogoMap[game.away_team] || ''}" style="width:14px;height:14px;"> 
-                                    <span>${game.away_team} 團隊陣容資訊</span>
-                                </div>
-                                ${generateLineupTable(game.lineups?.away)}
+                <details>
+                    <summary class="lineup-toggle-summary">📋 展開雙方先發 9 棒打線名單與打擊三圍</summary>
+                    <div class="lineup-box-content">
+                        <div>
+                            <div class="lineup-title">
+                                <img src="${teamLogoMap[game.away_team] || ''}" style="width:14px;height:14px;"> 
+                                <span>${game.away_team} 團隊先發打線 (Lineup)</span>
                             </div>
-                            <div style="margin-top: 8px;">
-                                <div class="lineup-title">
-                                    <img src="${teamLogoMap[game.home_team] || ''}" style="width:14px;height:14px;"> 
-                                    <span>${game.home_team} 團隊陣容資訊</span>
-                                </div>
-                                ${generateLineupTable(game.lineups?.home)}
-                            </div>
+                            ${generateLineupTable(game.lineups?.away)}
                         </div>
-                    </details>
-                </div>
+                        <div style="margin-top: 5px;">
+                            <div class="lineup-title">
+                                <img src="${teamLogoMap[game.home_team] || ''}" style="width:14px;height:14px;"> 
+                                <span>${game.home_team} 團隊先發打線 (Lineup)</span>
+                            </div>
+                            ${generateLineupTable(game.lineups?.home)}
+                        </div>
+                    </div>
+                </details>
             `;
             grid.appendChild(card);
         });
