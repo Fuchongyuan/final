@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLB 數據自動化儀表板 - 官方Stats核心</title>
+    <title>MLB 數據自動化儀表板 - 官方核心 V4</title>
     <style>
         :root {
             --bg-primary: #f5f7fb;
@@ -34,9 +34,9 @@
         .page-content.active { display: block; }
         .map-iframe { width: 100%; height: 750px; border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); background: white; margin-top: 20px; }
 
-        .date-tabs { display: flex; justify-content: flex-start; gap: 10px; margin-bottom: 30px; overflow-x: auto; padding: 10px 5px; white-space: nowrap; -webkit-overflow-scrolling: touch; }
-        .date-btn { padding: 8px 16px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border-color); background-color: var(--card-bg); color: var(--text-main); border-radius: 20px; cursor: pointer; transition: all 0.15s; flex-shrink: 0; }
-        .date-btn.active { background-color: var(--accent-orange); color: white; border-color: var(--accent-orange); }
+        .date-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; overflow-x: auto; padding: 10px 5px; white-space: nowrap; }
+        .date-btn { padding: 10px 22px; font-size: 0.95rem; font-weight: 600; border: 1px solid var(--border-color); background-color: var(--card-bg); color: var(--text-main); border-radius: 25px; cursor: pointer; transition: all 0.15s; flex-shrink: 0; }
+        .date-btn.active { background-color: var(--accent-orange); color: white; border-color: var(--accent-orange); box-shadow: 0 4px 10px rgba(249, 115, 22, 0.2); }
 
         .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
         .card { background-color: var(--card-bg); border-radius: 14px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px rgba(0,0,0,0.01); overflow: hidden; display: flex; flex-direction: column; }
@@ -65,7 +65,7 @@
         .stat-values { font-weight: 600; }
 
         #no-data-msg { text-align: center; padding: 50px; background-color: var(--card-bg); border-radius: 12px; color: var(--text-muted); display: none; border: 1px solid var(--border-color); }
-        @media (max-width: 850px) { .nav-tabs { position: static; justify-content: center; margin-bottom: 15px; } h1 { margin-top: 10px; } }
+        @media (max-width: 850px) { .nav-tabs { position: static; justify-content: center; margin-bottom: 15px; } h1 { margin-top: 10px; } .date-tabs { justify-content: flex-start; } }
     </style>
 </head>
 <body>
@@ -78,7 +78,7 @@
 
     <header>
         <h1>⚾ MLB 全聯盟數據情報面板</h1>
-        <div class="subtitle">基於 官方 Stats API 核心全自動容錯架構</div>
+        <div class="subtitle">接下來一週賽程預報 & 投手決策修正版</div>
         <div class="update-tag" id="sync-time">系統狀態：同步中...</div>
     </header>
 
@@ -127,7 +127,6 @@
         }
     }
 
-    // 取得今天的當地日期字串 (YYYY-MM-DD)
     const localTodayStr = new Date().toISOString().split('T')[0];
 
     fetch('data.json')
@@ -144,17 +143,14 @@
                 return;
             }
             
-            // 尋找跟今天最接近的日期作為預設高亮選單
-            let defaultDate = dateKeys.includes(localTodayStr) ? localTodayStr : dateKeys[Math.floor(dateKeys.length / 2)];
-            
+            let defaultDate = dateKeys.includes(localTodayStr) ? localTodayStr : dateKeys[0];
             renderTabs(dateKeys, defaultDate);
             renderGames(defaultDate);
         })
         .catch(err => {
             console.error(err);
-            document.getElementById('sync-time').innerText = `狀態：同步佇列中...`;
+            document.getElementById('sync-time').innerText = `狀態：同步中...`;
             document.getElementById('no-data-msg').style.display = 'block';
-            document.getElementById('no-data-msg').innerText = "雲端檔案初始化中，請至 GitHub Actions 點擊「Run workflow」開始第一次串接！";
         });
 
     function renderTabs(dates, activeDate) {
@@ -163,8 +159,6 @@
         dates.forEach(d => {
             const btn = document.createElement('button');
             btn.className = `date-btn ${d === activeDate ? 'active' : ''}`;
-            
-            // 標記是否為今日
             btn.innerText = (d === localTodayStr) ? `今天 (${d.substring(5)})` : d.substring(5);
             btn.onclick = () => {
                 document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('active'));
@@ -173,12 +167,6 @@
             };
             container.appendChild(btn);
         });
-        
-        // 自動滾動選單使當前高亮日期可見
-        setTimeout(() => {
-            const activeBtn = container.querySelector('.date-btn.active');
-            if(activeBtn) activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        }, 300);
     }
 
     function renderGames(dateStr) {
@@ -196,8 +184,10 @@
             const card = document.createElement('div');
             card.className = 'card';
             
-            const statusClass = game.status === 'Final' ? 'status-final' : 'status-upcoming';
-            const statusLabel = game.status === 'Final' ? '已結束' : '未開始';
+            const isFinal = game.status === 'Final';
+            const statusClass = isFinal ? 'status-final' : 'status-upcoming';
+            const statusLabel = isFinal ? '已結束' : '未開始';
+            const pitcherTitle = isFinal ? '🏆 賽事投球決策結果' : '🧢 預計先發投手 (Probables)';
             
             card.innerHTML = `
                 <div class="card-header">
@@ -222,17 +212,17 @@
                 </div>
                 <div class="card-footer">
                     <details>
-                        <summary>📊 展開進階情報與賽季指標</summary>
+                        <summary>📊 展開投打指標與進階數據</summary>
                         <div class="details-content">
                             <div class="stat-section">
-                                <div class="stat-title">🧢 預計先發投手 (Probables)</div>
-                                <div class="stat-row"><span class="stat-label">客隊先發</span><span class="stat-values">${game.pitchers?.away || '未定 (TBD)'}</span></div>
-                                <div class="stat-row"><span class="stat-label">主隊先發</span><span class="stat-values">${game.pitchers?.home || '未定 (TBD)'}</span></div>
+                                <div class="stat-title">${pitcherTitle}</div>
+                                <div class="stat-row"><span class="stat-label">客隊人員</span><span class="stat-values">${game.pitchers?.away || '未定 (TBD)'}</span></div>
+                                <div class="stat-row"><span class="stat-label">主隊人員</span><span class="stat-values">${game.pitchers?.home || '未定 (TBD)'}</span></div>
                             </div>
                             <div class="stat-section">
                                 <div class="stat-title">📈 賽季團隊防禦率對比 (Team ERA)</div>
-                                <div class="stat-row"><span class="stat-label">客隊賽季防禦率</span><span class="stat-values">${game.metrics?.a_era || '-'}</span></div>
-                                <div class="stat-row"><span class="stat-label">主隊賽季防禦率</span><span class="stat-values">${game.metrics?.h_era || '-'}</span></div>
+                                <div class="stat-row"><span class="stat-label">客隊防禦率</span><span class="stat-values">${game.metrics?.a_era || '-'}</span></div>
+                                <div class="stat-row"><span class="stat-label">主隊防禦率</span><span class="stat-values">${game.metrics?.h_era || '-'}</span></div>
                             </div>
                         </div>
                     </details>
