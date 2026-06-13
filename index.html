@@ -183,11 +183,31 @@
         "Arizona Diamondbacks": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/ari.png", "Colorado Rockies": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/col.png", "Los Angeles Dodgers": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/lad.png", "San Diego Padres": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sd.png", "San Francisco Giants": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sf.png"
     };
 
-    fetch('data.json').then(res => res.json()).then(data => {
-        document.getElementById('update-time').innerText = `系統最後同步：${data.last_updated} (台灣時間)`;
-        globalWeeklyData = data.weekly_data;
-        renderDateMenu();
-    });
+   fetch('data.json')
+        .then(res => {
+            if (!res.ok) throw new Error("找不到數據檔案或伺服器回應錯誤");
+            return res.json();
+        })
+        .then(data => {
+            document.getElementById('update-time').innerText = `系統最後同步：${data.last_updated || '未知時間'} (台灣時間)`;
+            globalWeeklyData = data.weekly_data || {};
+            
+            // 防呆：如果根本沒有任何日期數據
+            if (Object.keys(globalWeeklyData).length === 0) {
+                document.getElementById('games-grid-container').style.display = 'none'; 
+                document.getElementById('no-data').style.display = 'block';
+                document.getElementById('no-data').innerText = "目前無賽程數據，請確認爬蟲是否正確抓取！";
+                return;
+            }
+            
+            renderDateMenu();
+        })
+        .catch(err => {
+            console.error(err);
+            document.getElementById('update-time').innerText = `錯誤：無法載入數據 (${err.message})`;
+            document.getElementById('no-data').style.display = 'block';
+            document.getElementById('no-data').innerText = "資料載入失敗！請確保使用本地伺服器（如 http.server）開啟網頁。";
+        });
 
     function renderDateMenu() {
         const menuContainer = document.getElementById('date-menu-container');
