@@ -1,6 +1,6 @@
 {
     "meta": {
-        "last_updated": "2026-06-13 19:53:37",
+        "last_updated": "2026-06-13 22:53:19",
         "engine": "mlb-official-clean-v13"
     },
     "dates": {
@@ -8,17 +8,17 @@
             {
                 "home_team": "MIN",
                 "away_team": "STL",
-                "status": "Live",
+                "status": "Final",
                 "time": "02:10 (台灣)",
                 "rhe": {
                     "away": {
-                        "R": 4,
-                        "H": 7,
+                        "R": 9,
+                        "H": 13,
                         "E": 0
                     },
                     "home": {
-                        "R": 4,
-                        "H": 5,
+                        "R": 6,
+                        "H": 7,
                         "E": 0
                     }
                 },
@@ -30,17 +30,17 @@
             {
                 "home_team": "TOR",
                 "away_team": "NYY",
-                "status": "Live",
+                "status": "Final",
                 "time": "03:07 (台灣)",
                 "rhe": {
                     "away": {
-                        "R": 0,
-                        "H": 0,
+                        "R": 3,
+                        "H": 5,
                         "E": 0
                     },
                     "home": {
-                        "R": 0,
-                        "H": 2,
+                        "R": 1,
+                        "H": 6,
                         "E": 1
                     }
                 },
@@ -56,13 +56,13 @@
                 "time": "04:05 (台灣)",
                 "rhe": {
                     "away": {
-                        "R": 0,
-                        "H": 0,
+                        "R": 9,
+                        "H": 10,
                         "E": 0
                     },
                     "home": {
-                        "R": 0,
-                        "H": 0,
+                        "R": 3,
+                        "H": 10,
                         "E": 0
                     }
                 },
@@ -74,18 +74,18 @@
             {
                 "home_team": "WSH",
                 "away_team": "SEA",
-                "status": "Upcoming",
+                "status": "Live",
                 "time": "04:05 (台灣)",
                 "rhe": {
                     "away": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
+                        "R": 3,
+                        "H": 8,
+                        "E": 3
                     },
                     "home": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
+                        "R": 8,
+                        "H": 10,
+                        "E": 1
                     }
                 },
                 "pitchers": {
@@ -100,13 +100,13 @@
                 "time": "04:05 (台灣)",
                 "rhe": {
                     "away": {
-                        "R": 0,
-                        "H": 0,
+                        "R": 2,
+                        "H": 7,
                         "E": 0
                     },
                     "home": {
-                        "R": 0,
-                        "H": 0,
+                        "R": 3,
+                        "H": 8,
                         "E": 0
                     }
                 },
@@ -118,18 +118,18 @@
             {
                 "home_team": "CIN",
                 "away_team": "AZ",
-                "status": "Live",
+                "status": "Final",
                 "time": "04:10 (台灣)",
                 "rhe": {
                     "away": {
-                        "R": 0,
-                        "H": 0,
+                        "R": 1,
+                        "H": 7,
                         "E": 0
                     },
                     "home": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
+                        "R": 2,
+                        "H": 3,
+                        "E": 1
                     }
                 },
                 "pitchers": {
@@ -140,18 +140,18 @@
             {
                 "home_team": "CLE",
                 "away_team": "DET",
-                "status": "Live",
+                "status": "Final",
                 "time": "04:10 (台灣)",
                 "rhe": {
                     "away": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
+                        "R": 1,
+                        "H": 9,
+                        "E": 1
                     },
                     "home": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
+                        "R": 3,
+                        "H": 8,
+                        "E": 1
                     }
                 },
                 "pitchers": {
@@ -166,14 +166,14 @@
                 "time": "04:10 (台灣)",
                 "rhe": {
                     "away": {
-                        "R": 0,
-                        "H": 0,
+                        "R": 3,
+                        "H": 9,
                         "E": 0
                     },
                     "home": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
+                        "R": 6,
+                        "H": 11,
+                        "E": 1
                     }
                 },
                 "pitchers": {
@@ -184,17 +184,17 @@
             {
                 "home_team": "NYM",
                 "away_team": "ATL",
-                "status": "Live",
+                "status": "Final",
                 "time": "04:10 (台灣)",
                 "rhe": {
                     "away": {
-                        "R": 0,
-                        "H": 0,
+                        "R": 3,
+                        "H": 7,
                         "E": 0
                     },
                     "home": {
-                        "R": 0,
-                        "H": 0,
+                        "R": 1,
+                        "H": 6,
                         "E": 0
                     }
                 },
@@ -210,13 +210,13 @@
                 "time": "04:10 (台灣)",
                 "rhe": {
                     "away": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
+                        "R": 7,
+                        "H": 10,
+                        "E": 1
                     },
                     "home": {
-                        "R": 0,
-                        "H": 0,
+                        "R": 1,
+                        "H": 1,
                         "E": 0
                     }
                 },
@@ -228,7 +228,7 @@
             {
                 "home_team": "KC",
                 "away_team": "HOU",
-                "status": "Upcoming",
+                "status": "Live",
                 "time": "07:10 (台灣)",
                 "rhe": {
                     "away": {
@@ -250,7 +250,7 @@
             {
                 "home_team": "MIL",
                 "away_team": "PHI",
-                "status": "Upcoming",
+                "status": "Live",
                 "time": "07:10 (台灣)",
                 "rhe": {
                     "away": {
