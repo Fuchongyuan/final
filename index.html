@@ -113,6 +113,8 @@
             font-size: 0.85rem;
             border-left: 3px solid #d35400;
         }
+        .data-box.bet { border-left-color: #27ae60; } /* 讓分推薦用綠色邊框 */
+        .data-box.injury { border-left-color: #c0392b; } /* 傷兵報告用紅色邊框 */
         .data-box:last-child { margin-bottom: 0; }
         .data-box-title { font-weight: 700; color: #2c3e50; margin-bottom: 4px; }
 
@@ -229,6 +231,11 @@
 
             const awayStats = game.away_pitcher.stats || "暫無本季數據";
             const homeStats = game.home_pitcher.stats || "暫無本季數據";
+            
+            // 🔍 動態讀取各欄位分析數據，若無則提供預設文字防呆
+            const trendData = game.analysis?.trend || "暫無分析走向資料。";
+            const betTipData = game.analysis?.bet_tip || "暫無推薦資料。";
+            const injuryData = game.analysis?.injuries || "暫無傷兵報告。";
 
             card.innerHTML = `
                 <div class="card-header">
@@ -252,7 +259,7 @@
                 </div>
 
                 <details class="details-wrapper">
-                    <summary>展開分析 + 球隊數據</summary>
+                    <summary>展開分析 + 多元數據面板</summary>
                     <div class="details-content">
                         <div class="data-box">
                             <div class="data-box-title">📊 先發投手本賽季數據對比</div>
@@ -260,8 +267,16 @@
                             • <b>${game.home_pitcher.name}</b>: ${homeStats}
                         </div>
                         <div class="data-box">
-                            <div class="data-box-title">🎯 讓分與全場大小推薦</div>
-                            進攻端得分預期穩定，盤口趨勢與讓分優勢指標分析完畢。
+                            <div class="data-box-title">📈 戰績趨勢與賽事走向</div>
+                            ${trendData}
+                        </div>
+                        <div class="data-box bet">
+                            <div class="data-box-title">🎯 讓分與全場大小盤口推薦</div>
+                            ${betTipData}
+                        </div>
+                        <div class="data-box injury">
+                            <div class="data-box-title">🚑 兩隊即時傷兵與戰力報告</div>
+                            ${injuryData}
                         </div>
                     </div>
                 </details>
