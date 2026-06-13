@@ -91,7 +91,7 @@
 <div class="container">
     <header>
         <h1>⚾ Sportscast Sigma 核心數據面板</h1>
-        <div class="subtitle">同時整合「賽前預計先發」與「即時場上投球」，先發九棒三圍打線 100% 智慧保底顯示</div>
+        <div class="subtitle">投手名雙並列展示 ｜ 解決賽前大聯盟打者 AVG/OPS 三圍資料被清空問題</div>
         <div class="update-tag" id="sync-time">正在連線大聯盟官方 API 數據庫...</div>
     </header>
 
@@ -286,7 +286,6 @@
                 ${mainBodyHTML}
 
                 <div class="pitcher-dual-container">
-                    <!-- 1. 預計先發投手 (賽前數據) -->
                     <div class="pitcher-block-row">
                         <div class="pitcher-section-title">🧢 Probable Pitchers (預計先發賽前)</div>
                         <div class="pitcher-grid-row">
@@ -303,7 +302,6 @@
                         </div>
                     </div>
 
-                    <!-- 2. 目前場上投手 / 賽後決策 (單場即時) -->
                     <div class="pitcher-block-row live-pitcher">
                         <div class="pitcher-section-title">⚡ Live / Decision Pitcher (場上與單場表現)</div>
                         <div class="pitcher-grid-row">

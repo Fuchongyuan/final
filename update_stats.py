@@ -3,13 +3,32 @@ import traceback
 from datetime import datetime, timedelta
 import urllib.request
 
+def fetch_player_season_stats(player_id):
+    """
+    【打者數據保底核心】當場次 API 內無球員賽季數據時，直接單獨調用大聯盟球員個人數據 API 撈取今年賽季累積數據
+    """
+    current_year = datetime.now().year
+    url = f"https://statsapi.mlb.com/api/v1/people/{player_id}/stats?stats=season&group=batting&season={current_year}"
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=5) as response:
+            data = json.loads(response.read().decode('utf-8'))
+            stats_splits = data.get("stats", [])
+            if stats_splits:
+                splits = stats_splits[0].get("splits", [])
+                if splits:
+                    return splits[0].get("stat", {})
+    except Exception:
+        pass
+    return {}
+
 def fetch_mlb_dashboard_data():
-    print("🚀 [MLB 全能完全體 V10] 啟動『預計先發+場上投手雙全』與『打線智慧兜底機制』...")
+    print("🚀 [MLB 全能完全體 V11] 啟動『預計先發+場上投手雙全』與『打者數據深度修復機制』...")
 
     result_data = {
         "meta": {
             "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "engine": "mlb-official-api-v10-lineup-fallback"
+            "engine": "mlb-official-api-v11-batting-fix"
         },
         "dates": {}
     }
@@ -136,18 +155,17 @@ def fetch_mlb_dashboard_data():
                         current_away_p = {"name": f"❌ 敗投: {lose_name}", "stats": get_live_pitcher_line("away", lose_id)}
                         current_home_p = {"name": f"🏆 勝投: {win_name}", "stats": get_live_pitcher_line("home", win_id)}
 
-                # ------------------- 📋 打線名單智慧兜底抓取 -------------------
+                # ------------------- 📋 打線名單與數據深度修復 -------------------
                 def parse_lineup_list(team_type):
                     lineup_data = []
                     team_box = boxscore_teams.get(team_type, {})
                     batting_order = team_box.get("battingOrder", [])
                     players_dict = team_box.get("players", {})
                     
-                    # 邏輯分流：如果大聯盟還沒公布當日正式打線(battingOrder長度為0)，改抓全隊所有球員中「本季打席最多」的前九個人當預測打線
+                    # 判斷是否需要智慧兜底選人
                     if len(batting_order) >= 9:
                         target_list = batting_order
                     else:
-                        # 兜底：抓出所有打者並依據賽季打席(atBats)排序，挑選前9棒
                         all_players = []
                         for p_id, p_obj in players_dict.items():
                             if p_obj.get("position", {}).get("code") != "1": # 排除投手
@@ -155,14 +173,24 @@ def fetch_mlb_dashboard_data():
                                 ab = s_batting.get("atBats", 0)
                                 all_players.append((ab, p_id, p_obj))
                         all_players.sort(key=lambda x: x[0], reverse=True)
-                        # [🎯 這裡已修正] 將原本錯誤的中文名稱改回正確的變數 all_players
                         target_list = [x[1] for x in all_players[:9]] if all_players else []
 
                     for p_key in target_list:
-                        if not str(p_key).startswith("ID"): p_key = f"ID{p_key}"
-                        if p_key in players_dict:
-                            p_obj = players_dict[p_key]
+                        # 格式化 ID 確保符合字典鍵值
+                        raw_id = str(p_key).replace("ID", "")
+                        p_dict_key = f"ID{raw_id}"
+                        
+                        if p_dict_key in players_dict:
+                            p_obj = players_dict[p_dict_key]
+                            
+                            # 【核心修正點】嘗試取得賽季打擊數據
                             s_batting = p_obj.get("seasonStats", {}).get("batting", {})
+                            
+                            # 【雙重防禦】如果發現當前 API 裡面的賽季數據是空的，直接向個人 API 索取累積數據
+                            if not s_batting or s_batting.get("atBats", 0) == 0:
+                                print(f"🔍 偵測到球員 {p_obj.get('person',{}).get('fullName')} 缺乏當日賽季欄位，啟動保底 API...")
+                                s_batting = fetch_player_season_stats(raw_id)
+                                
                             lineup_data.append({
                                 "name": p_obj.get("person", {}).get("fullName", "Unknown"),
                                 "pos": p_obj.get("position", {}).get("abbreviation", "DH"),
@@ -207,7 +235,7 @@ def fetch_mlb_dashboard_data():
 
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(result_data, f, ensure_ascii=False, indent=4)
-    print("🏁 [完全整合完畢] 雙投手數據 + 智慧兜底打線儲存完畢！")
+    print("🏁 [修復完畢] 投手數據雙倂 + 打者個人賽季數據強制拉取成功！")
 
 if __name__ == "__main__":
     fetch_mlb_dashboard_data()
