@@ -93,7 +93,7 @@
             list-style: none;
             font-weight: 600;
             user-select: none;
-        }
+            }
         .details-wrapper summary::-webkit-details-marker { display: none; }
         .details-wrapper summary::after { content: ' ▼'; font-size: 0.7rem; margin-left: 4px; }
         .details-wrapper[open] summary::after { content: ' ▲'; }
@@ -113,10 +113,16 @@
             font-size: 0.85rem;
             border-left: 3px solid #d35400; /* 預設為橘色 */
         }
-        .data-box.bet { border-left-color: #27ae60; }    /* 盤口推薦：綠色 */
-        .data-box.injury { border-left-color: #c0392b; } /* 傷兵戰力：紅色 */
+        .data-box.team-stats { border-left-color: #34495e; } /* 團隊數據：深藍 */
+        .data-box.bet { border-left-color: #27ae60; }        /* 盤口推薦：綠色 */
+        .data-box.injury { border-left-color: #c0392b; }     /* 傷兵戰力：紅色 */
         .data-box:last-child { margin-bottom: 0; }
         .data-box-title { font-weight: 700; color: #2c3e50; margin-bottom: 4px; }
+        
+        /* 內部數據表格微調 */
+        .stat-sub-table { width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 0.8rem; }
+        .stat-sub-table th, .stat-sub-table td { padding: 4px 6px; text-align: left; }
+        .stat-sub-table th { color: #7f8c8d; font-weight: 600; border-bottom: 1px solid #e2e8f0; }
 
         #no-data { text-align: center; padding: 40px; color: #6c757d; background: #fff; border-radius: 10px; display: none; }
         @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
@@ -232,51 +238,72 @@
             const awayStats = game.away_pitcher.stats || "暫無本季數據";
             const homeStats = game.home_pitcher.stats || "暫無本季數據";
             
-            // 🔍 動態讀取自訂分析欄位放置槽，提供防呆文字
-            const trendData = game.analysis?.trend || "暫無戰績走向趨勢資料。";
-            const betTipData = game.analysis?.bet_tip || "暫無今日推薦盤口資料。";
-            const injuryData = game.analysis?.injuries || "暫無即時陣容更動報告。";
+            // 擷取球隊簡稱 (最後一個單字，如 Dodgers, Yankees)
+            const awayShortName = game.away_team.split(' ').pop();
+            const homeShortName = game.home_team.split(' ').pop();
+
+            // 讀取從 Python 新增的豐富團隊數據資訊
+            const aStats = game.away_stats || {};
+            const hStats = game.home_stats || {};
 
             card.innerHTML = `
                 <div class="card-header">
                     <div class="teams-headline">
                         <img src="${teamLogoMap[game.away_team] || ''}" class="card-logo">
-                        <span>${game.away_team.split(' ').pop()}</span>
+                        <span>${awayShortName}</span>
                         ${scoreDisplay}
-                        <span>${game.home_team.split(' ').pop()}</span>
+                        <span>${homeShortName}</span>
                         <img src="${teamLogoMap[game.home_team] || ''}" class="card-logo">
                     </div>
                     <div class="card-time">${game.game_time}</div>
                 </div>
 
                 <div class="card-body">
-                    <div class="pitcher-info">客隊先發：<span>${game.away_pitcher.name}</span> <span class="pitcher-stats">(${awayStats})</span></div>
-                    <div class="pitcher-info">主隊先發：<span>${game.home_pitcher.name}</span> <span class="pitcher-stats">(${homeStats})</span></div>
+                    <div class="pitcher-info">客隊先發：<span>${game.away_pitcher.name}</span></div>
+                    <div class="pitcher-info">主隊先發：<span>${game.home_pitcher.name}</span></div>
                     <div class="game-status-bar">
                         <span class="status-badge">${game.game_status}</span>
-                        <span style="font-size:0.75rem; color:#868e96;">戰績：${game.away_record} / ${game.home_record}</span>
+                        <span style="font-size:0.75rem; color:#868e96;">戰績：${game.away_record} (${aStats.streak || '-'}) / ${game.home_record} (${hStats.streak || '-'})</span>
                     </div>
                 </div>
 
                 <details class="details-wrapper">
                     <summary>展開分析 + 多維度數據面板</summary>
                     <div class="details-content">
+                        <div class="data-box team-stats">
+                            <div class="data-box-title">📊 兩隊賽季進階戰績對比</div>
+                            <table class="stat-sub-table">
+                                <thead>
+                                    <tr>
+                                        <th>項目</th>
+                                        <th>客隊 (${awayShortName})</th>
+                                        <th>主隊 (${homeShortName})</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><b>目前戰績</b></td><td>${game.away_record}</td><td>${game.home_record}</td></tr>
+                                    <tr><td><b>勝率</b></td><td>${aStats.win_percentage || '-'}</td><td>${hStats.win_percentage || '-'}</td></tr>
+                                    <tr><td><b>分區排名</b></td><td>第 ${aStats.division_rank || '-'} 名</td><td>第 ${hStats.division_rank || '-'} 名</td></tr>
+                                    <tr><td><b>勝差</b></td><td>${aStats.games_back || '-'}</td><td>${hStats.games_back || '-'}</td></tr>
+                                    <tr><td><b>近期狀態</b></td><td>${aStats.streak || '-'}</td><td>${hStats.streak || '-'}</td></tr>
+                                    <tr><td><b>🔥 賽季總得分</b></td><td>${aStats.season_runs_scored || '-'} 分</td><td>${hStats.season_runs_scored || '-'} 分</td></tr>
+                                    <tr><td><b>🛡️ 賽季總失分</b></td><td>${aStats.season_runs_allowed || '-'} 分</td><td>${hStats.season_runs_allowed || '-'} 分</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
                         <div class="data-box">
-                            <div class="data-box-title">📊 先發投手本賽季數據對比</div>
+                            <div class="data-box-title">🧢 先發投手對決</div>
                             • <b>${game.away_pitcher.name}</b>: ${awayStats}<br>
                             • <b>${game.home_pitcher.name}</b>: ${homeStats}
                         </div>
-                        <div class="data-box">
-                            <div class="data-box-title">📈 戰績趨勢與賽事走向</div>
-                            ${trendData}
-                        </div>
                         <div class="data-box bet">
-                            <div class="data-box-title">🎯 讓分與全場大小盤口推薦</div>
-                            ${betTipData}
+                            <div class="data-box-title">🎯 賽事盤口與智慧推薦</div>
+                            預測推薦槽位已就緒。近期狀態：客隊 ${aStats.streak || '-'} ｜ 主隊 ${hStats.streak || '-'}。
                         </div>
                         <div class="data-box injury">
-                            <div class="data-box-title">🚑 兩隊即時傷兵與戰力報告</div>
-                            ${injuryData}
+                            <div class="data-box-title">🚑 即時傷兵與陣容調動</div>
+                            本場對戰防守失分對比：${awayShortName} (${aStats.season_runs_allowed || '-'}) vs ${homeShortName} (${hStats.season_runs_allowed || '-'})。
                         </div>
                     </div>
                 </details>
