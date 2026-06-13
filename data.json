@@ -1,7 +1,7 @@
 {
     "meta": {
-        "last_updated": "2026-06-13 18:33:59",
-        "engine": "mlb-official-api-v4-pitcher-fixed"
+        "last_updated": "2026-06-13 18:41:10",
+        "engine": "mlb-official-api-v5-live-fixed"
     },
     "dates": {
         "2026-06-13": [
@@ -10,11 +10,11 @@
                 "away_team": "STL",
                 "home_score": 0,
                 "away_score": 4,
-                "status": "Upcoming",
+                "status": "Live",
                 "time": "02:10 (台灣)",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": "先發投手已登板",
+                    "home": "先發投手已登板"
                 },
                 "metrics": {
                     "h_era": "-",
