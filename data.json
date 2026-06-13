@@ -1,7 +1,7 @@
 {
     "meta": {
-        "last_updated": "2026-06-13 19:09:28",
-        "engine": "mlb-official-api-v8-all-in-one"
+        "last_updated": "2026-06-13 19:23:46",
+        "engine": "mlb-official-api-v10-lineup-fallback"
     },
     "dates": {
         "2026-06-13": [
@@ -17,21 +17,29 @@
                         "E": 0
                     },
                     "home": {
-                        "R": 1,
-                        "H": 2,
+                        "R": 2,
+                        "H": 4,
                         "E": 0
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "場上: Matthew Liberatore",
-                        "meta": "",
-                        "stats": "單場:"
+                    "probable_away": {
+                        "name": "未定",
+                        "meta": "LHP/RHP",
+                        "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "先發: Connor Prielipp",
-                        "meta": "",
-                        "stats": ""
+                    "probable_home": {
+                        "name": "未定",
+                        "meta": "LHP/RHP",
+                        "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "🔥 Connor Prielipp",
+                        "stats": "單場: 0 H | 0 ER"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -57,15 +65,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "場上: Kevin Gausman",
-                        "meta": "",
-                        "stats": "單場:"
+                    "probable_away": {
+                        "name": "未定",
+                        "meta": "LHP/RHP",
+                        "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "先發: Kevin Gausman",
-                        "meta": "",
-                        "stats": ""
+                    "probable_home": {
+                        "name": "未定",
+                        "meta": "LHP/RHP",
+                        "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "🔥 Kevin Gausman",
+                        "stats": "單場: 0 H | 0 ER"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -91,15 +107,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Randy Vásquez",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Trey Gibson",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -125,15 +149,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Luis Castillo",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Cade Cavalli",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -159,15 +191,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Lake Bachar",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Bubba Chandler",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -193,15 +233,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Michael Soroka",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Rhett Lowder",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -227,15 +275,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Tarik Skubal",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Joey Cantillo",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -261,15 +317,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Jacob deGrom",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Ranger Suarez",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -295,15 +359,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Martín Pérez",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Sean Manaea",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -329,15 +401,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Yoshinobu Yamamoto",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Sean Burke",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -363,15 +443,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Mike Burrows",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Noah Cameron",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -397,15 +485,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Aaron Nola",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Shane Drohan",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -431,15 +527,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Kyle Freeland",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Joey Estes",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -465,15 +569,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Ben Brown",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Trevor McDonald",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -499,15 +611,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Griffin Jax",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "José Soriano",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -535,15 +655,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Max Meyer",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Paul Skenes",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -569,15 +697,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Walker Buehler",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Trevor Rogers",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -603,15 +739,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Emerson Hancock",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Miles Mikolas",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -637,15 +781,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Will Warren",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Patrick Corbin",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -671,15 +823,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Zac Gallen",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Andrew Abbott",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -705,15 +865,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Casey Mize",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Gavin Williams",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -739,15 +907,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Bryce Elder",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Freddy Peralta",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -773,15 +949,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Spencer Arrighetti",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Stephen Kolek",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -807,15 +991,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Michael McGreevy",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Taj Bradley",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -841,15 +1033,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Emmet Sheehan",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Erick Fedde",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -875,15 +1075,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Cristopher Sánchez",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Kyle Harrison",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -909,15 +1117,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Tomoyuki Sugano",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Jeffrey Springs",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -943,15 +1159,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Colin Rea",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Logan Webb",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -977,15 +1201,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
+                        "meta": "RHP",
+                        "stats": "0-0 | -.-- ERA"
+                    },
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Grayson Rodriguez",
-                        "meta": "LHP/RHP",
-                        "stats": "0-0 | -.-- ERA"
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1011,15 +1243,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Nathan Eovaldi",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Connelly Early",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1047,15 +1287,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1081,15 +1329,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1115,15 +1371,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
+                        "meta": "RHP",
+                        "stats": "0-0 | -.-- ERA"
+                    },
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Chase Burns",
-                        "meta": "LHP/RHP",
-                        "stats": "0-0 | -.-- ERA"
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1149,15 +1413,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
+                        "meta": "RHP",
+                        "stats": "0-0 | -.-- ERA"
+                    },
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Dustin May",
-                        "meta": "LHP/RHP",
-                        "stats": "0-0 | -.-- ERA"
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1183,15 +1455,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1217,15 +1497,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1251,15 +1539,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Troy Melton",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1285,15 +1581,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1319,15 +1623,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1353,15 +1665,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1389,15 +1709,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1423,15 +1751,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1457,15 +1793,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1491,15 +1835,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1525,15 +1877,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Christian Scott",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Brady Singer",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1559,15 +1919,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
+                        "meta": "RHP",
+                        "stats": "0-0 | -.-- ERA"
+                    },
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Grant Holmes",
-                        "meta": "LHP/RHP",
-                        "stats": "0-0 | -.-- ERA"
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1593,15 +1961,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Slade Cecconi",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1627,15 +2003,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
+                        "meta": "RHP",
+                        "stats": "0-0 | -.-- ERA"
+                    },
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Andre Pallante",
-                        "meta": "LHP/RHP",
-                        "stats": "0-0 | -.-- ERA"
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1661,15 +2045,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1695,15 +2087,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1729,15 +2129,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Framber Valdez",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1763,15 +2171,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1797,15 +2213,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1831,15 +2255,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1865,15 +2297,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1901,15 +2341,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Nolan McLean",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "未定 (TBD)",
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1935,15 +2383,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -1969,15 +2425,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2003,15 +2467,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2037,15 +2509,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
+                        "meta": "RHP",
+                        "stats": "0-0 | -.-- ERA"
+                    },
+                    "probable_home": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
-                        "name": "Kyle Leahy",
-                        "meta": "LHP/RHP",
-                        "stats": "0-0 | -.-- ERA"
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2071,15 +2551,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2105,15 +2593,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2139,15 +2635,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2173,15 +2677,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2207,15 +2719,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2241,15 +2761,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
-                        "name": "Parker Messick",
+                    "probable_away": {
+                        "name": "未定",
                         "meta": "LHP/RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2275,15 +2803,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2309,15 +2845,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2343,15 +2887,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2379,15 +2931,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2413,15 +2973,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2447,15 +3015,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2481,15 +3057,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2515,15 +3099,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2549,15 +3141,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2583,15 +3183,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2617,15 +3225,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2651,15 +3267,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2687,15 +3311,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2721,15 +3353,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2755,15 +3395,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2789,15 +3437,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2823,15 +3479,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2857,15 +3521,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2891,15 +3563,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2925,15 +3605,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2959,15 +3647,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -2993,15 +3689,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3027,15 +3731,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3061,15 +3773,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3095,15 +3815,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3129,15 +3857,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3165,15 +3901,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3199,15 +3943,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3233,15 +3985,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3267,15 +4027,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3301,15 +4069,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3335,15 +4111,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3369,15 +4153,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3403,15 +4195,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3437,15 +4237,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3471,15 +4279,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3505,15 +4321,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3539,15 +4363,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3573,15 +4405,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
@@ -3607,15 +4447,23 @@
                     }
                 },
                 "pitchers": {
-                    "away": {
+                    "probable_away": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
                     },
-                    "home": {
+                    "probable_home": {
                         "name": "未定 (TBD)",
-                        "meta": "LHP/RHP",
+                        "meta": "RHP",
                         "stats": "0-0 | -.-- ERA"
+                    },
+                    "current_away": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
+                    },
+                    "current_home": {
+                        "name": "尚未登板",
+                        "stats": "單場: -"
                     }
                 },
                 "lineups": {
