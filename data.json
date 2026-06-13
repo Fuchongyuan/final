@@ -1,248 +1,338 @@
 {
     "meta": {
-        "last_updated": "2026-06-13 18:41:10",
-        "engine": "mlb-official-api-v5-live-fixed"
+        "last_updated": "2026-06-13 18:55:08",
+        "engine": "mlb-official-api-v7-pregame-matchup"
     },
     "dates": {
         "2026-06-13": [
             {
                 "home_team": "MIN",
                 "away_team": "STL",
-                "home_score": 0,
-                "away_score": 4,
-                "status": "Live",
                 "time": "02:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "先發投手已登板",
-                    "home": "先發投手已登板"
+                    "away": {
+                        "name": "Matthew Liberatore",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Connor Prielipp",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TOR",
                 "away_team": "NYY",
-                "home_score": 0,
-                "away_score": 0,
-                "status": "Upcoming",
                 "time": "03:07 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Cam Schlittler",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Kevin Gausman",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "BAL",
                 "away_team": "SD",
-                "home_score": 0,
-                "away_score": 0,
-                "status": "Upcoming",
                 "time": "04:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Randy Vásquez",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Trey Gibson",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "WSH",
                 "away_team": "SEA",
-                "home_score": 0,
-                "away_score": 0,
-                "status": "Upcoming",
                 "time": "04:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Luis Castillo",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Cade Cavalli",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "PIT",
                 "away_team": "MIA",
-                "home_score": 0,
-                "away_score": 0,
-                "status": "Upcoming",
                 "time": "04:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Lake Bachar",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Bubba Chandler",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "CIN",
                 "away_team": "AZ",
-                "home_score": 0,
-                "away_score": 0,
-                "status": "Upcoming",
                 "time": "04:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Michael Soroka",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Rhett Lowder",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "CLE",
                 "away_team": "DET",
-                "home_score": 0,
-                "away_score": 0,
-                "status": "Upcoming",
                 "time": "04:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Tarik Skubal",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Joey Cantillo",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "BOS",
                 "away_team": "TEX",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "04:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Jacob deGrom",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Ranger Suarez",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "NYM",
                 "away_team": "ATL",
-                "home_score": 0,
-                "away_score": 0,
-                "status": "Upcoming",
                 "time": "04:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Martín Pérez",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Sean Manaea",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "CWS",
                 "away_team": "LAD",
-                "home_score": 0,
-                "away_score": 0,
-                "status": "Upcoming",
                 "time": "04:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Yoshinobu Yamamoto",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Sean Burke",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "KC",
                 "away_team": "HOU",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Mike Burrows",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Noah Cameron",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "MIL",
                 "away_team": "PHI",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Aaron Nola",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Shane Drohan",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TBD",
                 "away_team": "COL",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "10:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Kyle Freeland",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Joey Estes",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "SF",
                 "away_team": "CHC",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "10:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Ben Brown",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Trevor McDonald",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "LAA",
                 "away_team": "TB",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "10:07 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Griffin Jax",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "José Soriano",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             }
         ],
@@ -250,241 +340,331 @@
             {
                 "home_team": "PIT",
                 "away_team": "MIA",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "00:15 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Max Meyer",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Paul Skenes",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "BAL",
                 "away_team": "SD",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "01:35 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Walker Buehler",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Trevor Rogers",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "WSH",
                 "away_team": "SEA",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "01:35 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Emerson Hancock",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Miles Mikolas",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TOR",
                 "away_team": "NYY",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "01:37 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Will Warren",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Patrick Corbin",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "CIN",
                 "away_team": "AZ",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "01:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Zac Gallen",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Andrew Abbott",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "CLE",
                 "away_team": "DET",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "01:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Casey Mize",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Gavin Williams",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "NYM",
                 "away_team": "ATL",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "01:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Bryce Elder",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Freddy Peralta",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "KC",
                 "away_team": "HOU",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "02:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Spencer Arrighetti",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Stephen Kolek",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "MIN",
                 "away_team": "STL",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "02:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Michael McGreevy",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Taj Bradley",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "CWS",
                 "away_team": "LAD",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "02:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Emmet Sheehan",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Erick Fedde",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "MIL",
                 "away_team": "PHI",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "02:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Cristopher Sánchez",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Kyle Harrison",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TBD",
                 "away_team": "COL",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "03:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Tomoyuki Sugano",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Jeffrey Springs",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "SF",
                 "away_team": "CHC",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "03:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Colin Rea",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Logan Webb",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "LAA",
                 "away_team": "TB",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "04:07 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Grayson Rodriguez",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "BOS",
                 "away_team": "TEX",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:20 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Nathan Eovaldi",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Connelly Early",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             }
         ],
@@ -492,161 +672,221 @@
             {
                 "home_team": "PHI",
                 "away_team": "MIA",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "06:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "WSH",
                 "away_team": "KC",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "06:45 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "CIN",
                 "away_team": "NYM",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Chase Burns",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "STL",
                 "away_team": "SD",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:45 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Dustin May",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "CHC",
                 "away_team": "COL",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "08:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TEX",
                 "away_team": "MIN",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "08:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "HOU",
                 "away_team": "DET",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "08:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Troy Melton",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "AZ",
                 "away_team": "LAA",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "09:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TBD",
                 "away_team": "PIT",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "09:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "LAD",
                 "away_team": "TB",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "10:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             }
         ],
@@ -654,241 +894,331 @@
             {
                 "home_team": "PHI",
                 "away_team": "MIA",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "06:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "WSH",
                 "away_team": "KC",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "06:45 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "BOS",
                 "away_team": "TOR",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "06:45 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "NYY",
                 "away_team": "CWS",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "CIN",
                 "away_team": "NYM",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Christian Scott",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Brady Singer",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "ATL",
                 "away_team": "SF",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:15 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Grant Holmes",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "MIL",
                 "away_team": "CLE",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Slade Cecconi",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "STL",
                 "away_team": "SD",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:45 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Andre Pallante",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "CHC",
                 "away_team": "COL",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "08:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TEX",
                 "away_team": "MIN",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "08:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "HOU",
                 "away_team": "DET",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "08:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Framber Valdez",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "AZ",
                 "away_team": "LAA",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "09:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TBD",
                 "away_team": "PIT",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "09:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "SEA",
                 "away_team": "BAL",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "09:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "LAD",
                 "away_team": "TB",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "10:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             }
         ],
@@ -896,225 +1226,309 @@
             {
                 "home_team": "CIN",
                 "away_team": "NYM",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "00:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Nolan McLean",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "WSH",
                 "away_team": "KC",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "01:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "PHI",
                 "away_team": "MIA",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "01:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "HOU",
                 "away_team": "DET",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "02:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "STL",
                 "away_team": "SD",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "02:15 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "Kyle Leahy",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "LAD",
                 "away_team": "TB",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "03:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "AZ",
                 "away_team": "LAA",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "03:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "BOS",
                 "away_team": "TOR",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "06:45 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "NYY",
                 "away_team": "CWS",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "ATL",
                 "away_team": "SF",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:15 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "MIL",
                 "away_team": "CLE",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "Parker Messick",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "CHC",
                 "away_team": "COL",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "08:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TBD",
                 "away_team": "PIT",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "09:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "SEA",
                 "away_team": "BAL",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "09:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             }
         ],
@@ -1122,145 +1536,199 @@
             {
                 "home_team": "BOS",
                 "away_team": "TOR",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "01:35 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "MIL",
                 "away_team": "CLE",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "02:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TEX",
                 "away_team": "MIN",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "02:35 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "SEA",
                 "away_team": "BAL",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "04:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "PHI",
                 "away_team": "NYM",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "06:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "NYY",
                 "away_team": "CWS",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "ATL",
                 "away_team": "SF",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:15 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "KC",
                 "away_team": "STL",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TBD",
                 "away_team": "LAA",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "09:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             }
         ],
@@ -1268,225 +1736,309 @@
             {
                 "home_team": "CHC",
                 "away_team": "TOR",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "02:20 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "DET",
                 "away_team": "CWS",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "06:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "NYY",
                 "away_team": "CIN",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TB",
                 "away_team": "WSH",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "MIA",
                 "away_team": "SF",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "ATL",
                 "away_team": "MIL",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:15 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TEX",
                 "away_team": "SD",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "08:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "HOU",
                 "away_team": "CLE",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "08:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "KC",
                 "away_team": "STL",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "08:15 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "COL",
                 "away_team": "PIT",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "08:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TBD",
                 "away_team": "LAA",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "09:40 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "AZ",
                 "away_team": "MIN",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "09:45 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "LAD",
                 "away_team": "BAL",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "10:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "SEA",
                 "away_team": "BOS",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "10:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             }
         ],
@@ -1494,225 +2046,309 @@
             {
                 "home_team": "DET",
                 "away_team": "CWS",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "01:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "NYY",
                 "away_team": "CIN",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "01:35 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "CHC",
                 "away_team": "TOR",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "02:20 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TEX",
                 "away_team": "SD",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "04:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TB",
                 "away_team": "WSH",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "04:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "MIA",
                 "away_team": "SF",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "04:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "ATL",
                 "away_team": "MIL",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "04:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "HOU",
                 "away_team": "CLE",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:15 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "PHI",
                 "away_team": "NYM",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "07:15 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "COL",
                 "away_team": "PIT",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "09:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "TBD",
                 "away_team": "LAA",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "10:05 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "LAD",
                 "away_team": "BAL",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "10:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "SEA",
                 "away_team": "BOS",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "10:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             },
             {
                 "home_team": "AZ",
                 "away_team": "MIN",
-                "home_score": null,
-                "away_score": null,
-                "status": "Upcoming",
                 "time": "10:10 (台灣)",
+                "status": "Upcoming",
                 "pitchers": {
-                    "away": "未定 (TBD)",
-                    "home": "未定 (TBD)"
+                    "away": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    },
+                    "home": {
+                        "name": "未定 (TBD)",
+                        "meta": "",
+                        "stats": "0-0 | -.-- ERA | - K"
+                    }
                 },
-                "metrics": {
-                    "h_era": "-",
-                    "a_era": "-"
+                "lineups": {
+                    "away": [],
+                    "home": []
                 }
             }
         ]
