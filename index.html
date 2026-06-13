@@ -12,55 +12,23 @@
             margin: 0;
             padding: 30px 15px;
         }
-        /* 讓 container 變成相對定位，方便右上角按鈕對齊 */
-        .container { max-width: 1100px; margin: 0 auto; position: relative; }
+        .container { max-width: 1200px; margin: 0 auto; position: relative; }
         h1 { color: #0b2240; text-align: center; margin-bottom: 5px; font-size: 2.2rem; }
         .update-time { text-align: center; color: #6c757d; font-size: 0.95rem; margin-bottom: 25px; }
         
-        /* 🔘 效果 1：縮小並靠邊的切換鈕 */
-        .nav-tabs {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 6px;
-        }
-        .nav-btn {
-            padding: 6px 14px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        /* 看板分頁按鈕樣式 (藍色) */
+        /* 🔘 右上角功能切換鈕 */
+        .nav-tabs { position: absolute; top: 0; right: 0; display: flex; gap: 6px; }
+        .nav-btn { padding: 6px 14px; font-size: 0.85rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
         .btn-board { background-color: #007bff; color: white; }
         .btn-board:hover { background-color: #0056b3; }
-        /* 地圖分頁按鈕樣式 (綠色) */
         .btn-map { background-color: #28a745; color: white; }
         .btn-map:hover { background-color: #218838; }
-        /* 未選中狀態 (灰色) */
-        .nav-btn.inactive {
-            background-color: #e0e0e0;
-            color: #6c757d;
-            box-shadow: none;
-        }
+        .nav-btn.inactive { background-color: #e0e0e0; color: #6c757d; box-shadow: none; }
 
         /* 📦 頁面區塊切換控制 */
         .page-content { display: none; }
         .page-content.active { display: block; }
-
-        /* 🗺️ 地圖內嵌框架樣式 */
-        .map-iframe {
-            width: 100%;
-            height: 752px;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            background: #ffffff;
-        }
+        .map-iframe { width: 100%; height: 752px; border: none; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); background: #ffffff; }
 
         /* 📅 日期橫條選單 */
         .date-menu { display: flex; gap: 12px; justify-content: center; overflow-x: auto; padding: 10px 5px; margin-bottom: 25px; }
@@ -70,43 +38,90 @@
         .date-btn.active { background-color: #d35400; border-color: #d35400; }
         .date-btn.active .main-txt, .date-btn.active .sub-txt { color: #ffffff; }
 
-        /* 隊徽樣式 */
-        .team-logo { width: 35px; height: 35px; margin-bottom: 5px; }
-
-        .table-responsive { width: 100%; overflow-x: auto; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); border-radius: 10px; background: #ffffff; }
-        .game-table { width: 100%; border-collapse: collapse; white-space: nowrap; }
-        th { background-color: #0b2240; color: #ffffff; font-weight: 600; padding: 16px; }
-        td { padding: 16px; text-align: center; border-bottom: 1px solid #e9ecef; vertical-align: middle; }
-        tr:nth-child(even) { background-color: #f8f9fa; }
-        
-        .time-badge { background-color: #e8f5e9; color: #2e7d32; padding: 6px 14px; border-radius: 20px; font-weight: 600; }
-        .status-txt { font-size: 0.8rem; color: #757575; margin-top: 4px; display: block; }
-        .team-container { display: flex; flex-direction: column; align-items: center; }
-        .team-name { font-weight: 700; font-size: 1.05rem; color: #111; }
-        .team-record { font-size: 0.8rem; color: #6c757d; margin-top: 2px; background: #e9ecef; padding: 1px 6px; border-radius: 4px; }
-        
-        /* 🎯 比分與狀態顯示樣式 */
-        .score-box { font-size: 1.3rem; font-weight: bold; padding: 0 10px; min-width: 60px; display: inline-block; }
-        .score-live { color: #e67e22; animation: blink 1.5s infinite; }
-        .score-final { color: #2c3e50; }
-        .vs-text { color: #adb5bd; }
-        
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
+        /* 🗂️ 核心設定：一橫排固定放 2 個對戰組合卡片 */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 這裡控制一橫排出現兩個卡片 */
+            gap: 20px;
         }
 
-        .pitcher-name { font-weight: 600; color: #0d6efd; font-size: 0.95rem; }
-        #no-data { text-align: center; padding: 40px; color: #6c757d; background: #fff; border-radius: 10px; display: none; }
+        /* 🎴 獨立對戰組合卡片容器 */
+        .game-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
 
-        /* 📱 行動裝置微調：避免按鈕與標題重疊 */
-        @media (max-width: 768px) {
-            .nav-tabs {
-                position: static;
-                justify-content: center;
-                margin-bottom: 15px;
-            }
+        /* 卡片頂部：隊徽、名稱、比分、時間 */
+        .card-header {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f1f3f5;
+        }
+        .teams-headline { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.1rem; }
+        .card-logo { width: 26px; height: 26px; object-fit: contain; }
+        .vs-label { color: #adb5bd; font-size: 0.85rem; font-weight: normal; margin: 0 4px; }
+        .card-time { font-size: 0.8rem; color: #868e96; background: #f1f3f5; padding: 2px 6px; border-radius: 4px; }
+
+        /* 卡片中部：先發投手與戰績資訊 */
+        .card-body { padding: 15px 20px; flex: 1; }
+        .pitcher-info { font-size: 0.9rem; margin-bottom: 6px; color: #495057; }
+        .pitcher-info span { font-weight: 600; color: #0d6efd; }
+        
+        .game-status-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
+        .status-badge { background-color: #e8f5e9; color: #2e7d32; padding: 3px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; }
+        .live-score { font-size: 1.2rem; font-weight: 800; color: #e67e22; animation: blink 1.5s infinite; }
+        .final-score { font-size: 1.2rem; font-weight: 800; color: #2c3e50; }
+
+        /* 🔍 每個卡片獨立的展開/折疊按紐區塊 (<details>) */
+        .details-wrapper { border-top: 1px solid #f1f3f5; background-color: #fafbfc; }
+        .details-wrapper summary {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            color: #6c757d;
+            font-size: 0.85rem;
+            cursor: pointer;
+            list-style: none;
+            font-weight: 600;
+            user-select: none;
+        }
+        .details-wrapper summary::-webkit-details-marker { display: none; }
+        .details-wrapper summary::after { content: ' ▼'; font-size: 0.7rem; margin-left: 4px; }
+        .details-wrapper[open] summary::after { content: ' ▲'; }
+        .details-wrapper summary:hover { background-color: #f1f3f5; color: #333; }
+
+        /* 📊 點擊後展開的數據面板 */
+        .details-content {
+            padding: 15px 20px;
+            background-color: #ffffff;
+            border-top: 1px solid #f1f3f5;
+        }
+        .data-box {
+            background: #f8f9fa;
+            padding: 10px 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            border-left: 3px solid #d35400;
+        }
+        .data-box:last-child { margin-bottom: 0; }
+        .data-box-title { font-weight: 700; color: #2c3e50; margin-bottom: 2px; }
+
+        #no-data { text-align: center; padding: 40px; color: #6c757d; background: #fff; border-radius: 10px; display: none; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
+        /* 📱 平板及手機版自適應：改回單欄瀑布流避免太擠 */
+        @media (max-width: 850px) {
+            .game-grid { grid-template-columns: 1fr; }
+            .nav-tabs { position: static; justify-content: center; margin-bottom: 15px; }
             h1 { margin-top: 10px; }
         }
     </style>
@@ -124,16 +139,9 @@
 
     <div id="page-board" class="page-content active">
         <div class="date-menu" id="date-menu-container"></div>
-        <div class="table-responsive" id="table-container">
-            <table class="game-table">
-                <thead>
-                    <tr>
-                        <th>時間 / 狀態</th><th>客隊</th><th>比分</th><th>主隊</th><th>客隊先發</th><th>主隊先發</th>
-                    </tr>
-                </thead>
-                <tbody id="games-tbody"></tbody>
-            </table>
-        </div>
+        
+        <div class="game-grid" id="games-grid-container"></div>
+        
         <div id="no-data">本日無排定賽事，球員移動休兵中！</div>
     </div>
 
@@ -145,7 +153,6 @@
 <script>
     let globalWeeklyData = {};
 
-    // 🔄 同分頁切換邏輯
     function switchPage(pageName) {
         document.getElementById('page-board').classList.remove('active');
         document.getElementById('page-map').classList.remove('active');
@@ -161,7 +168,6 @@
         }
     }
 
-    // 30支球隊隊徽對照表
     const teamLogoMap = {
         "Baltimore Orioles": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/bal.png", "Boston Red Sox": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/bos.png", "New York Yankees": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/nyy.png", "Tampa Bay Rays": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tb.png", "Toronto Blue Jays": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tor.png",
         "Chicago White Sox": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cws.png", "Cleveland Guardians": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cle.png", "Detroit Tigers": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/det.png", "Kansas City Royals": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/kc.png", "Minnesota Twins": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/min.png",
@@ -198,42 +204,69 @@
         }
     }
 
+    // 🔄 渲染賽事卡片（一個組合一容器，並排顯示）
     function displayGames(dateStr) {
-        const tbody = document.getElementById('games-tbody');
-        tbody.innerHTML = '';
+        const gridContainer = document.getElementById('games-grid-container');
+        gridContainer.innerHTML = '';
         const games = globalWeeklyData[dateStr]?.games || [];
         
         if (games.length === 0) { 
-            document.getElementById('table-container').style.display = 'none'; 
+            gridContainer.style.display = 'none'; 
             document.getElementById('no-data').style.display = 'block'; 
             return; 
         }
         
-        document.getElementById('table-container').style.display = 'block';
+        gridContainer.style.display = 'grid';
         document.getElementById('no-data').style.display = 'none';
 
         games.forEach(game => {
-            const row = document.createElement('tr');
+            const card = document.createElement('div');
+            card.className = 'game-card';
             
-            let scoreDisplay = `<span class="vs-text">@</span>`;
+            // 比分與未開打處理
+            let scoreDisplay = `<span class="vs-label">@</span>`;
             if (game.is_live_or_final === "Live") {
-                scoreDisplay = `<span class="score-box score-live">${game.away_runs} : ${game.home_runs}</span>`;
+                scoreDisplay = `<span class="live-score">${game.away_runs} : ${game.home_runs}</span>`;
             } else if (game.is_live_or_final === "Final") {
-                scoreDisplay = `<span class="score-box score-final">${game.away_runs} : ${game.home_runs}</span>`;
+                scoreDisplay = `<span class="final-score">${game.away_runs} : ${game.home_runs}</span>`;
             }
 
-            row.innerHTML = `
-                <td>
-                    <span class="time-badge">${game.game_time}</span>
-                    <span class="status-txt">${game.game_status}</span>
-                </td>
-                <td><div class="team-container"><img src="${teamLogoMap[game.away_team] || ''}" class="team-logo"><span class="team-name">${game.away_team}</span><span class="team-record">${game.away_record}</span></div></td>
-                <td>${scoreDisplay}</td>
-                <td><div class="team-container"><img src="${teamLogoMap[game.home_team] || ''}" class="team-logo"><span class="team-name">${game.home_team}</span><span class="team-record">${game.home_record}</span></div></td>
-                <td><div class="pitcher-name">${game.away_pitcher.name}</div></td>
-                <td><div class="pitcher-name">${game.home_pitcher.name}</div></td>
+            card.innerHTML = `
+                <div class="card-header">
+                    <div class="teams-headline">
+                        <img src="${teamLogoMap[game.away_team] || ''}" class="card-logo">
+                        <span>${game.away_team.split(' ').pop()}</span>
+                        ${scoreDisplay}
+                        <span>${game.home_team.split(' ').pop()}</span>
+                        <img src="${teamLogoMap[game.home_team] || ''}" class="card-logo">
+                    </div>
+                    <div class="card-time">${game.game_time}</div>
+                </div>
+
+                <div class="card-body">
+                    <div class="pitcher-info">客隊先發：<span>${game.away_pitcher.name}</span></div>
+                    <div class="pitcher-info">主隊先發：<span>${game.home_pitcher.name}</span></div>
+                    <div class="game-status-bar">
+                        <span class="status-badge">${game.game_status}</span>
+                        <span style="font-size:0.75rem; color:#868e96;">戰績：${game.away_record} / ${game.home_record}</span>
+                    </div>
+                </div>
+
+                <details class="details-wrapper">
+                    <summary>展開分析 + 球隊數據</summary>
+                    <div class="details-content">
+                        <div class="data-box">
+                            <div class="data-box-title">📊 大數據預測模型</div>
+                            依據大數據模型搭配先發投手數據與歷史戰績分析，預測本場對決之優勢走向。
+                        </div>
+                        <div class="data-box">
+                            <div class="data-box-title">🎯 讓分與全場大小推薦</div>
+                            進攻端得分預期穩定，盤口趨勢與讓分優勢指標分析完畢。
+                        </div>
+                    </div>
+                </details>
             `;
-            tbody.appendChild(row);
+            gridContainer.appendChild(card);
         });
     }
 </script>
