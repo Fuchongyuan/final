@@ -1,612 +1,14 @@
 {
     "meta": {
-        "last_updated": "2026-06-14 19:47:52"
+        "last_updated": "2026-06-15 04:43:43"
     },
     "dates": {
-        "2026-06-14": [
-            {
-                "home_team": "PIT",
-                "away_team": "MIA",
-                "status": "Final",
-                "time": "00:15 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": 4,
-                        "H": 9,
-                        "E": 2
-                    },
-                    "home": {
-                        "R": 2,
-                        "H": 8,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Max Meyer",
-                    "home_starter": "Paul Skenes"
-                }
-            },
-            {
-                "home_team": "BAL",
-                "away_team": "SD",
-                "status": "Live",
-                "time": "01:35 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": 4,
-                        "H": 6,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 2,
-                        "H": 9,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Walker Buehler",
-                    "home_starter": "Trevor Rogers"
-                }
-            },
-            {
-                "home_team": "WSH",
-                "away_team": "SEA",
-                "status": "Live",
-                "time": "01:35 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": 1,
-                        "H": 5,
-                        "E": 1
-                    },
-                    "home": {
-                        "R": 10,
-                        "H": 14,
-                        "E": 2
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Emerson Hancock",
-                    "home_starter": "PJ Poulin"
-                }
-            },
-            {
-                "home_team": "TOR",
-                "away_team": "NYY",
-                "status": "Live",
-                "time": "01:37 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": 3,
-                        "H": 8,
-                        "E": 1
-                    },
-                    "home": {
-                        "R": 3,
-                        "H": 9,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Will Warren",
-                    "home_starter": "Patrick Corbin"
-                }
-            },
-            {
-                "home_team": "CIN",
-                "away_team": "AZ",
-                "status": "Live",
-                "time": "01:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": 4,
-                        "H": 6,
-                        "E": 1
-                    },
-                    "home": {
-                        "R": 3,
-                        "H": 6,
-                        "E": 1
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Zac Gallen",
-                    "home_starter": "Andrew Abbott"
-                }
-            },
-            {
-                "home_team": "NYM",
-                "away_team": "ATL",
-                "status": "Live",
-                "time": "01:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": 1,
-                        "H": 4,
-                        "E": 1
-                    },
-                    "home": {
-                        "R": 6,
-                        "H": 10,
-                        "E": 1
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Bryce Elder",
-                    "home_starter": "Freddy Peralta"
-                }
-            },
-            {
-                "home_team": "KC",
-                "away_team": "HOU",
-                "status": "Live",
-                "time": "02:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": 0,
-                        "H": 2,
-                        "E": 1
-                    },
-                    "home": {
-                        "R": 4,
-                        "H": 8,
-                        "E": 1
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Spencer Arrighetti",
-                    "home_starter": "Stephen Kolek"
-                }
-            },
-            {
-                "home_team": "MIN",
-                "away_team": "STL",
-                "status": "Live",
-                "time": "02:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": 3,
-                        "H": 3,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 2,
-                        "H": 7,
-                        "E": 1
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Michael McGreevy",
-                    "home_starter": "Taj Bradley"
-                }
-            },
-            {
-                "home_team": "CWS",
-                "away_team": "LAD",
-                "status": "Live",
-                "time": "02:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": 1,
-                        "H": 4,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 1,
-                        "H": 3,
-                        "E": 1
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Emmet Sheehan",
-                    "home_starter": "Bryan Hudson"
-                }
-            },
-            {
-                "home_team": "MIL",
-                "away_team": "PHI",
-                "status": "Live",
-                "time": "02:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": 0,
-                        "H": 3,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 4,
-                        "H": 8,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Cristopher Sánchez",
-                    "home_starter": "Kyle Harrison"
-                }
-            },
-            {
-                "home_team": "TBD",
-                "away_team": "COL",
-                "status": "Live",
-                "time": "03:05 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": 5,
-                        "H": 4,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 4,
-                        "H": 4,
-                        "E": 1
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Tomoyuki Sugano",
-                    "home_starter": "Jeffrey Springs"
-                }
-            },
-            {
-                "home_team": "SF",
-                "away_team": "CHC",
-                "status": "Live",
-                "time": "03:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": 0,
-                        "H": 3,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Ryan Rolison",
-                    "home_starter": "Logan Webb"
-                }
-            },
-            {
-                "home_team": "LAA",
-                "away_team": "TB",
-                "status": "Live",
-                "time": "04:07 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Casey Legumina",
-                    "home_starter": "Grayson Rodriguez"
-                }
-            },
-            {
-                "home_team": "BOS",
-                "away_team": "TEX",
-                "status": "Upcoming",
-                "time": "07:20 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Nathan Eovaldi",
-                    "home_starter": "Connelly Early"
-                }
-            },
-            {
-                "home_team": "CLE",
-                "away_team": "DET",
-                "status": "Final",
-                "time": "01:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Casey Mize",
-                    "home_starter": "Gavin Williams"
-                }
-            }
-        ],
-        "2026-06-15": [
-            {
-                "home_team": "PHI",
-                "away_team": "MIA",
-                "status": "Upcoming",
-                "time": "06:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Ryan Gusto",
-                    "home_starter": "Zack Wheeler"
-                }
-            },
-            {
-                "home_team": "WSH",
-                "away_team": "KC",
-                "status": "Upcoming",
-                "time": "06:45 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "Andrew Alvarez"
-                }
-            },
-            {
-                "home_team": "CIN",
-                "away_team": "NYM",
-                "status": "Upcoming",
-                "time": "07:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "Chase Burns"
-                }
-            },
-            {
-                "home_team": "STL",
-                "away_team": "SD",
-                "status": "Upcoming",
-                "time": "07:45 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "Dustin May"
-                }
-            },
-            {
-                "home_team": "CHC",
-                "away_team": "COL",
-                "status": "Upcoming",
-                "time": "08:05 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Michael Lorenzen",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "TEX",
-                "away_team": "MIN",
-                "status": "Upcoming",
-                "time": "08:05 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "HOU",
-                "away_team": "DET",
-                "status": "Upcoming",
-                "time": "08:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Troy Melton",
-                    "home_starter": "Kai-Wei Teng"
-                }
-            },
-            {
-                "home_team": "AZ",
-                "away_team": "LAA",
-                "status": "Upcoming",
-                "time": "09:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Walbert Ureña",
-                    "home_starter": "Ryne Nelson"
-                }
-            },
-            {
-                "home_team": "TBD",
-                "away_team": "PIT",
-                "status": "Upcoming",
-                "time": "09:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Jared Jones",
-                    "home_starter": "J.T. Ginn"
-                }
-            },
-            {
-                "home_team": "LAD",
-                "away_team": "TB",
-                "status": "Upcoming",
-                "time": "10:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Nick Martinez",
-                    "home_starter": "Eric Lauer"
-                }
-            }
-        ],
         "2026-06-16": [
             {
-                "home_team": "PHI",
-                "away_team": "MIA",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "06:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Tyler Phillips",
-                    "home_starter": "Jesús Luzardo"
-                }
-            },
-            {
-                "home_team": "WSH",
-                "away_team": "KC",
-                "status": "Upcoming",
-                "time": "06:45 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Michael Wacha",
-                    "home_starter": "Foster Griffin"
-                }
-            },
-            {
-                "home_team": "BOS",
-                "away_team": "TOR",
-                "status": "Upcoming",
-                "time": "06:45 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -621,212 +23,14 @@
                 },
                 "pitchers": {
                     "away_starter": "未定 (TBD)",
-                    "home_starter": "Payton Tolle"
-                }
-            },
-            {
-                "home_team": "NYY",
-                "away_team": "CWS",
-                "status": "Upcoming",
-                "time": "07:05 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Davis Martin",
-                    "home_starter": "Gerrit Cole"
-                }
-            },
-            {
-                "home_team": "CIN",
-                "away_team": "NYM",
-                "status": "Upcoming",
-                "time": "07:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Christian Scott",
-                    "home_starter": "Brady Singer"
-                }
-            },
-            {
-                "home_team": "ATL",
-                "away_team": "SF",
-                "status": "Upcoming",
-                "time": "07:15 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Adrian Houser",
-                    "home_starter": "Grant Holmes"
-                }
-            },
-            {
-                "home_team": "MIL",
-                "away_team": "CLE",
-                "status": "Upcoming",
-                "time": "07:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Slade Cecconi",
-                    "home_starter": "Robert Gasser"
-                }
-            },
-            {
-                "home_team": "STL",
-                "away_team": "SD",
-                "status": "Upcoming",
-                "time": "07:45 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Michael King",
-                    "home_starter": "Andre Pallante"
-                }
-            },
-            {
-                "home_team": "CHC",
-                "away_team": "COL",
-                "status": "Upcoming",
-                "time": "08:05 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Ryan Feltner",
                     "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "TEX",
-                "away_team": "MIN",
-                "status": "Upcoming",
-                "time": "08:05 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Zebby Matthews",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "HOU",
-                "away_team": "DET",
-                "status": "Upcoming",
-                "time": "08:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Framber Valdez",
-                    "home_starter": "Hunter Brown"
-                }
-            },
-            {
-                "home_team": "AZ",
-                "away_team": "LAA",
-                "status": "Upcoming",
-                "time": "09:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Reid Detmers",
-                    "home_starter": "Merrill Kelly"
                 }
             },
             {
                 "home_team": "TBD",
-                "away_team": "PIT",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "09:40 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -840,15 +44,15 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "Mitch Keller",
-                    "home_starter": "Jack Perkins"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
-                "home_team": "SEA",
-                "away_team": "BAL",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "09:40 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -862,15 +66,15 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "Brandon Young",
-                    "home_starter": "Logan Gilbert"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
-                "home_team": "LAD",
-                "away_team": "TB",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "10:10 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -884,105 +88,259 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "Drew Rasmussen",
-                    "home_starter": "Justin Wrobleski"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             }
         ],
         "2026-06-17": [
             {
-                "home_team": "CIN",
-                "away_team": "NYM",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "00:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Nolan McLean",
-                    "home_starter": "Nick Lodolo"
-                }
-            },
-            {
-                "home_team": "WSH",
-                "away_team": "KC",
-                "status": "Upcoming",
-                "time": "01:05 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Luinder Avila",
-                    "home_starter": "Zack Littell"
-                }
-            },
-            {
-                "home_team": "PHI",
-                "away_team": "MIA",
-                "status": "Upcoming",
-                "time": "01:05 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Sandy Alcantara",
-                    "home_starter": "Andrew Painter"
-                }
-            },
-            {
-                "home_team": "HOU",
-                "away_team": "DET",
-                "status": "Upcoming",
-                "time": "02:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Casey Mize",
-                    "home_starter": "Peter Lambert"
-                }
-            },
-            {
-                "home_team": "STL",
-                "away_team": "SD",
-                "status": "Upcoming",
-                "time": "02:15 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -997,168 +355,14 @@
                 },
                 "pitchers": {
                     "away_starter": "未定 (TBD)",
-                    "home_starter": "Kyle Leahy"
-                }
-            },
-            {
-                "home_team": "LAD",
-                "away_team": "TB",
-                "status": "Upcoming",
-                "time": "03:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Shane McClanahan",
-                    "home_starter": "Shohei Ohtani"
-                }
-            },
-            {
-                "home_team": "AZ",
-                "away_team": "LAA",
-                "status": "Upcoming",
-                "time": "03:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Sam Aldegheri",
-                    "home_starter": "Eduardo Rodriguez"
-                }
-            },
-            {
-                "home_team": "BOS",
-                "away_team": "TOR",
-                "status": "Upcoming",
-                "time": "06:45 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "Jake Bennett"
-                }
-            },
-            {
-                "home_team": "NYY",
-                "away_team": "CWS",
-                "status": "Upcoming",
-                "time": "07:05 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Anthony Kay",
-                    "home_starter": "Carlos Rodón"
-                }
-            },
-            {
-                "home_team": "ATL",
-                "away_team": "SF",
-                "status": "Upcoming",
-                "time": "07:15 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Robbie Ray",
-                    "home_starter": "JR Ritchie"
-                }
-            },
-            {
-                "home_team": "MIL",
-                "away_team": "CLE",
-                "status": "Upcoming",
-                "time": "07:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Gavin Williams",
-                    "home_starter": "Brandon Sproat"
-                }
-            },
-            {
-                "home_team": "CHC",
-                "away_team": "COL",
-                "status": "Upcoming",
-                "time": "08:05 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Sean Sullivan",
                     "home_starter": "未定 (TBD)"
                 }
             },
             {
                 "home_team": "TBD",
-                "away_team": "PIT",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "09:40 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -1172,15 +376,15 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "Braxton Ashcraft",
-                    "home_starter": "Aaron Civale"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
-                "home_team": "SEA",
-                "away_team": "BAL",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "09:40 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -1194,17 +398,259 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "Kyle Bradish",
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
                     "home_starter": "未定 (TBD)"
                 }
             }
         ],
         "2026-06-18": [
             {
-                "home_team": "BOS",
-                "away_team": "TOR",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "01:35 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -1219,168 +665,168 @@
                 },
                 "pitchers": {
                     "away_starter": "未定 (TBD)",
-                    "home_starter": "Sonny Gray"
-                }
-            },
-            {
-                "home_team": "MIL",
-                "away_team": "CLE",
-                "status": "Upcoming",
-                "time": "02:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Parker Messick",
-                    "home_starter": "Shane Drohan"
-                }
-            },
-            {
-                "home_team": "TEX",
-                "away_team": "MIN",
-                "status": "Upcoming",
-                "time": "02:35 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Joe Ryan",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "SEA",
-                "away_team": "BAL",
-                "status": "Upcoming",
-                "time": "04:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Shane Baz",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "PHI",
-                "away_team": "NYM",
-                "status": "Upcoming",
-                "time": "06:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "NYY",
-                "away_team": "CWS",
-                "status": "Upcoming",
-                "time": "07:05 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Sean Burke",
-                    "home_starter": "Ryan Weathers"
-                }
-            },
-            {
-                "home_team": "ATL",
-                "away_team": "SF",
-                "status": "Upcoming",
-                "time": "07:15 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Landen Roupp",
-                    "home_starter": "Martín Pérez"
-                }
-            },
-            {
-                "home_team": "KC",
-                "away_team": "STL",
-                "status": "Upcoming",
-                "time": "07:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Matthew Liberatore",
                     "home_starter": "未定 (TBD)"
                 }
             },
             {
                 "home_team": "TBD",
-                "away_team": "LAA",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "09:40 (台灣)",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -1401,208 +847,10 @@
         ],
         "2026-06-19": [
             {
-                "home_team": "CHC",
-                "away_team": "TOR",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "02:20 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "DET",
-                "away_team": "CWS",
-                "status": "Upcoming",
-                "time": "06:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "Tarik Skubal"
-                }
-            },
-            {
-                "home_team": "NYY",
-                "away_team": "CIN",
-                "status": "Upcoming",
-                "time": "07:05 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "TB",
-                "away_team": "WSH",
-                "status": "Upcoming",
-                "time": "07:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "MIA",
-                "away_team": "SF",
-                "status": "Upcoming",
-                "time": "07:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "ATL",
-                "away_team": "MIL",
-                "status": "Upcoming",
-                "time": "07:15 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "TEX",
-                "away_team": "SD",
-                "status": "Upcoming",
-                "time": "08:05 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "HOU",
-                "away_team": "CLE",
-                "status": "Upcoming",
-                "time": "08:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Tanner Bibee",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "KC",
-                "away_team": "STL",
-                "status": "Upcoming",
-                "time": "08:15 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "COL",
-                "away_team": "PIT",
-                "status": "Upcoming",
-                "time": "08:40 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -1622,9 +870,9 @@
             },
             {
                 "home_team": "TBD",
-                "away_team": "LAA",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "09:40 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -1643,10 +891,10 @@
                 }
             },
             {
-                "home_team": "AZ",
-                "away_team": "MIN",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "09:45 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -1665,10 +913,10 @@
                 }
             },
             {
-                "home_team": "LAD",
-                "away_team": "BAL",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "10:10 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -1687,10 +935,208 @@
                 }
             },
             {
-                "home_team": "SEA",
-                "away_team": "BOS",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "10:10 (台灣)",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -1711,208 +1157,10 @@
         ],
         "2026-06-20": [
             {
-                "home_team": "DET",
-                "away_team": "CWS",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "01:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "NYY",
-                "away_team": "CIN",
-                "status": "Upcoming",
-                "time": "01:35 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "CHC",
-                "away_team": "TOR",
-                "status": "Upcoming",
-                "time": "02:20 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "TEX",
-                "away_team": "SD",
-                "status": "Upcoming",
-                "time": "04:05 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "TB",
-                "away_team": "WSH",
-                "status": "Upcoming",
-                "time": "04:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "MIA",
-                "away_team": "SF",
-                "status": "Upcoming",
-                "time": "04:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "ATL",
-                "away_team": "MIL",
-                "status": "Upcoming",
-                "time": "04:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "HOU",
-                "away_team": "CLE",
-                "status": "Upcoming",
-                "time": "07:15 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "PHI",
-                "away_team": "NYM",
-                "status": "Upcoming",
-                "time": "07:15 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "COL",
-                "away_team": "PIT",
-                "status": "Upcoming",
-                "time": "09:10 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -1932,9 +1180,9 @@
             },
             {
                 "home_team": "TBD",
-                "away_team": "LAA",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "10:05 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -1953,10 +1201,10 @@
                 }
             },
             {
-                "home_team": "LAD",
-                "away_team": "BAL",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "10:10 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -1975,10 +1223,10 @@
                 }
             },
             {
-                "home_team": "SEA",
-                "away_team": "BOS",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "10:10 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -1997,10 +1245,208 @@
                 }
             },
             {
-                "home_team": "AZ",
-                "away_team": "MIN",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "10:10 (台灣)",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -2021,230 +1467,10 @@
         ],
         "2026-06-21": [
             {
-                "home_team": "NYY",
-                "away_team": "CIN",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "01:35 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "ATL",
-                "away_team": "MIL",
-                "status": "Upcoming",
-                "time": "01:35 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "TB",
-                "away_team": "WSH",
-                "status": "Upcoming",
-                "time": "01:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "DET",
-                "away_team": "CWS",
-                "status": "Upcoming",
-                "time": "01:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "MIA",
-                "away_team": "SF",
-                "status": "Upcoming",
-                "time": "01:40 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "HOU",
-                "away_team": "CLE",
-                "status": "Upcoming",
-                "time": "02:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "KC",
-                "away_team": "STL",
-                "status": "Upcoming",
-                "time": "02:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "CHC",
-                "away_team": "TOR",
-                "status": "Upcoming",
-                "time": "02:20 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "TEX",
-                "away_team": "SD",
-                "status": "Upcoming",
-                "time": "02:35 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "COL",
-                "away_team": "PIT",
-                "status": "Upcoming",
-                "time": "03:10 (台灣)",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "home_team": "AZ",
-                "away_team": "MIN",
-                "status": "Upcoming",
-                "time": "03:15 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -2264,9 +1490,9 @@
             },
             {
                 "home_team": "TBD",
-                "away_team": "LAA",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "04:05 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -2285,10 +1511,10 @@
                 }
             },
             {
-                "home_team": "LAD",
-                "away_team": "BAL",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "04:10 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -2307,10 +1533,10 @@
                 }
             },
             {
-                "home_team": "SEA",
-                "away_team": "BOS",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "04:10 (台灣)",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -2329,10 +1555,518 @@
                 }
             },
             {
-                "home_team": "PHI",
-                "away_team": "NYM",
+                "home_team": "TBD",
+                "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "07:20 (台灣)",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            }
+        ],
+        "2026-06-22": [
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "--:--",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -2352,16 +2086,5 @@
             }
         ]
     },
-    "standings": {
-        "AL": {
-            "East": [],
-            "Central": [],
-            "West": []
-        },
-        "NL": {
-            "East": [],
-            "Central": [],
-            "West": []
-        }
-    }
+    "standings": {}
 }
