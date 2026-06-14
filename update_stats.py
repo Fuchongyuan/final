@@ -35,7 +35,7 @@ def fetch_mlb_dashboard_data():
     
     # --- 1. 抓取未來 7 天賽事與即時比分 ---
     for i in range(0, 7):
-        target_dt = today + timedelta(days=i+1)
+        target_dt = today + timedelta(days=i)
         date_str = target_dt.strftime("%Y-%m-%d")
         result_data["dates"][date_str] = []
         
