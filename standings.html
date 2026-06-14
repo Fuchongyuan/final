@@ -1,59 +1,114 @@
-// 🚀 最新的戰績表動態渲染引擎 (適用於新的 data.json 結構)
-function renderStandings() {
-    const container = document.getElementById('standings-container');
-    container.innerHTML = '';
-    const standings = globalData.standings || {};
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLB 分區戰績表 | Sportscast Sigma</title>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-orange: #ea580c;
+        }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
+            color: var(--text-main); 
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .back-link { 
+            background: #475569; color: white; padding: 10px 20px; 
+            border-radius: 8px; text-decoration: none; display: inline-block; margin-bottom: 20px;
+        }
+        .back-link:hover { background: #64748b; }
+        
+        .standings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(580px, 1fr)); gap: 24px; }
+        .division-card { background: var(--bg-secondary); border-radius: 14px; padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); }
+        .div-name { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 15px; border-left: 4px solid var(--accent-orange); padding-left: 10px; }
+        
+        .std-table { width: 100%; border-collapse: collapse; text-align: center; font-size: 0.9rem; }
+        .std-table th { color: var(--text-muted); padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .std-table td { padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .text-left { text-align: left; font-weight: 600; }
+    </style>
+</head>
+<body>
 
-    // 迴圈讀取 "美聯東區 (AL East)"、"國聯西區 (NL West)" 等分區
-    Object.keys(standings).forEach(divName => {
-        const divCard = document.createElement('div');
-        divCard.className = 'division-card';
+<div class="container">
+    <a href="index.html" class="back-link">← 返回主控台</a>
+    <h1 style="margin-bottom: 30px;">📊 大聯盟分區戰績</h1>
+    <div id="standings-container" class="standings-grid"></div>
+</div>
 
-        let rowsHTML = '';
-        standings[divName].forEach((team, index) => {
-            rowsHTML += `
-            <div class="container" style="padding-top: 20px;">
-    <a href="index.html" class="map-btn" style="background: #475569; display: inline-block; margin-bottom: 20px;">← 返回主控台</a>
-    ...
-</div>    
-            
-            <tr>
-                    <td>${index + 1}</td>
-                    <td class="text-left">
-                        <img src="${teamLogoMap[team.code] || ''}" style="width: 24px; vertical-align: middle; margin-right: 8px;">
-                        ${team.code} (${team.name})
-                    </td>
-                    <td>${team.w}</td>
-                    <td>${team.l}</td>
-                    <td>${team.gb}</td>
-                    <td>${team.l10}</td>
-                    <td>${team.home}</td>
-                    <td>${team.away}</td>
-                </tr>
-            `;
-        });
+<script>
+    // 隊徽對照表 (確保代碼正確)
+    const teamLogoMap = {
+        "NYY": "https://www.mlbstatic.com/team-logos/147.svg",
+        "LAD": "https://www.mlbstatic.com/team-logos/119.svg",
+        "BOS": "https://www.mlbstatic.com/team-logos/111.svg",
+        "SF": "https://www.mlbstatic.com/team-logos/137.svg",
+        "CHC": "https://www.mlbstatic.com/team-logos/112.svg"
+        // ...這裡建議補齊 30 隊
+    };
 
-        // 建立該分區的表格 HTML
-        divCard.innerHTML = `
-            <div class="div-name">${divName}</div>
-            <table class="std-table">
-                <thead>
-                    <tr>
-                        <th style="width: 40px;">#</th>
-                        <th class="text-left">球隊</th>
-                        <th style="width: 50px;">勝</th>
-                        <th style="width: 50px;">敗</th>
-                        <th style="width: 60px;">勝差</th>
-                        <th style="width: 70px;">近10場</th>
-                        <th style="width: 70px;">主場</th>
-                        <th style="width: 70px;">客場</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${rowsHTML}
-                </tbody>
-            </table>
-        `;
-        container.appendChild(divCard);
+    document.addEventListener("DOMContentLoaded", () => {
+        fetch('data.json')
+            .then(res => res.json())
+            .then(data => {
+                if (data.standings) {
+                    renderStandings(data.standings);
+                }
+            })
+            .catch(err => console.error("資料載入失敗", err));
     });
-}
+
+    function renderStandings(standings) {
+        const container = document.getElementById('standings-container');
+        container.innerHTML = '';
+
+        Object.keys(standings).forEach(divName => {
+            const divCard = document.createElement('div');
+            divCard.className = 'division-card';
+
+            let rowsHTML = '';
+            standings[divName].forEach((team, index) => {
+                rowsHTML += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td class="text-left">
+                            <img src="${teamLogoMap[team.code] || ''}" style="width: 24px; vertical-align: middle; margin-right: 8px;" onerror="this.style.display='none'">
+                            ${team.code} (${team.name})
+                        </td>
+                        <td>${team.w}</td>
+                        <td>${team.l}</td>
+                        <td>${team.gb}</td>
+                        <td>${team.l10}</td>
+                        <td>${team.home}</td>
+                        <td>${team.away}</td>
+                    </tr>
+                `;
+            });
+
+            divCard.innerHTML = `
+                <div class="div-name">${divName}</div>
+                <table class="std-table">
+                    <thead>
+                        <tr>
+                            <th>#</th><th class="text-left">球隊</th>
+                            <th>勝</th><th>敗</th><th>勝差</th>
+                            <th>近10場</th><th>主場</th><th>客場</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rowsHTML}</tbody>
+                </table>
+            `;
+            container.appendChild(divCard);
+        });
+    }
+</script>
+</body>
+</html>
