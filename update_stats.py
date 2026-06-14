@@ -2,6 +2,16 @@ import json
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
+# 建立完美對應的球隊 ID 映射表 (將 Arizona 強制轉為前端使用的 AZ，解決縮寫衝突)
+TEAM_ID_MAP = {
+    108: "LAA", 109: "AZ",  110: "BAL", 111: "BOS", 112: "CHC",
+    113: "CIN", 114: "CLE", 115: "COL", 116: "DET", 117: "HOU",
+    118: "KC",  119: "LAD", 120: "WSH", 121: "NYM", 133: "OAK",
+    134: "PIT", 135: "SD",  136: "SEA", 137: "SF",  138: "STL",
+    139: "TB",  140: "TEX", 141: "TOR", 142: "MIN", 143: "PHI",
+    144: "ATL", 145: "CWS", 146: "MIA", 147: "NYY", 158: "MIL"
+}
+
 def get_json(url):
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
@@ -12,9 +22,8 @@ def get_json(url):
         return {}
 
 def fetch_mlb_dashboard_data():
-    print("🚀 [V16 終極版] 強制解析 gamePk、抓取分區排名，並修正台灣時區...")
+    print("🚀 [V17 完美除錯版] 修復球隊縮寫對應失敗問題，並確保分區排名正常載入...")
     
-    # 【關鍵修正】：強制鎖定台灣時間 (UTC+8)，避免 Actions 伺服器在早上 8 點前抓到昨天
     tz_tw = timezone(timedelta(hours=8))
     today = datetime.now(tz_tw)
     
@@ -24,9 +33,7 @@ def fetch_mlb_dashboard_data():
         "standings": {}
     }
     
-    # ==========================================
-    # 1. 抓取賽事與即時比分 (保留你的 gamePk 解析法)
-    # ==========================================
+    # --- 1. 抓取賽事與即時比分 ---
     for i in range(0, 3):
         target_dt = today + timedelta(days=i)
         date_str = target_dt.strftime("%Y-%m-%d")
@@ -38,14 +45,11 @@ def fetch_mlb_dashboard_data():
         for date_entry in sched_data.get("dates", []):
             for game in date_entry.get("games", []):
                 game_pk = game.get("gamePk")
-                
                 detail_url = f"https://statsapi.mlb.com/api/v1/game/{game_pk}/feed/live"
                 game_data = get_json(detail_url)
                 
                 game_info = game_data.get("gameData", {})
                 live_info = game_data.get("liveData", {})
-                
-                teams = game_info.get("teams", {})
                 players = game_info.get("players", {})
                 
                 # 投手資訊
@@ -56,9 +60,11 @@ def fetch_mlb_dashboard_data():
                 away_p_name = players.get(f"ID{away_p_id}", {}).get("fullName", "未定 (TBD)") if away_p_id else "未定 (TBD)"
                 home_p_name = players.get(f"ID{home_p_id}", {}).get("fullName", "未定 (TBD)") if home_p_id else "未定 (TBD)"
                 
-                # 隊伍縮寫
-                away_slug = game_info.get("teams", {}).get("away", {}).get("abbreviation", "TBD")
-                home_slug = game_info.get("teams", {}).get("home", {}).get("abbreviation", "TBD")
+                # 【修復】透過 ID 映射取得正確的前端縮寫 (避免縮寫不一導致圖片破圖)
+                away_team_id = game_info.get("teams", {}).get("away", {}).get("id")
+                home_team_id = game_info.get("teams", {}).get("home", {}).get("id")
+                away_slug = TEAM_ID_MAP.get(away_team_id, "TBD")
+                home_slug = TEAM_ID_MAP.get(home_team_id, "TBD")
                 
                 # 狀態判定
                 status_str = game_info.get("status", {}).get("detailedState", "Scheduled")
@@ -69,7 +75,7 @@ def fetch_mlb_dashboard_data():
                 else:
                     status = "Upcoming"
                     
-                # 抓取 RHE 比分 (Runs, Hits, Errors)
+                # 抓取 RHE 比分
                 linescore = live_info.get("linescore", {}).get("teams", {})
                 rhe = {
                     "away": {
@@ -95,9 +101,7 @@ def fetch_mlb_dashboard_data():
                     }
                 })
 
-    # ==========================================
-    # 2. 抓取分區排名數據 (Standings)
-    # ==========================================
+    # --- 2. 抓取分區排名數據 ---
     standings_url = "https://statsapi.mlb.com/api/v1/standings?standingsTypes=regularSeason&sportId=1"
     s_res = get_json(standings_url)
     
@@ -112,9 +116,10 @@ def fetch_mlb_dashboard_data():
 
         teams_list = []
         for team_rec in record.get("teamRecords", []):
-            t_code = team_rec.get("team", {}).get("teamCode", "TEAM").upper()
-            split_recs = team_rec.get("records", {}).get("splitRecords", [])
+            team_id = team_rec.get("team", {}).get("id")
+            t_code = TEAM_ID_MAP.get(team_id, "TBD")  # 【修復】強制使用 ID 查找，防止排名載入失敗
             
+            split_recs = team_rec.get("records", {}).get("splitRecords", [])
             l10, home_rec, away_rec = "0-0", "0-0", "0-0"
             for sr in split_recs:
                 if sr.get("type") == "lastTen": l10 = f"{sr.get('wins',0)}-{sr.get('losses',0)}"
@@ -133,12 +138,10 @@ def fetch_mlb_dashboard_data():
             })
         result_data["standings"][div_name] = teams_list
 
-    # ==========================================
-    # 3. 匯出 data.json
-    # ==========================================
+    # --- 3. 匯出 data.json ---
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(result_data, f, ensure_ascii=False, indent=4)
-    print("🏁 [V16 完成] 賽事與排名已同步更新，TBD 與時區問題排除。")
+    print("🏁 [V17 完成] API 縮寫衝突已修正，資料完整匯出。")
 
 if __name__ == "__main__":
     fetch_mlb_dashboard_data()
