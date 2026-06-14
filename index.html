@@ -128,6 +128,7 @@
             <div class="meta-info" id="last-updated">最後更新：讀取中...</div>
         </div>
         <div class="nav-links">
+            <a href="standings.html" class="map-btn">📊 分區戰績表</a>
             <a href="mlbmap.html" class="map-btn">🗺️ 球場朝聖地圖</a>
         </div>
     </header>
@@ -136,8 +137,7 @@
     <div class="date-selector" id="date-tabs"></div>
     <div class="games-grid" id="games-container"></div>
 
-    <div class="section-title">📊 大聯盟即時分區排名 (Standings)</div>
-    <div class="standings-grid" id="standings-container"></div>
+    
 </div>
 
 <script>
@@ -153,8 +153,6 @@
                 
                 // 1. 建立日期切換籤
                 renderDateTabs();
-                // 2. 繪製戰績排名表格
-                renderStandings();
             })
             .catch(err => console.error("無法載入資料:", err));
     });
@@ -242,55 +240,6 @@
         });
     }
 
-    // 🚀 動態生成分區排名的函數
-    function renderStandings() {
-        const container = document.getElementById('standings-container');
-        container.innerHTML = '';
-        const standings = globalData.standings || {};
-
-        Object.keys(standings).forEach(divName => {
-            const divCard = document.createElement('div');
-            divCard.className = 'division-card';
-
-            let rowsHTML = '';
-            standings[divName].forEach((team, index) => {
-                rowsHTML += `
-                    <tr>
-                        <td>${index + 1}</td>
-                        <td class="text-left">${team.code} (${team.name})</td>
-                        <td>${team.w}</td>
-                        <td>${team.l}</td>
-                        <td>${team.gb}</td>
-                        <td>${team.l10}</td>
-                        <td>${team.home}</td>
-                        <td>${team.away}</td>
-                    </tr>
-                `;
-            });
-
-            divCard.innerHTML = `
-                <div class="div-name">${divName}</div>
-                <table class="std-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 40px;">#</th>
-                            <th class="text-left">球隊</th>
-                            <th style="width: 50px;">勝</th>
-                            <th style="width: 50px;">敗</th>
-                            <th style="width: 60px;">勝差</th>
-                            <th style="width: 70px;">近10場</th>
-                            <th style="width: 70px;">主場</th>
-                            <th style="width: 70px;">客場</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${rowsHTML}
-                    </tbody>
-                </table>
-            `;
-            container.appendChild(divCard);
-        });
-    }
 </script>
 </body>
 </html>

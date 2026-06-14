@@ -12,7 +12,12 @@ function renderStandings() {
         let rowsHTML = '';
         standings[divName].forEach((team, index) => {
             rowsHTML += `
-                <tr>
+            <div class="container" style="padding-top: 20px;">
+    <a href="index.html" class="map-btn" style="background: #475569; display: inline-block; margin-bottom: 20px;">← 返回主控台</a>
+    ...
+</div>    
+            
+            <tr>
                     <td>${index + 1}</td>
                     <td class="text-left">
                         <img src="${teamLogoMap[team.code] || ''}" style="width: 24px; vertical-align: middle; margin-right: 8px;">
