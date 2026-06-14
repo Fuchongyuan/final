@@ -3,233 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sportscast Sigma - 賽程與排名系統</title>
+    <title>Sportscast Sigma - 頂級數據主控台</title>
     <style>
         :root {
-            --bg-primary: #f1f5f9;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
             --card-bg: #ffffff;
-            --text-main: #0f172a;
+            --text-main: #1e293b;
             --text-muted: #64748b;
             --mlb-blue: #041e42;
-            --accent-orange: #f97316;
+            --accent-orange: #ea580c;
             --success-green: #10b981;
             --live-pulse: #ef4444;
-            --border-color: #e2e8f0;
+            --border-color: #f1f5f9;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background-color: var(--bg-primary); color: var(--text-main); padding: 30px 15px; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
+            color: #f8fafc; 
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
         .container { max-width: 1200px; margin: 0 auto; }
-        header { text-align: center; margin-bottom: 30px; }
-        h1 { color: var(--mlb-blue); font-size: 2.2rem; font-weight: 800; margin-bottom: 6px; }
-        .subtitle { color: var(--text-muted); font-size: 0.95rem; }
-        .update-tag { display: inline-block; background-color: #e2e8f0; color: var(--mlb-blue); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-top: 8px; }
+        
+        /* 頂部導覽區 */
+        header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 30px; 
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 20px;
+        }
+        h1 { font-size: 2rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+        .meta-info { font-size: 0.85rem; color: #94a3b8; margin-top: 5px; }
+        
+        /* 導覽按鈕群組 */
+        .nav-links { display: flex; gap: 15px; }
+        .map-btn {
+            background: linear-gradient(135deg, #ea580c 0%, #ff7e42 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 14px rgba(234, 88, 12, 0.4);
+            transition: all 0.2s ease;
+        }
+        .map-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(234, 88, 12, 0.6);
+        }
 
-        /* 導覽列 */
-        .nav-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; }
-        .nav-btn { padding: 10px 25px; font-size: 1rem; font-weight: 800; border: none; background: transparent; color: var(--text-muted); cursor: pointer; border-bottom: 3px solid transparent; transition: 0.2s; }
-        .nav-btn.active { color: var(--mlb-blue); border-bottom: 3px solid var(--mlb-blue); }
+        /* 日期滾動條 */
+        .date-selector {
+            display: flex; gap: 12px; overflow-x: auto; padding-bottom: 15px; margin-bottom: 30px;
+            scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.2) transparent;
+        }
+        .date-btn {
+            background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.1);
+            color: #94a3b8; padding: 10px 20px; border-radius: 8px; font-weight: 600;
+            cursor: pointer; white-space: nowrap; transition: all 0.2s;
+        }
+        .date-btn.active, .date-btn:hover {
+            background: #fff; color: var(--bg-primary); border-color: #fff;
+        }
 
-        /* 日期選擇器 */
-        .date-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 25px; overflow-x: auto; padding-bottom: 5px; }
-        .date-btn { padding: 8px 18px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border-color); background-color: var(--card-bg); color: var(--text-main); border-radius: 20px; cursor: pointer; white-space: nowrap; }
-        .date-btn.active { background-color: var(--accent-orange); color: white; border-color: var(--accent-orange); }
-
-        /* 網格系統 */
-        .dashboard-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
-        @media (min-width: 950px) { .dashboard-grid { grid-template-columns: repeat(2, 1fr); } }
-
-        /* 卡片樣式 */
-        .card { background-color: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 10px rgba(0,0,0,0.02); overflow: hidden; display: flex; flex-direction: column; }
-        .card.live-border { border: 2px solid var(--live-pulse); }
-        .card-header { padding: 12px 20px; background-color: #f8fafc; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
-        .status-badge { font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
-        .status-upcoming { background-color: #e0f2fe; color: #0369a1; }
-        .status-final { background-color: #fee2e2; color: #ef4444; }
-        .status-live { background-color: #d1fae5; color: var(--success-green); }
+        /* 賽事卡片網格 */
+        .games-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px; margin-bottom: 50px;
+        }
+        .game-card {
+            background: var(--card-bg); border-radius: 16px; padding: 20px;
+            color: var(--text-main); box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .card-header { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .status-badge { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+        .status-upcoming { background: #f1f5f9; color: #475569; }
+        .status-live { background: #fee2e2; color: #ef4444; animation: pulse 2s infinite; }
+        .status-final { background: #dcfce7; color: #15803d; }
         .game-time { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
 
-        /* 賽程比分 */
-        .matchup-upcoming { display: flex; justify-content: space-around; align-items: center; padding: 25px 20px; }
-        .team-box { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 35%; }
-        .team-logo-large { width: 48px; height: 48px; object-fit: contain; }
-        .team-name-large { font-size: 1.3rem; font-weight: 800; color: var(--mlb-blue); }
-        .vs-text { font-size: 1.1rem; font-weight: 800; color: var(--text-muted); font-style: italic; }
+        /* 比分與球隊樣式 */
+        .team-row { display: flex; justify-content: space-between; align-items: center; margin: 8px 0; }
+        .team-info { display: flex; align-items: center; gap: 10px; }
+        .team-name { font-size: 1.1rem; font-weight: 700; color: var(--bg-primary); }
+        .team-score { font-size: 1.3rem; font-weight: 800; }
+        
+        /* RHE 表格 */
+        .rhe-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.85rem; text-align: center; }
+        .rhe-table th { color: var(--text-muted); font-weight: 600; padding: 4px; border-bottom: 1px solid var(--border-color); }
+        .rhe-table td { font-weight: 700; padding: 6px; color: var(--bg-primary); }
 
-        .card-body-table { padding: 20px; }
-        .score-table { width: 100%; border-collapse: collapse; }
-        .score-table th { text-align: center; color: var(--text-muted); font-size: 0.75rem; font-weight: 700; padding-bottom: 8px; }
-        .score-table th.team-col-head { text-align: left; }
-        .score-table td { padding: 8px 0; vertical-align: middle; text-align: center; font-weight: 600; }
-        .score-table td.team-col { text-align: left; display: flex; align-items: center; gap: 10px; }
-        .team-logo-small { width: 26px; height: 26px; object-fit: contain; }
-        .score-cell { font-size: 1.4rem !important; font-weight: 800 !important; color: #0f172a; width: 45px; }
-        .stat-cell { color: var(--text-muted); font-weight: 500; width: 35px; font-size: 0.9rem !important; }
+        /* 先發投手 */
+        .pitcher-container { background: #f8fafc; border-radius: 10px; padding: 12px; margin-top: 15px; border-left: 4px solid var(--mlb-blue); }
+        .pitcher-title { font-size: 0.75rem; color: var(--text-muted); font-weight: bold; margin-bottom: 6px; }
+        .pitcher-grid { display: flex; justify-content: space-between; font-size: 0.8rem; }
+        .p-name { font-weight: 600; color: #334155; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-        .pitcher-container { padding: 15px 20px; background: #f8fafc; border-top: 1px solid var(--border-color); }
-        .pitcher-section-title { font-size: 0.72rem; font-weight: 800; color: var(--text-muted); letter-spacing: 0.05em; margin-bottom: 6px; text-transform: uppercase; }
-        .pitcher-grid { display: flex; justify-content: space-between; gap: 15px; }
-        .pitcher-half { width: 48%; }
-        .p-name { font-size: 0.92rem; font-weight: 700; color: #1e293b; }
-        .p-label { font-size: 0.7rem; color: var(--text-muted); font-weight: 600; margin-bottom: 2px; }
-
-        /* 戰績表樣式 */
-        .standings-container { display: none; grid-template-columns: 1fr; gap: 30px; }
-        @media (min-width: 950px) { .standings-container { grid-template-columns: repeat(2, 1fr); } }
-        .standings-table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 20px;}
-        .standings-table th { background: var(--mlb-blue); color: white; padding: 10px; text-align: center; font-size: 0.85rem;}
-        .standings-table th.align-left { text-align: left; }
-        .standings-table td { padding: 10px; text-align: center; border-bottom: 1px solid var(--border-color); font-size: 0.9rem; font-weight: 600; }
-        .standings-table td.align-left { text-align: left; display: flex; align-items: center; gap: 8px; }
-        .standings-table tr:nth-child(even) { background: #f8fafc; }
-        .div-title { font-size: 1.1rem; font-weight: 800; color: var(--mlb-blue); margin-bottom: 10px; border-left: 4px solid var(--accent-orange); padding-left: 8px;}
-
-        #no-data-msg { text-align: center; padding: 50px; background-color: var(--card-bg); border-radius: 12px; color: var(--text-muted); display: none; }
+        /* --- 分區排名區塊樣式 --- */
+        .section-title { font-size: 1.6rem; font-weight: 700; margin: 40px 0 20px 0; color: #fff; display: flex; align-items: center; gap: 10px; border-left: 5px solid #ea580c; padding-left: 12px;}
+        .standings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(560px, 1fr)); gap: 30px; }
+        .division-card { background: var(--bg-secondary); border-radius: 14px; padding: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); }
+        .div-name { font-size: 1.15rem; font-weight: 700; color: #f1f5f9; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid rgba(255,255,255,0.1); }
+        .std-table { width: 100%; border-collapse: collapse; text-align: center; font-size: 0.9rem; color: #cbd5e1; }
+        .std-table th { padding: 8px; font-weight: 600; color: #94a3b8; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .std-table td { padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .std-table tr:hover { background: rgba(255,255,255,0.03); }
+        .text-left { text-align: left; font-weight: 700; color: #fff; }
+        
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <h1>⚾ Sportscast Sigma</h1>
-        <div class="subtitle">即時賽程比分與聯盟分區戰績表</div>
-        <div class="update-tag" id="sync-time">正在連線數據庫...</div>
+        <div>
+            <h1>Sportscast Sigma 主控台</h1>
+            <div class="meta-info" id="last-updated">最後更新：讀取中...</div>
+        </div>
+        <div class="nav-links">
+            <a href="mlbmap.html" class="map-btn">🗺️ 球場朝聖地圖</a>
+        </div>
     </header>
 
-    <div class="nav-tabs">
-        <button class="nav-btn active" onclick="switchTab('schedule')">🗓️ 每日賽程</button>
-        <button class="nav-btn" onclick="switchTab('standings')">🏆 分區排名</button>
-    </div>
+    <div class="section-title">📅 賽事一週動態面板</div>
+    <div class="date-selector" id="date-tabs"></div>
+    <div class="games-grid" id="games-container"></div>
 
-    <div id="schedule-section">
-        <div class="date-tabs" id="date-tabs-container"></div>
-        <div id="no-data-msg">選定日期無排定賽事數據。</div>
-        <div class="dashboard-grid" id="game-grid"></div>
-    </div>
-
-    <div id="standings-section" class="standings-container">
-        <div>
-            <h2 style="text-align:center; color:#bf0d3e; margin-bottom:15px;">American League (美聯)</h2>
-            <div id="al-standings"></div>
-        </div>
-        <div>
-            <h2 style="text-align:center; color:#041e42; margin-bottom:15px;">National League (國聯)</h2>
-            <div id="nl-standings"></div>
-        </div>
-    </div>
+    <div class="section-title">📊 大聯盟即時分區排名 (Standings)</div>
+    <div class="standings-grid" id="standings-container"></div>
 </div>
 
 <script>
-    let dataset = {};
-    let standingsData = {};
-    const teamLogoMap = {
-        "AZ": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/ari.png", "ATL": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/atl.png",
-        "BAL": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/bal.png", "BOS": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/bos.png",
-        "CHC": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/chc.png", "CWS": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cws.png",
-        "CIN": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cin.png", "CLE": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cle.png",
-        "COL": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/col.png", "DET": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/det.png",
-        "HOU": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/hou.png", "KC": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/kc.png",
-        "LAA": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/laa.png", "LAD": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/lad.png",
-        "MIA": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/mia.png", "MIL": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/mil.png",
-        "MIN": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/min.png", "NYM": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/nym.png",
-        "NYY": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/nyy.png", "OAK": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/oak.png",
-        "PHI": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/phi.png", "PIT": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/pit.png",
-        "SD": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sd.png", "SF": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sf.png",
-        "SEA": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sea.png", "STL": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/stl.png",
-        "TB": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tb.png", "TEX": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tex.png",
-        "TOR": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tor.png", "WSH": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/wsh.png"
-    };
+    let globalData = null;
 
-    const localTodayStr = new Date().toISOString().split('T')[0];
+    // 初始化載入
+    document.addEventListener("DOMContentLoaded", () => {
+        fetch('data.json')
+            .then(res => res.json())
+            .then(data => {
+                globalData = data;
+                document.getElementById('last-updated').innerText = `最後更新：${data.meta.last_updated} (台北時間)`;
+                
+                // 1. 建立日期切換籤
+                renderDateTabs();
+                // 2. 繪製戰績排名表格
+                renderStandings();
+            })
+            .catch(err => console.error("無法載入資料:", err));
+    });
 
-    fetch('data.json')
-        .then(res => res.json())
-        .then(data => {
-            document.getElementById('sync-time').innerText = `最後雲端同步：${data.meta?.last_updated || '剛剛'} (台灣時間)`;
-            dataset = data.dates || {};
-            standingsData = data.standings || {};
-            
-            const dateKeys = Object.keys(dataset).sort();
-            let defaultDate = dateKeys.includes(localTodayStr) ? localTodayStr : dateKeys[0];
-            
-            renderTabs(dateKeys, defaultDate);
-            renderGames(defaultDate);
-            renderStandings();
-        })
-        .catch(err => console.error(err));
-
-    function switchTab(tabName) {
-        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-        document.getElementById('schedule-section').style.display = 'none';
-        document.getElementById('standings-section').style.display = 'none';
-
-        if(tabName === 'schedule') {
-            document.querySelector('.nav-btn:nth-child(1)').classList.add('active');
-            document.getElementById('schedule-section').style.display = 'block';
-        } else {
-            document.querySelector('.nav-btn:nth-child(2)').classList.add('active');
-            document.getElementById('standings-section').style.display = 'grid';
-        }
-    }
-
-    function renderTabs(dates, activeDate) {
-        const container = document.getElementById('date-tabs-container');
-        container.innerHTML = '';
-        dates.forEach(d => {
+    function renderDateTabs() {
+        const tabsContainer = document.getElementById('date-tabs');
+        const dates = Object.keys(globalData.dates).sort();
+        
+        dates.forEach((dateStr, idx) => {
             const btn = document.createElement('button');
-            btn.className = `date-btn ${d === activeDate ? 'active' : ''}`;
-            btn.innerText = (d === localTodayStr) ? `今天 (${d.substring(5)})` : d.substring(5);
+            btn.className = `date-btn ${idx === 0 ? 'active' : ''}`;
+            btn.innerText = dateStr;
             btn.onclick = () => {
                 document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                renderGames(d);
+                renderGames(dateStr);
             };
-            container.appendChild(btn);
+            tabsContainer.appendChild(btn);
         });
+
+        if(dates.length > 0) renderGames(dates[0]);
     }
 
     function renderGames(dateStr) {
-        const grid = document.getElementById('game-grid');
+        const grid = document.getElementById('games-container');
         grid.innerHTML = '';
-        const games = dataset[dateStr] || [];
-        
+        const games = globalData.dates[dateStr] || [];
+
         if(games.length === 0) {
-            document.getElementById('no-data-msg').style.display = 'block';
+            grid.innerHTML = '<div style="color:#94a3b8; padding:20px;">今日無安排賽事</div>';
             return;
         }
-        document.getElementById('no-data-msg').style.display = 'none';
 
         games.forEach(game => {
             const card = document.createElement('div');
-            let statusClass = game.status === 'Live' ? 'status-live' : (game.status === 'Final' ? 'status-final' : 'status-upcoming');
-            let statusLabel = game.status === 'Live' ? '🔴 進行中' : (game.status === 'Final' ? '已結束' : '未開始');
-            card.className = `card ${game.status === 'Live' ? 'live-border' : ''}`;
+            card.className = 'game-card';
 
-            let mainBodyHTML = game.status === 'Upcoming' ? `
-                <div class="matchup-upcoming">
-                    <div class="team-box"><img src="${teamLogoMap[game.away_team] || ''}" class="team-logo-large"><span class="team-name-large">${game.away_team}</span></div>
-                    <div class="vs-text">VS</div>
-                    <div class="team-box"><img src="${teamLogoMap[game.home_team] || ''}" class="team-logo-large"><span class="team-name-large">${game.home_team}</span></div>
-                </div>
-            ` : `
-                <div class="card-body-table">
-                    <table class="score-table">
-                        <thead><tr><th class="team-col-head">球隊</th><th>R</th><th>H</th><th>E</th></tr></thead>
+            let statusClass = 'status-upcoming';
+            let statusLabel = '未開始';
+            if(game.status === 'Live') { statusClass = 'status-live'; statusLabel = '直播中'; }
+            else if(game.status === 'Final') { statusClass = 'status-final'; statusLabel = '已結束'; }
+
+            let bodyHTML = '';
+            if(game.status === 'Upcoming') {
+                bodyHTML = `
+                    <div style="padding: 20px 0; text-align: center;">
+                        <div style="font-size: 1.4rem; font-weight:800; color:var(--mlb-blue);">${game.away_team} @ ${game.home_team}</div>
+                    </div>
+                `;
+            } else {
+                bodyHTML = `
+                    <table class="rhe-table">
+                        <thead>
+                            <tr><th>球隊</th><th>R</th><th>H</th><th>E</th></tr>
+                        </thead>
                         <tbody>
-                            <tr><td class="team-col"><img src="${teamLogoMap[game.away_team] || ''}" class="team-logo-small"><span style="font-size:1.1rem; font-weight:700;">${game.away_team}</span></td><td class="score-cell">${game.rhe?.away?.R ?? '-'}</td><td class="stat-cell">${game.rhe?.away?.H ?? '-'}</td><td class="stat-cell">${game.rhe?.away?.E ?? '-'}</td></tr>
-                            <tr><td class="team-col"><img src="${teamLogoMap[game.home_team] || ''}" class="team-logo-small"><span style="font-size:1.1rem; font-weight:700;">${game.home_team}</span></td><td class="score-cell">${game.rhe?.home?.R ?? '-'}</td><td class="stat-cell">${game.rhe?.home?.H ?? '-'}</td><td class="stat-cell">${game.rhe?.home?.E ?? '-'}</td></tr>
+                            <tr>
+                                <td style="text-align:left; font-weight:bold;">${game.away_team}</td>
+                                <td>${game.rhe?.away?.R ?? '-'}</td><td>${game.rhe?.away?.H ?? '-'}</td><td>${game.rhe?.away?.E ?? '-'}</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:left; font-weight:bold;">${game.home_team}</td>
+                                <td>${game.rhe?.home?.R ?? '-'}</td><td>${game.rhe?.home?.H ?? '-'}</td><td>${game.rhe?.home?.E ?? '-'}</td>
+                            </tr>
                         </tbody>
                     </table>
-                </div>
-            `;
+                `;
+            }
 
             card.innerHTML = `
-                <div class="card-header"><span class="status-badge ${statusClass}">${statusLabel}</span><span class="game-time">${game.time || '--:--'}</span></div>
-                ${mainBodyHTML}
+                <div class="card-header">
+                    <span class="status-badge ${statusClass}">${statusLabel}</span>
+                    <span class="game-time">${game.time}</span>
+                </div>
+                ${bodyHTML}
                 <div class="pitcher-container">
-                    <div class="pitcher-section-title">🧢 Probable Pitchers (預計先發)</div>
+                    <div class="pitcher-title">⚾ 預計先發投手</div>
                     <div class="pitcher-grid">
-                        <div class="pitcher-half"><div class="p-label">${game.away_team} 先發</div><div class="p-name">${game.pitchers?.away_starter || '未定'}</div></div>
-                        <div class="pitcher-half" style="text-align: right;"><div class="p-label">${game.home_team} 先發</div><div class="p-name">${game.pitchers?.home_starter || '未定'}</div></div>
+                        <div><span style="color:var(--text-muted);">${game.away_team}:</span> <span class="p-name">${game.pitchers?.away_starter}</span></div>
+                        <div><span style="color:var(--text-muted);">${game.home_team}:</span> <span class="p-name">${game.pitchers?.home_starter}</span></div>
                     </div>
                 </div>
             `;
@@ -237,34 +242,54 @@
         });
     }
 
-    function buildStandingsTable(divData, title) {
-        if(!divData || divData.length === 0) return '';
-        let rows = divData.map(t => `
-            <tr>
-                <td class="align-left"><img src="${teamLogoMap[t.team] || ''}" style="width:20px;height:20px;object-fit:contain;"> ${t.team}</td>
-                <td>${t.W}</td><td>${t.L}</td><td>${t.PCT}</td><td>${t.GB}</td>
-            </tr>
-        `).join('');
-        return `
-            <div class="div-title">${title}</div>
-            <table class="standings-table">
-                <thead><tr><th class="align-left">Team</th><th>W</th><th>L</th><th>PCT</th><th>GB</th></tr></thead>
-                <tbody>${rows}</tbody>
-            </table>
-        `;
-    }
-
+    // 🚀 動態生成分區排名的函數
     function renderStandings() {
-        if(!standingsData.AL) return;
-        document.getElementById('al-standings').innerHTML = 
-            buildStandingsTable(standingsData.AL.East, '東區 (East)') +
-            buildStandingsTable(standingsData.AL.Central, '中區 (Central)') +
-            buildStandingsTable(standingsData.AL.West, '西區 (West)');
-        
-        document.getElementById('nl-standings').innerHTML = 
-            buildStandingsTable(standingsData.NL.East, '東區 (East)') +
-            buildStandingsTable(standingsData.NL.Central, '中區 (Central)') +
-            buildStandingsTable(standingsData.NL.West, '西區 (West)');
+        const container = document.getElementById('standings-container');
+        container.innerHTML = '';
+        const standings = globalData.standings || {};
+
+        Object.keys(standings).forEach(divName => {
+            const divCard = document.createElement('div');
+            divCard.className = 'division-card';
+
+            let rowsHTML = '';
+            standings[divName].forEach((team, index) => {
+                rowsHTML += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td class="text-left">${team.code} (${team.name})</td>
+                        <td>${team.w}</td>
+                        <td>${team.l}</td>
+                        <td>${team.gb}</td>
+                        <td>${team.l10}</td>
+                        <td>${team.home}</td>
+                        <td>${team.away}</td>
+                    </tr>
+                `;
+            });
+
+            divCard.innerHTML = `
+                <div class="div-name">${divName}</div>
+                <table class="std-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;">#</th>
+                            <th class="text-left">球隊</th>
+                            <th style="width: 50px;">勝</th>
+                            <th style="width: 50px;">敗</th>
+                            <th style="width: 60px;">勝差</th>
+                            <th style="width: 70px;">近10場</th>
+                            <th style="width: 70px;">主場</th>
+                            <th style="width: 70px;">客場</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${rowsHTML}
+                    </tbody>
+                </table>
+            `;
+            container.appendChild(divCard);
+        });
     }
 </script>
 </body>

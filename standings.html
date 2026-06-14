@@ -1,138 +1,54 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sportscast Sigma Pro - 分區排名</title>
-    <style>
-        :root {
-            --bg-primary: #f8fafc;
-            --bg-secondary: #f1f5f9;
-            --card-bg: #ffffff;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --mlb-blue: #041e42;
-            --accent-orange: #f97316;
-            --border-color: #e2e8f0;
-            --table-header-bg: #f8fafc;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background-color: var(--bg-primary); color: var(--text-main); padding: 30px 15px; }
-        .container { max-width: 1280px; margin: 0 auto; }
-        header { text-align: center; margin-bottom: 25px; }
-        h1 { color: var(--mlb-blue); font-size: 2.2rem; font-weight: 800; margin-bottom: 6px; }
-        .subtitle { color: var(--text-muted); font-size: 0.95rem; }
-        
-        /* 導航欄 */
-        .main-nav { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; flex-wrap: wrap; }
-        .nav-link { padding: 10px 20px; font-size: 1.05rem; font-weight: 700; color: var(--text-muted); text-decoration: none; position: relative; transition: color 0.2s; }
-        .nav-link:hover { color: var(--accent-orange); }
-        .nav-link.active { color: var(--mlb-blue); }
-        .nav-link.active::after { content: ''; position: absolute; bottom: -12px; left: 0; width: 100%; height: 3px; background-color: var(--mlb-blue); border-radius: 2px; }
+// 🚀 最新的戰績表動態渲染引擎 (適用於新的 data.json 結構)
+function renderStandings() {
+    const container = document.getElementById('standings-container');
+    container.innerHTML = '';
+    const standings = globalData.standings || {};
 
-        .standings-container { display: flex; flex-direction: column; gap: 35px; }
-        .league-section { background-color: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 12px rgba(0,0,0,0.02); padding: 20px; }
-        .division-title { font-size: 1.25rem; font-weight: 800; color: var(--mlb-blue); margin-bottom: 12px; border-left: 4px solid var(--accent-orange); padding-left: 10px; }
-        .standings-table { width: 100%; border-collapse: collapse; text-align: center; }
-        .standings-table th { background-color: var(--table-header-bg); color: var(--text-muted); font-size: 0.8rem; font-weight: 700; padding: 10px; border-bottom: 2px solid var(--border-color); }
-        .standings-table th.team-header, .standings-table td.team-cell-st { text-align: left; padding-left: 15px; }
-        .standings-table td { padding: 12px 10px; font-size: 0.92rem; font-weight: 600; border-bottom: 1px solid var(--border-color); color: var(--text-main); }
-        .standings-table tr:last-child td { border-bottom: none; }
-        .standings-table tr:hover td { background-color: #f8fafc; }
-        .st-team-wrapper { display: flex; align-items: center; gap: 10px; }
-        .st-team-logo { width: 24px; height: 24px; object-fit: contain; }
-        .st-team-name { font-weight: 700; }
-        .st-team-code { font-size: 0.8rem; color: var(--text-muted); margin-left: 4px; }
-    </style>
-</head>
-<body>
-<div class="container">
-    <header>
-        <h1>⚾ Sportscast Sigma Pro</h1>
-        <div class="subtitle">大聯盟全分區賽季排名</div>
-    </header>
+    // 迴圈讀取 "美聯東區 (AL East)"、"國聯西區 (NL West)" 等分區
+    Object.keys(standings).forEach(divName => {
+        const divCard = document.createElement('div');
+        divCard.className = 'division-card';
 
-    <nav class="main-nav">
-        <a href="index.html" class="nav-link">賽事面板</a>
-        <a href="standings.html" class="nav-link active">分區排名</a>
-        <a href="mlbmap.html" class="nav-link">球隊地圖</a>
-    </nav>
-
-    <div class="standings-container" id="standings-container"></div>
-</div>
-
-<script>
-    const teamLogoMap = {
-        "AZ": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/ari.png", "ATL": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/atl.png",
-        "BAL": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/bal.png", "BOS": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/bos.png",
-        "CHC": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/chc.png", "CWS": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cws.png",
-        "CIN": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cin.png", "CLE": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/cle.png",
-        "COL": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/col.png", "DET": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/det.png",
-        "HOU": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/hou.png", "KC": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/kc.png",
-        "LAA": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/laa.png", "LAD": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/lad.png",
-        "MIA": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/mia.png", "MIL": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/mil.png",
-        "MIN": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/min.png", "NYM": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/nym.png",
-        "NYY": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/nyy.png", "OAK": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/oak.png",
-        "PHI": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/phi.png", "PIT": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/pit.png",
-        "SD": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sd.png", "SF": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sf.png",
-        "SEA": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sea.png", "STL": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/stl.png",
-        "TB": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tb.png", "TEX": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tex.png",
-        "TOR": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/tor.png", "WSH": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/wsh.png"
-    };
-
-    fetch('data.json')
-        .then(res => res.json())
-        .then(data => {
-            const container = document.getElementById('standings-container');
-            const standingsData = data.standings || {};
-            
-            Object.keys(standingsData).forEach(divName => {
-                const divSection = document.createElement('div');
-                divSection.className = 'league-section';
-
-                let tableRowsHTML = '';
-                standingsData[divName].forEach(team => {
-                    tableRowsHTML += `
-                        <tr>
-                            <td class="team-cell-st">
-                                <div class="st-team-wrapper">
-                                    <img src="${teamLogoMap[team.code] || ''}" class="st-team-logo">
-                                    <span class="st-team-name">${team.name}</span>
-                                    <span class="st-team-code">${team.code}</span>
-                                </div>
-                            </td>
-                            <td>${team.w}</td>
-                            <td>${team.l}</td>
-                            <td>${team.gb === '0.0' || team.gb === '-' ? '—' : team.gb}</td>
-                            <td>${team.l10}</td>
-                            <td>${team.home}</td>
-                            <td>${team.away}</td>
-                        </tr>
-                    `;
-                });
-
-                divSection.innerHTML = `
-                    <div class="division-title">${divName}</div>
-                    <div style="overflow-x: auto;">
-                        <table class="standings-table">
-                            <thead>
-                                <tr>
-                                    <th class="team-header" style="width: 30%">球隊</th>
-                                    <th style="width: 11%">W (勝)</th>
-                                    <th style="width: 11%">L (敗)</th>
-                                    <th style="width: 12%">GB (勝差)</th>
-                                    <th style="width: 12%">L10 (近10場)</th>
-                                    <th style="width: 12%">HOME (主場)</th>
-                                    <th style="width: 12%">AWAY (客場)</th>
-                                </tr>
-                            </thead>
-                            <tbody>${tableRowsHTML}</tbody>
-                        </table>
-                    </div>
-                `;
-                container.appendChild(divSection);
-            });
+        let rowsHTML = '';
+        standings[divName].forEach((team, index) => {
+            rowsHTML += `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td class="text-left">
+                        <img src="${teamLogoMap[team.code] || ''}" style="width: 24px; vertical-align: middle; margin-right: 8px;">
+                        ${team.code} (${team.name})
+                    </td>
+                    <td>${team.w}</td>
+                    <td>${team.l}</td>
+                    <td>${team.gb}</td>
+                    <td>${team.l10}</td>
+                    <td>${team.home}</td>
+                    <td>${team.away}</td>
+                </tr>
+            `;
         });
-</script>
-</body>
-</html>
+
+        // 建立該分區的表格 HTML
+        divCard.innerHTML = `
+            <div class="div-name">${divName}</div>
+            <table class="std-table">
+                <thead>
+                    <tr>
+                        <th style="width: 40px;">#</th>
+                        <th class="text-left">球隊</th>
+                        <th style="width: 50px;">勝</th>
+                        <th style="width: 50px;">敗</th>
+                        <th style="width: 60px;">勝差</th>
+                        <th style="width: 70px;">近10場</th>
+                        <th style="width: 70px;">主場</th>
+                        <th style="width: 70px;">客場</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${rowsHTML}
+                </tbody>
+            </table>
+        `;
+        container.appendChild(divCard);
+    });
+}
