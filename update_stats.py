@@ -3,7 +3,7 @@ import urllib.request
 import os
 from datetime import datetime, timedelta, timezone
 
-# 備用球隊字典（當 API 真的沒有縮寫時的最後防線）
+# 備用球隊字典
 TEAM_ID_MAP = {
     108: "LAA", 109: "AZ",  110: "BAL", 111: "BOS", 112: "CHC",
     113: "CIN", 114: "CLE", 115: "COL", 116: "DET", 117: "HOU",
@@ -27,7 +27,7 @@ def fetch_games_only():
     tz_tw = timezone(timedelta(hours=8))
     today = datetime.now(tz_tw)
     
-    # 安全讀取現有資料，避免覆蓋排名
+    # 安全讀取
     if os.path.exists("data.json"):
         try:
             with open("data.json", "r", encoding="utf-8") as f:
@@ -38,7 +38,7 @@ def fetch_games_only():
         result_data = {"meta": {}, "dates": {}, "standings": {}}
         
     result_data["meta"]["last_updated"] = today.strftime("%Y-%m-%d %H:%M:%S")
-    result_data["dates"] = {} # 清空舊賽事，重新填入
+    result_data["dates"] = {} 
     
     for i in range(0, 7):
         target_dt = today + timedelta(days=i+1)
@@ -50,58 +50,48 @@ def fetch_games_only():
         
         for date_entry in sched_data.get("dates", []):
             for game in date_entry.get("games", []):
+                
+                # --- 🌟 終極修正：直接從 Schedule 層面攔截資料，絕不依賴 Live 空白節點 ---
+                sched_away = game.get("teams", {}).get("away", {})
+                sched_home = game.get("teams", {}).get("home", {})
+                
+                away_team_id = sched_away.get("team", {}).get("id")
+                home_team_id = sched_home.get("team", {}).get("id")
+                
+                # 1. 解析球隊：自訂 Map 優先 -> API 全名 -> TBD
+                away_slug = TEAM_ID_MAP.get(away_team_id) or sched_away.get("team", {}).get("name", "TBD")
+                home_slug = TEAM_ID_MAP.get(home_team_id) or sched_home.get("team", {}).get("name", "TBD")
+                
+                # 2. 解析投手：從 Schedule 直接拿，這是大聯盟官方最準確的預告
+                away_p_name = sched_away.get("probablePitcher", {}).get("fullName", "TBD")
+                home_p_name = sched_home.get("probablePitcher", {}).get("fullName", "TBD")
+                
+                # 3. 抓取 Live 資料（只為了拿即時比分 RHE 和狀態）
                 game_pk = game.get("gamePk")
                 detail_url = f"https://statsapi.mlb.com/api/v1/game/{game_pk}/feed/live"
                 game_data = get_json(detail_url)
                 
                 game_info = game_data.get("gameData", {})
                 live_info = game_data.get("liveData", {})
-                players = game_info.get("players", {})
                 
-                # --- 🌟 修正後的球隊名稱解析（直接抓官方縮寫）🌟 ---
-                away_team_data = game_info.get("teams", {}).get("away", {})
-                home_team_data = game_info.get("teams", {}).get("home", {})
-
-                away_slug = (away_team_data.get("abbreviation") or 
-                             away_team_data.get("shortName") or 
-                             TEAM_ID_MAP.get(away_team_data.get("id")) or 
-                             game.get("teams", {}).get("away", {}).get("team", {}).get("name", "TBD"))
-
-                home_slug = (home_team_data.get("abbreviation") or 
-                             home_team_data.get("shortName") or 
-                             TEAM_ID_MAP.get(home_team_data.get("id")) or 
-                             game.get("teams", {}).get("home", {}).get("team", {}).get("name", "TBD"))
-                
-                # --- 🌟 修正後的先發投手解析（未公佈才給 TBD）🌟 ---
-                matchup = game_info.get("probablePitchers", {})
-                away_p_id = matchup.get("away", {}).get("id")
-                home_p_id = matchup.get("home", {}).get("id")
-                
-                away_p_name = players.get(f"ID{away_p_id}", {}).get("fullName", "TBD") if away_p_id else "TBD"
-                home_p_name = players.get(f"ID{home_p_id}", {}).get("fullName", "TBD") if home_p_id else "TBD"
-                
-                # 狀態解析
-                status_str = game_info.get("status", {}).get("detailedState", "Scheduled")
+                status_str = game_info.get("status", {}).get("detailedState") or game.get("status", {}).get("detailedState", "Scheduled")
                 status = "Live" if status_str in ["In Progress", "Warm-up"] else ("Final" if status_str in ["Final", "Completed Early", "Game Over"] else "Upcoming")
                     
-                # 比分解析
                 linescore = live_info.get("linescore", {}).get("teams", {})
                 rhe = {
                     "away": {"R": linescore.get("away", {}).get("runs", "-"), "H": linescore.get("away", {}).get("hits", "-"), "E": linescore.get("away", {}).get("errors", "-")},
                     "home": {"R": linescore.get("home", {}).get("runs", "-"), "H": linescore.get("home", {}).get("hits", "-"), "E": linescore.get("home", {}).get("errors", "-")}
                 }
                 
-                # 寫入單場資料
                 result_data["dates"][date_str].append({
                     "home_team": home_slug, "away_team": away_slug,
                     "status": status, "time": game_info.get("datetime", {}).get("time", "--:--"),
                     "rhe": rhe, "pitchers": {"away_starter": away_p_name, "home_starter": home_p_name}
                 })
                 
-    # 寫入檔案
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(result_data, f, ensure_ascii=False, indent=4)
-    print("🏁 賽事數據同步完成！(防 TBD 升級版)")
+    print("🏁 賽事數據同步完成！(終極無敵防 TBD 版)")
 
 if __name__ == "__main__":
     fetch_games_only()
