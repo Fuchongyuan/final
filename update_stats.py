@@ -2,7 +2,7 @@ import json
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
-# 建立完美對應的 30 球隊 ID 映射表 (防止 API 欄位缺失導致出現 TBD)
+# 建立完美對應的 30 球隊 ID 映射表
 TEAM_ID_MAP = {
     108: "LAA", 109: "AZ",  110: "BAL", 111: "BOS", 112: "CHC",
     113: "CIN", 114: "CLE", 115: "COL", 116: "DET", 117: "HOU",
@@ -52,18 +52,23 @@ def fetch_mlb_dashboard_data():
                 live_info = game_data.get("liveData", {})
                 players = game_info.get("players", {})
                 
+                # [優化] 投手抓取：如果 API 還沒公佈，顯示「尚未公佈」
                 matchup = game_info.get("probablePitchers", {})
                 away_p_id = matchup.get("away", {}).get("id")
                 home_p_id = matchup.get("home", {}).get("id")
                 
-                away_p_name = players.get(f"ID{away_p_id}", {}).get("fullName", "未定 (TBD)") if away_p_id else "未定 (TBD)"
-                home_p_name = players.get(f"ID{home_p_id}", {}).get("fullName", "未定 (TBD)") if home_p_id else "未定 (TBD)"
+                away_p_name = players.get(f"ID{away_p_id}", {}).get("fullName", "尚未公佈") if away_p_id else "尚未公佈"
+                home_p_name = players.get(f"ID{home_p_id}", {}).get("fullName", "尚未公佈") if home_p_id else "尚未公佈"
                 
-                # 使用安全穩定的 ID 對應取得隊伍縮寫
+                # [優化] 球隊縮寫抓取：加上 API 原生 abbreviation 備用，徹底消滅球隊 TBD
                 away_team_id = game_info.get("teams", {}).get("away", {}).get("id")
                 home_team_id = game_info.get("teams", {}).get("home", {}).get("id")
-                away_slug = TEAM_ID_MAP.get(away_team_id, "TBD")
-                home_slug = TEAM_ID_MAP.get(home_team_id, "TBD")
+                
+                api_away_abbr = game_info.get("teams", {}).get("away", {}).get("abbreviation", "TBD")
+                api_home_abbr = game_info.get("teams", {}).get("home", {}).get("abbreviation", "TBD")
+                
+                away_slug = TEAM_ID_MAP.get(away_team_id, api_away_abbr)
+                home_slug = TEAM_ID_MAP.get(home_team_id, api_home_abbr)
                 
                 status_str = game_info.get("status", {}).get("detailedState", "Scheduled")
                 if status_str in ["In Progress", "Warm-up"]:
@@ -114,7 +119,9 @@ def fetch_mlb_dashboard_data():
         teams_list = []
         for team_rec in record.get("teamRecords", []):
             team_id = team_rec.get("team", {}).get("id")
-            t_code = TEAM_ID_MAP.get(team_id, "TBD")
+            # 這裡同樣加上 API 縮寫防呆
+            api_team_abbr = team_rec.get("team", {}).get("abbreviation", "TBD")
+            t_code = TEAM_ID_MAP.get(team_id, api_team_abbr)
             
             split_recs = team_rec.get("records", {}).get("splitRecords", [])
             l10, home_rec, away_rec = "0-0", "0-0", "0-0"
