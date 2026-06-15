@@ -1,12 +1,12 @@
 {
     "meta": {
-        "last_updated": "2026-06-15 17:06:32"
+        "last_updated": "2026-06-15 17:14:21"
     },
     "dates": {
         "2026-06-16": [
             {
-                "home_team": "Philadelphia Phillies",
-                "away_team": "Miami Marlins",
+                "home_team": "PHI",
+                "away_team": "MIA",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -27,8 +27,8 @@
                 }
             },
             {
-                "home_team": "Washington Nationals",
-                "away_team": "Kansas City Royals",
+                "home_team": "WSH",
+                "away_team": "KC",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -49,8 +49,8 @@
                 }
             },
             {
-                "home_team": "Boston Red Sox",
-                "away_team": "Toronto Blue Jays",
+                "home_team": "BOS",
+                "away_team": "TOR",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -71,8 +71,8 @@
                 }
             },
             {
-                "home_team": "New York Yankees",
-                "away_team": "Chicago White Sox",
+                "home_team": "NYY",
+                "away_team": "CWS",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -93,8 +93,8 @@
                 }
             },
             {
-                "home_team": "Cincinnati Reds",
-                "away_team": "New York Mets",
+                "home_team": "CIN",
+                "away_team": "NYM",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -115,8 +115,8 @@
                 }
             },
             {
-                "home_team": "Atlanta Braves",
-                "away_team": "San Francisco Giants",
+                "home_team": "ATL",
+                "away_team": "SF",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -137,8 +137,8 @@
                 }
             },
             {
-                "home_team": "Milwaukee Brewers",
-                "away_team": "Cleveland Guardians",
+                "home_team": "MIL",
+                "away_team": "CLE",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -159,8 +159,8 @@
                 }
             },
             {
-                "home_team": "St. Louis Cardinals",
-                "away_team": "San Diego Padres",
+                "home_team": "STL",
+                "away_team": "SD",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -181,8 +181,8 @@
                 }
             },
             {
-                "home_team": "Chicago Cubs",
-                "away_team": "Colorado Rockies",
+                "home_team": "CHC",
+                "away_team": "COL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -203,8 +203,8 @@
                 }
             },
             {
-                "home_team": "Texas Rangers",
-                "away_team": "Minnesota Twins",
+                "home_team": "TEX",
+                "away_team": "MIN",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -225,8 +225,8 @@
                 }
             },
             {
-                "home_team": "Houston Astros",
-                "away_team": "Detroit Tigers",
+                "home_team": "HOU",
+                "away_team": "DET",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -247,8 +247,8 @@
                 }
             },
             {
-                "home_team": "Arizona Diamondbacks",
-                "away_team": "Los Angeles Angels",
+                "home_team": "AZ",
+                "away_team": "LAA",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -269,8 +269,8 @@
                 }
             },
             {
-                "home_team": "Athletics",
-                "away_team": "Pittsburgh Pirates",
+                "home_team": "OAK",
+                "away_team": "PIT",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -291,8 +291,8 @@
                 }
             },
             {
-                "home_team": "Seattle Mariners",
-                "away_team": "Baltimore Orioles",
+                "home_team": "SEA",
+                "away_team": "BAL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -313,8 +313,8 @@
                 }
             },
             {
-                "home_team": "Los Angeles Dodgers",
-                "away_team": "Tampa Bay Rays",
+                "home_team": "LAD",
+                "away_team": "TB",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -337,8 +337,8 @@
         ],
         "2026-06-17": [
             {
-                "home_team": "Cincinnati Reds",
-                "away_team": "New York Mets",
+                "home_team": "CIN",
+                "away_team": "NYM",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -359,8 +359,8 @@
                 }
             },
             {
-                "home_team": "Washington Nationals",
-                "away_team": "Kansas City Royals",
+                "home_team": "WSH",
+                "away_team": "KC",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -381,8 +381,8 @@
                 }
             },
             {
-                "home_team": "Philadelphia Phillies",
-                "away_team": "Miami Marlins",
+                "home_team": "PHI",
+                "away_team": "MIA",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -403,8 +403,8 @@
                 }
             },
             {
-                "home_team": "Houston Astros",
-                "away_team": "Detroit Tigers",
+                "home_team": "HOU",
+                "away_team": "DET",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -425,8 +425,8 @@
                 }
             },
             {
-                "home_team": "St. Louis Cardinals",
-                "away_team": "San Diego Padres",
+                "home_team": "STL",
+                "away_team": "SD",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -447,8 +447,8 @@
                 }
             },
             {
-                "home_team": "Los Angeles Dodgers",
-                "away_team": "Tampa Bay Rays",
+                "home_team": "LAD",
+                "away_team": "TB",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -469,8 +469,8 @@
                 }
             },
             {
-                "home_team": "Arizona Diamondbacks",
-                "away_team": "Los Angeles Angels",
+                "home_team": "AZ",
+                "away_team": "LAA",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -491,8 +491,8 @@
                 }
             },
             {
-                "home_team": "Boston Red Sox",
-                "away_team": "Toronto Blue Jays",
+                "home_team": "BOS",
+                "away_team": "TOR",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -513,8 +513,8 @@
                 }
             },
             {
-                "home_team": "New York Yankees",
-                "away_team": "Chicago White Sox",
+                "home_team": "NYY",
+                "away_team": "CWS",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -535,8 +535,8 @@
                 }
             },
             {
-                "home_team": "Atlanta Braves",
-                "away_team": "San Francisco Giants",
+                "home_team": "ATL",
+                "away_team": "SF",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -557,8 +557,8 @@
                 }
             },
             {
-                "home_team": "Milwaukee Brewers",
-                "away_team": "Cleveland Guardians",
+                "home_team": "MIL",
+                "away_team": "CLE",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -579,8 +579,8 @@
                 }
             },
             {
-                "home_team": "Chicago Cubs",
-                "away_team": "Colorado Rockies",
+                "home_team": "CHC",
+                "away_team": "COL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -601,8 +601,8 @@
                 }
             },
             {
-                "home_team": "Athletics",
-                "away_team": "Pittsburgh Pirates",
+                "home_team": "OAK",
+                "away_team": "PIT",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -623,8 +623,8 @@
                 }
             },
             {
-                "home_team": "Seattle Mariners",
-                "away_team": "Baltimore Orioles",
+                "home_team": "SEA",
+                "away_team": "BAL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -647,8 +647,8 @@
         ],
         "2026-06-18": [
             {
-                "home_team": "Boston Red Sox",
-                "away_team": "Toronto Blue Jays",
+                "home_team": "BOS",
+                "away_team": "TOR",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -669,8 +669,8 @@
                 }
             },
             {
-                "home_team": "Milwaukee Brewers",
-                "away_team": "Cleveland Guardians",
+                "home_team": "MIL",
+                "away_team": "CLE",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -691,8 +691,8 @@
                 }
             },
             {
-                "home_team": "Texas Rangers",
-                "away_team": "Minnesota Twins",
+                "home_team": "TEX",
+                "away_team": "MIN",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -713,8 +713,8 @@
                 }
             },
             {
-                "home_team": "Seattle Mariners",
-                "away_team": "Baltimore Orioles",
+                "home_team": "SEA",
+                "away_team": "BAL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -735,8 +735,8 @@
                 }
             },
             {
-                "home_team": "Philadelphia Phillies",
-                "away_team": "New York Mets",
+                "home_team": "PHI",
+                "away_team": "NYM",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -757,8 +757,8 @@
                 }
             },
             {
-                "home_team": "New York Yankees",
-                "away_team": "Chicago White Sox",
+                "home_team": "NYY",
+                "away_team": "CWS",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -779,8 +779,8 @@
                 }
             },
             {
-                "home_team": "Atlanta Braves",
-                "away_team": "San Francisco Giants",
+                "home_team": "ATL",
+                "away_team": "SF",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -801,8 +801,8 @@
                 }
             },
             {
-                "home_team": "Kansas City Royals",
-                "away_team": "St. Louis Cardinals",
+                "home_team": "KC",
+                "away_team": "STL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -823,8 +823,8 @@
                 }
             },
             {
-                "home_team": "Athletics",
-                "away_team": "Los Angeles Angels",
+                "home_team": "OAK",
+                "away_team": "LAA",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -847,8 +847,8 @@
         ],
         "2026-06-19": [
             {
-                "home_team": "Chicago Cubs",
-                "away_team": "Toronto Blue Jays",
+                "home_team": "CHC",
+                "away_team": "TOR",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -869,8 +869,8 @@
                 }
             },
             {
-                "home_team": "Detroit Tigers",
-                "away_team": "Chicago White Sox",
+                "home_team": "DET",
+                "away_team": "CWS",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -891,8 +891,8 @@
                 }
             },
             {
-                "home_team": "New York Yankees",
-                "away_team": "Cincinnati Reds",
+                "home_team": "NYY",
+                "away_team": "CIN",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -913,8 +913,8 @@
                 }
             },
             {
-                "home_team": "Tampa Bay Rays",
-                "away_team": "Washington Nationals",
+                "home_team": "TB",
+                "away_team": "WSH",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -935,8 +935,8 @@
                 }
             },
             {
-                "home_team": "Miami Marlins",
-                "away_team": "San Francisco Giants",
+                "home_team": "MIA",
+                "away_team": "SF",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -957,8 +957,8 @@
                 }
             },
             {
-                "home_team": "Atlanta Braves",
-                "away_team": "Milwaukee Brewers",
+                "home_team": "ATL",
+                "away_team": "MIL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -979,8 +979,8 @@
                 }
             },
             {
-                "home_team": "Texas Rangers",
-                "away_team": "San Diego Padres",
+                "home_team": "TEX",
+                "away_team": "SD",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1001,8 +1001,8 @@
                 }
             },
             {
-                "home_team": "Houston Astros",
-                "away_team": "Cleveland Guardians",
+                "home_team": "HOU",
+                "away_team": "CLE",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1023,8 +1023,8 @@
                 }
             },
             {
-                "home_team": "Kansas City Royals",
-                "away_team": "St. Louis Cardinals",
+                "home_team": "KC",
+                "away_team": "STL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1045,8 +1045,8 @@
                 }
             },
             {
-                "home_team": "Colorado Rockies",
-                "away_team": "Pittsburgh Pirates",
+                "home_team": "COL",
+                "away_team": "PIT",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1067,8 +1067,8 @@
                 }
             },
             {
-                "home_team": "Athletics",
-                "away_team": "Los Angeles Angels",
+                "home_team": "OAK",
+                "away_team": "LAA",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1089,8 +1089,8 @@
                 }
             },
             {
-                "home_team": "Arizona Diamondbacks",
-                "away_team": "Minnesota Twins",
+                "home_team": "AZ",
+                "away_team": "MIN",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1111,8 +1111,8 @@
                 }
             },
             {
-                "home_team": "Los Angeles Dodgers",
-                "away_team": "Baltimore Orioles",
+                "home_team": "LAD",
+                "away_team": "BAL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1133,8 +1133,8 @@
                 }
             },
             {
-                "home_team": "Seattle Mariners",
-                "away_team": "Boston Red Sox",
+                "home_team": "SEA",
+                "away_team": "BOS",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1157,8 +1157,8 @@
         ],
         "2026-06-20": [
             {
-                "home_team": "Detroit Tigers",
-                "away_team": "Chicago White Sox",
+                "home_team": "DET",
+                "away_team": "CWS",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1179,8 +1179,8 @@
                 }
             },
             {
-                "home_team": "New York Yankees",
-                "away_team": "Cincinnati Reds",
+                "home_team": "NYY",
+                "away_team": "CIN",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1201,8 +1201,8 @@
                 }
             },
             {
-                "home_team": "Chicago Cubs",
-                "away_team": "Toronto Blue Jays",
+                "home_team": "CHC",
+                "away_team": "TOR",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1223,8 +1223,8 @@
                 }
             },
             {
-                "home_team": "Texas Rangers",
-                "away_team": "San Diego Padres",
+                "home_team": "TEX",
+                "away_team": "SD",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1245,8 +1245,8 @@
                 }
             },
             {
-                "home_team": "Tampa Bay Rays",
-                "away_team": "Washington Nationals",
+                "home_team": "TB",
+                "away_team": "WSH",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1267,8 +1267,8 @@
                 }
             },
             {
-                "home_team": "Miami Marlins",
-                "away_team": "San Francisco Giants",
+                "home_team": "MIA",
+                "away_team": "SF",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1289,8 +1289,8 @@
                 }
             },
             {
-                "home_team": "Atlanta Braves",
-                "away_team": "Milwaukee Brewers",
+                "home_team": "ATL",
+                "away_team": "MIL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1311,8 +1311,8 @@
                 }
             },
             {
-                "home_team": "Houston Astros",
-                "away_team": "Cleveland Guardians",
+                "home_team": "HOU",
+                "away_team": "CLE",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1333,8 +1333,8 @@
                 }
             },
             {
-                "home_team": "Philadelphia Phillies",
-                "away_team": "New York Mets",
+                "home_team": "PHI",
+                "away_team": "NYM",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1355,8 +1355,8 @@
                 }
             },
             {
-                "home_team": "Colorado Rockies",
-                "away_team": "Pittsburgh Pirates",
+                "home_team": "COL",
+                "away_team": "PIT",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1377,8 +1377,8 @@
                 }
             },
             {
-                "home_team": "Athletics",
-                "away_team": "Los Angeles Angels",
+                "home_team": "OAK",
+                "away_team": "LAA",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1399,8 +1399,8 @@
                 }
             },
             {
-                "home_team": "Los Angeles Dodgers",
-                "away_team": "Baltimore Orioles",
+                "home_team": "LAD",
+                "away_team": "BAL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1421,8 +1421,8 @@
                 }
             },
             {
-                "home_team": "Seattle Mariners",
-                "away_team": "Boston Red Sox",
+                "home_team": "SEA",
+                "away_team": "BOS",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1443,8 +1443,8 @@
                 }
             },
             {
-                "home_team": "Arizona Diamondbacks",
-                "away_team": "Minnesota Twins",
+                "home_team": "AZ",
+                "away_team": "MIN",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1467,8 +1467,8 @@
         ],
         "2026-06-21": [
             {
-                "home_team": "New York Yankees",
-                "away_team": "Cincinnati Reds",
+                "home_team": "NYY",
+                "away_team": "CIN",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1489,8 +1489,8 @@
                 }
             },
             {
-                "home_team": "Atlanta Braves",
-                "away_team": "Milwaukee Brewers",
+                "home_team": "ATL",
+                "away_team": "MIL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1511,8 +1511,8 @@
                 }
             },
             {
-                "home_team": "Tampa Bay Rays",
-                "away_team": "Washington Nationals",
+                "home_team": "TB",
+                "away_team": "WSH",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1533,8 +1533,8 @@
                 }
             },
             {
-                "home_team": "Detroit Tigers",
-                "away_team": "Chicago White Sox",
+                "home_team": "DET",
+                "away_team": "CWS",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1555,8 +1555,8 @@
                 }
             },
             {
-                "home_team": "Miami Marlins",
-                "away_team": "San Francisco Giants",
+                "home_team": "MIA",
+                "away_team": "SF",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1577,8 +1577,8 @@
                 }
             },
             {
-                "home_team": "Houston Astros",
-                "away_team": "Cleveland Guardians",
+                "home_team": "HOU",
+                "away_team": "CLE",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1599,8 +1599,8 @@
                 }
             },
             {
-                "home_team": "Kansas City Royals",
-                "away_team": "St. Louis Cardinals",
+                "home_team": "KC",
+                "away_team": "STL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1621,8 +1621,8 @@
                 }
             },
             {
-                "home_team": "Chicago Cubs",
-                "away_team": "Toronto Blue Jays",
+                "home_team": "CHC",
+                "away_team": "TOR",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1643,8 +1643,8 @@
                 }
             },
             {
-                "home_team": "Texas Rangers",
-                "away_team": "San Diego Padres",
+                "home_team": "TEX",
+                "away_team": "SD",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1665,8 +1665,8 @@
                 }
             },
             {
-                "home_team": "Colorado Rockies",
-                "away_team": "Pittsburgh Pirates",
+                "home_team": "COL",
+                "away_team": "PIT",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1687,8 +1687,8 @@
                 }
             },
             {
-                "home_team": "Arizona Diamondbacks",
-                "away_team": "Minnesota Twins",
+                "home_team": "AZ",
+                "away_team": "MIN",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1709,8 +1709,8 @@
                 }
             },
             {
-                "home_team": "Athletics",
-                "away_team": "Los Angeles Angels",
+                "home_team": "OAK",
+                "away_team": "LAA",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1731,8 +1731,8 @@
                 }
             },
             {
-                "home_team": "Los Angeles Dodgers",
-                "away_team": "Baltimore Orioles",
+                "home_team": "LAD",
+                "away_team": "BAL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1753,8 +1753,8 @@
                 }
             },
             {
-                "home_team": "Seattle Mariners",
-                "away_team": "Boston Red Sox",
+                "home_team": "SEA",
+                "away_team": "BOS",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1775,8 +1775,8 @@
                 }
             },
             {
-                "home_team": "Philadelphia Phillies",
-                "away_team": "New York Mets",
+                "home_team": "PHI",
+                "away_team": "NYM",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1799,8 +1799,8 @@
         ],
         "2026-06-22": [
             {
-                "home_team": "Tampa Bay Rays",
-                "away_team": "Kansas City Royals",
+                "home_team": "TB",
+                "away_team": "KC",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1821,8 +1821,8 @@
                 }
             },
             {
-                "home_team": "Miami Marlins",
-                "away_team": "Texas Rangers",
+                "home_team": "MIA",
+                "away_team": "TEX",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1843,8 +1843,8 @@
                 }
             },
             {
-                "home_team": "Detroit Tigers",
-                "away_team": "New York Yankees",
+                "home_team": "DET",
+                "away_team": "NYY",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1865,8 +1865,8 @@
                 }
             },
             {
-                "home_team": "Washington Nationals",
-                "away_team": "Philadelphia Phillies",
+                "home_team": "WSH",
+                "away_team": "PHI",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1887,8 +1887,8 @@
                 }
             },
             {
-                "home_team": "Toronto Blue Jays",
-                "away_team": "Houston Astros",
+                "home_team": "TOR",
+                "away_team": "HOU",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1909,8 +1909,8 @@
                 }
             },
             {
-                "home_team": "New York Mets",
-                "away_team": "Chicago Cubs",
+                "home_team": "NYM",
+                "away_team": "CHC",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1931,8 +1931,8 @@
                 }
             },
             {
-                "home_team": "Cincinnati Reds",
-                "away_team": "Milwaukee Brewers",
+                "home_team": "CIN",
+                "away_team": "MIL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1953,8 +1953,8 @@
                 }
             },
             {
-                "home_team": "Minnesota Twins",
-                "away_team": "Los Angeles Dodgers",
+                "home_team": "MIN",
+                "away_team": "LAD",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1975,8 +1975,8 @@
                 }
             },
             {
-                "home_team": "Chicago White Sox",
-                "away_team": "Cleveland Guardians",
+                "home_team": "CWS",
+                "away_team": "CLE",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1997,8 +1997,8 @@
                 }
             },
             {
-                "home_team": "St. Louis Cardinals",
-                "away_team": "Arizona Diamondbacks",
+                "home_team": "STL",
+                "away_team": "AZ",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -2019,8 +2019,8 @@
                 }
             },
             {
-                "home_team": "Colorado Rockies",
-                "away_team": "Boston Red Sox",
+                "home_team": "COL",
+                "away_team": "BOS",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -2041,8 +2041,8 @@
                 }
             },
             {
-                "home_team": "Los Angeles Angels",
-                "away_team": "Baltimore Orioles",
+                "home_team": "LAA",
+                "away_team": "BAL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -2063,8 +2063,8 @@
                 }
             },
             {
-                "home_team": "San Diego Padres",
-                "away_team": "Atlanta Braves",
+                "home_team": "SD",
+                "away_team": "ATL",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
