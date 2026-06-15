@@ -27,7 +27,7 @@ def get_json(url):
         return {}
 
 def fetch_all_mlb_data():
-    print("🚀 [純數據版啟動] 正在同步：未來一週賽事 + 聯盟分區戰績表...")
+    print("🚀 [高效純數據版啟動] 正在同步：未來一週賽事 + 聯盟分區戰績表...")
     tz_tw = timezone(timedelta(hours=8))
     today = datetime.now(tz_tw)
     
@@ -72,7 +72,7 @@ def fetch_all_mlb_data():
         print("✅ 戰績表解析完成！")
 
     # ----------------------------------------------------
-    # 2. 抓取未來 7 天賽程 (包含今天與即時比分 RHE)
+    # 2. 抓取未來 7 天賽程 (利用 hydrate 參數，一次拿齊所有數據)
     # ----------------------------------------------------
     for i in range(0, 7):
         target_dt = today + timedelta(days=i)
@@ -80,7 +80,8 @@ def fetch_all_mlb_data():
         result_data["dates"][date_str] = []
         print(f"📅 正在同步賽程與 RHE 比分：{date_str} ...")
         
-        sched_url = f"https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&date={date_str}"
+        # 🌟 關鍵修正：加上 &hydrate=linescore,probablePitcher 參數，免去進 Live Feed 的必要
+        sched_url = f"https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&date={date_str}&hydrate=linescore,probablePitcher"
         sched_data = get_json(sched_url)
         
         for date_entry in sched_data.get("dates", []):
@@ -91,18 +92,12 @@ def fetch_all_mlb_data():
                 away_slug = TEAM_ID_MAP.get(sched_away.get("team", {}).get("id")) or "TBD"
                 home_slug = TEAM_ID_MAP.get(sched_home.get("team", {}).get("id")) or "TBD"
                 
+                # 投手資訊已經透過水合機制注入進來了
                 away_p_name = sched_away.get("probablePitcher", {}).get("fullName", "未定 (TBD)")
                 home_p_name = sched_home.get("probablePitcher", {}).get("fullName", "未定 (TBD)")
                 
-                # 抓取 Live 細節 (拿即時比分 R, H, E 與比賽狀態)
-                game_pk = game.get("gamePk")
-                detail_url = f"https://statsapi.mlb.com/api/v1/game/{game_pk}/feed/live"
-                game_data = get_json(detail_url)
-                
-                game_info = game_data.get("gameData", {})
-                live_info = game_data.get("liveData", {})
-                
-                status_str = game_info.get("status", {}).get("detailedState") or game.get("status", {}).get("detailedState", "Scheduled")
+                # 比賽詳細狀態
+                status_str = game.get("status", {}).get("detailedState", "Scheduled")
                 if status_str in ["In Progress", "Warm-up"]:
                     status = "Live"
                 elif status_str in ["Final", "Completed Early", "Game Over"]:
@@ -110,24 +105,41 @@ def fetch_all_mlb_data():
                 else:
                     status = "Upcoming"
                     
-                linescore = live_info.get("linescore", {}).get("teams", {})
+                # 🌟 關鍵優化：直接從 hydrated 賽程中提取 linescore 資料，不用重新戳 API
+                linescore = game.get("linescore", {}).get("teams", {})
+                
+                # 建立安全讀取工具，防止 None 值打碎前端畫面
+                def safe_get(linescore_team, key):
+                    val = linescore_team.get(key)
+                    return "-" if val is None else val
+
+                away_line = linescore.get("away", {})
+                home_line = linescore.get("home", {})
+                
                 rhe = {
-                    "away": {"R": linescore.get("away", {}).get("runs", "-"), "H": linescore.get("away", {}).get("hits", "-"), "E": linescore.get("away", {}).get("errors", "-")},
-                    "home": {"R": linescore.get("home", {}).get("runs", "-"), "H": linescore.get("home", {}).get("hits", "-"), "E": linescore.get("home", {}).get("errors", "-")}
+                    "away": {"R": safe_get(away_line, "runs"), "H": safe_get(away_line, "hits"), "E": safe_get(away_line, "errors")},
+                    "home": {"R": safe_get(home_line, "runs"), "H": safe_get(home_line, "hits"), "E": safe_get(home_line, "errors")}
                 }
+                
+                # 處理比賽開打時間 (格式為 2026-06-15T22:10:00Z，取出時間部分)
+                game_date_raw = game.get("gameDate", "")
+                game_time = "--:--"
+                if "T" in game_date_raw:
+                    # 取出 '22:10' 這一段 UTC 時間
+                    game_time = game_date_raw.split("T")[-1][:5]
                 
                 result_data["dates"][date_str].append({
                     "home_team": home_slug, 
                     "away_team": away_slug,
                     "status": status, 
-                    "time": game_info.get("datetime", {}).get("time", "--:--"),
+                    "time": game_time,
                     "rhe": rhe, 
                     "pitchers": {"away_starter": away_p_name, "home_starter": home_p_name}
                 })
                 
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(result_data, f, ensure_ascii=False, indent=4)
-    print("🏁 [大功告成] 所有實體數據已成功寫入 data.json！")
+    print("🏁 [大功告成] 所有實體數據已安全、高效地寫入 data.json！")
 
 if __name__ == "__main__":
     fetch_all_mlb_data()
