@@ -5,6 +5,10 @@ on:
     - cron: '0 22 * * *' # 每天台灣時間早上 6:00 自動執行 (UTC 22:00)
   workflow_dispatch: # 允許你在 GitHub 網頁介面上手動點擊按鈕強制執行
 
+# 🌟 核心修正：允許 Actions 把產出的 data.json 推回你的儲存庫
+permissions:
+  contents: write
+
 jobs:
   run-crawler:
     runs-on: ubuntu-latest
@@ -18,10 +22,8 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: 安裝 pybaseball 與相關依賴套件
-      run: |
-        python -m pip install --upgrade pip
-        pip install pybaseball pandas
+    # 💡 優化：因為新腳本改用官方原生 API，不需要花時間安裝 pybaseball 與 pandas 了！
+    # 這樣可以讓你的 Action 跑得極快（大約 10 秒內完成）
 
     - name: 執行高容錯數據快取腳本
       run: python update_stats.py
@@ -31,5 +33,5 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add data.json
+        # 檢查是否有檔案變更，有變更才進行 commit & push，防止做白工
         git diff --quiet && git diff --staged --quiet || (git commit -m "auto: 雲端核心自動同步 MLB 最新數據" && git push)
-        
