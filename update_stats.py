@@ -7,7 +7,7 @@ from datetime import datetime, timedelta, timezone
 # 強制略過雲端環境可能遇到的 SSL 憑證阻擋
 ssl_context = ssl._create_unverified_context()
 
-# 🌟 球隊 ID 對照表（防錯對應）
+# 🌟 球隊 ID 對照表
 TEAM_ID_MAP = {
     108: "LAA", 109: "AZ",  110: "BAL", 111: "BOS", 112: "CHC",
     113: "CIN", 114: "CLE", 115: "COL", 116: "DET", 117: "HOU",
@@ -27,11 +27,10 @@ def get_json(url):
         return {}
 
 def fetch_all_mlb_data():
-    print("🚀 [高效純數據版啟動] 正在同步：未來一週賽事 + 聯盟分區戰績表...")
-    tz_tw = timezone(timedelta(hours=8))
+    print("🚀 [終極事實數據版啟動] 正在同步大聯盟數據...")
+    tz_tw = timezone(timedelta(hours=8)) # 台灣時區
     today = datetime.now(tz_tw)
     
-    # 建立純數據的 JSON 結構
     result_data = {
         "meta": {"last_updated": today.strftime("%Y-%m-%d %H:%M:%S")},
         "dates": {},
@@ -41,10 +40,15 @@ def fetch_all_mlb_data():
         }
     }
     
+    # 預先建立台灣時間未來 7 天的賽程容器
+    for i in range(0, 7):
+        d_str = (today + timedelta(days=i)).strftime("%Y-%m-%d")
+        result_data["dates"][d_str] = []
+    
     # ----------------------------------------------------
     # 1. 抓取分區戰績排名 (Standings)
     # ----------------------------------------------------
-    print("📊 正在向大聯盟 API 索取最新聯盟戰績表...")
+    print("📊 正在同步最新聯盟戰績表...")
     standings_url = "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104"
     st_data = get_json(standings_url)
     
@@ -69,48 +73,67 @@ def fetch_all_mlb_data():
                     "PCT": tr.get("winningPercentage", ".000"),
                     "GB": tr.get("gamesBack", "-")
                 })
-        print("✅ 戰績表解析完成！")
+        print("✅ 戰績表同步完成！")
 
     # ----------------------------------------------------
-    # 2. 抓取未來 7 天賽程 (利用 hydrate 參數，一次拿齊所有數據)
+    # 2. 抓取賽程 (多抓前後各一天，以防時區轉換跨日掉賽事)
     # ----------------------------------------------------
-    for i in range(0, 7):
-        target_dt = today + timedelta(days=i)
-        date_str = target_dt.strftime("%Y-%m-%d")
-        result_data["dates"][date_str] = []
-        print(f"📅 正在同步賽程與 RHE 比分：{date_str} ...")
+    print("📅 正在同步賽事、精準開賽時間與 RHE 即時比分...")
+    start_fetch_date = today - timedelta(days=1)
+    
+    for i in range(0, 9):
+        us_target = start_fetch_date + timedelta(days=i)
+        us_date_str = us_target.strftime("%Y-%m-%d")
         
-        # 🌟 關鍵修正：加上 &hydrate=linescore,probablePitcher 參數，免去進 Live Feed 的必要
-        sched_url = f"https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&date={date_str}&hydrate=linescore,probablePitcher"
+        # 透過水合機制把 linescore(比分) 和 probablePitcher(先發) 一次打包，拒絕被封鎖 IP
+        sched_url = f"https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&date={us_date_str}&hydrate=linescore,probablePitcher"
         sched_data = get_json(sched_url)
         
         for date_entry in sched_data.get("dates", []):
             for game in date_entry.get("games", []):
+                
+                # 處理比賽開打時間 (將大聯盟標準 UTC 轉為台灣當地時間)
+                game_date_raw = game.get("gameDate", "")
+                if not game_date_raw: continue
+                
+                try:
+                    utc_dt = datetime.strptime(game_date_raw, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+                    tw_dt = utc_dt.astimezone(tz_tw)
+                    tw_date_str = tw_dt.strftime("%Y-%m-%d") # 這是台灣當地的開賽日期
+                    tw_time_str = tw_dt.strftime("%H:%M")    # 這是台灣當地的開賽時間
+                except Exception:
+                    continue
+                
+                # 如果這場比賽的台灣日期不在我們前端要顯示的 7 天內，就跳過
+                if tw_date_str not in result_data["dates"]:
+                    continue
+                
+                # 檢查防重機制
+                if any(g["game_pk"] == game.get("gamePk") for g in result_data["dates"][tw_date_str]):
+                    continue
+
                 sched_away = game.get("teams", {}).get("away", {})
                 sched_home = game.get("teams", {}).get("home", {})
                 
                 away_slug = TEAM_ID_MAP.get(sched_away.get("team", {}).get("id")) or "TBD"
                 home_slug = TEAM_ID_MAP.get(sched_home.get("team", {}).get("id")) or "TBD"
                 
-                # 投手資訊已經透過水合機制注入進來了
                 away_p_name = sched_away.get("probablePitcher", {}).get("fullName", "未定 (TBD)")
                 home_p_name = sched_home.get("probablePitcher", {}).get("fullName", "未定 (TBD)")
                 
-                # 比賽詳細狀態
+                # 狀態分流解析
                 status_str = game.get("status", {}).get("detailedState", "Scheduled")
-                if status_str in ["In Progress", "Warm-up"]:
+                if status_str in ["In Progress", "Warm-up", "Delayed Start", "Delayed"]:
                     status = "Live"
                 elif status_str in ["Final", "Completed Early", "Game Over"]:
                     status = "Final"
                 else:
                     status = "Upcoming"
                     
-                # 🌟 關鍵優化：直接從 hydrated 賽程中提取 linescore 資料，不用重新戳 API
+                # 提取 R, H, E
                 linescore = game.get("linescore", {}).get("teams", {})
-                
-                # 建立安全讀取工具，防止 None 值打碎前端畫面
-                def safe_get(linescore_team, key):
-                    val = linescore_team.get(key)
+                def safe_get(team_node, key):
+                    val = team_node.get(key)
                     return "-" if val is None else val
 
                 away_line = linescore.get("away", {})
@@ -121,25 +144,20 @@ def fetch_all_mlb_data():
                     "home": {"R": safe_get(home_line, "runs"), "H": safe_get(home_line, "hits"), "E": safe_get(home_line, "errors")}
                 }
                 
-                # 處理比賽開打時間 (格式為 2026-06-15T22:10:00Z，取出時間部分)
-                game_date_raw = game.get("gameDate", "")
-                game_time = "--:--"
-                if "T" in game_date_raw:
-                    # 取出 '22:10' 這一段 UTC 時間
-                    game_time = game_date_raw.split("T")[-1][:5]
-                
-                result_data["dates"][date_str].append({
+                result_data["dates"][tw_date_str].append({
+                    "game_pk": game.get("gamePk"),
                     "home_team": home_slug, 
                     "away_team": away_slug,
                     "status": status, 
-                    "time": game_time,
+                    "time": tw_time_str, # 完美的台灣時間 24H 制 (例: 07:10, 10:15)
                     "rhe": rhe, 
                     "pitchers": {"away_starter": away_p_name, "home_starter": home_p_name}
                 })
                 
+    # 寫入檔案
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(result_data, f, ensure_ascii=False, indent=4)
-    print("🏁 [大功告成] 所有實體數據已安全、高效地寫入 data.json！")
+    print("🏁 [大功告成] 資料庫成功重組，數據皆為台灣時間！")
 
 if __name__ == "__main__":
     fetch_all_mlb_data()
