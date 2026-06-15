@@ -1,12 +1,12 @@
 {
     "meta": {
-        "last_updated": "2026-06-15 16:56:37"
+        "last_updated": "2026-06-15 17:06:32"
     },
     "dates": {
         "2026-06-16": [
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Philadelphia Phillies",
+                "away_team": "Miami Marlins",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -22,13 +22,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Washington Nationals",
+                "away_team": "Kansas City Royals",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -44,13 +44,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Boston Red Sox",
+                "away_team": "Toronto Blue Jays",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -66,13 +66,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "New York Yankees",
+                "away_team": "Chicago White Sox",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -88,13 +88,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Cincinnati Reds",
+                "away_team": "New York Mets",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -110,13 +110,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Atlanta Braves",
+                "away_team": "San Francisco Giants",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -132,13 +132,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Milwaukee Brewers",
+                "away_team": "Cleveland Guardians",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -154,13 +154,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "St. Louis Cardinals",
+                "away_team": "San Diego Padres",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -176,13 +176,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Chicago Cubs",
+                "away_team": "Colorado Rockies",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -198,13 +198,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Texas Rangers",
+                "away_team": "Minnesota Twins",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -220,13 +220,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Houston Astros",
+                "away_team": "Detroit Tigers",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -242,13 +242,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Arizona Diamondbacks",
+                "away_team": "Los Angeles Angels",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -264,13 +264,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Athletics",
+                "away_team": "Pittsburgh Pirates",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -286,13 +286,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Seattle Mariners",
+                "away_team": "Baltimore Orioles",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -308,13 +308,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Los Angeles Dodgers",
+                "away_team": "Tampa Bay Rays",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -330,15 +330,15 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             }
         ],
         "2026-06-17": [
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Cincinnati Reds",
+                "away_team": "New York Mets",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -354,13 +354,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Washington Nationals",
+                "away_team": "Kansas City Royals",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -376,13 +376,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Philadelphia Phillies",
+                "away_team": "Miami Marlins",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -398,13 +398,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Houston Astros",
+                "away_team": "Detroit Tigers",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -420,13 +420,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "St. Louis Cardinals",
+                "away_team": "San Diego Padres",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -442,13 +442,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Los Angeles Dodgers",
+                "away_team": "Tampa Bay Rays",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -464,13 +464,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Arizona Diamondbacks",
+                "away_team": "Los Angeles Angels",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -486,13 +486,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Boston Red Sox",
+                "away_team": "Toronto Blue Jays",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -508,13 +508,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "New York Yankees",
+                "away_team": "Chicago White Sox",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -530,13 +530,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Atlanta Braves",
+                "away_team": "San Francisco Giants",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -552,13 +552,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Milwaukee Brewers",
+                "away_team": "Cleveland Guardians",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -574,13 +574,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Chicago Cubs",
+                "away_team": "Colorado Rockies",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -596,13 +596,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Athletics",
+                "away_team": "Pittsburgh Pirates",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -618,13 +618,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Seattle Mariners",
+                "away_team": "Baltimore Orioles",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -640,15 +640,15 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             }
         ],
         "2026-06-18": [
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Boston Red Sox",
+                "away_team": "Toronto Blue Jays",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -664,13 +664,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Milwaukee Brewers",
+                "away_team": "Cleveland Guardians",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -686,13 +686,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Texas Rangers",
+                "away_team": "Minnesota Twins",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -708,13 +708,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Seattle Mariners",
+                "away_team": "Baltimore Orioles",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -730,13 +730,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Philadelphia Phillies",
+                "away_team": "New York Mets",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -752,13 +752,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "New York Yankees",
+                "away_team": "Chicago White Sox",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -774,13 +774,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Atlanta Braves",
+                "away_team": "San Francisco Giants",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -796,13 +796,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Kansas City Royals",
+                "away_team": "St. Louis Cardinals",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -818,13 +818,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Athletics",
+                "away_team": "Los Angeles Angels",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -840,15 +840,15 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             }
         ],
         "2026-06-19": [
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Chicago Cubs",
+                "away_team": "Toronto Blue Jays",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -864,13 +864,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Detroit Tigers",
+                "away_team": "Chicago White Sox",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -886,13 +886,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "New York Yankees",
+                "away_team": "Cincinnati Reds",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -908,13 +908,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Tampa Bay Rays",
+                "away_team": "Washington Nationals",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -930,13 +930,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Miami Marlins",
+                "away_team": "San Francisco Giants",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -952,13 +952,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Atlanta Braves",
+                "away_team": "Milwaukee Brewers",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -974,13 +974,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Texas Rangers",
+                "away_team": "San Diego Padres",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -996,13 +996,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Houston Astros",
+                "away_team": "Cleveland Guardians",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1018,13 +1018,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Kansas City Royals",
+                "away_team": "St. Louis Cardinals",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1040,13 +1040,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Colorado Rockies",
+                "away_team": "Pittsburgh Pirates",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1062,13 +1062,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Athletics",
+                "away_team": "Los Angeles Angels",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1084,13 +1084,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Arizona Diamondbacks",
+                "away_team": "Minnesota Twins",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1106,13 +1106,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Los Angeles Dodgers",
+                "away_team": "Baltimore Orioles",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1128,13 +1128,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Seattle Mariners",
+                "away_team": "Boston Red Sox",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1150,15 +1150,15 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             }
         ],
         "2026-06-20": [
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Detroit Tigers",
+                "away_team": "Chicago White Sox",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1174,13 +1174,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "New York Yankees",
+                "away_team": "Cincinnati Reds",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1196,13 +1196,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Chicago Cubs",
+                "away_team": "Toronto Blue Jays",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1218,13 +1218,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Texas Rangers",
+                "away_team": "San Diego Padres",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1240,13 +1240,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Tampa Bay Rays",
+                "away_team": "Washington Nationals",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1262,13 +1262,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Miami Marlins",
+                "away_team": "San Francisco Giants",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1284,13 +1284,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Atlanta Braves",
+                "away_team": "Milwaukee Brewers",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1306,13 +1306,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Houston Astros",
+                "away_team": "Cleveland Guardians",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1328,13 +1328,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Philadelphia Phillies",
+                "away_team": "New York Mets",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1350,13 +1350,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Colorado Rockies",
+                "away_team": "Pittsburgh Pirates",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1372,13 +1372,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Athletics",
+                "away_team": "Los Angeles Angels",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1394,13 +1394,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Los Angeles Dodgers",
+                "away_team": "Baltimore Orioles",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1416,13 +1416,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Seattle Mariners",
+                "away_team": "Boston Red Sox",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1438,13 +1438,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Arizona Diamondbacks",
+                "away_team": "Minnesota Twins",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1460,15 +1460,15 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             }
         ],
         "2026-06-21": [
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "New York Yankees",
+                "away_team": "Cincinnati Reds",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1484,13 +1484,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Atlanta Braves",
+                "away_team": "Milwaukee Brewers",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1506,13 +1506,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Tampa Bay Rays",
+                "away_team": "Washington Nationals",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1528,13 +1528,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Detroit Tigers",
+                "away_team": "Chicago White Sox",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1550,13 +1550,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Miami Marlins",
+                "away_team": "San Francisco Giants",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1572,13 +1572,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Houston Astros",
+                "away_team": "Cleveland Guardians",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1594,13 +1594,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Kansas City Royals",
+                "away_team": "St. Louis Cardinals",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1616,13 +1616,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Chicago Cubs",
+                "away_team": "Toronto Blue Jays",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1638,13 +1638,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Texas Rangers",
+                "away_team": "San Diego Padres",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1660,13 +1660,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Colorado Rockies",
+                "away_team": "Pittsburgh Pirates",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1682,13 +1682,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Arizona Diamondbacks",
+                "away_team": "Minnesota Twins",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1704,13 +1704,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Athletics",
+                "away_team": "Los Angeles Angels",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1726,13 +1726,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Los Angeles Dodgers",
+                "away_team": "Baltimore Orioles",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1748,13 +1748,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Seattle Mariners",
+                "away_team": "Boston Red Sox",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1770,13 +1770,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Philadelphia Phillies",
+                "away_team": "New York Mets",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1792,15 +1792,15 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             }
         ],
         "2026-06-22": [
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Tampa Bay Rays",
+                "away_team": "Kansas City Royals",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1816,13 +1816,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Miami Marlins",
+                "away_team": "Texas Rangers",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1838,13 +1838,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Detroit Tigers",
+                "away_team": "New York Yankees",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1860,13 +1860,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Washington Nationals",
+                "away_team": "Philadelphia Phillies",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1882,13 +1882,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Toronto Blue Jays",
+                "away_team": "Houston Astros",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1904,13 +1904,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "New York Mets",
+                "away_team": "Chicago Cubs",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1926,13 +1926,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Cincinnati Reds",
+                "away_team": "Milwaukee Brewers",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1948,13 +1948,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Minnesota Twins",
+                "away_team": "Los Angeles Dodgers",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1970,13 +1970,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Chicago White Sox",
+                "away_team": "Cleveland Guardians",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -1992,13 +1992,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "St. Louis Cardinals",
+                "away_team": "Arizona Diamondbacks",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -2014,13 +2014,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Colorado Rockies",
+                "away_team": "Boston Red Sox",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -2036,13 +2036,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "Los Angeles Angels",
+                "away_team": "Baltimore Orioles",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -2058,13 +2058,13 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             },
             {
-                "home_team": "TBD",
-                "away_team": "TBD",
+                "home_team": "San Diego Padres",
+                "away_team": "Atlanta Braves",
                 "status": "Upcoming",
                 "time": "--:--",
                 "rhe": {
@@ -2080,8 +2080,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "TBD",
+                    "home_starter": "TBD"
                 }
             }
         ]
