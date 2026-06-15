@@ -1,9 +1,9 @@
 {
     "meta": {
-        "last_updated": "2026-06-15 17:14:21"
+        "last_updated": "2026-06-15 17:32:08"
     },
     "dates": {
-        "2026-06-16": [
+        "2026-06-15": [
             {
                 "home_team": "PHI",
                 "away_team": "MIA",
@@ -22,8 +22,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -44,52 +44,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "BOS",
-                "away_team": "TOR",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "NYY",
-                "away_team": "CWS",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -110,52 +66,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "ATL",
-                "away_team": "SF",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "MIL",
-                "away_team": "CLE",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -176,8 +88,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -198,8 +110,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -220,8 +132,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -242,8 +154,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -264,8 +176,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -286,30 +198,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "SEA",
-                "away_team": "BAL",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -330,8 +220,340 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            }
+        ],
+        "2026-06-16": [
+            {
+                "home_team": "PHI",
+                "away_team": "MIA",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "WSH",
+                "away_team": "KC",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "BOS",
+                "away_team": "TOR",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "NYY",
+                "away_team": "CWS",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "CIN",
+                "away_team": "NYM",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "ATL",
+                "away_team": "SF",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "MIL",
+                "away_team": "CLE",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "STL",
+                "away_team": "SD",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "CHC",
+                "away_team": "COL",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "TEX",
+                "away_team": "MIN",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "HOU",
+                "away_team": "DET",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "AZ",
+                "away_team": "LAA",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "OAK",
+                "away_team": "PIT",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "SEA",
+                "away_team": "BAL",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "home_team": "LAD",
+                "away_team": "TB",
+                "status": "Upcoming",
+                "time": "--:--",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             }
         ],
@@ -354,8 +576,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -376,8 +598,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -398,8 +620,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -420,8 +642,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -442,8 +664,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -464,8 +686,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -486,8 +708,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -508,8 +730,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -530,8 +752,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -552,8 +774,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -574,8 +796,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -596,8 +818,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -618,8 +840,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -640,8 +862,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             }
         ],
@@ -664,8 +886,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -686,8 +908,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -708,8 +930,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -730,8 +952,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -752,8 +974,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -774,8 +996,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -796,8 +1018,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -818,8 +1040,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -840,8 +1062,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             }
         ],
@@ -864,8 +1086,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -886,8 +1108,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -908,8 +1130,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -930,8 +1152,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -952,8 +1174,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -974,8 +1196,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -996,8 +1218,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1018,8 +1240,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1040,8 +1262,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1062,8 +1284,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1084,8 +1306,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1106,8 +1328,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1128,8 +1350,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1150,8 +1372,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             }
         ],
@@ -1174,8 +1396,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1196,8 +1418,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1218,8 +1440,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1240,8 +1462,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1262,8 +1484,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1284,8 +1506,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1306,8 +1528,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1328,8 +1550,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1350,8 +1572,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1372,8 +1594,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1394,8 +1616,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1416,8 +1638,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1438,8 +1660,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1460,8 +1682,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             }
         ],
@@ -1484,8 +1706,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1506,8 +1728,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1528,8 +1750,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1550,8 +1772,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1572,8 +1794,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1594,8 +1816,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1616,8 +1838,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1638,8 +1860,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1660,8 +1882,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1682,8 +1904,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1704,8 +1926,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1726,8 +1948,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1748,8 +1970,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1770,8 +1992,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             },
             {
@@ -1792,299 +2014,22 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            }
-        ],
-        "2026-06-22": [
-            {
-                "home_team": "TB",
-                "away_team": "KC",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "MIA",
-                "away_team": "TEX",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "DET",
-                "away_team": "NYY",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "WSH",
-                "away_team": "PHI",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "TOR",
-                "away_team": "HOU",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "NYM",
-                "away_team": "CHC",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "CIN",
-                "away_team": "MIL",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "MIN",
-                "away_team": "LAD",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "CWS",
-                "away_team": "CLE",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "STL",
-                "away_team": "AZ",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "COL",
-                "away_team": "BOS",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "LAA",
-                "away_team": "BAL",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
-                }
-            },
-            {
-                "home_team": "SD",
-                "away_team": "ATL",
-                "status": "Upcoming",
-                "time": "--:--",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "TBD",
-                    "home_starter": "TBD"
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
                 }
             }
         ]
     },
-    "standings": {}
+    "standings": {
+        "AL": {
+            "East": [],
+            "Central": [],
+            "West": []
+        },
+        "NL": {
+            "East": [],
+            "Central": [],
+            "West": []
+        }
+    }
 }
