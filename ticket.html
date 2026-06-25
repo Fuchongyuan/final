@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sportscast Sigma - 🎫 購票確認</title>
+    <title>Sportscast Sigma - 🎫 賽事購票中心</title>
     <style>
         :root {
-            /* ☀️ 完美對齊 index.html 的頂級淺色系調色盤 */
+            /* ☀️ 完美對齊 index.html 的高質感淺色系調色盤 */
             --bg-primary: #f8fafc;       
             --bg-secondary: #f1f5f9;     
             --card-bg: #ffffff;          
@@ -28,7 +28,7 @@
             min-height: 100vh;
         }
         
-        .container { max-width: 600px; margin: 0 auto; }
+        .container { max-width: 1000px; margin: 0 auto; }
         
         /* 🧭 導覽列 (Navbar) */
         .navbar {
@@ -67,78 +67,97 @@
             transform: translateY(-1px);
         }
 
-        /* 🎫 購票確認卡片 */
+        .page-header {
+            margin-bottom: 25px;
+        }
+
+        .page-header h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--mlb-blue);
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* 🗂️ 購票卡片網格 (Grid) */
+        .ticket-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* 🎫 獨立賽事購票卡片 */
         .ticket-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 35px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.04);
-            text-align: center;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .matchup-title {
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .ticket-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08);
+        }
+
+        .date-badge {
+            align-self: flex-start;
+            font-size: 0.75rem;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+            color: var(--text-muted);
+            background: var(--bg-secondary);
+            padding: 4px 10px;
+            border-radius: 50px;
+            margin-bottom: 12px;
         }
 
         /* 對戰球隊 */
         .matchup-teams {
             display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 12px;
+            margin-bottom: 15px;
         }
 
         .team-display {
-            font-size: 1.8rem;
+            font-size: 1.25rem;
             font-weight: 800;
             color: var(--mlb-blue);
         }
 
         .vs-badge {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 800;
             color: white;
             background-color: var(--accent-orange);
-            padding: 5px 12px;
+            padding: 3px 8px;
             border-radius: 50px;
         }
 
-        /* ⚾ 預計先發投手 (只保留投手，無比分與數據) */
+        /* ⚾ 先發投手 */
         .pitcher-box {
             background: var(--bg-primary);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 18px;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-
-        .pitcher-box-title {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
         }
 
         .pitcher-line {
             display: flex;
             justify-content: space-between;
-            font-size: 0.95rem;
-            padding: 6px 4px;
+            padding: 4px 0;
         }
-
+        
         .pitcher-line:not(:last-child) {
             border-bottom: 1px dashed var(--border-color);
         }
@@ -154,172 +173,171 @@
         }
 
         /* 💰 價格區塊 */
-        .price-showcase {
+        .price-section {
             border-top: 1px dashed var(--border-color);
-            padding-top: 25px;
-            margin-bottom: 30px;
+            padding-top: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .price-label {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             font-weight: 700;
-            margin-bottom: 6px;
         }
 
         .price-value {
-            font-size: 3rem;
+            font-size: 1.6rem;
             color: var(--seatgeek-green);
-            font-weight: 900;
+            font-weight: 800;
         }
 
         .price-currency {
-            font-size: 1.1rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
             font-weight: 600;
         }
 
-        /* 🚀 直達購票按鈕 */
+        /* 🚀 購票按鈕 */
         .checkout-btn {
-            display: inline-block;
-            width: 100%;
+            display: block;
+            text-align: center;
             background: linear-gradient(135deg, #108a00 0%, #0b5e00 100%);
             color: white;
-            font-size: 1.15rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            padding: 16px;
-            border-radius: 16px;
+            padding: 12px;
+            border-radius: 12px;
             text-decoration: none;
-            box-shadow: 0 8px 16px rgba(16, 138, 0, 0.15);
+            box-shadow: 0 4px 10px rgba(16, 138, 0, 0.1);
             transition: all 0.2s ease;
         }
 
         .checkout-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 24px rgba(16, 138, 0, 0.25);
+            box-shadow: 0 6px 14px rgba(16, 138, 0, 0.2);
+            filter: brightness(1.1);
         }
 
-        .no-params-msg {
+        .loading-msg {
             color: var(--text-muted);
             font-style: italic;
-            padding: 40px 0;
-            line-height: 1.6;
+            text-align: center;
+            padding: 50px 0;
+            grid-column: 1 / -1;
         }
 
-        footer { text-align: center; padding: 30px 0; color: var(--text-muted); font-size: 0.85rem; margin-top: 40px; }
+        footer { text-align: center; padding: 40px 0; color: var(--text-muted); font-size: 0.85rem; margin-top: 40px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <nav class="navbar">
-        <div class="nav-title">🎫 購票確認主控台</div>
-        <a href="index.html" class="back-btn">← 返回賽事列表</a>
+        <div class="nav-title">🎫 賽事購票中心</div>
+        <a href="index.html" class="back-btn">← 返回數據首頁</a>
     </nav>
 
-    <div class="ticket-card" id="ticket-info-card">
-        </div>
+    <div class="page-header">
+        <h2>所有熱門場次最低票價</h2>
+        <p>即時票價同步自首頁數據，點擊按鈕可直接跳轉至 SeatGeek 官網安全選位購票。</p>
+    </div>
+
+    <div class="ticket-grid" id="ticket-grid-container">
+        <div class="loading-msg">正在讀取最新票務數據檔案...</div>
+    </div>
 </div>
 
 <footer>
-    <p>© 2026 Sportscast Sigma. 數據完全由首頁安全對接傳輸.</p>
+    <p>© 2026 Sportscast Sigma. 票務數據由 SeatGeek 核心引擎驅動.</p>
 </footer>
 
 <script>
-    // 1. 解析網址列帶過來的 GET 參數（包含首頁早已載入好的 隊名、票價、SeatGeek URL）
-    function getUrlParams() {
-        const urlParams = new URLSearchParams(window.location.search);
-        return {
-            home: urlParams.get('home'),
-            away: urlParams.get('away'),
-            price: urlParams.get('price'),
-            url: urlParams.get('url')
-        };
-    }
-
-    // 2. 依然從小組的 data.json 撈取投手資訊，保持數據統一同步
-    async function fetchLocalPitcherInfo(homeTeam) {
+    // 核心邏輯：直接讀取小組的 data.json 並渲染所有場次的購票入口
+    async function loadAllTickets() {
+        const container = document.getElementById('ticket-grid-container');
+        
         try {
+            // 加時間戳記防止快取，確保拿到最新資料
             const res = await fetch('data.json?t=' + new Date().getTime());
             const data = await res.json();
             
+            let htmlContent = '';
+            let totalGames = 0;
+
+            // 迭代 data.json 裡的所有日期
             for (const dateStr in data.dates) {
-                const game = data.dates[dateStr].find(g => g.home_team === homeTeam);
-                if (game) {
-                    return game.pitchers;
-                }
+                const games = data.dates[dateStr];
+                
+                games.forEach(game => {
+                    totalGames++;
+                    
+                    // 1. 安全抓取首頁早已計算好的最低價與連結
+                    const displayPrice = game.ticket_info?.price ? game.ticket_info.price : '查看';
+                    const seatgeekUrl = game.ticket_info?.url ? game.ticket_info.url : `https://seatgeek.com/search?search=${encodeURIComponent(game.home_team + " Tickets")}`;
+                    
+                    // 2. 抓取先發投手資料
+                    const awayStarter = game.pitchers?.away_starter || "未定 (TBD)";
+                    const homeStarter = game.pitchers?.home_starter || "未定 (TBD)";
+
+                    // 3. 組裝卡片 HTML
+                    htmlContent += `
+                        <div class="ticket-card">
+                            <div>
+                                <div class="date-badge">📅 ${dateStr}</div>
+                                
+                                <div class="matchup-teams">
+                                    <span class="team-display">${game.away_team}</span>
+                                    <span class="vs-badge">VS</span>
+                                    <span class="team-display">${game.home_team}</span>
+                                </div>
+                                
+                                <div class="pitcher-box">
+                                    <div class="pitcher-line">
+                                        <span class="pitcher-team">${game.away_team}</span>
+                                        <span class="pitcher-name">${awayStarter}</span>
+                                    </div>
+                                    <div class="pitcher-line">
+                                        <span class="pitcher-team">${game.home_team}</span>
+                                        <span class="pitcher-name">${homeStarter}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="price-section">
+                                    <span class="price-label">SeatGeek 最低價</span>
+                                    <span class="price-value">
+                                        ${displayPrice.replace('$', '').replace('+', '')} 
+                                        <span class="price-currency">USD</span>
+                                    </span>
+                                </div>
+                                
+                                <a href="${seatgeekUrl}" target="_blank" class="checkout-btn">
+                                    立即前往購票 ➔
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                });
             }
-        } catch (e) {
-            console.error("讀取本地投手資料失敗:", e);
+
+            // 如果檔案內沒比賽的防呆
+            if (totalGames === 0) {
+                container.innerHTML = `<div class="loading-msg">目前沒有開放購票的賽事場次。</div>`;
+            } else {
+                container.innerHTML = htmlContent;
+            }
+
+        } catch (error) {
+            console.error("載入購票數據失敗:", error);
+            container.innerHTML = `<div class="loading-msg" style="color: #ef4444;">無法讀取 data.json 數據，請確認檔案路徑是否正確。</div>`;
         }
-        return null;
     }
 
-    // 頁面載入核心邏輯
-    window.addEventListener('DOMContentLoaded', async () => {
-        const params = getUrlParams();
-        const cardContainer = document.getElementById('ticket-info-card');
-
-        // 只要首頁有成功把主客隊傳過來
-        if (params.home && params.away) {
-            const homeTeam = decodeURIComponent(params.home);
-            const awayTeam = decodeURIComponent(params.away);
-            
-            // 接收來自首頁的票價與真實 SeatGeek 網址，若無則防呆
-            const displayPrice = params.price ? decodeURIComponent(params.price).replace('$', '').replace('+', '') : '查看';
-            const seatgeekUrl = params.url ? decodeURIComponent(params.url) : `https://seatgeek.com/search?search=${encodeURIComponent(homeTeam + " Tickets")}`;
-
-            // 非同步取得 local 的 data.json 投手資料
-            const localPitchers = await fetchLocalPitcherInfo(homeTeam);
-            const awayStarter = localPitchers?.away_starter || "未定 (TBD)";
-            const homeStarter = localPitchers?.home_starter || "未定 (TBD)";
-
-            // 直接進行高質感靜態渲染，不呼叫任何第三方 API
-            cardContainer.innerHTML = `
-                <div class="matchup-title">當前選擇賽事</div>
-                
-                <div class="matchup-teams">
-                    <div class="team-display">${awayTeam}</div>
-                    <div class="vs-badge">VS</div>
-                    <div class="team-display">${homeTeam}</div>
-                </div>
-                
-                <div class="pitcher-box">
-                    <div class="pitcher-box-title">⚾ 預計先發投手對決</div>
-                    <div class="pitcher-line">
-                        <span class="pitcher-team">${awayTeam}</span>
-                        <span class="pitcher-name">${awayStarter}</span>
-                    </div>
-                    <div class="pitcher-line">
-                        <span class="pitcher-team">${homeTeam}</span>
-                        <span class="pitcher-name">${homeStarter}</span>
-                    </div>
-                </div>
-                
-                <div class="price-showcase">
-                    <div class="price-label">SeatGeek 當前最低票價</div>
-                    <div class="price-value">
-                        ${displayPrice}
-                        <span class="price-currency">USD</span>
-                    </div>
-                </div>
-                
-                <a href="${seatgeekUrl}" target="_blank" class="checkout-btn">
-                    前往 SeatGeek 挑選座位並購票 ➔
-                </a>
-            `;
-        } else {
-            // 防呆提示
-            cardContainer.innerHTML = `
-                <div class="no-params-msg">
-                    <p style="font-size: 2.5rem; margin-bottom: 15px;">⚾</p>
-                    <p style="font-weight: 600; color: var(--text-main); margin-bottom: 8px;">未選擇特定賽事場次</p>
-                    <p style="font-size: 0.9rem; margin-bottom: 20px;">請返回首頁，點擊您感興趣的賽事卡片下方的「購票去」按鈕。</p>
-                    <a href="index.html" class="back-btn" style="display: inline-block;">回賽事首頁</a>
-                </div>
-            `;
-        }
-    });
+    // 頁面載入時自動執行
+    window.addEventListener('DOMContentLoaded', loadAllTickets);
 </script>
 </body>
 </html>
