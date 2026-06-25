@@ -241,103 +241,122 @@
 
     <div class="page-header">
         <h2>所有熱門場次最低票價</h2>
-        <p>即時票價同步自首頁數據，點擊按鈕可直接跳轉至 SeatGeek 官網安全選位購票。</p>
+        <p>系統正在與 SeatGeek 進行即時安全連線，撈取現場最新真實最低票價...</p>
     </div>
 
     <div class="ticket-grid" id="ticket-grid-container">
-        <div class="loading-msg">正在讀取最新票務數據檔案...</div>
+        <div class="loading-msg">正在載入本地賽事檔案並連線 SeatGeek...</div>
     </div>
 </div>
 
 <footer>
-    <p>© 2026 Sportscast Sigma. 票務數據由 SeatGeek 核心引擎驅動.</p>
+    <p>© 2026 Sportscast Sigma. 數據由 SeatGeek 核心票務引擎即時驅動.</p>
 </footer>
 
 <script>
-    // 核心邏輯：直接讀取小組的 data.json 並渲染所有場次的購票入口
-    async function loadAllTickets() {
+    // 核心邏輯：讀取 data.json 後，前端直接對每一場比賽去 fetch 公開的真票價
+    async function loadAllLiveTickets() {
         const container = document.getElementById('ticket-grid-container');
         
         try {
-            // 加時間戳記防止快取，確保拿到最新資料
+            // 1. 抓取本地團隊的賽事主檔
             const res = await fetch('data.json?t=' + new Date().getTime());
             const data = await res.json();
             
-            let htmlContent = '';
-            let totalGames = 0;
+            let gamesList = [];
 
-            // 迭代 data.json 裡的所有日期
+            // 攤平結構，把所有日期的場次集中到陣列中
             for (const dateStr in data.dates) {
-                const games = data.dates[dateStr];
-                
-                games.forEach(game => {
-                    totalGames++;
-                    
-                    // 1. 安全抓取首頁早已計算好的最低價與連結
-                    const displayPrice = game.ticket_info?.price ? game.ticket_info.price : '查看';
-                    const seatgeekUrl = game.ticket_info?.url ? game.ticket_info.url : `https://seatgeek.com/search?search=${encodeURIComponent(game.home_team + " Tickets")}`;
-                    
-                    // 2. 抓取先發投手資料
-                    const awayStarter = game.pitchers?.away_starter || "未定 (TBD)";
-                    const homeStarter = game.pitchers?.home_starter || "未定 (TBD)";
-
-                    // 3. 組裝卡片 HTML
-                    htmlContent += `
-                        <div class="ticket-card">
-                            <div>
-                                <div class="date-badge">📅 ${dateStr}</div>
-                                
-                                <div class="matchup-teams">
-                                    <span class="team-display">${game.away_team}</span>
-                                    <span class="vs-badge">VS</span>
-                                    <span class="team-display">${game.home_team}</span>
-                                </div>
-                                
-                                <div class="pitcher-box">
-                                    <div class="pitcher-line">
-                                        <span class="pitcher-team">${game.away_team}</span>
-                                        <span class="pitcher-name">${awayStarter}</span>
-                                    </div>
-                                    <div class="pitcher-line">
-                                        <span class="pitcher-team">${game.home_team}</span>
-                                        <span class="pitcher-name">${homeStarter}</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <div class="price-section">
-                                    <span class="price-label">SeatGeek 最低價</span>
-                                    <span class="price-value">
-                                        ${displayPrice.replace('$', '').replace('+', '')} 
-                                        <span class="price-currency">USD</span>
-                                    </span>
-                                </div>
-                                
-                                <a href="${seatgeekUrl}" target="_blank" class="checkout-btn">
-                                    立即前往購票 ➔
-                                </a>
-                            </div>
-                        </div>
-                    `;
+                data.dates[dateStr].forEach(game => {
+                    gamesList.push({ ...game, dateStr });
                 });
             }
 
-            // 如果檔案內沒比賽的防呆
-            if (totalGames === 0) {
+            if (gamesList.length === 0) {
                 container.innerHTML = `<div class="loading-msg">目前沒有開放購票的賽事場次。</div>`;
-            } else {
-                container.innerHTML = htmlContent;
+                return;
             }
 
+            // 2. 利用 Promise.all 並行向 SeatGeek 公開端點討數據（大幅減少等待時間）
+            const cardPromises = gamesList.map(async (game) => {
+                let displayPrice = '查看';
+                // 預設防呆搜尋超連結
+                let seatgeekUrl = `https://seatgeek.com/search?search=${encodeURIComponent(game.home_team + " Tickets")}`;
+                
+                try {
+                    // 對戰組合關鍵字安全編碼 (例如: "CWS at CLE")
+                    const query = encodeURIComponent(`${game.away_team} at ${game.home_team}`);
+                    // 呼叫免憑證的公開查詢端點
+                    const sgRes = await fetch(`https://api.seatgeek.com/2/events?q=${query}&per_page=1`);
+                    const sgData = await sgRes.json();
+                    
+                    if (sgData.events && sgData.events.length > 0) {
+                        const ev = sgData.events[0];
+                        if (ev.stats.lowest_price) {
+                            displayPrice = `$${ev.stats.lowest_price}`;
+                        }
+                        seatgeekUrl = ev.url; // 覆蓋為真購票直達連結
+                    }
+                } catch (err) {
+                    console.error(`即時同步 ${game.home_team} 票價失敗:`, err);
+                }
+
+                const awayStarter = game.pitchers?.away_starter || "未定 (TBD)";
+                const homeStarter = game.pitchers?.home_starter || "未定 (TBD)";
+
+                // 返回動態合成的真數據卡片 HTML
+                return `
+                    <div class="ticket-card">
+                        <div>
+                            <div class="date-badge">📅 ${game.dateStr}</div>
+                            
+                            <div class="matchup-teams">
+                                <span class="team-display">${game.away_team}</span>
+                                <span class="vs-badge">VS</span>
+                                <span class="team-display">${game.home_team}</span>
+                            </div>
+                            
+                            <div class="pitcher-box">
+                                <div class="pitcher-line">
+                                    <span class="pitcher-team">${game.away_team}</span>
+                                    <span class="pitcher-name">${awayStarter}</span>
+                                </div>
+                                <div class="pitcher-line">
+                                    <span class="pitcher-team">${game.home_team}</span>
+                                    <span class="pitcher-name">${homeStarter}</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="price-section">
+                                <span class="price-label">SeatGeek 最低價</span>
+                                <span class="price-value">
+                                    ${displayPrice.replace('$', '')} 
+                                    <span class="price-currency">USD</span>
+                                </span>
+                            </div>
+                            
+                            <a href="${seatgeekUrl}" target="_blank" class="checkout-btn">
+                                立即前往購票 ➔
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // 當所有非同步請求都完成後，一次性把所有「真票價」卡片貼上網頁
+            const htmlCards = await Promise.all(cardPromises);
+            container.innerHTML = htmlCards.join('');
+
         } catch (error) {
-            console.error("載入購票數據失敗:", error);
-            container.innerHTML = `<div class="loading-msg" style="color: #ef4444;">無法讀取 data.json 數據，請確認檔案路徑是否正確。</div>`;
+            console.error("初始化購票面板失敗:", error);
+            container.innerHTML = `<div class="loading-msg" style="color: #ef4444;">連線發生異常，請檢查您的網路連線。</div>`;
         }
     }
 
-    // 頁面載入時自動執行
-    window.addEventListener('DOMContentLoaded', loadAllTickets);
+    // 啟動加載
+    window.addEventListener('DOMContentLoaded', loadAllLiveTickets);
 </script>
 </body>
 </html>
