@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sportscast Sigma - 🎫 賽事購票中心</title>
+    <title>Sportscast Sigma - 🎫 賽事購票與精華中心</title>
     <style>
         :root {
             /* ☀️ 完美對齊 index.html 的高質感淺色系調色盤 */
@@ -16,6 +16,7 @@
             --accent-orange: #ea580c;    
             --border-color: #e2e8f0;     
             --seatgeek-green: #108a00;   
+            --youtube-red: #ff0000;      /* YouTube 識別紅 */
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -108,15 +109,43 @@
             box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08);
         }
 
+        /* 日期與精華按鈕容器 */
+        .card-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
         .date-badge {
-            align-self: flex-start;
             font-size: 0.75rem;
             font-weight: 700;
             color: var(--text-muted);
             background: var(--bg-secondary);
             padding: 4px 10px;
             border-radius: 50px;
-            margin-bottom: 12px;
+        }
+
+        /* 📺 YouTube 影音精華按鈕 */
+        .yt-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--youtube-red);
+            text-decoration: none;
+            background: #fff5f5;
+            padding: 4px 10px;
+            border-radius: 50px;
+            border: 1px solid #ffe3e3;
+            transition: all 0.2s ease;
+        }
+
+        .yt-link:hover {
+            background: var(--youtube-red);
+            color: white;
+            border-color: var(--youtube-red);
         }
 
         /* 對戰球隊 */
@@ -240,8 +269,8 @@
     </nav>
 
     <div class="page-header">
-        <h2>所有熱門場次最低票價</h2>
-        <p>系統正在與 SeatGeek 進行即時安全連線，撈取現場最新真實最低票價...</p>
+        <h2>所有熱門場次最低票價 & 精華</h2>
+        <p>系統已同步連線 SeatGeek 獲取實時票價。點擊紅色標籤可直接跳轉至 YouTube 查看該對戰精華！</p>
     </div>
 
     <div class="ticket-grid" id="ticket-grid-container">
@@ -250,22 +279,19 @@
 </div>
 
 <footer>
-    <p>© 2026 Sportscast Sigma. 數據由 SeatGeek 核心票務引擎即時驅動.</p>
+    <p>© 2026 Sportscast Sigma. 票務數據由 SeatGeek 驅動，影音內容導向 YouTube.</p>
 </footer>
 
 <script>
-    // 核心邏輯：讀取 data.json 後，前端直接對每一場比賽去 fetch 公開的真票價
     async function loadAllLiveTickets() {
         const container = document.getElementById('ticket-grid-container');
         
         try {
-            // 1. 抓取本地團隊的賽事主檔
             const res = await fetch('data.json?t=' + new Date().getTime());
             const data = await res.json();
             
             let gamesList = [];
 
-            // 攤平結構，把所有日期的場次集中到陣列中
             for (const dateStr in data.dates) {
                 data.dates[dateStr].forEach(game => {
                     gamesList.push({ ...game, dateStr });
@@ -277,16 +303,13 @@
                 return;
             }
 
-            // 2. 利用 Promise.all 並行向 SeatGeek 公開端點討數據（大幅減少等待時間）
+            // 並行請求 SeatGeek 公開真票價
             const cardPromises = gamesList.map(async (game) => {
                 let displayPrice = '查看';
-                // 預設防呆搜尋超連結
                 let seatgeekUrl = `https://seatgeek.com/search?search=${encodeURIComponent(game.home_team + " Tickets")}`;
                 
                 try {
-                    // 對戰組合關鍵字安全編碼 (例如: "CWS at CLE")
                     const query = encodeURIComponent(`${game.away_team} at ${game.home_team}`);
-                    // 呼叫免憑證的公開查詢端點
                     const sgRes = await fetch(`https://api.seatgeek.com/2/events?q=${query}&per_page=1`);
                     const sgData = await sgRes.json();
                     
@@ -295,7 +318,7 @@
                         if (ev.stats.lowest_price) {
                             displayPrice = `$${ev.stats.lowest_price}`;
                         }
-                        seatgeekUrl = ev.url; // 覆蓋為真購票直達連結
+                        seatgeekUrl = ev.url; 
                     }
                 } catch (err) {
                     console.error(`即時同步 ${game.home_team} 票價失敗:`, err);
@@ -304,11 +327,19 @@
                 const awayStarter = game.pitchers?.away_starter || "未定 (TBD)";
                 const homeStarter = game.pitchers?.home_starter || "未定 (TBD)";
 
-                // 返回動態合成的真數據卡片 HTML
+                // ⚡ 動態產生專屬於該場次的 YouTube 搜尋網址
+                const ytSearchQuery = encodeURIComponent(`${game.away_team} vs ${game.home_team} MLB Highlights 2026`);
+                const youtubeUrl = `https://www.youtube.com/results?search_query=${ytSearchQuery}`;
+
                 return `
                     <div class="ticket-card">
                         <div>
-                            <div class="date-badge">📅 ${game.dateStr}</div>
+                            <div class="card-top-bar">
+                                <div class="date-badge">📅 ${game.dateStr}</div>
+                                <a href="${youtubeUrl}" target="_blank" class="yt-link">
+                                    📺 觀看精華
+                                </a>
+                            </div>
                             
                             <div class="matchup-teams">
                                 <span class="team-display">${game.away_team}</span>
@@ -345,7 +376,6 @@
                 `;
             });
 
-            // 當所有非同步請求都完成後，一次性把所有「真票價」卡片貼上網頁
             const htmlCards = await Promise.all(cardPromises);
             container.innerHTML = htmlCards.join('');
 
@@ -355,7 +385,6 @@
         }
     }
 
-    // 啟動加載
     window.addEventListener('DOMContentLoaded', loadAllLiveTickets);
 </script>
 </body>
