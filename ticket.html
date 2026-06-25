@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sportscast Sigma - 頂級數據主控台</title>
+    <title>Sportscast Sigma - 頂級數據與 SeatGeek 票價主控台</title>
     <style>
         :root {
             /* ☀️ 全新頂級淺色系調色盤 */
@@ -17,7 +17,7 @@
             --success-green: #16a34a;    /* 溫和綠色，用於已結束賽事 */
             --live-pulse: #dc2626;       /* 警戒紅色，用於直播中賽事 */
             --border-color: #e2e8f0;     /* 極細微的淺灰色邊框線 */
-            --seatgeek-green: #108a00;   /* SeatGeek 識別綠色 */
+            --seatgeek-green: #108a00;   /* SeatGeek 識別綠 */
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,7 +32,7 @@
         
         .container { max-width: 1200px; margin: 0 auto; }
         
-        /* 🧭 水平導覽列 (Navbar) - 淺色質感升級 */
+        /* 🧭 水平導覽列 (Navbar) */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -64,42 +64,13 @@
             font-weight: 500;
         }
         
-        /* 右側按鈕與資訊排列區 */
         .nav-right {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        /* 🎫 購票主控台專屬按鈕 */
-        .ticket-nav-btn {
-            background: linear-gradient(135deg, #108a00 0%, #0b5e00 100%);
-            color: white;
-            font-weight: 600;
-            padding: 10px 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 12px rgba(16, 138, 0, 0.2);
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-        
-        .ticket-nav-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(16, 138, 0, 0.3);
-        }
-
-        /* 包裹右側原本探索按鈕與同步時間的容器 */
-        .nav-right-wrap {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
             gap: 6px;
         }
         
-        /* 右上角極簡球隊探索按鈕 */
         .explore-btn {
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
             color: white;
@@ -110,7 +81,6 @@
             font-size: 0.9rem;
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
             transition: all 0.2s ease;
-            white-space: nowrap;
         }
         
         .explore-btn:hover {
@@ -122,10 +92,9 @@
             font-size: 0.75rem;
             color: var(--text-muted);
             font-weight: 500;
-            white-space: nowrap;
         }
 
-        /* 日期導覽列 (淺色現代風格) */
+        /* 日期導覽列 */
         .date-nav { display: flex; gap: 8px; justify-content: flex-start; margin-bottom: 25px; overflow-x: auto; padding-bottom: 10px; }
         .date-nav::-webkit-scrollbar { height: 4px; }
         .date-nav::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
@@ -144,8 +113,6 @@
         }
         
         .date-btn:hover { background: #f8fafc; border-color: #94a3b8; color: var(--text-main); }
-        
-        /* 啟用狀態改為精緻的淺藍色高亮底 */
         .date-btn.active { 
             background: #e0f2fe; 
             border-color: #0284c7; 
@@ -160,19 +127,25 @@
             background: var(--card-bg); 
             border: 1px solid var(--border-color);
             border-radius: 20px; 
-            padding: 22px; 
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.04); 
             color: var(--text-main); 
             display: flex; 
             flex-direction: column; 
             justify-content: space-between; 
+            overflow: hidden;
         }
         
-        /* 卡片頭部狀態與時間 */
+        /* 原有卡片內容包裝 */
+        .card-main-content {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
         .card-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 15px; }
         .game-time { font-weight: 700; font-size: 1.05rem; color: var(--text-main); background: var(--bg-secondary); padding: 3px 10px; border-radius: 8px; }
         
-        /* 狀態標籤美化 */
         .status-badge { padding: 5px 12px; border-radius: 50px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
         .status-upcoming { background-color: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; }
         .status-live { background-color: #fef2f2; color: var(--live-pulse); border: 1px solid #fecaca; animation: pulse 1.5s infinite; }
@@ -191,36 +164,67 @@
         .rhe-table td { border-bottom: 1px solid var(--border-color); }
         
         /* 投手資訊區塊 */
-        .pitcher-container { background: var(--bg-primary); border-radius: 12px; padding: 12px; margin-top: auto; border: 1px solid var(--border-color); }
+        .pitcher-container { background: var(--bg-primary); border-radius: 12px; padding: 12px; border: 1px solid var(--border-color); }
         .pitcher-title { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
         .pitcher-grid { display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem; }
         .p-name { font-weight: 600; color: #334155; }
 
-        /* 🎫 卡片底部 SeatGeek 專屬隔離樣式 (sg- 前綴，防範污染其他頁面) */
+        /* ----------------------------------------------------------------- */
+        /* 🎫 獨立 SeatGeek 專屬樣式 (加上 sg- 前綴字，完全防範污染其他頁面) */
+        /* ----------------------------------------------------------------- */
         .sg-ticket-section {
-            padding: 14px 0 0 0;
-            margin-top: 15px;
+            padding: 14px 22px;
+            background-color: var(--bg-secondary);
             border-top: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            min-height: 65px;
         }
-        .sg-price-container { display: flex; flex-direction: column; }
-        .sg-price-label { font-size: 0.7rem; color: var(--text-muted); font-weight: bold; text-transform: uppercase; }
-        .sg-price-range { font-size: 1.15rem; color: var(--seatgeek-green); font-weight: 800; }
-        
+
+        .sg-price-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sg-price-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .sg-price-range {
+            font-size: 1.15rem;
+            color: var(--seatgeek-green);
+            font-weight: 800;
+        }
+
         .sg-btn-booking {
             background-color: var(--text-main);
             color: white;
+            border: none;
             padding: 6px 14px;
             border-radius: 8px;
             font-size: 0.85rem;
             font-weight: 700;
-            text-decoration: none;
+            cursor: pointer;
             transition: all 0.2s ease;
+            text-decoration: none;
         }
-        .sg-btn-booking:hover { background-color: var(--seatgeek-green); }
-        .sg-no-ticket-msg { font-size: 0.85rem; color: var(--text-muted); font-style: italic; }
+
+        .sg-btn-booking:hover {
+            background-color: var(--seatgeek-green);
+            transform: translateY(-1px);
+        }
+
+        .sg-no-ticket-msg {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+            font-weight: 500;
+        }
 
         footer { text-align: center; padding: 40px 0; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--border-color); margin-top: 50px; }
     </style>
@@ -234,11 +238,8 @@
             <div class="nav-subtitle">台灣開賽時間</div>
         </div>
         <div class="nav-right">
-            <a href="ticket.html" class="ticket-nav-btn">🎫 購票主控台</a>
-            <div class="nav-right-wrap">
-                <a href="mlbmap.html" class="explore-btn">球隊探索</a>
-                <div class="sync-info" id="sync-time">資料同步中...</div>
-            </div>
+            <a href="mlbmap.html" class="explore-btn">球隊探索</a>
+            <div class="sync-info" id="sync-time">資料同步中...</div>
         </div>
     </nav>
 
@@ -253,6 +254,7 @@
 
 <script>
     let globalData = {};
+    // 公開的 SeatGeek 用戶端 ID (不影響後端，前端直接異步調用)
     const SEATGEEK_CLIENT_ID = 'MTY2MzM1NTN8MTU2MTM4MTEzNi40Mw';
 
     // 啟動並防快取載入資料
@@ -302,12 +304,14 @@
         try {
             const query = encodeURIComponent(`${awayTeam} at ${homeTeam}`);
             const url = `https://api.seatgeek.com/2/events?q=${query}&client_id=${SEATGEEK_CLIENT_ID}&per_page=1`;
+            
             const response = await fetch(url);
             const data = await response.json();
+            
             if (data.events && data.events.length > 0) {
                 const event = data.events[0];
                 return {
-                    price: event.stats.lowest_price ? `$${event.stats.lowest_price}` : '查看',
+                    price: event.stats.lowest_price ? `$${event.stats.lowest_price}+` : '查看',
                     url: event.url
                 };
             }
@@ -318,7 +322,7 @@
     }
 
     // 渲染賽事卡片
-    function renderGames(dateStr) {
+    async function renderGames(dateStr) {
         const grid = document.getElementById('games-container');
         grid.innerHTML = '';
         const games = globalData.dates[dateStr] || [];
@@ -343,65 +347,65 @@
                 statusLabel = '已結束'; 
             }
 
+            // 1. 完全保留你原本的卡片主體結構 (.card-main-content)
+            // 2. 僅在最底部追加 .sg-ticket-section 做為獨立的票價容器
             card.innerHTML = `
-                <div class="card-header">
-                    <span class="status-badge ${statusClass}">${statusLabel}</span>
-                    <span class="game-time">${game.time}</span>
-                </div>
-                
-                <table class="rhe-table">
-                    <thead>
-                        <tr>
-                            <th style="text-align:left; width:40%;">球隊</th>
-                            <th style="width:20%; font-weight:bold; color:var(--accent-orange);">R</th>
-                            <th style="width:20%;">H</th>
-                            <th style="width:20%;">E</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="text-align:left; font-weight:bold; color:var(--mlb-blue); font-size:1.1rem;">${game.away_team}</td>
-                            <td style="font-weight:bold; color:var(--accent-orange); font-size:1.1rem;">${game.rhe?.away?.R ?? '-'}</td>
-                            <td style="font-weight: 500; color: #334155;">${game.rhe?.away?.H ?? '-'}</td>
-                            <td style="font-weight: 500; color: #334155;">${game.rhe?.away?.E ?? '-'}</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:left; font-weight:bold; color:var(--mlb-blue); font-size:1.1rem;">${game.home_team}</td>
-                            <td style="font-weight:bold; color:var(--accent-orange); font-size:1.1rem;">${game.rhe?.home?.R ?? '-'}</td>
-                            <td style="font-weight: 500; color: #334155;">${game.rhe?.home?.H ?? '-'}</td>
-                            <td style="font-weight: 500; color: #334155;">${game.rhe?.home?.E ?? '-'}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="card-main-content">
+                    <div class="card-header">
+                        <span class="status-badge ${statusClass}">${statusLabel}</span>
+                        <span class="game-time">${game.time}</span>
+                    </div>
+                    
+                    <table class="rhe-table">
+                        <thead>
+                            <tr>
+                                <th style="text-align:left; width:40%;">球隊</th>
+                                <th style="width:20%; font-weight:bold; color:var(--accent-orange);">R</th>
+                                <th style="width:20%;">H</th>
+                                <th style="width:20%;">E</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align:left; font-weight:bold; color:var(--mlb-blue); font-size:1.1rem;">${game.away_team}</td>
+                                <td style="font-weight:bold; color:var(--accent-orange); font-size:1.1rem;">${game.rhe?.away?.R ?? '-'}</td>
+                                <td style="font-weight: 500; color: #334155;">${game.rhe?.away?.H ?? '-'}</td>
+                                <td style="font-weight: 500; color: #334155;">${game.rhe?.away?.E ?? '-'}</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:left; font-weight:bold; color:var(--mlb-blue); font-size:1.1rem;">${game.home_team}</td>
+                                <td style="font-weight:bold; color:var(--accent-orange); font-size:1.1rem;">${game.rhe?.home?.R ?? '-'}</td>
+                                <td style="font-weight: 500; color: #334155;">${game.rhe?.home?.H ?? '-'}</td>
+                                <td style="font-weight: 500; color: #334155;">${game.rhe?.home?.E ?? '-'}</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                <div class="pitcher-container">
-                    <div class="pitcher-title">⚾ 預計先發投手</div>
-                    <div class="pitcher-grid">
-                        <div><span style="color:var(--text-muted);">${game.away_team}:</span> <span class="p-name">${game.pitchers?.away_starter || '未定 (TBD)'}</span></div>
-                        <div><span style="color:var(--text-muted);">${game.home_team}:</span> <span class="p-name">${game.pitchers?.home_starter || '未定 (TBD)'}</span></div>
+                    <div class="pitcher-container">
+                        <div class="pitcher-title">⚾ 預計先發投手</div>
+                        <div class="pitcher-grid">
+                            <div><span style="color:var(--text-muted);">${game.away_team}:</span> <span class="p-name">${game.pitchers?.away_starter || '未定 (TBD)'}</span></div>
+                            <div><span style="color:var(--text-muted);">${game.home_team}:</span> <span class="p-name">${game.pitchers?.home_starter || '未定 (TBD)'}</span></div>
+                        </div>
                     </div>
                 </div>
-
                 <div class="sg-ticket-section" id="sg-ticket-section-${dateStr}-${index}">
                     <span class="sg-no-ticket-msg">票價載入中...</span>
                 </div>
             `;
             grid.appendChild(card);
 
-            // 異步填入票價與內部專案參數網址
+            // 異步填入票價資訊，完美避開阻塞與全局樣式干擾
             if (game.status !== 'Final') {
                 fetchSeatGeekPrice(game.home_team, game.away_team).then(ticketInfo => {
                     const ticketSection = document.getElementById(`sg-ticket-section-${dateStr}-${index}`);
                     if (ticketSection) {
-                        // 🔗 這裡動態包裝帶有該場比賽特徵參數的網址
-                        const localTicketUrl = `ticket.html?home=${encodeURIComponent(game.home_team)}&away=${encodeURIComponent(game.away_team)}&price=${encodeURIComponent(ticketInfo.price)}&url=${encodeURIComponent(ticketInfo.url)}`;
-                        
                         ticketSection.innerHTML = `
                             <div class="sg-price-container">
                                 <span class="sg-price-label">當場次最低價</span>
                                 <div class="sg-price-range">${ticketInfo.price} <span style="font-size:0.75rem; color:var(--text-muted); font-weight:500;">USD</span></div>
                             </div>
-                            <a href="${localTicketUrl}" class="sg-btn-booking">
+                            <a href="${ticketInfo.url}" target="_blank" class="sg-btn-booking">
                                 ${game.status === 'Live' ? '搶即時票' : '購票去'} →
                             </a>
                         `;
