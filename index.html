@@ -173,11 +173,11 @@
 <div class="container">
     <nav class="navbar">
         <div class="nav-left">
-            <div class="nav-title">Sportscast Sigma</div>
-            <div class="nav-subtitle">真實數據主控台（純事實、無預測、台灣開賽時間）</div>
+            <div class="nav-title">MLB 即時賽事數據</div>
+            <div class="nav-subtitle">台灣開賽時間</div>
         </div>
         <div class="nav-right">
-            <a href="mlbmap.html" class="explore-btn">🧭 球隊探索</a>
+            <a href="mlbmap.html" class="explore-btn">球隊探索</a>
             <div class="sync-info" id="sync-time">資料同步中...</div>
         </div>
     </nav>
@@ -265,7 +265,7 @@
             card.innerHTML = `
                 <div class="card-header">
                     <span class="status-badge ${statusClass}">${statusLabel}</span>
-                    <span class="game-time">⏱️ ${game.time}</span>
+                    <span class="game-time">${game.time}</span>
                 </div>
                 
                 <table class="rhe-table">
