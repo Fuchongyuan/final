@@ -1,355 +1,8 @@
 {
     "meta": {
-        "last_updated": "2026-07-13 06:36:46"
+        "last_updated": "2026-07-14 06:43:36"
     },
     "dates": {
-        "2026-07-13": [
-            {
-                "game_pk": 823358,
-                "home_team": "PIT",
-                "away_team": "MIL",
-                "status": "Final",
-                "time": "00:15",
-                "rhe": {
-                    "away": {
-                        "R": 5,
-                        "H": 8,
-                        "E": 1
-                    },
-                    "home": {
-                        "R": 14,
-                        "H": 15,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Robert Gasser",
-                    "home_starter": "Paul Skenes"
-                }
-            },
-            {
-                "game_pk": 824814,
-                "home_team": "BAL",
-                "away_team": "KC",
-                "status": "Final",
-                "time": "01:35",
-                "rhe": {
-                    "away": {
-                        "R": 2,
-                        "H": 9,
-                        "E": 1
-                    },
-                    "home": {
-                        "R": 8,
-                        "H": 12,
-                        "E": 2
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Seth Lugo",
-                    "home_starter": "Shane Baz"
-                }
-            },
-            {
-                "game_pk": 822708,
-                "home_team": "WSH",
-                "away_team": "NYY",
-                "status": "Final",
-                "time": "01:35",
-                "rhe": {
-                    "away": {
-                        "R": 5,
-                        "H": 8,
-                        "E": 1
-                    },
-                    "home": {
-                        "R": 3,
-                        "H": 6,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Will Warren",
-                    "home_starter": "Cade Cavalli"
-                }
-            },
-            {
-                "game_pk": 824491,
-                "home_team": "CIN",
-                "away_team": "CHC",
-                "status": "Final",
-                "time": "01:40",
-                "rhe": {
-                    "away": {
-                        "R": 8,
-                        "H": 9,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 4,
-                        "H": 9,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Matthew Boyd",
-                    "home_starter": "Andrew Abbott"
-                }
-            },
-            {
-                "game_pk": 823602,
-                "home_team": "NYM",
-                "away_team": "BOS",
-                "status": "Final",
-                "time": "01:40",
-                "rhe": {
-                    "away": {
-                        "R": 3,
-                        "H": 4,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 2,
-                        "H": 6,
-                        "E": 2
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Payton Tolle",
-                    "home_starter": "Zach Thornton"
-                }
-            },
-            {
-                "game_pk": 822951,
-                "home_team": "TB",
-                "away_team": "SEA",
-                "status": "Final",
-                "time": "01:40",
-                "rhe": {
-                    "away": {
-                        "R": 8,
-                        "H": 9,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 2,
-                        "H": 4,
-                        "E": 2
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Emerson Hancock",
-                    "home_starter": "Ian Seymour"
-                }
-            },
-            {
-                "game_pk": 824250,
-                "home_team": "DET",
-                "away_team": "PHI",
-                "status": "Final",
-                "time": "01:40",
-                "rhe": {
-                    "away": {
-                        "R": 5,
-                        "H": 9,
-                        "E": 1
-                    },
-                    "home": {
-                        "R": 0,
-                        "H": 2,
-                        "E": 1
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Zack Wheeler",
-                    "home_starter": "Tarik Skubal"
-                }
-            },
-            {
-                "game_pk": 823842,
-                "home_team": "MIA",
-                "away_team": "CLE",
-                "status": "Final",
-                "time": "01:40",
-                "rhe": {
-                    "away": {
-                        "R": 5,
-                        "H": 11,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 2,
-                        "H": 8,
-                        "E": 1
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Joey Cantillo",
-                    "home_starter": "Tyler Phillips"
-                }
-            },
-            {
-                "game_pk": 823681,
-                "home_team": "MIN",
-                "away_team": "LAA",
-                "status": "Final",
-                "time": "02:10",
-                "rhe": {
-                    "away": {
-                        "R": 2,
-                        "H": 7,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 4,
-                        "H": 6,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "José Soriano",
-                    "home_starter": "Taj Bradley"
-                }
-            },
-            {
-                "game_pk": 824574,
-                "home_team": "CWS",
-                "away_team": "OAK",
-                "status": "Final",
-                "time": "02:10",
-                "rhe": {
-                    "away": {
-                        "R": 1,
-                        "H": 6,
-                        "E": 1
-                    },
-                    "home": {
-                        "R": 9,
-                        "H": 9,
-                        "E": 2
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "J.T. Ginn",
-                    "home_starter": "Noah Schultz"
-                }
-            },
-            {
-                "game_pk": 823029,
-                "home_team": "STL",
-                "away_team": "ATL",
-                "status": "Final",
-                "time": "02:15",
-                "rhe": {
-                    "away": {
-                        "R": 4,
-                        "H": 7,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 3,
-                        "H": 4,
-                        "E": 2
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Danny Young",
-                    "home_starter": "Dustin May"
-                }
-            },
-            {
-                "game_pk": 822876,
-                "home_team": "TEX",
-                "away_team": "HOU",
-                "status": "Final",
-                "time": "02:35",
-                "rhe": {
-                    "away": {
-                        "R": 5,
-                        "H": 8,
-                        "E": 1
-                    },
-                    "home": {
-                        "R": 6,
-                        "H": 11,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Cristian Javier",
-                    "home_starter": "MacKenzie Gore"
-                }
-            },
-            {
-                "game_pk": 823199,
-                "home_team": "SF",
-                "away_team": "COL",
-                "status": "Final",
-                "time": "04:05",
-                "rhe": {
-                    "away": {
-                        "R": 1,
-                        "H": 4,
-                        "E": 1
-                    },
-                    "home": {
-                        "R": 3,
-                        "H": 8,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Michael Lorenzen",
-                    "home_starter": "Trevor McDonald"
-                }
-            },
-            {
-                "game_pk": 823925,
-                "home_team": "LAD",
-                "away_team": "AZ",
-                "status": "Live",
-                "time": "04:10",
-                "rhe": {
-                    "away": {
-                        "R": 4,
-                        "H": 4,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 3,
-                        "H": 3,
-                        "E": 2
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Mitch Bratt",
-                    "home_starter": "Emmet Sheehan"
-                }
-            },
-            {
-                "game_pk": 823274,
-                "home_team": "SD",
-                "away_team": "TOR",
-                "status": "Live",
-                "time": "04:10",
-                "rhe": {
-                    "away": {
-                        "R": 4,
-                        "H": 9,
-                        "E": 1
-                    },
-                    "home": {
-                        "R": 5,
-                        "H": 7,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Kevin Gausman",
-                    "home_starter": "Germán Márquez"
-                }
-            }
-        ],
         "2026-07-14": [],
         "2026-07-15": [
             {
@@ -360,14 +13,14 @@
                 "time": "08:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     }
                 },
                 "pitchers": {
@@ -744,7 +397,7 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
+                    "away_starter": "Landen Roupp",
                     "home_starter": "未定 (TBD)"
                 }
             }
@@ -1022,7 +675,7 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
+                    "away_starter": "Logan Webb",
                     "home_starter": "未定 (TBD)"
                 }
             },
@@ -1092,6 +745,353 @@
                 },
                 "pitchers": {
                     "away_starter": "Tarik Skubal",
+                    "home_starter": "未定 (TBD)"
+                }
+            }
+        ],
+        "2026-07-20": [
+            {
+                "game_pk": 822786,
+                "home_team": "TOR",
+                "away_team": "CWS",
+                "status": "Upcoming",
+                "time": "00:15",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 824739,
+                "home_team": "BOS",
+                "away_team": "TB",
+                "status": "Upcoming",
+                "time": "01:35",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 823439,
+                "home_team": "PHI",
+                "away_team": "NYM",
+                "status": "Upcoming",
+                "time": "01:35",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "Nolan McLean",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 824897,
+                "home_team": "ATL",
+                "away_team": "TEX",
+                "status": "Upcoming",
+                "time": "01:35",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 824411,
+                "home_team": "CLE",
+                "away_team": "PIT",
+                "status": "Upcoming",
+                "time": "01:40",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 824168,
+                "home_team": "HOU",
+                "away_team": "BAL",
+                "status": "Upcoming",
+                "time": "02:10",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 824086,
+                "home_team": "KC",
+                "away_team": "SD",
+                "status": "Upcoming",
+                "time": "02:10",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 823764,
+                "home_team": "MIL",
+                "away_team": "MIA",
+                "status": "Upcoming",
+                "time": "02:10",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 824653,
+                "home_team": "CHC",
+                "away_team": "MIN",
+                "status": "Upcoming",
+                "time": "02:20",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 824330,
+                "home_team": "COL",
+                "away_team": "CIN",
+                "status": "Upcoming",
+                "time": "03:10",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "Hunter Greene",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 824978,
+                "home_team": "OAK",
+                "away_team": "WSH",
+                "status": "Upcoming",
+                "time": "04:05",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 824007,
+                "home_team": "LAA",
+                "away_team": "DET",
+                "status": "Upcoming",
+                "time": "04:07",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "Casey Mize",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 823113,
+                "home_team": "SEA",
+                "away_team": "SF",
+                "status": "Upcoming",
+                "time": "04:10",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "Robbie Ray",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 825057,
+                "home_team": "AZ",
+                "away_team": "STL",
+                "status": "Upcoming",
+                "time": "04:10",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 823521,
+                "home_team": "NYY",
+                "away_team": "LAD",
+                "status": "Upcoming",
+                "time": "07:20",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
                     "home_starter": "未定 (TBD)"
                 }
             }
