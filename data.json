@@ -1,26 +1,25 @@
 {
     "meta": {
-        "last_updated": "2026-09-29 09:20:28"
+        "last_updated": "2026-09-30 08:51:14"
     },
     "dates": {
-        "2026-09-29": [],
         "2026-09-30": [
             {
                 "game_pk": 849845,
                 "home_team": "ATL",
                 "away_team": "PHI",
-                "status": "Upcoming",
+                "status": "Final",
                 "time": "02:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 3,
+                        "H": 6,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 5,
+                        "H": 7,
+                        "E": 0
                     }
                 },
                 "pitchers": {
@@ -32,18 +31,18 @@
                 "game_pk": 849849,
                 "home_team": "HOU",
                 "away_team": "CWS",
-                "status": "Upcoming",
+                "status": "Final",
                 "time": "05:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 6,
+                        "H": 11,
+                        "E": 1
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 3,
+                        "H": 6,
+                        "E": 1
                     }
                 },
                 "pitchers": {
@@ -55,18 +54,18 @@
                 "game_pk": 849851,
                 "home_team": "NYY",
                 "away_team": "BOS",
-                "status": "Upcoming",
+                "status": "Live",
                 "time": "08:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 1,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 3,
+                        "E": 0
                     }
                 },
                 "pitchers": {
@@ -82,14 +81,14 @@
                 "time": "10:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     }
                 },
                 "pitchers": {
@@ -118,8 +117,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "Cristopher Sánchez",
+                    "home_starter": "Tyler Mahle"
                 }
             },
             {
@@ -142,7 +141,7 @@
                 },
                 "pitchers": {
                     "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "home_starter": "Hunter Brown"
                 }
             },
             {
@@ -288,52 +287,6 @@
         ],
         "2026-10-03": [
             {
-                "game_pk": 849829,
-                "home_team": "CLE",
-                "away_team": "TBD",
-                "status": "Upcoming",
-                "time": "15:33",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "game_pk": 849835,
-                "home_team": "TB",
-                "away_team": "TBD",
-                "status": "Upcoming",
-                "time": "15:33",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
                 "game_pk": 849830,
                 "home_team": "MIL",
                 "away_team": "TBD",
@@ -353,7 +306,7 @@
                 },
                 "pitchers": {
                     "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "home_starter": "Jacob Misiorowski"
                 }
             },
             {
@@ -382,11 +335,11 @@
         ],
         "2026-10-04": [
             {
-                "game_pk": 849825,
-                "home_team": "MIL",
+                "game_pk": 849829,
+                "home_team": "CLE",
                 "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "16:33",
+                "time": "01:00",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -405,11 +358,11 @@
                 }
             },
             {
-                "game_pk": 849823,
-                "home_team": "LAD",
+                "game_pk": 849835,
+                "home_team": "TB",
                 "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "18:33",
+                "time": "06:30",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -430,11 +383,59 @@
         ],
         "2026-10-05": [
             {
+                "game_pk": 849825,
+                "home_team": "MIL",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "04:00",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "Logan Henderson"
+                }
+            },
+            {
+                "game_pk": 849823,
+                "home_team": "LAD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "08:00",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            }
+        ],
+        "2026-10-06": [
+            {
                 "game_pk": 849834,
                 "home_team": "CLE",
                 "away_team": "TBD",
                 "status": "Upcoming",
-                "time": "15:33",
+                "time": "05:00",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -456,6 +457,52 @@
                 "game_pk": 849839,
                 "home_team": "TB",
                 "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "08:00",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 849819,
+                "home_team": "TBD",
+                "away_team": "LAD",
+                "status": "Upcoming",
+                "time": "15:33",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 849826,
+                "home_team": "TBD",
+                "away_team": "MIL",
                 "status": "Upcoming",
                 "time": "15:33",
                 "rhe": {
