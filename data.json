@@ -1,26 +1,25 @@
 {
     "meta": {
-        "last_updated": "2026-10-03 08:48:24"
+        "last_updated": "2026-10-04 08:12:51"
     },
     "dates": {
-        "2026-10-03": [],
         "2026-10-04": [
             {
                 "game_pk": 849829,
                 "home_team": "CLE",
                 "away_team": "CWS",
-                "status": "Upcoming",
+                "status": "Final",
                 "time": "01:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 3,
+                        "H": 6,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 3,
+                        "E": 0
                     }
                 },
                 "pitchers": {
@@ -32,22 +31,22 @@
                 "game_pk": 849828,
                 "home_team": "LAD",
                 "away_team": "ATL",
-                "status": "Upcoming",
+                "status": "Final",
                 "time": "04:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 3,
+                        "H": 4,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 5,
+                        "H": 8,
+                        "E": 0
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
+                    "away_starter": "Dylan Dodd",
                     "home_starter": "Tarik Skubal"
                 }
             },
@@ -55,18 +54,18 @@
                 "game_pk": 849835,
                 "home_team": "TB",
                 "away_team": "NYY",
-                "status": "Upcoming",
+                "status": "Live",
                 "time": "06:30",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 1,
+                        "H": 5,
+                        "E": 0
                     }
                 },
                 "pitchers": {
@@ -82,14 +81,14 @@
                 "time": "08:30",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     }
                 },
                 "pitchers": {
@@ -142,7 +141,7 @@
                 },
                 "pitchers": {
                     "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "home_starter": "Blake Snell"
                 }
             }
         ],
@@ -364,6 +363,54 @@
                 "game_pk": 849837,
                 "home_team": "NYY",
                 "away_team": "TB",
+                "status": "Upcoming",
+                "time": "08:00",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            }
+        ],
+        "2026-10-10": [
+            {
+                "game_pk": 849824,
+                "home_team": "MIL",
+                "away_team": "SD",
+                "status": "Upcoming",
+                "time": "04:30",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 849821,
+                "home_team": "LAD",
+                "away_team": "ATL",
                 "status": "Upcoming",
                 "time": "08:00",
                 "rhe": {
