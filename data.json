@@ -1,119 +1,25 @@
 {
     "meta": {
-        "last_updated": "2026-10-04 08:12:51"
+        "last_updated": "2026-10-05 08:18:10"
     },
     "dates": {
-        "2026-10-04": [
-            {
-                "game_pk": 849829,
-                "home_team": "CLE",
-                "away_team": "CWS",
-                "status": "Final",
-                "time": "01:00",
-                "rhe": {
-                    "away": {
-                        "R": 3,
-                        "H": 6,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 0,
-                        "H": 3,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Hagen Smith",
-                    "home_starter": "Parker Messick"
-                }
-            },
-            {
-                "game_pk": 849828,
-                "home_team": "LAD",
-                "away_team": "ATL",
-                "status": "Final",
-                "time": "04:00",
-                "rhe": {
-                    "away": {
-                        "R": 3,
-                        "H": 4,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 5,
-                        "H": 8,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Dylan Dodd",
-                    "home_starter": "Tarik Skubal"
-                }
-            },
-            {
-                "game_pk": 849835,
-                "home_team": "TB",
-                "away_team": "NYY",
-                "status": "Live",
-                "time": "06:30",
-                "rhe": {
-                    "away": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 1,
-                        "H": 5,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Gerrit Cole",
-                    "home_starter": "Drew Rasmussen"
-                }
-            },
-            {
-                "game_pk": 849830,
-                "home_team": "MIL",
-                "away_team": "SD",
-                "status": "Upcoming",
-                "time": "08:30",
-                "rhe": {
-                    "away": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Robbie Ray",
-                    "home_starter": "Jacob Misiorowski"
-                }
-            }
-        ],
         "2026-10-05": [
             {
                 "game_pk": 849825,
                 "home_team": "MIL",
                 "away_team": "SD",
-                "status": "Upcoming",
+                "status": "Final",
                 "time": "04:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 3,
+                        "H": 5,
+                        "E": 2
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 4,
+                        "H": 5,
+                        "E": 3
                     }
                 },
                 "pitchers": {
@@ -125,22 +31,22 @@
                 "game_pk": 849823,
                 "home_team": "LAD",
                 "away_team": "ATL",
-                "status": "Upcoming",
+                "status": "Live",
                 "time": "08:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 1,
+                        "H": 2,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
+                    "away_starter": "Ray Kerr",
                     "home_starter": "Blake Snell"
                 }
             }
@@ -165,7 +71,7 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
+                    "away_starter": "Anthony Kay",
                     "home_starter": "Gavin Williams"
                 }
             },
@@ -189,7 +95,7 @@
                 },
                 "pitchers": {
                     "away_starter": "Cam Schlittler",
-                    "home_starter": "未定 (TBD)"
+                    "home_starter": "Freddy Peralta"
                 }
             }
         ],
@@ -213,8 +119,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "Yoshinobu Yamamoto",
+                    "home_starter": "Chris Sale"
                 }
             },
             {
@@ -236,8 +142,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "Dustin May",
+                    "home_starter": "Nick Pivetta"
                 }
             }
         ],
@@ -413,6 +319,77 @@
                 "away_team": "ATL",
                 "status": "Upcoming",
                 "time": "08:00",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            }
+        ],
+        "2026-10-11": [
+            {
+                "game_pk": 849831,
+                "home_team": "CLE",
+                "away_team": "CWS",
+                "status": "Upcoming",
+                "time": "05:00",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 849836,
+                "home_team": "TB",
+                "away_team": "NYY",
+                "status": "Upcoming",
+                "time": "08:00",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 849809,
+                "home_team": "TBD",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "15:33",
                 "rhe": {
                     "away": {
                         "R": "-",
