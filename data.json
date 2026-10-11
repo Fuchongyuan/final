@@ -1,26 +1,25 @@
 {
     "meta": {
-        "last_updated": "2026-10-10 09:23:13"
+        "last_updated": "2026-10-11 08:34:14"
     },
     "dates": {
-        "2026-10-10": [],
         "2026-10-11": [
             {
                 "game_pk": 849831,
                 "home_team": "CLE",
                 "away_team": "CWS",
-                "status": "Upcoming",
+                "status": "Live",
                 "time": "08:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     }
                 },
                 "pitchers": {
@@ -50,7 +49,7 @@
                 },
                 "pitchers": {
                     "away_starter": "Tarik Skubal",
-                    "home_starter": "未定 (TBD)"
+                    "home_starter": "Jacob Misiorowski"
                 }
             }
         ],
@@ -178,6 +177,54 @@
             },
             {
                 "game_pk": 849810,
+                "home_team": "LAD",
+                "away_team": "MIL",
+                "status": "Upcoming",
+                "time": "09:00",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            }
+        ],
+        "2026-10-17": [
+            {
+                "game_pk": 849817,
+                "home_team": "TBD",
+                "away_team": "TB",
+                "status": "Upcoming",
+                "time": "06:00",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            },
+            {
+                "game_pk": 849808,
                 "home_team": "LAD",
                 "away_team": "MIL",
                 "status": "Upcoming",
