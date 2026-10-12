@@ -1,50 +1,25 @@
 {
     "meta": {
-        "last_updated": "2026-10-11 08:34:14"
+        "last_updated": "2026-10-12 08:48:36"
     },
     "dates": {
-        "2026-10-11": [
-            {
-                "game_pk": 849831,
-                "home_team": "CLE",
-                "away_team": "CWS",
-                "status": "Live",
-                "time": "08:00",
-                "rhe": {
-                    "away": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Sean Burke",
-                    "home_starter": "Gavin Williams"
-                }
-            }
-        ],
         "2026-10-12": [
             {
                 "game_pk": 849809,
                 "home_team": "MIL",
                 "away_team": "LAD",
-                "status": "Upcoming",
+                "status": "Live",
                 "time": "08:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 1,
+                        "H": 3,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     }
                 },
                 "pitchers": {
@@ -74,13 +49,13 @@
                 },
                 "pitchers": {
                     "away_starter": "Yoshinobu Yamamoto",
-                    "home_starter": "未定 (TBD)"
+                    "home_starter": "Logan Henderson"
                 }
             },
             {
                 "game_pk": 849820,
                 "home_team": "TB",
-                "away_team": "TBD",
+                "away_team": "CLE",
                 "status": "Upcoming",
                 "time": "08:00",
                 "rhe": {
@@ -96,8 +71,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "Foster Griffin",
+                    "home_starter": "Drew Rasmussen"
                 }
             }
         ],
@@ -105,7 +80,7 @@
             {
                 "game_pk": 849813,
                 "home_team": "TB",
-                "away_team": "TBD",
+                "away_team": "CLE",
                 "status": "Upcoming",
                 "time": "08:00",
                 "rhe": {
@@ -154,7 +129,7 @@
         "2026-10-16": [
             {
                 "game_pk": 849818,
-                "home_team": "TBD",
+                "home_team": "CLE",
                 "away_team": "TB",
                 "status": "Upcoming",
                 "time": "06:00",
@@ -202,7 +177,7 @@
         "2026-10-17": [
             {
                 "game_pk": 849817,
-                "home_team": "TBD",
+                "home_team": "CLE",
                 "away_team": "TB",
                 "status": "Upcoming",
                 "time": "06:00",
@@ -229,6 +204,31 @@
                 "away_team": "MIL",
                 "status": "Upcoming",
                 "time": "09:00",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            }
+        ],
+        "2026-10-18": [
+            {
+                "game_pk": 849816,
+                "home_team": "CLE",
+                "away_team": "TB",
+                "status": "Upcoming",
+                "time": "08:00",
                 "rhe": {
                     "away": {
                         "R": "-",
