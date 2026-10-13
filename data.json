@@ -1,50 +1,25 @@
 {
     "meta": {
-        "last_updated": "2026-10-12 08:48:36"
+        "last_updated": "2026-10-13 10:45:28"
     },
     "dates": {
-        "2026-10-12": [
-            {
-                "game_pk": 849809,
-                "home_team": "MIL",
-                "away_team": "LAD",
-                "status": "Live",
-                "time": "08:00",
-                "rhe": {
-                    "away": {
-                        "R": 1,
-                        "H": 3,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Tarik Skubal",
-                    "home_starter": "Jacob Misiorowski"
-                }
-            }
-        ],
         "2026-10-13": [
             {
                 "game_pk": 849812,
                 "home_team": "MIL",
                 "away_team": "LAD",
-                "status": "Upcoming",
+                "status": "Final",
                 "time": "05:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 4,
+                        "H": 3,
+                        "E": 2
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 7,
+                        "H": 12,
+                        "E": 2
                     }
                 },
                 "pitchers": {
@@ -56,18 +31,18 @@
                 "game_pk": 849820,
                 "home_team": "TB",
                 "away_team": "CLE",
-                "status": "Upcoming",
+                "status": "Live",
                 "time": "08:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 4,
+                        "H": 12,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 3,
+                        "H": 7,
+                        "E": 0
                     }
                 },
                 "pitchers": {
@@ -96,8 +71,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "Parker Messick",
+                    "home_starter": "Freddy Peralta"
                 }
             }
         ],
@@ -121,7 +96,7 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
+                    "away_starter": "Robert Gasser",
                     "home_starter": "未定 (TBD)"
                 }
             }
@@ -227,6 +202,31 @@
                 "game_pk": 849816,
                 "home_team": "CLE",
                 "away_team": "TB",
+                "status": "Upcoming",
+                "time": "08:00",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            }
+        ],
+        "2026-10-19": [
+            {
+                "game_pk": 849806,
+                "home_team": "MIL",
+                "away_team": "LAD",
                 "status": "Upcoming",
                 "time": "08:00",
                 "rhe": {
