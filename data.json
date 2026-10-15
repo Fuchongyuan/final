@@ -1,50 +1,25 @@
 {
     "meta": {
-        "last_updated": "2026-10-14 08:43:21"
+        "last_updated": "2026-10-15 08:10:32"
     },
     "dates": {
-        "2026-10-14": [
-            {
-                "game_pk": 849813,
-                "home_team": "TB",
-                "away_team": "CLE",
-                "status": "Live",
-                "time": "08:00",
-                "rhe": {
-                    "away": {
-                        "R": 0,
-                        "H": 2,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 0,
-                        "H": 2,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Parker Messick",
-                    "home_starter": "Freddy Peralta"
-                }
-            }
-        ],
         "2026-10-15": [
             {
                 "game_pk": 849811,
                 "home_team": "LAD",
                 "away_team": "MIL",
-                "status": "Upcoming",
+                "status": "Live",
                 "time": "08:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 1,
+                        "H": 1,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     }
                 },
                 "pitchers": {
@@ -59,7 +34,7 @@
                 "home_team": "CLE",
                 "away_team": "TB",
                 "status": "Upcoming",
-                "time": "06:00",
+                "time": "01:00",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -73,8 +48,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "Griffin Jax",
+                    "home_starter": "Gavin Williams"
                 }
             },
             {
@@ -82,7 +57,7 @@
                 "home_team": "LAD",
                 "away_team": "MIL",
                 "status": "Upcoming",
-                "time": "09:00",
+                "time": "08:00",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -97,7 +72,7 @@
                 },
                 "pitchers": {
                     "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "home_starter": "Tyler Glasnow"
                 }
             }
         ],
@@ -227,6 +202,31 @@
                 "game_pk": 849807,
                 "home_team": "MIL",
                 "away_team": "LAD",
+                "status": "Upcoming",
+                "time": "08:00",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            }
+        ],
+        "2026-10-21": [
+            {
+                "game_pk": 849814,
+                "home_team": "TB",
+                "away_team": "CLE",
                 "status": "Upcoming",
                 "time": "08:00",
                 "rhe": {
