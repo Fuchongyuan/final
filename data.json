@@ -1,50 +1,25 @@
 {
     "meta": {
-        "last_updated": "2026-10-15 08:10:32"
+        "last_updated": "2026-10-16 07:57:19"
     },
     "dates": {
-        "2026-10-15": [
-            {
-                "game_pk": 849811,
-                "home_team": "LAD",
-                "away_team": "MIL",
-                "status": "Live",
-                "time": "08:00",
-                "rhe": {
-                    "away": {
-                        "R": 1,
-                        "H": 1,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Robert Gasser",
-                    "home_starter": "Blake Snell"
-                }
-            }
-        ],
         "2026-10-16": [
             {
                 "game_pk": 849818,
                 "home_team": "CLE",
                 "away_team": "TB",
-                "status": "Upcoming",
+                "status": "Final",
                 "time": "01:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 2,
+                        "H": 3,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 3,
+                        "H": 6,
+                        "E": 0
                     }
                 },
                 "pitchers": {
@@ -60,18 +35,18 @@
                 "time": "08:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
+                    "away_starter": "Shane Drohan",
                     "home_starter": "Tyler Glasnow"
                 }
             }
@@ -96,7 +71,7 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
+                    "away_starter": "Nick Martinez",
                     "home_starter": "未定 (TBD)"
                 }
             },
@@ -246,7 +221,8 @@
                     "home_starter": "未定 (TBD)"
                 }
             }
-        ]
+        ],
+        "2026-10-22": []
     },
     "standings": {
         "AL": {
