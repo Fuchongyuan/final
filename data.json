@@ -1,15 +1,15 @@
 {
     "meta": {
-        "last_updated": "2026-10-17 08:02:09"
+        "last_updated": "2026-10-18 07:36:15"
     },
     "dates": {
-        "2026-10-17": [
+        "2026-10-18": [
             {
-                "game_pk": 849817,
+                "game_pk": 849816,
                 "home_team": "CLE",
                 "away_team": "TB",
-                "status": "Live",
-                "time": "08:00",
+                "status": "Upcoming",
+                "time": "08:08",
                 "rhe": {
                     "away": {
                         "R": 0,
@@ -28,23 +28,23 @@
                 }
             }
         ],
-        "2026-10-18": [
+        "2026-10-19": [
             {
-                "game_pk": 849816,
+                "game_pk": 849817,
                 "home_team": "CLE",
                 "away_team": "TB",
-                "status": "Upcoming",
-                "time": "08:00",
+                "status": "Live",
+                "time": "05:08",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     }
                 },
                 "pitchers": {
@@ -53,14 +53,13 @@
                 }
             }
         ],
-        "2026-10-19": [],
         "2026-10-20": [
             {
                 "game_pk": 849815,
                 "home_team": "TB",
                 "away_team": "CLE",
                 "status": "Upcoming",
-                "time": "08:00",
+                "time": "08:08",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -85,7 +84,7 @@
                 "home_team": "TB",
                 "away_team": "CLE",
                 "status": "Upcoming",
-                "time": "08:00",
+                "time": "08:08",
                 "rhe": {
                     "away": {
                         "R": "-",
@@ -105,7 +104,32 @@
             }
         ],
         "2026-10-22": [],
-        "2026-10-23": []
+        "2026-10-23": [],
+        "2026-10-24": [
+            {
+                "game_pk": 849805,
+                "home_team": "MIL",
+                "away_team": "TBD",
+                "status": "Upcoming",
+                "time": "08:00",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            }
+        ]
     },
     "standings": {
         "AL": {
