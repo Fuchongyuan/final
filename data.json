@@ -1,37 +1,14 @@
 {
     "meta": {
-        "last_updated": "2026-10-16 07:57:19"
+        "last_updated": "2026-10-17 08:02:09"
     },
     "dates": {
-        "2026-10-16": [
+        "2026-10-17": [
             {
-                "game_pk": 849818,
+                "game_pk": 849817,
                 "home_team": "CLE",
                 "away_team": "TB",
-                "status": "Final",
-                "time": "01:00",
-                "rhe": {
-                    "away": {
-                        "R": 2,
-                        "H": 3,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 3,
-                        "H": 6,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Griffin Jax",
-                    "home_starter": "Gavin Williams"
-                }
-            },
-            {
-                "game_pk": 849810,
-                "home_team": "LAD",
-                "away_team": "MIL",
-                "status": "Upcoming",
+                "status": "Live",
                 "time": "08:00",
                 "rhe": {
                     "away": {
@@ -46,56 +23,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "Shane Drohan",
-                    "home_starter": "Tyler Glasnow"
-                }
-            }
-        ],
-        "2026-10-17": [
-            {
-                "game_pk": 849817,
-                "home_team": "CLE",
-                "away_team": "TB",
-                "status": "Upcoming",
-                "time": "06:00",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
                     "away_starter": "Nick Martinez",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "game_pk": 849808,
-                "home_team": "LAD",
-                "away_team": "MIL",
-                "status": "Upcoming",
-                "time": "09:00",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "home_starter": "Shawn Armstrong"
                 }
             }
         ],
@@ -124,59 +53,12 @@
                 }
             }
         ],
-        "2026-10-19": [
-            {
-                "game_pk": 849806,
-                "home_team": "MIL",
-                "away_team": "LAD",
-                "status": "Upcoming",
-                "time": "08:00",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            }
-        ],
+        "2026-10-19": [],
         "2026-10-20": [
             {
                 "game_pk": 849815,
                 "home_team": "TB",
                 "away_team": "CLE",
-                "status": "Upcoming",
-                "time": "05:00",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            },
-            {
-                "game_pk": 849807,
-                "home_team": "MIL",
-                "away_team": "LAD",
                 "status": "Upcoming",
                 "time": "08:00",
                 "rhe": {
@@ -222,7 +104,8 @@
                 }
             }
         ],
-        "2026-10-22": []
+        "2026-10-22": [],
+        "2026-10-23": []
     },
     "standings": {
         "AL": {
