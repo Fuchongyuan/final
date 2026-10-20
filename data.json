@@ -1,55 +1,30 @@
 {
     "meta": {
-        "last_updated": "2026-10-19 07:47:14"
+        "last_updated": "2026-10-20 08:47:09"
     },
     "dates": {
-        "2026-10-19": [
-            {
-                "game_pk": 849817,
-                "home_team": "CLE",
-                "away_team": "TB",
-                "status": "Live",
-                "time": "05:08",
-                "rhe": {
-                    "away": {
-                        "R": 3,
-                        "H": 12,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 1,
-                        "H": 5,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Drew Rasmussen",
-                    "home_starter": "Parker Messick"
-                }
-            }
-        ],
         "2026-10-20": [
             {
                 "game_pk": 849815,
                 "home_team": "TB",
                 "away_team": "CLE",
-                "status": "Upcoming",
+                "status": "Live",
                 "time": "08:08",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 1,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 2,
+                        "H": 2,
+                        "E": 0
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "Shawn Armstrong",
+                    "home_starter": "Freddy Peralta"
                 }
             }
         ],
@@ -129,7 +104,8 @@
                     "home_starter": "未定 (TBD)"
                 }
             }
-        ]
+        ],
+        "2026-10-26": []
     },
     "standings": {
         "AL": {
