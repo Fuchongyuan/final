@@ -1,9 +1,8 @@
 {
     "meta": {
-        "last_updated": "2026-10-22 08:17:32"
+        "last_updated": "2026-10-23 08:14:06"
     },
     "dates": {
-        "2026-10-22": [],
         "2026-10-23": [],
         "2026-10-24": [
             {
@@ -25,7 +24,7 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
+                    "away_starter": "Nick Martinez",
                     "home_starter": "Jacob Misiorowski"
                 }
             }
@@ -50,8 +49,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "Drew Rasmussen",
+                    "home_starter": "Logan Henderson"
                 }
             }
         ],
@@ -84,6 +83,31 @@
         "2026-10-28": [
             {
                 "game_pk": 849803,
+                "home_team": "TB",
+                "away_team": "MIL",
+                "status": "Upcoming",
+                "time": "08:00",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            }
+        ],
+        "2026-10-29": [
+            {
+                "game_pk": 849799,
                 "home_team": "TB",
                 "away_team": "MIL",
                 "status": "Upcoming",
