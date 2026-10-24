@@ -1,33 +1,8 @@
 {
     "meta": {
-        "last_updated": "2026-10-24 08:07:21"
+        "last_updated": "2026-10-25 07:50:43"
     },
     "dates": {
-        "2026-10-24": [
-            {
-                "game_pk": 849805,
-                "home_team": "MIL",
-                "away_team": "TB",
-                "status": "Upcoming",
-                "time": "08:00",
-                "rhe": {
-                    "away": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
-                    },
-                    "home": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Nick Martinez",
-                    "home_starter": "Jacob Misiorowski"
-                }
-            }
-        ],
         "2026-10-25": [
             {
                 "game_pk": 849802,
@@ -37,14 +12,14 @@
                 "time": "08:00",
                 "rhe": {
                     "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 0,
+                        "E": 0
                     }
                 },
                 "pitchers": {
@@ -74,8 +49,8 @@
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "Robert Gasser",
+                    "home_starter": "Freddy Peralta"
                 }
             }
         ],
@@ -129,7 +104,32 @@
                 }
             }
         ],
-        "2026-10-30": []
+        "2026-10-30": [],
+        "2026-10-31": [
+            {
+                "game_pk": 849801,
+                "home_team": "MIL",
+                "away_team": "TB",
+                "status": "Upcoming",
+                "time": "08:00",
+                "rhe": {
+                    "away": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    },
+                    "home": {
+                        "R": "-",
+                        "H": "-",
+                        "E": "-"
+                    }
+                },
+                "pitchers": {
+                    "away_starter": "未定 (TBD)",
+                    "home_starter": "未定 (TBD)"
+                }
+            }
+        ]
     },
     "standings": {
         "AL": {
