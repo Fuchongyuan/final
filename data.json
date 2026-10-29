@@ -1,55 +1,30 @@
 {
     "meta": {
-        "last_updated": "2026-10-28 08:48:38"
+        "last_updated": "2026-10-29 09:21:15"
     },
     "dates": {
-        "2026-10-28": [
+        "2026-10-29": [
             {
-                "game_pk": 849803,
+                "game_pk": 849799,
                 "home_team": "TB",
                 "away_team": "MIL",
                 "status": "Live",
                 "time": "08:00",
                 "rhe": {
                     "away": {
-                        "R": 0,
-                        "H": 0,
-                        "E": 0
-                    },
-                    "home": {
                         "R": 1,
                         "H": 2,
                         "E": 1
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Dustin May",
-                    "home_starter": "Griffin Jax"
-                }
-            }
-        ],
-        "2026-10-29": [
-            {
-                "game_pk": 849799,
-                "home_team": "TB",
-                "away_team": "MIL",
-                "status": "Upcoming",
-                "time": "08:00",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
                     },
                     "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
+                        "R": 0,
+                        "H": 2,
+                        "E": 0
                     }
                 },
                 "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
+                    "away_starter": "Jacob Misiorowski",
+                    "home_starter": "Drew Rasmussen"
                 }
             }
         ],
@@ -105,7 +80,8 @@
             }
         ],
         "2026-11-02": [],
-        "2026-11-03": []
+        "2026-11-03": [],
+        "2026-11-04": []
     },
     "standings": {
         "AL": {
