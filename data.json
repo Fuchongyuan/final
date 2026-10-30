@@ -1,87 +1,15 @@
 {
     "meta": {
-        "last_updated": "2026-10-29 09:21:15"
+        "last_updated": "2026-10-30 09:25:02"
     },
     "dates": {
-        "2026-10-29": [
-            {
-                "game_pk": 849799,
-                "home_team": "TB",
-                "away_team": "MIL",
-                "status": "Live",
-                "time": "08:00",
-                "rhe": {
-                    "away": {
-                        "R": 1,
-                        "H": 2,
-                        "E": 1
-                    },
-                    "home": {
-                        "R": 0,
-                        "H": 2,
-                        "E": 0
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "Jacob Misiorowski",
-                    "home_starter": "Drew Rasmussen"
-                }
-            }
-        ],
         "2026-10-30": [],
-        "2026-10-31": [
-            {
-                "game_pk": 849801,
-                "home_team": "MIL",
-                "away_team": "TB",
-                "status": "Upcoming",
-                "time": "08:00",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            }
-        ],
-        "2026-11-01": [
-            {
-                "game_pk": 849800,
-                "home_team": "MIL",
-                "away_team": "TB",
-                "status": "Upcoming",
-                "time": "08:00",
-                "rhe": {
-                    "away": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    },
-                    "home": {
-                        "R": "-",
-                        "H": "-",
-                        "E": "-"
-                    }
-                },
-                "pitchers": {
-                    "away_starter": "未定 (TBD)",
-                    "home_starter": "未定 (TBD)"
-                }
-            }
-        ],
+        "2026-10-31": [],
+        "2026-11-01": [],
         "2026-11-02": [],
         "2026-11-03": [],
-        "2026-11-04": []
+        "2026-11-04": [],
+        "2026-11-05": []
     },
     "standings": {
         "AL": {
